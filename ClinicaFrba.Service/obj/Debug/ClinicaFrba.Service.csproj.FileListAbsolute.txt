@@ -1,0 +1,7 @@
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Service.dll
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Service.pdb
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.csprojResolveAssemblyReference.cache
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.dll
+C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.pdb
