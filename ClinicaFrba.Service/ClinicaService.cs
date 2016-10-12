@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Service
 {
-    public class Class1
+    public class ClinicaService
     {
     }
 }

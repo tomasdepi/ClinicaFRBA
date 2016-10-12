@@ -11,18 +11,12 @@ using System.Runtime.Remoting.Channels;
 
 namespace ClinicaFrba.Repository
 {
-    public class AfiliadoDao
+    public class AfiliadoDao : BaseDao
     {
 
-        public SqlConnection Connector { get; set; }
-        public SqlDataAdapter Adapter { get; set; }
-        public DataSet Dataset  { get; set; }
-        public SqlCommand Command  { get; set; }
-
-        public AfiliadoDao()
+        public AfiliadoDao() : base()
         {
-           // ConfigurationManager.ConnectionStrings["cn"].ConnectionsString;
-           Connector = new SqlConnection("Data Source=localhost\\SQLSERVER2012;Initial Catalog=GD2C2016;User ID=gd;Password=***********");
+                
         }
 
     }
