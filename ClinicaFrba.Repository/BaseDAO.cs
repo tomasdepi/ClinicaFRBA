@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository
 {
-    public abstract class BaseDao
+    public abstract class BaseDao<T> where T : class
     {
         public SqlConnection Connector { get; set; }
         public SqlDataAdapter Adapter { get; set; }
@@ -22,7 +22,10 @@ namespace ClinicaFrba.Repository
             Connector = new SqlConnection(connectionString);
         }
 
+        public abstract void Add(T entidad);
+        public abstract void Update(T entidad);
+        public abstract void Delete(int id);
+        public abstract T GetById(int id);
 
-        // TODO Operaciones CRUD
     }
 }

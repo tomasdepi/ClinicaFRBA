@@ -17,10 +17,12 @@ C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\Clin
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
-C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.exe
-C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Service.dll
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Service.pdb
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csprojResolveAssemblyReference.cache
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.AltaAfiliado.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.GestionarAfiliados.resources
@@ -31,3 +33,5 @@ C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmR
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
