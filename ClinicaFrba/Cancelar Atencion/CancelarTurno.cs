@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicaFrba.Registro_Resultado
+namespace ClinicaFrba.Cancelar_Atencion
 {
     public partial class Form1 : Form
     {
@@ -17,7 +17,17 @@ namespace ClinicaFrba.Registro_Resultado
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
         }

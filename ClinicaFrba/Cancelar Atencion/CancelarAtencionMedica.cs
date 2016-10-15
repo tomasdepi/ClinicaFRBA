@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ClinicaFrba.Cancelar_Atencion
 {
-    public partial class Form1 : Form
+    public partial class CancelarAtencionMedica : Form
     {
-        public Form1()
+        public CancelarAtencionMedica()
         {
             InitializeComponent();
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

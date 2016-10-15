@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ClinicaFrba.Registrar_Agenta_Medico
 {
-    public partial class Form1 : Form
+    public partial class SeleccionarProfecional : Form
     {
-        public Form1()
+        public SeleccionarProfecional()
         {
             InitializeComponent();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

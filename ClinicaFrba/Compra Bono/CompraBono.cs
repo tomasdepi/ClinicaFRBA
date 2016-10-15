@@ -8,13 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicaFrba.Pedir_Turno
+namespace ClinicaFrba.Compra_Bono
 {
-    public partial class Form1 : Form
+    public partial class CompraBono : Form
     {
-        public Form1()
+        public CompraBono()
         {
             InitializeComponent();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
