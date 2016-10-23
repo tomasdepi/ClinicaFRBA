@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.cboxEspecialidad = new System.Windows.Forms.ComboBox();
             this.checkBoxLunes = new System.Windows.Forms.CheckBox();
@@ -47,6 +48,8 @@
             this.dateTimePickerFechaFin = new System.Windows.Forms.DateTimePicker();
             this.lblFechaInicio = new System.Windows.Forms.Label();
             this.lblFechaFin = new System.Windows.Forms.Label();
+            this.btnFinalizar = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraInicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoraFin)).BeginInit();
@@ -184,7 +187,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(200, 211);
+            this.btnCancelar.Location = new System.Drawing.Point(257, 211);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 14;
@@ -194,7 +197,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(114, 211);
+            this.btnGuardar.Location = new System.Drawing.Point(146, 211);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 15;
@@ -234,11 +237,27 @@
             this.lblFechaFin.TabIndex = 19;
             this.lblFechaFin.Text = "Fecha Fin";
             // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Location = new System.Drawing.Point(33, 211);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
+            this.btnFinalizar.TabIndex = 20;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // RegistrarAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 255);
+            this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.lblFechaFin);
             this.Controls.Add(this.lblFechaInicio);
             this.Controls.Add(this.dateTimePickerFechaFin);
@@ -285,5 +304,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaFin;
         private System.Windows.Forms.Label lblFechaInicio;
         private System.Windows.Forms.Label lblFechaFin;
+        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

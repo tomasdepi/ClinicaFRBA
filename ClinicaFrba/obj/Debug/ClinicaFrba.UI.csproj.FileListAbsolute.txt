@@ -38,3 +38,32 @@ C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.exe
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Service.dll
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Service.pdb
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csprojResolveAssemblyReference.cache
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.AltaAfiliado.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.GestionarAfiliados.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.ModificarAfiliado.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.AgregarRol.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.EditarRol.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.GestionarRoles.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencionMedica.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.Form1.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Compra_Bono.CompraBono.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Compra_Bono.VentanaIntermedioAdministrativo.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.Form1.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.DiasDisponibles.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.Form1.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.RegistrarAgenda.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.SeleccionarProfecional.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form3.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form2.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form1.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.Form1.resources
+C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache

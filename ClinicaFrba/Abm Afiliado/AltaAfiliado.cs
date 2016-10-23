@@ -47,5 +47,25 @@ namespace ClinicaFrba.Abm_Afiliado
         {
 
         }
+
+        private void lblNroAfiliado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gboxDatosFundamentales_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTipoDoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -61,5 +61,10 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -21,5 +21,10 @@ namespace ClinicaFrba.Abm_Afiliado
         {
 
         }
+
+        private void gboxFiltrosBusqueda_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
