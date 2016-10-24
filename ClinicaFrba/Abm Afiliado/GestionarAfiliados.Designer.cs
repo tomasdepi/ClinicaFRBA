@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gboxFiltrosBusqueda = new System.Windows.Forms.GroupBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.lblEstadoActual = new System.Windows.Forms.Label();
+            this.lblTipoPlan = new System.Windows.Forms.Label();
             this.cboEstadoActual = new System.Windows.Forms.ComboBox();
+            this.lblEstadoActual = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblTipoPlan = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.grdAfiliados = new System.Windows.Forms.DataGridView();
             this.IdAfiliado = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -70,38 +70,24 @@
             this.gboxFiltrosBusqueda.TabIndex = 0;
             this.gboxFiltrosBusqueda.TabStop = false;
             this.gboxFiltrosBusqueda.Text = "Filtros de búsqueda";
+            this.gboxFiltrosBusqueda.Enter += new System.EventHandler(this.gboxFiltrosBusqueda_Enter);
             // 
-            // lblNombre
+            // lblTipoPlan
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(27, 35);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre:";
+            this.lblTipoPlan.AutoSize = true;
+            this.lblTipoPlan.Location = new System.Drawing.Point(325, 72);
+            this.lblTipoPlan.Name = "lblTipoPlan";
+            this.lblTipoPlan.Size = new System.Drawing.Size(31, 13);
+            this.lblTipoPlan.TabIndex = 6;
+            this.lblTipoPlan.Text = "Plan:";
             // 
-            // lblApellido
+            // cboEstadoActual
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(26, 75);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(47, 13);
-            this.lblApellido.TabIndex = 1;
-            this.lblApellido.Text = "Apellido:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(80, 32);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(135, 20);
-            this.txtNombre.TabIndex = 2;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(80, 72);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(135, 20);
-            this.txtApellido.TabIndex = 3;
+            this.cboEstadoActual.FormattingEnabled = true;
+            this.cboEstadoActual.Location = new System.Drawing.Point(406, 31);
+            this.cboEstadoActual.Name = "cboEstadoActual";
+            this.cboEstadoActual.Size = new System.Drawing.Size(141, 21);
+            this.cboEstadoActual.TabIndex = 5;
             // 
             // lblEstadoActual
             // 
@@ -112,13 +98,37 @@
             this.lblEstadoActual.TabIndex = 4;
             this.lblEstadoActual.Text = "Estado actual:";
             // 
-            // cboEstadoActual
+            // txtApellido
             // 
-            this.cboEstadoActual.FormattingEnabled = true;
-            this.cboEstadoActual.Location = new System.Drawing.Point(406, 31);
-            this.cboEstadoActual.Name = "cboEstadoActual";
-            this.cboEstadoActual.Size = new System.Drawing.Size(141, 21);
-            this.cboEstadoActual.TabIndex = 5;
+            this.txtApellido.Location = new System.Drawing.Point(80, 72);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(135, 20);
+            this.txtApellido.TabIndex = 3;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(80, 32);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(135, 20);
+            this.txtNombre.TabIndex = 2;
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(26, 75);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.TabIndex = 1;
+            this.lblApellido.Text = "Apellido:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(27, 35);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre:";
             // 
             // btnLimpiar
             // 
@@ -137,15 +147,6 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // lblTipoPlan
-            // 
-            this.lblTipoPlan.AutoSize = true;
-            this.lblTipoPlan.Location = new System.Drawing.Point(325, 72);
-            this.lblTipoPlan.Name = "lblTipoPlan";
-            this.lblTipoPlan.Size = new System.Drawing.Size(31, 13);
-            this.lblTipoPlan.TabIndex = 6;
-            this.lblTipoPlan.Text = "Plan:";
             // 
             // grdAfiliados
             // 

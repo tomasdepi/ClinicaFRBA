@@ -129,11 +129,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listados\Form1.cs">
+    <Compile Include="Listados\Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listados\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listados\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedir Turno\DiasDisponibles.cs">
       <SubType>Form</SubType>
@@ -161,11 +161,23 @@
     <Compile Include="Registrar Agenta Medico\SeleccionarProfecional.Designer.cs">
       <DependentUpon>SeleccionarProfecional.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada\Form1.cs">
+    <Compile Include="Registro Llegada\Registro llegada-turno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Llegada\Registro llegada-turno.Designer.cs">
+      <DependentUpon>Registro llegada-turno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Llegada\Registro llegada-Busqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Llegada\Registro llegada-Busqueda.Designer.cs">
+      <DependentUpon>Registro llegada-Busqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Llegada\Registro llegada-Bono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Llegada\Registro llegada-Bono.Designer.cs">
+      <DependentUpon>Registro llegada-Bono.cs</DependentUpon>
     </Compile>
     <Compile Include="Registro Resultado\Form1.cs">
       <SubType>Form</SubType>
@@ -203,6 +215,9 @@
     <EmbeddedResource Include="Compra Bono\VentanaIntermedioAdministrativo.resx">
       <DependentUpon>VentanaIntermedioAdministrativo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +241,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar Agenta Medico\SeleccionarProfecional.resx">
       <DependentUpon>SeleccionarProfecional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada\Registro llegada-turno.resx">
+      <DependentUpon>Registro llegada-turno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada\Registro llegada-Bono.resx">
+      <DependentUpon>Registro llegada-Bono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada\Registro llegada-Busqueda.resx">
+      <DependentUpon>Registro llegada-Busqueda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registro Resultado\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
