@@ -11,3 +11,8 @@ C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bin
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.csprojResolveAssemblyReference.cache
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
+C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb

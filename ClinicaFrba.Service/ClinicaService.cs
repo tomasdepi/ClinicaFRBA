@@ -10,7 +10,7 @@ namespace ClinicaFrba.Service
 {
     public class ClinicaService
     {
-        public void GuardarAfiliado(Afiliado afiliado)
+        public void GuardarAfiliado(Usuario afiliado)
         {
 
             try

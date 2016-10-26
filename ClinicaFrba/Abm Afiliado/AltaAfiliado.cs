@@ -24,7 +24,7 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             var service = new ClinicaService();
 
-            service.GuardarAfiliado(new Afiliado()
+            service.GuardarAfiliado(new Usuario()
             {
                 Nombre = this.txtNombre.Text,
                 Apellido = this.txtApellido.Text,

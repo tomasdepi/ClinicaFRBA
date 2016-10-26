@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository.Entities
 {
-    class Profesional
+    class Usuario
     {
-        public int Id { get; set; }
+        public int Username { get; set; }
+        public string Pass { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        public int NroAfiliado { get; set; } // Aca hay que determinar el numero que se le va a poner
         public string TipoDocumento { get; set; }
         public int NroDocumento { get; set; }
         public DateTime FechaNacimiento { get; set; }
@@ -18,7 +20,16 @@ namespace ClinicaFrba.Repository.Entities
         public string Direccion { get; set; }
         public int Telefono { get; set; }
         public string Mail { get; set; }
+        public int IntentosLogin { get; set; }
+        //Afiliado 
+        public int EstadoHabilitacion { get; set; }
+        public string EstadoCivil { get; set; }
+        public int CantidadFamiliaresACargo { get; set; }
+        public int CodigoPlanMedico { get; set; }
+        public int NumeroConsultaMedica { get; set; }
+        //Profesional
         public int Matricula { get; set; }
         public int[] Especialidades { get; set; }
+
     }
 }

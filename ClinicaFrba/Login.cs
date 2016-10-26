@@ -25,6 +25,10 @@ namespace ClinicaFrba
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            var username = txtUsername.Text;
+            var pass = txtPassword.Text;
+
+            
             var roles = new GestionarRoles();
             roles.ShowDialog();
         }
