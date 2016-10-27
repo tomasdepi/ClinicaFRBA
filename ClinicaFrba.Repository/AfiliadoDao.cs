@@ -50,7 +50,7 @@ namespace ClinicaFrba.Repository
             this.Command.Parameters.Add("@intId", SqlDbType.Int).Value = entidad.NroDocumento;
             this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = 1;
             this.Command.Parameters.Add("@intCodigo", SqlDbType.Int).Value = entidad.CodigoPlanMedico;
-            this.Command.Parameters.Add("@intNumeroAf", SqlDbType.Int).Value = 000400; //habria que poner un numero enserio
+            this.Command.Parameters.Add("@intNumeroAf", SqlDbType.Int).Value = entidad.NroAfiliado; 
             this.Command.Parameters.Add("@intCantidadFamiliares", SqlDbType.Int).Value = entidad.CantidadFamiliaresACargo;
             this.Command.Parameters.Add("@intNumeroConsulta", SqlDbType.Int).Value = entidad.NumeroConsultaMedica;
             this.Connector.Open();
