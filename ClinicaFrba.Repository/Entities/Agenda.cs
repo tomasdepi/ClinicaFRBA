@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository.Entities
 {
-    class Agenda
+    public class Agenda
     {
         public int Id { get; set; }
         public int Especialidad { get; set; }
-        public DateTime Hora_Inicio { get; set; }
-        public DateTime Hora_Fin { get; set; }
-        public int Id_Profesional { get; set; }
+        public DateTime HoraInicio { get; set; }
+        public DateTime HoraFin { get; set; }
+        public int IdProfesional { get; set; }
         public DateTime Dia { get; set; }
-        public DateTime Fecha_Inicio { get; set; }
-        public DateTime Fecha_Fin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
     }
 }

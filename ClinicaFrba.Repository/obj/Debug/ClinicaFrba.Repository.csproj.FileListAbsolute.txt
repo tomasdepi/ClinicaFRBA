@@ -2,10 +2,6 @@ C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\Clinic
 C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
 C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
 C:\Users\Leandro\Desktop\TP CLINICA FRBA 1.0 - 2C 2016\Aplicacion Desktop\ClinicaFrba\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
-C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll
-C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
-C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
-C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.csprojResolveAssemblyReference.cache
@@ -16,3 +12,7 @@ C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bi
 C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
 C:\Users\Esteban.Martinez\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb

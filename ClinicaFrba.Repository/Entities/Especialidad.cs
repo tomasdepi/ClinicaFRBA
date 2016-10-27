@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository.Entities
 {
-    class Especialidad
+    public class Especialidad
     {
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
-        public int Codigo_Tipo { get; set; }
-        public string  Descripcion_Codigo_Tipo { get; set; }
+        public int CodigoTipo { get; set; }
+        public string  DescripcionCodigoTipo { get; set; }
     }
 }

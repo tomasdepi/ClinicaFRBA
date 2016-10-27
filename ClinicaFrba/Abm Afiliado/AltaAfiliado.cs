@@ -20,11 +20,19 @@ namespace ClinicaFrba.Abm_Afiliado
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Comportamiento del botón Guardar, en el caso de que el afiliado sea casado o viva en concubinato
+        /// se le ofrece la posibilidad de asociarlo, ademas permite agregar tantos miembros familiares como desee 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             var service = new ClinicaService();
 
-            service.GuardarAfiliado(new Usuario()
+            List<Usuario> afiliados = new List<Usuario>();
+
+            var afiliado = new Usuario()
             {
                 Nombre = this.txtNombre.Text,
                 Apellido = this.txtApellido.Text,
@@ -38,34 +46,50 @@ namespace ClinicaFrba.Abm_Afiliado
                 Telefono = Convert.ToInt32(this.txtTelefono.Text),
                 Sexo = this.txtSexo.Text
 
-            });
+            };
 
-            MessageBox.Show("El afiliado se guardo correctamente");
+            afiliados.Add(afiliado);
+
+            if (service.EsCasadoOViveEnConcubinato(afiliado))
+            {
+                if ((MessageBox.Show("¿Desea afiliar a su cónyuge?", "Confirmar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+                {
+                    this.AfiliarIntegranteFamilia(afiliados);
+                }
+            }
+
+            while ((MessageBox.Show("¿Desea afiliar algun otro miembro de su familia?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+                this.AfiliarIntegranteFamilia(afiliados);
+            }
+
+            service.GuardarRegistroAfiliado(afiliados);
+
+            MessageBox.Show("El registro del afiliado se guardo correctamente");
         }
 
-        private void AltaAfiliado_Load(object sender, EventArgs e)
+
+        /// <summary>
+        /// Abre el formulario de alta de integrante familiar, luego este
+        /// devuelve un objeto del tipo Usuario con las properties seteadas y lo agrega 
+        /// a la lista de la familia de la afiliado en cuestión.
+        /// </summary>
+        /// <param name="users">Familiares del Afiliado</param>
+        private void AfiliarIntegranteFamilia(List<Usuario> users)
         {
-
+            using (var integranteFamilia = new AltaIntegranteFamiliaAfiliado())
+            {
+                var resultado = integranteFamilia.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    users.Add(integranteFamilia.Afiliado);
+                }
+            }
         }
 
-        private void lblNroAfiliado_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gboxDatosFundamentales_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTipoDoc_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

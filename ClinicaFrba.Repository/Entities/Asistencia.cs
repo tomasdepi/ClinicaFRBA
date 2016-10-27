@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository.Entities
 {
-    class Asistencia
+    public class Asistencia
     {
-        public int Numero_de_Turno { get; set; }
-        public DateTime Fecha_Y_Hora{ get; set; }
-        public int Numero_Bono { get; set; }
+        public int NumeroDeTurno { get; set; }
+        public DateTime FechaYHora{ get; set; }
+        public int NumeroBono { get; set; }
         public bool Atendido { get; set; }
     }
 }

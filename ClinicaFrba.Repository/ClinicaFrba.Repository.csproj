@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="AfiliadoDao.cs" />
     <Compile Include="BaseDao.cs" />
-    <Compile Include="Entities\Afiliado.cs" />
     <Compile Include="Entities\Bono.cs" />
     <Compile Include="Entities\Agenda.cs" />
     <Compile Include="Entities\Asistencia.cs" />
@@ -52,7 +51,7 @@
     <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\Turno.cs" />
     <Compile Include="Entities\Especialidad.cs" />
-    <Compile Include="Entities\Profesional.cs" />
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

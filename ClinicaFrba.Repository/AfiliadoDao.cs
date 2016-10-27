@@ -25,7 +25,7 @@ namespace ClinicaFrba.Repository
         {
 
             const string query = "INSERT INTO dbo.Usuario (varNombre, varApellido, varTipoDocumento, intNroDocumento, datFechaNacimiento, varDireccion, intTelefono, varMail,nvarPassword,chrSexo) " +
-                                 "VALUES (@varNombre, @varApellido, @varTipoDocumento, @intNroDocumento, @datFechaNacimiento, @varDireccion, @intTelefono, @varMail,@varPassword,@varSexo) ";
+                                 "VALUES (@varNombre, @varApellido, @varTipoDocumento, @intNroDocumento, @datFechaNacimiento, @varDireccion, @intTelefono, @varMail,@varPassword,@varSexo)";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -44,7 +44,8 @@ namespace ClinicaFrba.Repository
             this.Command.ExecuteNonQuery();
 
             const string query2 = "INSERT INTO dbo.Afiliado(intIdUsuario,bitEstadoActual,intCodigoPlan,intNumeroAfiliado,intCantidadFamiliares,intNumeroConsultaMedica)" +
-                                  "VALUES (@intId,@bitEstado, @intCodigo,@intNumeroAf,@intCantidadFamiliares,@intNumeroConsulta) ;";
+                                  "VALUES (@intId,@bitEstado, @intCodigo,@intNumeroAf,@intCantidadFamiliares,@intNumeroConsulta)";
+
             this.Command = new SqlCommand(query2, this.Connector);
             this.Command.Parameters.Add("@intId", SqlDbType.Int).Value = entidad.NroDocumento;
             this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = 1;
@@ -72,7 +73,7 @@ namespace ClinicaFrba.Repository
             throw new NotImplementedException();
         }
 
-        public static String sha256_hash(String value)
+        public static string sha256_hash(string value)
         {
             StringBuilder Sb = new StringBuilder();
 

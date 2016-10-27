@@ -211,7 +211,6 @@
             this.gboxDatosFundamentales.TabIndex = 10;
             this.gboxDatosFundamentales.TabStop = false;
             this.gboxDatosFundamentales.Text = "Datos Fundamentales";
-            this.gboxDatosFundamentales.Enter += new System.EventHandler(this.gboxDatosFundamentales_Enter);
             // 
             // txtSexo
             // 
@@ -240,7 +239,6 @@
             this.txtTipoDoc.Name = "txtTipoDoc";
             this.txtTipoDoc.Size = new System.Drawing.Size(149, 20);
             this.txtTipoDoc.TabIndex = 12;
-            this.txtTipoDoc.TextChanged += new System.EventHandler(this.txtTipoDoc_TextChanged);
             // 
             // txtApellido
             // 
@@ -255,7 +253,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(149, 20);
             this.txtNombre.TabIndex = 10;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtNroAfiliado
             // 
@@ -272,7 +269,6 @@
             this.lblNroAfiliado.Size = new System.Drawing.Size(64, 13);
             this.lblNroAfiliado.TabIndex = 8;
             this.lblNroAfiliado.Text = "Nro Afiliado:";
-            this.lblNroAfiliado.Click += new System.EventHandler(this.lblNroAfiliado_Click);
             // 
             // lvlSexo
             // 
@@ -339,7 +335,6 @@
             this.Controls.Add(this.gboxDatosFundamentales);
             this.Name = "AltaAfiliado";
             this.Text = "AltaAfiliado";
-            this.Load += new System.EventHandler(this.AltaAfiliado_Load);
             this.gboxDatosAdicionales.ResumeLayout(false);
             this.gboxDatosAdicionales.PerformLayout();
             this.gboxDatosFundamentales.ResumeLayout(false);

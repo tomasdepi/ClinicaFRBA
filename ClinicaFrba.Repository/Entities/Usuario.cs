@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository.Entities
 {
-    class Usuario
+    public class Usuario
     {
         public int Username { get; set; }
         public string Pass { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public int NroAfiliado { get; set; } // Aca hay que determinar el numero que se le va a poner
+        public int NroAfiliado { get; set; } 
         public string TipoDocumento { get; set; }
         public int NroDocumento { get; set; }
         public DateTime FechaNacimiento { get; set; }
