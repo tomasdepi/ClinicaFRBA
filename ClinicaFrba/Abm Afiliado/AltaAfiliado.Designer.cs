@@ -49,8 +49,6 @@
             this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtNroAfiliado = new System.Windows.Forms.TextBox();
-            this.lblNroAfiliado = new System.Windows.Forms.Label();
             this.lvlSexo = new System.Windows.Forms.Label();
             this.lblFecNac = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -197,8 +195,6 @@
             this.gboxDatosFundamentales.Controls.Add(this.txtTipoDoc);
             this.gboxDatosFundamentales.Controls.Add(this.txtApellido);
             this.gboxDatosFundamentales.Controls.Add(this.txtNombre);
-            this.gboxDatosFundamentales.Controls.Add(this.txtNroAfiliado);
-            this.gboxDatosFundamentales.Controls.Add(this.lblNroAfiliado);
             this.gboxDatosFundamentales.Controls.Add(this.lvlSexo);
             this.gboxDatosFundamentales.Controls.Add(this.lblFecNac);
             this.gboxDatosFundamentales.Controls.Add(this.lblNombre);
@@ -211,69 +207,54 @@
             this.gboxDatosFundamentales.TabIndex = 10;
             this.gboxDatosFundamentales.TabStop = false;
             this.gboxDatosFundamentales.Text = "Datos Fundamentales";
+            this.gboxDatosFundamentales.Enter += new System.EventHandler(this.gboxDatosFundamentales_Enter);
             // 
             // txtSexo
             // 
-            this.txtSexo.Location = new System.Drawing.Point(126, 184);
+            this.txtSexo.Location = new System.Drawing.Point(126, 168);
             this.txtSexo.Name = "txtSexo";
             this.txtSexo.Size = new System.Drawing.Size(149, 20);
             this.txtSexo.TabIndex = 15;
             // 
             // txtFacNac
             // 
-            this.txtFacNac.Location = new System.Drawing.Point(126, 158);
+            this.txtFacNac.Location = new System.Drawing.Point(126, 142);
             this.txtFacNac.Name = "txtFacNac";
             this.txtFacNac.Size = new System.Drawing.Size(149, 20);
             this.txtFacNac.TabIndex = 14;
             // 
             // txtNroDoc
             // 
-            this.txtNroDoc.Location = new System.Drawing.Point(126, 132);
+            this.txtNroDoc.Location = new System.Drawing.Point(126, 116);
             this.txtNroDoc.Name = "txtNroDoc";
             this.txtNroDoc.Size = new System.Drawing.Size(149, 20);
             this.txtNroDoc.TabIndex = 13;
             // 
             // txtTipoDoc
             // 
-            this.txtTipoDoc.Location = new System.Drawing.Point(126, 106);
+            this.txtTipoDoc.Location = new System.Drawing.Point(126, 90);
             this.txtTipoDoc.Name = "txtTipoDoc";
             this.txtTipoDoc.Size = new System.Drawing.Size(149, 20);
             this.txtTipoDoc.TabIndex = 12;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(126, 80);
+            this.txtApellido.Location = new System.Drawing.Point(126, 64);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(149, 20);
             this.txtApellido.TabIndex = 11;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(126, 54);
+            this.txtNombre.Location = new System.Drawing.Point(126, 38);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(149, 20);
             this.txtNombre.TabIndex = 10;
             // 
-            // txtNroAfiliado
-            // 
-            this.txtNroAfiliado.Location = new System.Drawing.Point(126, 28);
-            this.txtNroAfiliado.Name = "txtNroAfiliado";
-            this.txtNroAfiliado.Size = new System.Drawing.Size(149, 20);
-            this.txtNroAfiliado.TabIndex = 9;
-            // 
-            // lblNroAfiliado
-            // 
-            this.lblNroAfiliado.AutoSize = true;
-            this.lblNroAfiliado.Location = new System.Drawing.Point(56, 31);
-            this.lblNroAfiliado.Name = "lblNroAfiliado";
-            this.lblNroAfiliado.Size = new System.Drawing.Size(64, 13);
-            this.lblNroAfiliado.TabIndex = 8;
-            this.lblNroAfiliado.Text = "Nro Afiliado:";
-            // 
             // lvlSexo
             // 
             this.lvlSexo.AutoSize = true;
-            this.lvlSexo.Location = new System.Drawing.Point(86, 184);
+            this.lvlSexo.Location = new System.Drawing.Point(86, 168);
             this.lvlSexo.Name = "lvlSexo";
             this.lvlSexo.Size = new System.Drawing.Size(34, 13);
             this.lvlSexo.TabIndex = 8;
@@ -282,7 +263,7 @@
             // lblFecNac
             // 
             this.lblFecNac.AutoSize = true;
-            this.lblFecNac.Location = new System.Drawing.Point(24, 159);
+            this.lblFecNac.Location = new System.Drawing.Point(24, 143);
             this.lblFecNac.Name = "lblFecNac";
             this.lblFecNac.Size = new System.Drawing.Size(96, 13);
             this.lblFecNac.TabIndex = 7;
@@ -291,7 +272,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(73, 57);
+            this.lblNombre.Location = new System.Drawing.Point(73, 41);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 0;
@@ -300,7 +281,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(73, 83);
+            this.lblApellido.Location = new System.Drawing.Point(73, 67);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 1;
@@ -309,7 +290,7 @@
             // lblNroDoc
             // 
             this.lblNroDoc.AutoSize = true;
-            this.lblNroDoc.Location = new System.Drawing.Point(35, 135);
+            this.lblNroDoc.Location = new System.Drawing.Point(35, 119);
             this.lblNroDoc.Name = "lblNroDoc";
             this.lblNroDoc.Size = new System.Drawing.Size(85, 13);
             this.lblNroDoc.TabIndex = 3;
@@ -318,7 +299,7 @@
             // lblTipoDoc
             // 
             this.lblTipoDoc.AutoSize = true;
-            this.lblTipoDoc.Location = new System.Drawing.Point(31, 109);
+            this.lblTipoDoc.Location = new System.Drawing.Point(31, 93);
             this.lblTipoDoc.Name = "lblTipoDoc";
             this.lblTipoDoc.Size = new System.Drawing.Size(89, 13);
             this.lblTipoDoc.TabIndex = 2;
@@ -366,8 +347,6 @@
         private System.Windows.Forms.TextBox txtTipoDoc;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtNroAfiliado;
-        private System.Windows.Forms.Label lblNroAfiliado;
         private System.Windows.Forms.Label lvlSexo;
         private System.Windows.Forms.Label lblFecNac;
         private System.Windows.Forms.Label lblNombre;

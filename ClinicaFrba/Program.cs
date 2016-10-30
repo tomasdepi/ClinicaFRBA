@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.AbmRol;
 using ClinicaFrba.Abm_Afiliado;
+using ClinicaFrba.Compra_Bono;
 
 namespace ClinicaFrba
 {
@@ -18,7 +19,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AltaAfiliado());
+            Application.Run(new VentanaIntermedioAdministrativo());
         }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="Entities\Turno.cs" />
     <Compile Include="Entities\Especialidad.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="compraBonoFunciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

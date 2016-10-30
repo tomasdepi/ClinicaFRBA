@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.Repository.Entities;
 using ClinicaFrba.Service;
-using static System.Windows.Forms.MessageBox;
+/*using System.Windows.Forms.MessageBox;*/
 
 namespace ClinicaFrba.Abm_Afiliado
 {
@@ -37,7 +37,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 Nombre = this.txtNombre.Text,
                 Apellido = this.txtApellido.Text,
                 NroDocumento = Convert.ToInt32(this.txtNroDoc.Text),
-                NroAfiliado = Convert.ToInt32(this.txtNroAfiliado.Text),
+                //NroAfiliado = Convert.ToInt32(this.txt.Text),
                 TipoDocumento = this.txtTipoDoc.Text,
                 FechaNacimiento = Convert.ToDateTime(this.txtFacNac.Text),
                 Mail = this.txtMail.Text,
@@ -56,7 +56,7 @@ namespace ClinicaFrba.Abm_Afiliado
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
                 {
-                    this.AfiliarIntegranteFamilia(afiliados);
+                   // this.AfiliarIntegranteFamilia(afiliados);
                 }
             }
 
@@ -64,7 +64,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
             {
-                this.AfiliarIntegranteFamilia(afiliados);
+              //  this.AfiliarIntegranteFamilia(afiliados);
             }
 
             service.GuardarRegistroAfiliado(afiliados);
@@ -79,7 +79,7 @@ namespace ClinicaFrba.Abm_Afiliado
         /// a la lista de la familia de la afiliado en cuestión.
         /// </summary>
         /// <param name="users">Familiares del Afiliado</param>
-        private void AfiliarIntegranteFamilia(List<Usuario> users)
+      /*  private void AfiliarIntegranteFamilia(List<Usuario> users)
         {
             using (var integranteFamilia = new AltaIntegranteFamiliaAfiliado())
             {
@@ -89,6 +89,11 @@ namespace ClinicaFrba.Abm_Afiliado
                     users.Add(integranteFamilia.Afiliado);
                 }
             }
+        }*/
+
+        private void gboxDatosFundamentales_Enter(object sender, EventArgs e)
+        {
+        
         }
 
     }

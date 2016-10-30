@@ -32,6 +32,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txBoxNumeroAfiliado = new System.Windows.Forms.TextBox();
+            this.resu = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNumeroAfiliado
@@ -69,18 +70,31 @@
             this.txBoxNumeroAfiliado.Name = "txBoxNumeroAfiliado";
             this.txBoxNumeroAfiliado.Size = new System.Drawing.Size(100, 20);
             this.txBoxNumeroAfiliado.TabIndex = 10;
+            this.txBoxNumeroAfiliado.TextChanged += new System.EventHandler(this.txBoxNumeroAfiliado_TextChanged);
+            // 
+            // resu
+            // 
+            this.resu.AutoSize = true;
+            this.resu.Location = new System.Drawing.Point(22, 13);
+            this.resu.Name = "resu";
+            this.resu.Size = new System.Drawing.Size(35, 13);
+            this.resu.TabIndex = 11;
+            this.resu.Text = "label1";
+            this.resu.Visible = false;
             // 
             // VentanaIntermedioAdministrativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(238, 135);
+            this.Controls.Add(this.resu);
             this.Controls.Add(this.txBoxNumeroAfiliado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblNumeroAfiliado);
             this.Name = "VentanaIntermedioAdministrativo";
             this.Text = "Ingrese Afiliado";
+            this.Load += new System.EventHandler(this.VentanaIntermedioAdministrativo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +106,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txBoxNumeroAfiliado;
+        private System.Windows.Forms.Label resu;
     }
 }
