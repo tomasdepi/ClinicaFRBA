@@ -109,7 +109,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public List<String> getFuncionalidadesEditar(String rol)
+        public List<Funcionalidad> getFuncionalidadesEditar(String rol)
         {
             String query = "select varFuncionalidad, CASE"+
 	                            "When"+
@@ -119,7 +119,7 @@ namespace ClinicaFrba.Repository
 
             this.Command = new SqlCommand(query, this.Connector);
 
-            List<String> listaFuncionalidads = new List<String>();
+            List<Funcionalidad> listaFuncionalidads = new List<Funcionalidad>();
 
             this.Connector.Open();
 
@@ -127,11 +127,14 @@ namespace ClinicaFrba.Repository
 
             while(resultado.Read())
             {
-                listaFuncionalidads.Add(resultado[0].ToString());
+                Funcionalidad func = new Funcionalidad();
+                func.nombreFuncionalidad = resultado[0].ToString();
+                func.habilitado = resultado.GetBoolean(1);
+
+                listaFuncionalidads.Add(func);
             }
 
             this.Connector.Close();
-
 
             return listaFuncionalidads;
         }

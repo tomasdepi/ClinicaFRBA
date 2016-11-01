@@ -1,4 +1,5 @@
 ﻿using ClinicaFrba.Repository;
+using ClinicaFrba.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,11 +53,20 @@ namespace ClinicaFrba.AbmRol
         private void CargarListaFuncionalidades()
         {
             ABMRolesFunciones depi = new ABMRolesFunciones();
-            List<String> pepe = depi.getFuncionalidades();
+            List<Funcionalidad> pepe = depi.getFuncionalidadesEditar(lblNombreRol.Text);
 
             for (int i = 0; i < pepe.Count; i++)
             {
-                this.grdFuncionalidades.Rows.Add(pepe[i]);
+                DataGridViewRow row = new DataGridViewRow();
+                DataGridViewTextBoxCell nombre = new DataGridViewTextBoxCell();
+                DataGridViewCheckBoxCell estado = new DataGridViewCheckBoxCell();
+                nombre.Value = pepe[i].nombreFuncionalidad;
+                estado.Value = pepe[i].habilitado ? estado.TrueValue : estado.FalseValue;
+
+                row.Cells.Add(nombre);
+                row.Cells.Add(estado);
+
+                this.grdFuncionalidades.Rows.Add(row);
             }
         }
     }
