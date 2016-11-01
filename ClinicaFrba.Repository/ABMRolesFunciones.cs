@@ -19,7 +19,7 @@ namespace ClinicaFrba.Repository
         public ABMRolesFunciones()
         {
  //           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
                                            "Trusted_Connection=yes;" +
                                            "database=GD2C2016; " +
                                            "connection timeout=10");
