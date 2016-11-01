@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicaFrba.Repository;
 
 namespace ClinicaFrba.AbmRol
 {
@@ -39,20 +40,13 @@ namespace ClinicaFrba.AbmRol
         /// </summary>
         private void CargarListaFuncionalidades()
         {
-            this.grdFuncionalidades.Rows.Add("ABM Rol");
-            this.grdFuncionalidades.Rows.Add("Registro de Usuario");
-            this.grdFuncionalidades.Rows.Add("ABM Afiliado");
-            this.grdFuncionalidades.Rows.Add("ABM Profesional");
-            this.grdFuncionalidades.Rows.Add("ABM Especialidades medicas");
-            this.grdFuncionalidades.Rows.Add("ABM Planes");
-            this.grdFuncionalidades.Rows.Add("Registar agenda del medico");
-            this.grdFuncionalidades.Rows.Add("Comprar bonos");
-            this.grdFuncionalidades.Rows.Add("Pedir turnos");
-            this.grdFuncionalidades.Rows.Add("Registro de llegada para atencion medica");
-            this.grdFuncionalidades.Rows.Add("Registrar resultado para atencion medica");
-            this.grdFuncionalidades.Rows.Add("Cancelar atencion medica");
-            this.grdFuncionalidades.Rows.Add("Listado estadistico");
+            ABMRolesFunciones depi = new ABMRolesFunciones();
+            List<String> pepe = depi.getFuncionalidades();
 
+            for(int i=0; i < pepe.Count; i++)
+            {
+                this.grdFuncionalidades.Rows.Add(pepe[i]);
+            }
         }
 
         /// <summary>
@@ -72,7 +66,14 @@ namespace ClinicaFrba.AbmRol
         /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            List<String> funcionalidades = new List<string>();
             var funcionalidadesSeleccionadas = grdFuncionalidades.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToBoolean(row.Cells["Agregar"].Value) == true).ToList();
+
+            funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
+            ABMRolesFunciones depi = new ABMRolesFunciones();
+            depi.guardarRol(txtNombre.Text, funcionalidades);
+
+        
         }
     }
 }

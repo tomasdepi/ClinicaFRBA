@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClinicaFrba.Repository;
+using ClinicaFrba.Repository.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +32,13 @@ namespace ClinicaFrba.AbmRol
 
         private void GestionarRoles_Load(object sender, EventArgs e)
         {
+            ABMRolesFunciones func = new ABMRolesFunciones();
+            List<Rol> roles = func.getRoles();
+
+            for (int i = 0; i < roles.Count; i++)
+            {
+                grdRoles.Rows.Add(roles[i].nombreRol);
+            }
 
         }
 
