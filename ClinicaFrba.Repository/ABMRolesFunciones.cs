@@ -111,17 +111,15 @@ namespace ClinicaFrba.Repository
 
         public List<Funcionalidad> getFuncionalidadesEditar(String rol)
         {
-            String query = "select varFuncionalidad, CASE"+
-	                            "When"+
-		                            "(select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = '"+rol+"' and b.varFuncionalidad = c.varFuncionalidad) is null" +
-	                            "then 0 else 1 end"+
+            String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = '"+rol+"' and b.varFuncionalidad = c.varFuncionalidad) is null " +
+	                            "then 0 else 1 end resu "+
                                 "FROM dbo.Funcionalidad c";
 
+            this.Connector.Open();
             this.Command = new SqlCommand(query, this.Connector);
 
             List<Funcionalidad> listaFuncionalidads = new List<Funcionalidad>();
 
-            this.Connector.Open();
 
             SqlDataReader resultado = Command.ExecuteReader();
 
@@ -129,7 +127,7 @@ namespace ClinicaFrba.Repository
             {
                 Funcionalidad func = new Funcionalidad();
                 func.nombreFuncionalidad = resultado[0].ToString();
-                func.habilitado = resultado.GetBoolean(1);
+                func.habilitado = Convert.ToBoolean(resultado[1].ToString());
 
                 listaFuncionalidads.Add(func);
             }
