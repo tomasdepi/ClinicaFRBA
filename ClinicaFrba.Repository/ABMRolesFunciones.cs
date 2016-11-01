@@ -127,7 +127,7 @@ namespace ClinicaFrba.Repository
             {
                 Funcionalidad func = new Funcionalidad();
                 func.nombreFuncionalidad = resultado[0].ToString();
-                func.habilitado = Convert.ToBoolean(resultado[1].ToString());
+                func.habilitado = Convert.ToBoolean(Convert.ToInt32(resultado[1]));
 
                 listaFuncionalidads.Add(func);
             }
