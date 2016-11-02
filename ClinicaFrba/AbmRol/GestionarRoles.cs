@@ -17,22 +17,9 @@ namespace ClinicaFrba.AbmRol
         public GestionarRoles()
         {
             InitializeComponent();
-
-           // grdRoles.CellValueChanged += new DataGridViewCellEventHandler(valorCambiado);
+            
         }
 
-        /*private void valorCambiado(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewTextBoxCell rolCell = (DataGridViewTextBoxCell)grdRoles.Rows[e.RowIndex].Cells[0];
-            String rol = (String)rolCell.Value;
-            
-            DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)grdRoles.Rows[e.RowIndex].Cells[1];
-            int estado = (cb.Value == "Habilitado") ? 1 : 0;
-      
-            ABMRolesFunciones func = new ABMRolesFunciones();
-
-            func.actualizarEstadoRol(rol, estado);
-        }*/
 
         private void grdRoles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -57,7 +44,7 @@ namespace ClinicaFrba.AbmRol
 
         private void GestionarRoles_Load(object sender, EventArgs e)
         {
-            ABMRolesFunciones func = new ABMRolesFunciones();
+            RolFuncionalidadDao func = new RolFuncionalidadDao();
             List<Rol> roles = func.getRoles();
 
             for (int i = 0; i < roles.Count; i++)

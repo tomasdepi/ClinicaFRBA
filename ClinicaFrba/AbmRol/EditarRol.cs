@@ -23,10 +23,27 @@ namespace ClinicaFrba.AbmRol
             cbEstado.SelectedIndex = estado;
 
             this.CargarListaFuncionalidades();
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            RolFuncionalidadDao dao = new RolFuncionalidadDao();
+
+            List<String> funcionalidades = new List<string>();
+            var funcionalidadesSeleccionadas = grdFuncionalidades.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToBoolean(row.Cells["Agregar"].Value) == true).ToList();
+            funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
+
+            dao.eliminarRol(lblNombreRol.Text);
+
+            dao.guardarRol(lblNombreRol.Text, funcionalidades, true);
+
+            int estado = cbEstado.SelectedValue == "Habilitado" ? 1 : 0;
+            dao.actualizarEstadoRol(lblNombreRol.Text, estado);
+
+            MessageBox.Show("Rol Modificado Con Exito", "Aviso", MessageBoxButtons.OK);
+
+            this.Dispose();
 
         }
 
@@ -52,21 +69,23 @@ namespace ClinicaFrba.AbmRol
 
         private void CargarListaFuncionalidades()
         {
-            ABMRolesFunciones depi = new ABMRolesFunciones();
-            List<Funcionalidad> pepe = depi.getFuncionalidadesEditar(lblNombreRol.Text);
+            RolFuncionalidadDao  dao = new RolFuncionalidadDao();
+            List<Funcionalidad> listaFuncionalidades = dao.getFuncionalidadesEditar(lblNombreRol.Text);
 
-            for (int i = 0; i < pepe.Count; i++)
+            for (int i = 0; i < listaFuncionalidades.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 DataGridViewTextBoxCell nombre = new DataGridViewTextBoxCell();
                 DataGridViewCheckBoxCell estado = new DataGridViewCheckBoxCell();
-                nombre.Value = pepe[i].nombreFuncionalidad;
-                estado.Value = pepe[i].habilitado ? estado.TrueValue : estado.FalseValue;
+                nombre.Value = listaFuncionalidades[i].nombreFuncionalidad;
+                estado.Value = listaFuncionalidades[i].habilitado ? true : false;         
 
                 row.Cells.Add(nombre);
                 row.Cells.Add(estado);
 
                 this.grdFuncionalidades.Rows.Add(row);
+             
+
             }
         }
     }

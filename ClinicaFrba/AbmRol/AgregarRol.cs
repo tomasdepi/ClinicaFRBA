@@ -40,12 +40,12 @@ namespace ClinicaFrba.AbmRol
         /// </summary>
         private void CargarListaFuncionalidades()
         {
-            ABMRolesFunciones depi = new ABMRolesFunciones();
-            List<String> pepe = depi.getFuncionalidades();
+            RolFuncionalidadDao dao = new RolFuncionalidadDao();
+            List<String> listaFuncionalidades = dao.getFuncionalidades();
 
-            for(int i=0; i < pepe.Count; i++)
+            for(int i=0; i < listaFuncionalidades.Count; i++)
             {
-                this.grdFuncionalidades.Rows.Add(pepe[i]);
+                this.grdFuncionalidades.Rows.Add(listaFuncionalidades[i]);
             }
         }
 
@@ -70,10 +70,12 @@ namespace ClinicaFrba.AbmRol
             var funcionalidadesSeleccionadas = grdFuncionalidades.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToBoolean(row.Cells["Agregar"].Value) == true).ToList();
 
             funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
-            ABMRolesFunciones depi = new ABMRolesFunciones();
-            depi.guardarRol(txtNombre.Text, funcionalidades);
+            RolFuncionalidadDao depi = new RolFuncionalidadDao();
+            depi.guardarRol(txtNombre.Text, funcionalidades, false);
 
-        
+            MessageBox.Show("Rol Creado Exitosamente!!!", "Aviso", MessageBoxButtons.OK);
+
+            this.Dispose();
         }
     }
 }
