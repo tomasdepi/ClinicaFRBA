@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicaFrba.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace ClinicaFrba.AbmRol
 {
     public partial class EditarRol : Form
     {
-        public EditarRol()
+        public EditarRol(String nombreRol, int estado)
         {
             InitializeComponent();
+            lblNombreRol.Text = nombreRol;
+            cbEstado.Items.Add("Habilitado");
+            cbEstado.Items.Add("Deshabilitado");
+            cbEstado.SelectedIndex = estado;
+
+            this.CargarListaFuncionalidades();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -40,6 +47,17 @@ namespace ClinicaFrba.AbmRol
         private void EditarRol_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CargarListaFuncionalidades()
+        {
+            ABMRolesFunciones depi = new ABMRolesFunciones();
+            List<String> pepe = depi.getFuncionalidades();
+
+            for (int i = 0; i < pepe.Count; i++)
+            {
+                this.grdFuncionalidades.Rows.Add(pepe[i]);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ClinicaFrba.Repository
         public compraBonoFunciones()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-            Connector = new SqlConnection("server=FEDE-PC\\SQLSERVER;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
                                        "Trusted_Connection=yes;" +
                                        "database=GD2C2016; " +
                                        "connection timeout=10");

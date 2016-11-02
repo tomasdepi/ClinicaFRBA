@@ -19,7 +19,7 @@ namespace ClinicaFrba.Repository
         public ABMRolesFunciones()
         {
  //           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
                                            "Trusted_Connection=yes;" +
                                            "database=GD2C2016; " +
                                            "connection timeout=10");
@@ -91,11 +91,49 @@ namespace ClinicaFrba.Repository
             {
                 Rol rol = new Rol();
                 rol.nombreRol = resultado["varNombreRol"].ToString();
-                rol.estadoRol = Int32.Parse(resultado["bitHabilitado"].ToString());
+                rol.estadoRol = resultado.GetBoolean(1);
                 roles.Add(rol);
             }
             this.Connector.Close();
             return roles;
+        }
+
+        public void actualizarEstadoRol(String rol, int estado)
+        {
+            String query = "update dbo.Rol set bitHabilitado = " + estado + " where varNombreRol = '" + rol + "'";
+
+            this.Connector.Open();
+            this.Command = new SqlCommand(query, this.Connector);
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+        }
+
+
+        public List<String> getFuncionalidadesEditar(String rol)
+        {
+            String query = "select varFuncionalidad, CASE"+
+	                            "When"+
+		                            "(select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = '"+rol+"' and b.varFuncionalidad = c.varFuncionalidad) is null" +
+	                            "then 0 else 1 end"+
+                                "FROM dbo.Funcionalidad c";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            List<String> listaFuncionalidads = new List<String>();
+
+            this.Connector.Open();
+
+            SqlDataReader resultado = Command.ExecuteReader();
+
+            while(resultado.Read())
+            {
+                listaFuncionalidads.Add(resultado[0].ToString());
+            }
+
+            this.Connector.Close();
+
+
+            return listaFuncionalidads;
         }
 
     }
