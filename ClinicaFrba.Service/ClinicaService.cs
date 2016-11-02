@@ -58,6 +58,11 @@ namespace ClinicaFrba.Service
             return afiliado.EstadoCivil == "Casado" || afiliado.EstadoCivil == "Concubinato";
         }
 
+        public bool esCampoNumerico(String campo)
+        {
+            int i;
+            return int.TryParse(campo, out i);
+        }
         
     }
 }

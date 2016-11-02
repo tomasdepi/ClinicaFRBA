@@ -34,6 +34,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblIniciarSesion = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.cbRoles = new System.Windows.Forms.ComboBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -90,11 +93,42 @@
             this.lblIniciarSesion.TabIndex = 5;
             this.lblIniciarSesion.Text = "Iniciar sesión";
             // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(49, 221);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(33, 15);
+            this.lblRol.TabIndex = 6;
+            this.lblRol.Text = "Rol:";
+            // 
+            // cbRoles
+            // 
+            this.cbRoles.FormattingEnabled = true;
+            this.cbRoles.Location = new System.Drawing.Point(88, 220);
+            this.cbRoles.Name = "cbRoles";
+            this.cbRoles.Size = new System.Drawing.Size(121, 21);
+            this.cbRoles.TabIndex = 14;
+            // 
+            // btnEntrar
+            // 
+            this.btnEntrar.Location = new System.Drawing.Point(225, 218);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.TabIndex = 15;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(324, 261);
+            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.cbRoles);
+            this.Controls.Add(this.lblRol);
             this.Controls.Add(this.lblIniciarSesion);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -117,6 +151,9 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblIniciarSesion;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.ComboBox cbRoles;
+        private System.Windows.Forms.Button btnEntrar;
     }
 }
 
