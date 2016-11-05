@@ -190,7 +190,7 @@ namespace ClinicaFrba.Repository
             return Sb.ToString();
         }
 
-        public List<Usuario> ObtenerUsuariosConFiltros(string nombre, string apellido, int? codigoPlan, bool? estadoActual)
+        public List<Usuario> ObtenerUsuariosConFiltros(string nombre, string apellido, string descPlan, bool? estadoActual)
         {
             StringBuilder query = new StringBuilder();
                 query.Append("SELECT *  Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE 1 = 1");
@@ -205,9 +205,9 @@ namespace ClinicaFrba.Repository
                 query.Append("AND u.varApellido LIKE '%" + apellido + "%'");
             }
 
-            if (codigoPlan.HasValue)
+            if (!string.IsNullOrEmpty(descPlan))
             {
-                query.Append("AND a.intCodigoPlan =" + codigoPlan.Value.ToString() );
+                query.Append("AND a.varDescripcion = " + descPlan );
             }
 
             if (estadoActual.HasValue)

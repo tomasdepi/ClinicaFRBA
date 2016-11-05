@@ -74,7 +74,7 @@ namespace ClinicaFrba.Service
         {
             var repo = new AfiliadoDao();
 
-            var usuarios = repo.ObtenerUsuariosConFiltros(request.Nombre, request.Apellido, request.CodigoPlan, request.EstadoActual);
+            var usuarios = repo.ObtenerUsuariosConFiltros(request.Nombre, request.Apellido, request.DescripcionPlan, request.EstadoActual);
 
             var response = new CargarGrillaAfiliadoResponse {Usuarios = usuarios};
 

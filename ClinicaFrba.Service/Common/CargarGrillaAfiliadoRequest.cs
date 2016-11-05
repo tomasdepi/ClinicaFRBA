@@ -10,7 +10,7 @@ namespace ClinicaFrba.Service.Common
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public int? CodigoPlan { get; set; }
+        public string DescripcionPlan { get; set; }
         public bool? EstadoActual { get; set; }
     }
 

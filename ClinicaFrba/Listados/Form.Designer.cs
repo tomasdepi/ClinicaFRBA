@@ -73,7 +73,7 @@
             // lblCuatrimestre
             // 
             this.lblCuatrimestre.AutoSize = true;
-            this.lblCuatrimestre.Location = new System.Drawing.Point(9, 71);
+            this.lblCuatrimestre.Location = new System.Drawing.Point(12, 71);
             this.lblCuatrimestre.Name = "lblCuatrimestre";
             this.lblCuatrimestre.Size = new System.Drawing.Size(134, 13);
             this.lblCuatrimestre.TabIndex = 3;
@@ -102,7 +102,7 @@
             // lblmes
             // 
             this.lblmes.AutoSize = true;
-            this.lblmes.Location = new System.Drawing.Point(12, 100);
+            this.lblmes.Location = new System.Drawing.Point(12, 99);
             this.lblmes.Name = "lblmes";
             this.lblmes.Size = new System.Drawing.Size(96, 13);
             this.lblmes.TabIndex = 6;

@@ -51,12 +51,14 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.cboPlanes = new System.Windows.Forms.ComboBox();
             this.gboxFiltrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAfiliados)).BeginInit();
             this.SuspendLayout();
             // 
             // gboxFiltrosBusqueda
             // 
+            this.gboxFiltrosBusqueda.Controls.Add(this.cboPlanes);
             this.gboxFiltrosBusqueda.Controls.Add(this.lblTipoPlan);
             this.gboxFiltrosBusqueda.Controls.Add(this.cboEstadoActual);
             this.gboxFiltrosBusqueda.Controls.Add(this.lblEstadoActual);
@@ -222,6 +224,14 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             // 
+            // cboPlanes
+            // 
+            this.cboPlanes.FormattingEnabled = true;
+            this.cboPlanes.Location = new System.Drawing.Point(406, 70);
+            this.cboPlanes.Name = "cboPlanes";
+            this.cboPlanes.Size = new System.Drawing.Size(141, 21);
+            this.cboPlanes.TabIndex = 7;
+            // 
             // GestionarAfiliados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +244,7 @@
             this.Controls.Add(this.gboxFiltrosBusqueda);
             this.Name = "GestionarAfiliados";
             this.Text = "Gestionar afiliados";
+            this.Load += new System.EventHandler(this.GestionarAfiliados_Load);
             this.gboxFiltrosBusqueda.ResumeLayout(false);
             this.gboxFiltrosBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAfiliados)).EndInit();
@@ -265,5 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.ComboBox cboPlanes;
     }
 }

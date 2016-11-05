@@ -42,7 +42,7 @@ namespace ClinicaFrba.Repository
 
             while (reader.Read())
             {
-                var user = new Plan
+                var plan = new Plan
                 {
                     Codigo = Convert.ToInt32(reader["intCodigoPlan"]),
                     Descripcion = Convert.ToString(reader["varDescripcion"]),
@@ -51,7 +51,7 @@ namespace ClinicaFrba.Repository
 
                 };
 
-                planes.Add(user);
+                planes.Add(plan);
             }
 
 

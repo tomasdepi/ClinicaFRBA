@@ -31,7 +31,11 @@ namespace ClinicaFrba.Abm_Afiliado
             var service = new ClinicaService();
 
             List<Usuario> afiliados = new List<Usuario>();
+            
+            var random = new Random();
+            random.Next(100000, 999999);
 
+            
             var afiliado = new Usuario()
             {
                 Nombre = this.txtNombre.Text,

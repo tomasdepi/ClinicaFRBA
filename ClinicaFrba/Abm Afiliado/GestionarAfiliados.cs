@@ -42,8 +42,8 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 Apellido = (string.IsNullOrEmpty(this.txtApellido.Text)) ? string.Empty : this.txtApellido.Text,
                 Nombre = (string.IsNullOrEmpty(this.txtNombre.Text)) ? string.Empty : this.txtNombre.Text,
-                EstadoActual = Convert.ToBoolean(this.cboEstadoActual.SelectedValue),
-                //falta agregar el codigo del plan
+                EstadoActual = (cboEstadoActual.SelectedItem.ToString() == "Habilitado") ? true : false,
+                DescripcionPlan = string.IsNullOrEmpty(this.cboPlanes.SelectedItem.ToString()) ?  string.Empty : this.cboPlanes.SelectedItem.ToString()
             });
 
             // Agregar TODOS los atributos a la grdAfiliados en la UI para que funcione
@@ -51,6 +51,30 @@ namespace ClinicaFrba.Abm_Afiliado
             source.DataSource = response.Usuarios;
             this.grdAfiliados.DataSource = source;
 
+        }
+
+        private void CargarComboPlanesMedicos()
+        {
+            var service = new ClinicaService();
+
+            var response = service.ObtenerListadoDePlanes();
+
+            foreach (var descPlan in response.DescPlanes)
+            {
+                this.cboPlanes.Items.Add(descPlan);
+            }
+        }
+
+        private void CargarComboEstadoActual()
+        {
+            this.cboEstadoActual.Items.Add("Habilitado");
+            this.cboEstadoActual.Items.Add("Deshabilitado");
+        }
+
+        private void GestionarAfiliados_Load(object sender, EventArgs e)
+        {
+            this.CargarComboPlanesMedicos();
+            this.CargarComboEstadoActual();
         }
     }
 }
