@@ -25,6 +25,8 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            this.Afiliado = new Usuario();
+
             this.Afiliado.EstadoCivil = this.txtEstadoCivil.Text;
             this.Afiliado.Apellido = this.txtApellido.Text;
             this.Afiliado.Nombre = this.txtNombre.Text;

@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClinicaService.cs" />
+    <Compile Include="Common\CargarDetalleAfiliadoRequest.cs" />
+    <Compile Include="Common\CargarDetalleAfiliadoResponse.cs" />
+    <Compile Include="Common\CargarGrillaAfiliadoRequest.cs" />
+    <Compile Include="Common\CargarGrillaAfiliadoResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.Repository;
 using ClinicaFrba.Repository.Entities;
+using ClinicaFrba.Service.Common;
 
 namespace ClinicaFrba.Service
 {
@@ -26,8 +27,9 @@ namespace ClinicaFrba.Service
                     var repo = new AfiliadoDao();
                    
                     afiliados[0].CantidadFamiliaresACargo = afiliados.Count - 1;
-                    repo.Add(afiliados[0]);
                     var nroAfiliado = afiliados[0].NroAfiliado;
+                    afiliados[0].NroAfiliado = Convert.ToInt32(nroAfiliado + "01");
+                    repo.Add(afiliados[0]);
                     afiliados.Remove(afiliados[0]);
 
                     var i = 2;
@@ -48,6 +50,11 @@ namespace ClinicaFrba.Service
 
         }
 
+        public bool esCampoNumerico(string username)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Devuelve true si el afiliado es casado o vive en concubinato
         /// </summary>
@@ -58,11 +65,36 @@ namespace ClinicaFrba.Service
             return afiliado.EstadoCivil == "Casado" || afiliado.EstadoCivil == "Concubinato";
         }
 
-        public bool esCampoNumerico(String campo)
+        /// <summary>
+        /// Devuelve listado de usuarios según los filtros elegidos
+        /// </summary>
+        /// <param name="request">Request con los filtros elegidos</param>
+        /// <returns></returns>
+        public CargarGrillaAfiliadoResponse CargarGrillaAfiliados(CargarGrillaAfiliadoRequest request)
         {
-            int i;
-            return int.TryParse(campo, out i);
+            var repo = new AfiliadoDao();
+
+            var usuarios = repo.ObtenerUsuariosConFiltros(request.Nombre, request.Apellido, request.CodigoPlan, request.EstadoActual);
+
+            var response = new CargarGrillaAfiliadoResponse {Usuarios = usuarios};
+
+
+            return response;
         }
-        
+
+
+        /// <summary>
+        /// Carga el detalle de un afiliado según su número de documento
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public CargarDetalleAfiliadoResponse CargarDetalleAfiliado(CargarDetalleAfiliadoRequest request)
+        {
+            var repo = new AfiliadoDao();
+
+            var response = new CargarDetalleAfiliadoResponse {Usuario = repo.GetById(request.NroDocumento)};
+
+            return response;
+        }
     }
 }

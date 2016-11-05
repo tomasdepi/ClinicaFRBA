@@ -183,6 +183,7 @@ C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Reposi
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.Service.pdb
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csprojResolveAssemblyReference.cache
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.AltaAfiliado.resources
+C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.AltaIntegranteFamiliaAfiliado.resources
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.GestionarAfiliados.resources
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.ModificarAfiliado.resources
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.AgregarRol.resources

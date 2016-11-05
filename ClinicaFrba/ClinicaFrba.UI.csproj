@@ -48,8 +48,14 @@
     <Compile Include="Abm Afiliado\AltaAfiliado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Afiliado\AltaAfiliado.Designer.cs">
+    <Compile Include="Abm Afiliado\AltaAfiliado.designer.cs">
       <DependentUpon>AltaAfiliado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Afiliado\AltaIntegranteFamiliaAfiliado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\AltaIntegranteFamiliaAfiliado.designer.cs">
+      <DependentUpon>AltaIntegranteFamiliaAfiliado.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Afiliado\GestionarAfiliados.cs">
       <SubType>Form</SubType>
@@ -187,6 +193,9 @@
     </Compile>
     <EmbeddedResource Include="Abm Afiliado\AltaAfiliado.resx">
       <DependentUpon>AltaAfiliado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\AltaIntegranteFamiliaAfiliado.resx">
+      <DependentUpon>AltaIntegranteFamiliaAfiliado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\GestionarAfiliados.resx">
       <DependentUpon>GestionarAfiliados.cs</DependentUpon>
