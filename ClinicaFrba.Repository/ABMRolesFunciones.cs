@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository
 {
-    public class RolFuncionalidadDao
+    public class ABMRolesFunciones
     {
         public SqlConnection Connector { get; set; }
         public SqlDataAdapter Adapter { get; set; }
         public DataSet Dataset { get; set; }
         public SqlCommand Command { get; set; }
 
-        public RolFuncionalidadDao()
+        public ABMRolesFunciones()
         {
- //           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            //           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
             Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
                                            "Trusted_Connection=yes;" +
                                            "database=GD2C2016; " +
@@ -35,8 +35,8 @@ namespace ClinicaFrba.Repository
             this.Connector.Open();
 
             SqlDataReader resultado = Command.ExecuteReader();
-            
-            for(; resultado.Read();)
+
+            for (; resultado.Read();)
             {
                 listaFuncionalidads.Add(resultado[0].ToString());
             }
@@ -47,34 +47,26 @@ namespace ClinicaFrba.Repository
             return listaFuncionalidads;
         }
 
-        public void guardarRol(String nombre, List<String> funcionalidades, bool editar)
+        public void guardarRol(String nombre, List<String> funcionalidades)
         {
 
             List<int> posiciones = new List<int>();
             this.Connector.Open();
             for (var i = 0; i < funcionalidades.Count; i++)
             {
-                String query2 = "select distinct intIdFuncionalidad FROM dbo.Funcionalidad where varFuncionalidad =  @funcionalidad";
+                String query2 = "select distinct intIdFuncionalidad FROM dbo.Funcionalidad where varFuncionalidad =  '" + funcionalidades[i] + "'";
                 this.Command = new SqlCommand(query2, this.Connector);
-
-                this.Command.Parameters.Add("@funcionalidad", SqlDbType.VarChar).Value = funcionalidades[i];
-
                 SqlDataReader resultado = Command.ExecuteReader();
                 resultado.Read();
                 posiciones.Add(Int32.Parse(resultado["intIdFuncionalidad"].ToString()));
 
                 resultado.Close();
             }
-            if (!editar){
+            String query4 = "INSERT INTO dbo.Rol (varNombreRol,bitHabilitado) " +
+                     "VALUES('" + nombre + "',1)";
 
-                String query4 = "INSERT INTO dbo.Rol (varNombreRol,bitHabilitado) " +
-                    "VALUES('" + nombre + "',1)";
-
-                this.Command = new SqlCommand(query4, this.Connector);
-                this.Command.ExecuteNonQuery();
-
-            }
-           
+            this.Command = new SqlCommand(query4, this.Connector);
+            this.Command.ExecuteNonQuery();
 
             for (var j = 0; j < posiciones.Count; j++)
             {
@@ -108,15 +100,10 @@ namespace ClinicaFrba.Repository
 
         public void actualizarEstadoRol(String rol, int estado)
         {
-            String query = "update dbo.Rol set bitHabilitado = @estado where varNombreRol = @rol";
-
-            this.Command = new SqlCommand(query, this.Connector);
-
-            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
-            this.Command.Parameters.Add("@estado", SqlDbType.Int).Value = estado;
-
+            String query = "update dbo.Rol set bitHabilitado = " + estado + " where varNombreRol = '" + rol + "'";
 
             this.Connector.Open();
+            this.Command = new SqlCommand(query, this.Connector);
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
         }
@@ -124,26 +111,25 @@ namespace ClinicaFrba.Repository
 
         public List<Funcionalidad> getFuncionalidadesEditar(String rol)
         {
-            String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = @rol and b.varFuncionalidad = c.varFuncionalidad) is null " +
-	                            "then 0 else 1 end resu "+
+            String query = "select varFuncionalidad, CASE" +
+                                "When" +
+                                    "(select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = '" + rol + "' and b.varFuncionalidad = c.varFuncionalidad) is null" +
+                                "then 0 else 1 end" +
                                 "FROM dbo.Funcionalidad c";
 
             this.Command = new SqlCommand(query, this.Connector);
 
-            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
-
-            this.Connector.Open();     
-
             List<Funcionalidad> listaFuncionalidads = new List<Funcionalidad>();
 
+            this.Connector.Open();
 
             SqlDataReader resultado = Command.ExecuteReader();
 
-            while(resultado.Read())
+            while (resultado.Read())
             {
                 Funcionalidad func = new Funcionalidad();
                 func.nombreFuncionalidad = resultado[0].ToString();
-                func.habilitado = Convert.ToBoolean(Convert.ToInt32(resultado[1]));
+                func.habilitado = resultado.GetBoolean(1);
 
                 listaFuncionalidads.Add(func);
             }
@@ -151,21 +137,6 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
 
             return listaFuncionalidads;
-        }
-
-
-        public void eliminarRol(String rol)
-        {
-            String query = "exec dbo.eliminarRol @rol";
-
-            this.Command = new SqlCommand(query, this.Connector);
-
-            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
-
-            this.Connector.Open();  
-            this.Command.ExecuteNonQuery();
-            this.Connector.Close();
-
         }
 
     }

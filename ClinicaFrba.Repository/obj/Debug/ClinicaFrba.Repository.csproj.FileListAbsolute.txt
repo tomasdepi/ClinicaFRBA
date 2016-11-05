@@ -27,3 +27,8 @@ C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\Clin
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll.config
+C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll.config
+C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
+C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
