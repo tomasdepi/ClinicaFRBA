@@ -54,8 +54,11 @@ namespace ClinicaFrba.Repository
             this.Connector.Open();
             for (var i = 0; i < funcionalidades.Count; i++)
             {
-                String query2 = "select distinct intIdFuncionalidad FROM dbo.Funcionalidad where varFuncionalidad =  '"+funcionalidades[i]+"'";
+                String query2 = "select distinct intIdFuncionalidad FROM dbo.Funcionalidad where varFuncionalidad =  @funcionalidad";
                 this.Command = new SqlCommand(query2, this.Connector);
+
+                this.Command.Parameters.Add("@funcionalidad", SqlDbType.VarChar).Value = funcionalidades[i];
+
                 SqlDataReader resultado = Command.ExecuteReader();
                 resultado.Read();
                 posiciones.Add(Int32.Parse(resultado["intIdFuncionalidad"].ToString()));
@@ -105,10 +108,15 @@ namespace ClinicaFrba.Repository
 
         public void actualizarEstadoRol(String rol, int estado)
         {
-            String query = "update dbo.Rol set bitHabilitado = " + estado + " where varNombreRol = '" + rol + "'";
+            String query = "update dbo.Rol set bitHabilitado = @estado where varNombreRol = @rol";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
+            this.Command.Parameters.Add("@estado", SqlDbType.Int).Value = estado;
+
 
             this.Connector.Open();
-            this.Command = new SqlCommand(query, this.Connector);
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
         }
@@ -116,12 +124,15 @@ namespace ClinicaFrba.Repository
 
         public List<Funcionalidad> getFuncionalidadesEditar(String rol)
         {
-            String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = '"+rol+"' and b.varFuncionalidad = c.varFuncionalidad) is null " +
+            String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = @rol and b.varFuncionalidad = c.varFuncionalidad) is null " +
 	                            "then 0 else 1 end resu "+
                                 "FROM dbo.Funcionalidad c";
 
-            this.Connector.Open();
             this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
+
+            this.Connector.Open();     
 
             List<Funcionalidad> listaFuncionalidads = new List<Funcionalidad>();
 
@@ -145,10 +156,13 @@ namespace ClinicaFrba.Repository
 
         public void eliminarRol(String rol)
         {
-            String query = "exec dbo.eliminarRol '" + rol + "'";
+            String query = "exec dbo.eliminarRol @rol";
 
-            this.Connector.Open();
             this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
+
+            this.Connector.Open();  
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
 

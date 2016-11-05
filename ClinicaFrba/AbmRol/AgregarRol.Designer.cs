@@ -56,6 +56,7 @@
             this.txtNombre.Size = new System.Drawing.Size(330, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // grdFuncionalidades
             // 

@@ -62,7 +62,9 @@ namespace ClinicaFrba
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+            LoginFunciones login = new LoginFunciones();
 
+            //login.getFuncionalidadesDeRol();
         }
     }
 }
