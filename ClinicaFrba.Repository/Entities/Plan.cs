@@ -10,7 +10,7 @@ namespace ClinicaFrba.Repository.Entities
     {
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
-        public int PrecioBonoConsulta { get; set; }
-        public int PrecioBonoFarmacia { get; set; }
+        public decimal PrecioBonoConsulta { get; set; }
+        public decimal PrecioBonoFarmacia { get; set; }
     }
 }

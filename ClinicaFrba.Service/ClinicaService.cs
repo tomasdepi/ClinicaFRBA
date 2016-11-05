@@ -96,5 +96,25 @@ namespace ClinicaFrba.Service
 
             return response;
         }
+
+        public ObtenerListadoPlanesResponse ObtenerListadoDePlanes()
+        {
+            var repo = new PlanDao();
+
+            var response = new ObtenerListadoPlanesResponse();
+
+            var planes = repo.ListarPlanesMedicosVigentes();
+
+            if(planes != null)
+            { 
+                foreach (var plan in planes)
+                {
+                    response.CodigoPlanes.Add(plan.Codigo.ToString());
+                }
+
+            }
+
+            return response;
+        }
     }
 }

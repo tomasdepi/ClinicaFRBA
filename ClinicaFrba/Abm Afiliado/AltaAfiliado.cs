@@ -44,8 +44,8 @@ namespace ClinicaFrba.Abm_Afiliado
                 EstadoCivil = this.cboEstadoCivil.SelectedItem.ToString(),
                 Direccion = this.txtDireccion.Text,
                 Telefono = Convert.ToInt32(this.txtTelefono.Text),
-                Sexo = this.txtSexo.Text
-
+                Sexo = this.cboSexo.SelectedItem.ToString(),
+                CodigoPlanMedico = Convert.ToInt32(this.cboPlanes.SelectedItem)
             };
 
             afiliados.Add(afiliado);
@@ -105,6 +105,8 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             this.ConfigurarFormatoFechaDeNacimiento();
             this.CargarComboEstadoCivil();
+            this.CargarComboPlanesMedicos();
+            this.CargarComboSexo();
         }
 
         private void CargarComboEstadoCivil()
@@ -124,6 +126,24 @@ namespace ClinicaFrba.Abm_Afiliado
             this.dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             this.dtpFechaNacimiento.CustomFormat = "dd-MM-yyyy";
         }
-            
+
+        private void CargarComboPlanesMedicos()
+        {
+            var service = new ClinicaService();
+
+            var response = service.ObtenerListadoDePlanes();
+
+            foreach (var codPlan in response.CodigoPlanes)
+            {
+                this.cboPlanes.Items.Add(codPlan);
+            }
+        }
+
+        private void CargarComboSexo()
+        {
+            this.cboSexo.Items.Add("M");
+            this.cboSexo.Items.Add("F");
+        }
+                  
     }
 }
