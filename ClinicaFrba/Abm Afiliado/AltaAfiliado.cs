@@ -133,9 +133,9 @@ namespace ClinicaFrba.Abm_Afiliado
 
             var response = service.ObtenerListadoDePlanes();
 
-            foreach (var codPlan in response.CodigoPlanes)
+            foreach (var descPlan in response.DescPlanes)
             {
-                this.cboPlanes.Items.Add(codPlan);
+                this.cboPlanes.Items.Add(descPlan);
             }
         }
 

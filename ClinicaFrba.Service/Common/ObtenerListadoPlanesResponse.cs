@@ -8,6 +8,11 @@ namespace ClinicaFrba.Service.Common
 {
     public class ObtenerListadoPlanesResponse
     {
-        public List<string> CodigoPlanes { get; set; }
+        public ObtenerListadoPlanesResponse()
+        {
+            DescPlanes = new List<string>();
+        }
+
+        public List<string> DescPlanes { get; set; }
     }
 }

@@ -105,11 +105,11 @@ namespace ClinicaFrba.Service
 
             var planes = repo.ListarPlanesMedicosVigentes();
 
-            if(planes != null)
+            if (planes != null)
             { 
                 foreach (var plan in planes)
                 {
-                    response.CodigoPlanes.Add(plan.Codigo.ToString());
+                    response.DescPlanes.Add(plan.Descripcion);
                 }
 
             }
