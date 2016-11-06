@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using ClinicaFrba.AbmRol;
 using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Compra_Bono;
+using ClinicaFrba.Registro_Resultado;
+using ClinicaFrba.RegistroResultado;
 
 namespace ClinicaFrba
 {
@@ -19,7 +21,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GestionarRoles());
+            Application.Run(new AccesoPlanillas(1465925));
         }
     }
 }

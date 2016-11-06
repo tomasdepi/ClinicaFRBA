@@ -53,6 +53,7 @@
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Turno.cs" />
     <Compile Include="Entities\Especialidad.cs" />
+    <Compile Include="Entities\TurnoYUsuario.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="BonoDao.cs" />
     <Compile Include="GD2C2016DataSet.Designer.cs">
@@ -69,6 +70,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RolFuncionalidadDao.cs" />
+    <Compile Include="TurnoDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

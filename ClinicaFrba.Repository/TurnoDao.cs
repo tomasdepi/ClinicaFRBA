@@ -18,36 +18,31 @@ namespace ClinicaFrba.Repository
         }
     
 
-        public List<TurnoYUsuario> getTurnos()
-        {
-            string date = "01/01/2015";
-            DateTime dt = Convert.ToDateTime(date); 
+        public List<TurnoYUsuario> getTurnos(int idDoctor)
+        { 
+            DateTime dt = Convert.ToDateTime(DateTime.Today); 
             List<TurnoYUsuario> vRetorno = new List<TurnoYUsuario>();
             DateTime thisDay = DateTime.Today;
-            String query = "SELECT u.varNombre, u.varApellido, t.intIdTurno AS idTurno, t.datFechaTurno AS fecha" +
-            "FROM dbo.Turno AS t INNER JOIN dbo.Afiliado AS af  on t.intIdPaciente = af.intIdUsuario INNER JOIN dbo.Usuario as u on u.intIdUsuario = af.intIdUsuario" +
-            "WHERE DAY(t.datFechaTurno) =  DAY(2015/01/01);" + dt.Date.ToString("d");
+            this.Connector.Open();
+            String query = "SELECT u.varNombre AS nombre, u.varApellido AS apellido, t.intIdTurno AS idTurno, t.datFechaTurno AS fecha " +
+                "FROM dbo.Turno AS t INNER JOIN dbo.Afiliado AS af  on t.intIdPaciente = af.intIdUsuario INNER JOIN dbo.Usuario as u on u.intIdUsuario = af.intIdUsuario " +
+                "WHERE t.intIdDoctor = " + idDoctor + " AND CAST(t.datFechaTurno AS DATE) =  CAST('20150101' AS DATE);" ;
             this.Command = new SqlCommand(query, this.Connector);
 
-            this.Connector.Open();
-
             SqlDataReader resultado = Command.ExecuteReader();
-            TurnoYUsuario turno = null;
             
-            if (resultado.HasRows)
+            
+            while (resultado.Read())
             {
-                     turno = new TurnoYUsuario();
-                     while (resultado.Read())
-                    {
-                        turno.Nombre = resultado["nombre"].ToString();
-                        turno.Apellido = resultado["apellido"].ToString();
-                        DateTime fechaBuscada = DateTime.Parse(resultado ["fecha"].ToString());
-                        turno.FechaTurno = fechaBuscada;
-                        turno.IdTurno = Int32.Parse(resultado["idTurno"].ToString());
-                        vRetorno.Add(turno);
-                    }
-
+                  TurnoYUsuario turno = new TurnoYUsuario();
+                  turno.Nombre = resultado["nombre"].ToString();
+                  turno.Apellido = resultado["apellido"].ToString();
+                  DateTime fechaBuscada = DateTime.Parse(resultado ["fecha"].ToString());
+                  turno.FechaTurno = fechaBuscada;
+                  turno.IdTurno = Int32.Parse(resultado["idTurno"].ToString());
+                  vRetorno.Add(turno);
             }
+
            
             this.Connector.Close();
 
@@ -55,6 +50,29 @@ namespace ClinicaFrba.Repository
 
         }
 
+        public void ConfirmarLlegadaPaciente (int id)
+        {
+            String idUtilizado = (id.ToString());
+            String query = "UPDATE dbo.Asistencia set bitAtendido = 1 where intIdTurno =" + idUtilizado +";" ;
+            this.Command = new SqlCommand(query, this.Connector);
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+        }
+
+        public void actualizarTurnoCompletado (TurnoYUsuario turno)
+        {
+           
+
+           String query = "UPDATE dbo.Consulta SET varSintomas = '"+turno.Sintomas.ToString()+
+                          "', varEnfermedad = '"+turno.Diagnostico.ToString() +
+                          "' where intIdTurno = "+turno.IdTurno.ToString()+";" ;
+            this.Command = new SqlCommand(query, this.Connector);
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+
+        }
 
         public override void Add(TurnoYUsuario entidad)
         {

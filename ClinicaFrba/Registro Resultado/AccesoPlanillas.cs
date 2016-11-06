@@ -15,10 +15,11 @@ namespace ClinicaFrba.RegistroResultado
 {
     public partial class AccesoPlanillas : Form
     {
-        public AccesoPlanillas()
+
+        public AccesoPlanillas(int idDoctor)
         {
             InitializeComponent();
-            CargarTurnosDelDia();
+            CargarTurnosDelDia(idDoctor);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,13 +34,14 @@ namespace ClinicaFrba.RegistroResultado
 
         private void grdResultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == grdResultado.Columns[3].Index && e.RowIndex >= 0)
-            {
+            if(grdResultado.Rows[e.RowIndex].Cells[0].Value != null && grdResultado.Rows[e.RowIndex].Cells[1].Value != null && grdResultado.Rows[e.RowIndex].Cells[2].Value != null)
+            { 
 
-            }
-
-            if (e.ColumnIndex == grdResultado.Columns[4].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex >= grdResultado.Columns[3].Index && e.RowIndex >= 0)
             {
+                DataGridViewTextBoxCell idTurnoCell = (DataGridViewTextBoxCell)grdResultado.Rows[e.RowIndex].Cells[5];
+                int idTurno = (int)idTurnoCell.Value;
+
                 DataGridViewTextBoxCell horaCell = (DataGridViewTextBoxCell)grdResultado.Rows[e.RowIndex].Cells[0];
                 String hora = (String)horaCell.Value;
 
@@ -49,26 +51,56 @@ namespace ClinicaFrba.RegistroResultado
                 DataGridViewTextBoxCell apellidoCell = (DataGridViewTextBoxCell)grdResultado.Rows[e.RowIndex].Cells[2];
                 String apellido = (String)apellidoCell.Value;
 
-                ConfirmarDiagnostico ventanaConfirmar = new ConfirmarDiagnostico(hora, nombre, apellido);
-                ventanaConfirmar.Show();
+                if (e.ColumnIndex == grdResultado.Columns[4].Index)
+                    { 
+                    ConfirmarDiagnostico ventanaConfirmar = new ConfirmarDiagnostico(hora, nombre, apellido, idTurno);
+                    ventanaConfirmar.Show();
+                    }
+                if (e.ColumnIndex == grdResultado.Columns[3].Index)
+                {
+                    ConfirmarLlegada ventanaLlegada = new ConfirmarLlegada(hora, nombre, apellido, idTurno);
+                    ventanaLlegada.Show();
+                }
+            }
             }
         }
-        private void CargarTurnosDelDia()
+        private void CargarTurnosDelDia(int idDoctor)
         {
             TurnoDao dao = new TurnoDao();
-            List<TurnoYUsuario> listaTurnos = dao.getTurnos();
+            List<TurnoYUsuario> listaTurnos = dao.getTurnos(idDoctor);
 
-            for (int i = 0; i < listaTurnos.Count; i++)
+            for (int i = 0; i < listaTurnos.Count ; i++)
             {
-                DataGridViewRow row = (DataGridViewRow)grdResultado.Rows[0].Clone();
-                row.Cells[0].Value = listaTurnos[i].getHora();
-                row.Cells[1].Value = listaTurnos[i].getNombre();
-                row.Cells[2].Value = listaTurnos[i].getApellido();
-                row.Cells[3].Value = listaTurnos[i].getIdTurno();
+                DataGridViewRow row = new DataGridViewRow();
+                DataGridViewCell horaTurno = new DataGridViewTextBoxCell();
+                horaTurno.Value = listaTurnos[i].getHora();
+                DataGridViewCell nombre = new DataGridViewTextBoxCell();
+                nombre.Value = listaTurnos[i].Nombre;
+                DataGridViewCell apellido = new DataGridViewTextBoxCell();
+                apellido.Value = listaTurnos[i].Apellido;
+                DataGridViewCell idTurno = new DataGridViewTextBoxCell();
+                idTurno.Value = listaTurnos[i].IdTurno;
+                DataGridViewButtonCell boton1 = new DataGridViewButtonCell();
+                boton1.Value = "Confirmar";
+                DataGridViewButtonCell boton2 = new DataGridViewButtonCell();
+                boton2.Value = "Diagnosticar";
+
+                row.Cells.Add(horaTurno);
+                row.Cells.Add(nombre);
+                row.Cells.Add(apellido);
+                row.Cells.Add(boton1);
+                row.Cells.Add(boton2);
+                row.Cells.Add(idTurno);
+                
                 grdResultado.Rows.Add(row);
+
             }
 
         }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

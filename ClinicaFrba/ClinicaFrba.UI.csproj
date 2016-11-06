@@ -185,11 +185,23 @@
     <Compile Include="Registro Llegada\Registro llegada-Bono.Designer.cs">
       <DependentUpon>Registro llegada-Bono.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Resultado\Form1.cs">
+    <Compile Include="Registro Resultado\AccesoPlanillas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Resultado\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Resultado\AccesoPlanillas.Designer.cs">
+      <DependentUpon>AccesoPlanillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Resultado\ConfirmarDiagnostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Resultado\ConfirmarDiagnostico.Designer.cs">
+      <DependentUpon>ConfirmarDiagnostico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Resultado\ConfirmarLlegada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Resultado\ConfirmarLlegada.Designer.cs">
+      <DependentUpon>ConfirmarLlegada.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Abm Afiliado\AltaAfiliado.resx">
       <DependentUpon>AltaAfiliado.cs</DependentUpon>
@@ -260,8 +272,14 @@
     <EmbeddedResource Include="Registro Llegada\Registro llegada-Busqueda.resx">
       <DependentUpon>Registro llegada-Busqueda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro Resultado\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Registro Resultado\AccesoPlanillas.resx">
+      <DependentUpon>AccesoPlanillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Resultado\ConfirmarDiagnostico.resx">
+      <DependentUpon>ConfirmarDiagnostico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Resultado\ConfirmarLlegada.resx">
+      <DependentUpon>ConfirmarLlegada.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

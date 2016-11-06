@@ -12,10 +12,12 @@ namespace ClinicaFrba.Repository.Entities
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int IdTurno { get; set; }
+        public String Sintomas { get; set; }
+        public String Diagnostico { get; set; }
 
         public String getHora()
         {
-            String var = FechaTurno.Hour.ToString();
+            String var = FechaTurno.ToString("HH:mm"); 
             return var;
         }
 
@@ -34,6 +36,15 @@ namespace ClinicaFrba.Repository.Entities
             return IdTurno;
         }
 
+        public String getSintomas()
+        {
+            return Sintomas;
+        }
+
+        public String getDiagnostico()
+        {
+            return Diagnostico;
+        }
     }
    
 }
