@@ -33,9 +33,12 @@ namespace ClinicaFrba.Repository
             int intUser = Int32.Parse(user);
             List<String> roles = new List<string>();
 
-            String query = "select varNombreRol from dbo.UsuarioXRol rol inner join  dbo.Usuario us on rol.intIdUsuario = us.intIdUsuario where us.intIdUsuario = " + intUser + " and nvarPassword = HASHBYTES('SHA2_256', '"+pass+ "') and us.intIntentosLogin < 3";
+            String query = "select varNombreRol from dbo.UsuarioXRol rol inner join  dbo.Usuario us on rol.intIdUsuario = us.intIdUsuario where us.intIdUsuario = @user and nvarPassword = HASHBYTES('SHA2_256', @pass) and us.intIntentosLogin < 3";
 
             this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@user", SqlDbType.Int).Value = intUser;
+            this.Command.Parameters.Add("@pass", SqlDbType.VarChar).Value = pass;
 
             this.Connector.Open();
 
@@ -50,7 +53,9 @@ namespace ClinicaFrba.Repository
 
         public void intentoFallido(String user)
         {
-            String query = "exec dbo.actualizarIntentoLogin " + user;
+            String query = "exec dbo.actualizarIntentoLogin @user";
+
+            this.Command.Parameters.Add("@user", SqlDbType.Int).Value = user;
 
             this.Command = new SqlCommand(query, this.Connector);
             this.Connector.Open();
