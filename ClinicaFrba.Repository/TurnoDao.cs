@@ -19,11 +19,14 @@ namespace ClinicaFrba.Repository
     
 
         public List<TurnoYUsuario> getTurnos()
-        {  
+        {
+            string date = "01/01/2015";
+            DateTime dt = Convert.ToDateTime(date); 
             List<TurnoYUsuario> vRetorno = new List<TurnoYUsuario>();
             DateTime thisDay = DateTime.Today;
-            String query = "SELECT vanNombre AS nombre, varApellido AS apellido, varFechaTurno AS fecha" + 
-                "FROM dbo.Turno AS t INNER JOIN dbo.Afiliado AS af on t.intIdPaciente = af.intIdUsuario WHERE DAY(t.datFechaTurno) = " + thisDay.Date.ToString("d");
+            String query = "SELECT u.varNombre, u.varApellido, t.intIdTurno AS idTurno, t.datFechaTurno AS fecha" +
+            "FROM dbo.Turno AS t INNER JOIN dbo.Afiliado AS af  on t.intIdPaciente = af.intIdUsuario INNER JOIN dbo.Usuario as u on u.intIdUsuario = af.intIdUsuario" +
+            "WHERE DAY(t.datFechaTurno) =  DAY(2015/01/01);" + dt.Date.ToString("d");
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Connector.Open();
@@ -40,6 +43,7 @@ namespace ClinicaFrba.Repository
                         turno.Apellido = resultado["apellido"].ToString();
                         DateTime fechaBuscada = DateTime.Parse(resultado ["fecha"].ToString());
                         turno.FechaTurno = fechaBuscada;
+                        turno.IdTurno = Int32.Parse(resultado["idTurno"].ToString());
                         vRetorno.Add(turno);
                     }
 
@@ -51,5 +55,25 @@ namespace ClinicaFrba.Repository
 
         }
 
+
+        public override void Add(TurnoYUsuario entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(TurnoYUsuario entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override TurnoYUsuario GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace ClinicaFrba.Repository.Entities
         public DateTime FechaTurno { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        public int IdTurno { get; set; }
 
         public String getHora()
         {
@@ -27,6 +28,12 @@ namespace ClinicaFrba.Repository.Entities
         {
             return Apellido;
         }
+
+        public int getIdTurno()
+        {
+            return IdTurno;
+        }
+
     }
    
 }

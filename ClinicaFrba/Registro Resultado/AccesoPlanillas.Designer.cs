@@ -1,6 +1,6 @@
-﻿namespace ClinicaFrba.Registro_Resultado
+﻿namespace ClinicaFrba.RegistroResultado
 {
-    partial class Form1
+    partial class AccesoPlanillas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.grdResultado = new System.Windows.Forms.DataGridView();
+            this.lblNombreProfesional = new System.Windows.Forms.Label();
             this.colHoraTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreAfiliado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoAfiliado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cofirmarLlegada = new System.Windows.Forms.DataGridViewButtonColumn();
             this.confimarDiagnostico = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblNombreProfesional = new System.Windows.Forms.Label();
+            this.IdTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,27 +47,41 @@
             this.nombreAfiliado,
             this.apellidoAfiliado,
             this.cofirmarLlegada,
-            this.confimarDiagnostico});
+            this.confimarDiagnostico,
+            this.IdTurno});
             this.grdResultado.Location = new System.Drawing.Point(15, 72);
             this.grdResultado.Name = "grdResultado";
             this.grdResultado.Size = new System.Drawing.Size(553, 282);
             this.grdResultado.TabIndex = 0;
             this.grdResultado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResultado_CellContentClick);
             // 
+            // lblNombreProfesional
+            // 
+            this.lblNombreProfesional.AutoSize = true;
+            this.lblNombreProfesional.Location = new System.Drawing.Point(12, 26);
+            this.lblNombreProfesional.Name = "lblNombreProfesional";
+            this.lblNombreProfesional.Size = new System.Drawing.Size(69, 13);
+            this.lblNombreProfesional.TabIndex = 1;
+            this.lblNombreProfesional.Text = "-aca va algo-";
+            this.lblNombreProfesional.Click += new System.EventHandler(this.label1_Click);
+            // 
             // colHoraTurno
             // 
             this.colHoraTurno.HeaderText = "Hora Turno";
             this.colHoraTurno.Name = "colHoraTurno";
+            this.colHoraTurno.ReadOnly = true;
             // 
             // nombreAfiliado
             // 
             this.nombreAfiliado.HeaderText = "Nombre Afiliado";
             this.nombreAfiliado.Name = "nombreAfiliado";
+            this.nombreAfiliado.ReadOnly = true;
             // 
             // apellidoAfiliado
             // 
             this.apellidoAfiliado.HeaderText = "Apellido Afiliado";
             this.apellidoAfiliado.Name = "apellidoAfiliado";
+            this.apellidoAfiliado.ReadOnly = true;
             // 
             // cofirmarLlegada
             // 
@@ -82,24 +97,20 @@
             this.confimarDiagnostico.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.confimarDiagnostico.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // lblNombreProfesional
+            // IdTurno
             // 
-            this.lblNombreProfesional.AutoSize = true;
-            this.lblNombreProfesional.Location = new System.Drawing.Point(12, 26);
-            this.lblNombreProfesional.Name = "lblNombreProfesional";
-            this.lblNombreProfesional.Size = new System.Drawing.Size(69, 13);
-            this.lblNombreProfesional.TabIndex = 1;
-            this.lblNombreProfesional.Text = "-aca va algo-";
-            this.lblNombreProfesional.Click += new System.EventHandler(this.label1_Click);
+            this.IdTurno.HeaderText = "IdTurno";
+            this.IdTurno.Name = "IdTurno";
+            this.IdTurno.Visible = false;
             // 
-            // Form1
+            // AccesoPlanillas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 371);
             this.Controls.Add(this.lblNombreProfesional);
             this.Controls.Add(this.grdResultado);
-            this.Name = "Form1";
+            this.Name = "AccesoPlanillas";
             this.Text = "Registro Turnos del Día";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).EndInit();
@@ -111,11 +122,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView grdResultado;
+        private System.Windows.Forms.Label lblNombreProfesional;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoraTurno;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreAfiliado;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoAfiliado;
         private System.Windows.Forms.DataGridViewButtonColumn cofirmarLlegada;
         private System.Windows.Forms.DataGridViewButtonColumn confimarDiagnostico;
-        private System.Windows.Forms.Label lblNombreProfesional;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTurno;
     }
 }
