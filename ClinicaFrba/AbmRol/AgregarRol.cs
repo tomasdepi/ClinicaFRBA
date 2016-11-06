@@ -27,7 +27,7 @@ namespace ClinicaFrba.AbmRol
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void grdFuncionalidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -77,5 +77,17 @@ namespace ClinicaFrba.AbmRol
 
             this.Dispose();
         }
+
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo se permiten letras y espacios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
     }
 }
