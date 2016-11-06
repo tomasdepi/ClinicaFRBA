@@ -11,7 +11,7 @@ using ClinicaFrba.Repository.Entities;
 
 namespace ClinicaFrba.Repository
 {
-    public class compraBonoFunciones
+    public class BonoDao : BaseDao<Bono>
     {
 
         public SqlConnection Connector { get; set; }
@@ -19,7 +19,7 @@ namespace ClinicaFrba.Repository
         public DataSet Dataset { get; set; }
         public SqlCommand Command { get; set; }
 
-        public compraBonoFunciones()
+        public BonoDao()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
             Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
@@ -93,5 +93,24 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
         }
 
+        public override void Add(Bono entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(Bono entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Bono GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

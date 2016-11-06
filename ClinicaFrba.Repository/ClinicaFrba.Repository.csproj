@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMRolesFunciones.cs" />
     <Compile Include="AfiliadoDao.cs" />
     <Compile Include="BaseDao.cs" />
     <Compile Include="Entities\Bono.cs" />
@@ -55,7 +54,7 @@
     <Compile Include="Entities\Turno.cs" />
     <Compile Include="Entities\Especialidad.cs" />
     <Compile Include="Entities\Usuario.cs" />
-    <Compile Include="compraBonoFunciones.cs" />
+    <Compile Include="BonoDao.cs" />
     <Compile Include="GD2C2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

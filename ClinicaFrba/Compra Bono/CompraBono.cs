@@ -22,7 +22,7 @@ namespace ClinicaFrba.Compra_Bono
             InitializeComponent();
             lblNombreAfiliado.Text = usuario.Nombre + " " + usuario.Apellido;
             //precioBono = new FuncionesVarias().getPrecioBono(usuario.CodigoPlanMedico);
-            precioBono = new compraBonoFunciones().getPrecioBono(555556);
+            precioBono = new BonoDao().getPrecioBono(555556);
 
             lblMonto.Text = precioBono.ToString();
 
@@ -31,7 +31,7 @@ namespace ClinicaFrba.Compra_Bono
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            new compraBonoFunciones().confirmarCompraBono(user, Int32.Parse(numUpDownCantBonos.Value.ToString()));
+            new BonoDao().confirmarCompraBono(user, Int32.Parse(numUpDownCantBonos.Value.ToString()));
 
             if (MessageBox.Show("Bonos comprados con exito!!!!", "Alerta",
                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

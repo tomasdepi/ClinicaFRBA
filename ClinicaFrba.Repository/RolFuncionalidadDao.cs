@@ -1,6 +1,7 @@
 ﻿using ClinicaFrba.Repository.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,20 +10,16 @@ using System.Threading.Tasks;
 
 namespace ClinicaFrba.Repository
 {
-    public class RolFuncionalidadDao
+    public class RolFuncionalidadDao : BaseDao<Rol>
     {
-        public SqlConnection Connector { get; set; }
-        public SqlDataAdapter Adapter { get; set; }
-        public DataSet Dataset { get; set; }
-        public SqlCommand Command { get; set; }
 
         public RolFuncionalidadDao()
         {
- //           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
-                                           "Trusted_Connection=yes;" +
-                                           "database=GD2C2016; " +
-                                           "connection timeout=10");
+           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+           // Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
+                 //                          "Trusted_Connection=yes;" +
+                    //                       "database=GD2C2016; " +
+                       //                    "connection timeout=10");
         }
 
         public List<String> getFuncionalidades()
@@ -168,6 +165,25 @@ namespace ClinicaFrba.Repository
 
         }
 
+        public override void Add(Rol entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(Rol entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Rol GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
