@@ -111,7 +111,7 @@ namespace ClinicaFrba.Service
                 {
                     response.DescPlanes.Add(plan.Descripcion);
                 }
-
+                //algo
             }
 
             return response;
