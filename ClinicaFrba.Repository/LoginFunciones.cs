@@ -55,12 +55,35 @@ namespace ClinicaFrba.Repository
         {
             String query = "exec dbo.actualizarIntentoLogin @user";
 
-            this.Command.Parameters.Add("@user", SqlDbType.Int).Value = user;
-
             this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@user", SqlDbType.Int).Value = user;
+            
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
+        }
+
+        public List<String> getFuncionalidadesDeRol(String rol)
+        {
+
+            List<String> funcs = new List<string>();
+
+            String query = "select distinct varFuncionalidad from dbo.Funcionalidad f inner join dbo.FuncionalidadXRol r  on f.intIdFuncionalidad = r.intIdFuncionalidad where varNombreRol = @rol";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@user", SqlDbType.VarChar).Value = rol;
+
+            this.Connector.Open();
+
+            SqlDataReader resultado = Command.ExecuteReader();
+
+            while (resultado.Read()) funcs.Add(resultado[0].ToString());
+
+            this.Connector.Close();
+
+            return funcs;
         }
     
     }
