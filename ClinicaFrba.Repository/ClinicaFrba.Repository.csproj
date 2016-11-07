@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AfiliadoDao.cs" />
     <Compile Include="BaseDao.cs" />
+    <Compile Include="ListadoUsuarioDao.cs" />
     <Compile Include="Entities\Bono.cs" />
     <Compile Include="Entities\Agenda.cs" />
     <Compile Include="Entities\Asistencia.cs" />
@@ -61,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD2C2016DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ListadoEspecialidadesDao.cs" />
     <Compile Include="LoginFunciones.cs" />
     <Compile Include="PlanDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
