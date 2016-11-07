@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gboxFiltrosBusqueda = new System.Windows.Forms.GroupBox();
+            this.cboPlanes = new System.Windows.Forms.ComboBox();
             this.lblTipoPlan = new System.Windows.Forms.Label();
             this.cboEstadoActual = new System.Windows.Forms.ComboBox();
             this.lblEstadoActual = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.cboPlanes = new System.Windows.Forms.ComboBox();
             this.gboxFiltrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAfiliados)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,14 @@
             this.gboxFiltrosBusqueda.TabStop = false;
             this.gboxFiltrosBusqueda.Text = "Filtros de búsqueda";
             this.gboxFiltrosBusqueda.Enter += new System.EventHandler(this.gboxFiltrosBusqueda_Enter);
+            // 
+            // cboPlanes
+            // 
+            this.cboPlanes.FormattingEnabled = true;
+            this.cboPlanes.Location = new System.Drawing.Point(406, 70);
+            this.cboPlanes.Name = "cboPlanes";
+            this.cboPlanes.Size = new System.Drawing.Size(141, 21);
+            this.cboPlanes.TabIndex = 7;
             // 
             // lblTipoPlan
             // 
@@ -113,6 +121,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(135, 20);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblApellido
             // 
@@ -223,14 +232,6 @@
             this.btnVolver.TabIndex = 4;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
-            // 
-            // cboPlanes
-            // 
-            this.cboPlanes.FormattingEnabled = true;
-            this.cboPlanes.Location = new System.Drawing.Point(406, 70);
-            this.cboPlanes.Name = "cboPlanes";
-            this.cboPlanes.Size = new System.Drawing.Size(141, 21);
-            this.cboPlanes.TabIndex = 7;
             // 
             // GestionarAfiliados
             // 

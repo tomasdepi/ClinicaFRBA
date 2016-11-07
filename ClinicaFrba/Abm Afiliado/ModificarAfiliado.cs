@@ -41,5 +41,10 @@ namespace ClinicaFrba.Abm_Afiliado
         {
 
         }
+
+        private void lblNroAfiliado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

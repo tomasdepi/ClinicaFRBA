@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.Repository;
+using System.Text.RegularExpressions;
 
 namespace ClinicaFrba.AbmRol
 {
@@ -66,18 +67,27 @@ namespace ClinicaFrba.AbmRol
         /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            List<String> funcionalidades = new List<string>();
-            var funcionalidadesSeleccionadas = grdFuncionalidades.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToBoolean(row.Cells["Agregar"].Value) == true).ToList();
+            Regex r = new Regex("^[a-zA-Z]*$");
+            if (r.IsMatch(txtNombre.Text))
+            {
 
-            funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
-            RolFuncionalidadDao depi = new RolFuncionalidadDao();
-            depi.guardarRol(txtNombre.Text, funcionalidades, false);
+                List<String> funcionalidades = new List<string>();
+                var funcionalidadesSeleccionadas = grdFuncionalidades.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToBoolean(row.Cells["Agregar"].Value) == true).ToList();
 
-            MessageBox.Show("Rol Creado Exitosamente!!!", "Aviso", MessageBoxButtons.OK);
+                funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
+                RolFuncionalidadDao depi = new RolFuncionalidadDao();
+                depi.guardarRol(txtNombre.Text, funcionalidades, false);
 
-            this.Dispose();
-        }
+                MessageBox.Show("Rol Creado Exitosamente!!!", "Aviso", MessageBoxButtons.OK);
 
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Nombre de Rol Inválido", "Error", MessageBoxButtons.OK);
+                return;
+            }
+         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {

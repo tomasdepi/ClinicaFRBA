@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -64,8 +65,14 @@ namespace ClinicaFrba.Registro_Resultado
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            Regex r = new Regex("^[a-zA-Z]+(@)[a-zA-Z]+$");
+            if (r.IsMatch(txtBoxSintomas.Text))
+            {
+                MessageBox.Show("No se describiasdasdor", "Error" , MessageBoxButtons.OK);
+                return;
+            }
 
-            if (string.IsNullOrWhiteSpace(txtBoxSintomas.Text))
+                if (string.IsNullOrWhiteSpace(txtBoxSintomas.Text))
             {
                 MessageBox.Show("No se describieron los sintomas", "Error", MessageBoxButtons.OK);
                 return;
@@ -84,8 +91,8 @@ namespace ClinicaFrba.Registro_Resultado
             turno.Sintomas = this.txtBoxSintomas.Text;
             turno.IdTurno = this.idTurno;
 
-            TurnoDao turnoCompleato = new TurnoDao();
-            turnoCompleato.actualizarTurnoCompletado(turno);
+        //    TurnoDao turnoCompleato = new TurnoDao();
+        //    turnoCompleato.actualizarTurnoCompletado(turno);
 
             MessageBox.Show("Se completaron los datos correctamente", "Aviso", MessageBoxButtons.OK);
 

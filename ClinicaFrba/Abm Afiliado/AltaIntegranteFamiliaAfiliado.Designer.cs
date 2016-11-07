@@ -31,7 +31,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gboxDatosAdicionales = new System.Windows.Forms.GroupBox();
-            this.txtEstadoCivil = new System.Windows.Forms.TextBox();
+            this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -40,8 +40,8 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.gboxDatosFundamentales = new System.Windows.Forms.GroupBox();
-            this.txtSexo = new System.Windows.Forms.TextBox();
-            this.txtFacNac = new System.Windows.Forms.TextBox();
+            this.dtpFechaDeNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.cboSexo = new System.Windows.Forms.ComboBox();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
             this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -78,7 +78,7 @@
             // 
             // gboxDatosAdicionales
             // 
-            this.gboxDatosAdicionales.Controls.Add(this.txtEstadoCivil);
+            this.gboxDatosAdicionales.Controls.Add(this.cboEstadoCivil);
             this.gboxDatosAdicionales.Controls.Add(this.txtMail);
             this.gboxDatosAdicionales.Controls.Add(this.txtTelefono);
             this.gboxDatosAdicionales.Controls.Add(this.txtDireccion);
@@ -93,12 +93,14 @@
             this.gboxDatosAdicionales.TabStop = false;
             this.gboxDatosAdicionales.Text = "Datos Adicionales";
             // 
-            // txtEstadoCivil
+            // cboEstadoCivil
             // 
-            this.txtEstadoCivil.Location = new System.Drawing.Point(126, 100);
-            this.txtEstadoCivil.Name = "txtEstadoCivil";
-            this.txtEstadoCivil.Size = new System.Drawing.Size(149, 20);
-            this.txtEstadoCivil.TabIndex = 12;
+            this.cboEstadoCivil.FormattingEnabled = true;
+            this.cboEstadoCivil.Location = new System.Drawing.Point(126, 103);
+            this.cboEstadoCivil.Name = "cboEstadoCivil";
+            this.cboEstadoCivil.Size = new System.Drawing.Size(121, 21);
+            this.cboEstadoCivil.TabIndex = 13;
+            this.cboEstadoCivil.SelectedIndexChanged += new System.EventHandler(this.comboEstadoCivil_SelectedIndexChanged);
             // 
             // txtMail
             // 
@@ -124,7 +126,7 @@
             // lblEstadoCivil
             // 
             this.lblEstadoCivil.AutoSize = true;
-            this.lblEstadoCivil.Location = new System.Drawing.Point(52, 103);
+            this.lblEstadoCivil.Location = new System.Drawing.Point(55, 106);
             this.lblEstadoCivil.Name = "lblEstadoCivil";
             this.lblEstadoCivil.Size = new System.Drawing.Size(65, 13);
             this.lblEstadoCivil.TabIndex = 8;
@@ -159,8 +161,8 @@
             // 
             // gboxDatosFundamentales
             // 
-            this.gboxDatosFundamentales.Controls.Add(this.txtSexo);
-            this.gboxDatosFundamentales.Controls.Add(this.txtFacNac);
+            this.gboxDatosFundamentales.Controls.Add(this.dtpFechaDeNacimiento);
+            this.gboxDatosFundamentales.Controls.Add(this.cboSexo);
             this.gboxDatosFundamentales.Controls.Add(this.txtNroDoc);
             this.gboxDatosFundamentales.Controls.Add(this.txtTipoDoc);
             this.gboxDatosFundamentales.Controls.Add(this.txtApellido);
@@ -178,19 +180,20 @@
             this.gboxDatosFundamentales.TabStop = false;
             this.gboxDatosFundamentales.Text = "Datos Fundamentales";
             // 
-            // txtSexo
+            // dtpFechaDeNacimiento
             // 
-            this.txtSexo.Location = new System.Drawing.Point(126, 160);
-            this.txtSexo.Name = "txtSexo";
-            this.txtSexo.Size = new System.Drawing.Size(149, 20);
-            this.txtSexo.TabIndex = 15;
+            this.dtpFechaDeNacimiento.Location = new System.Drawing.Point(126, 132);
+            this.dtpFechaDeNacimiento.Name = "dtpFechaDeNacimiento";
+            this.dtpFechaDeNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaDeNacimiento.TabIndex = 17;
             // 
-            // txtFacNac
+            // cboSexo
             // 
-            this.txtFacNac.Location = new System.Drawing.Point(126, 134);
-            this.txtFacNac.Name = "txtFacNac";
-            this.txtFacNac.Size = new System.Drawing.Size(149, 20);
-            this.txtFacNac.TabIndex = 14;
+            this.cboSexo.FormattingEnabled = true;
+            this.cboSexo.Location = new System.Drawing.Point(126, 157);
+            this.cboSexo.Name = "cboSexo";
+            this.cboSexo.Size = new System.Drawing.Size(121, 21);
+            this.cboSexo.TabIndex = 16;
             // 
             // txtNroDoc
             // 
@@ -212,6 +215,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(149, 20);
             this.txtApellido.TabIndex = 11;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // txtNombre
             // 
@@ -219,6 +223,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(149, 20);
             this.txtNombre.TabIndex = 10;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lvlSexo
             // 
@@ -299,7 +304,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox gboxDatosAdicionales;
-        private System.Windows.Forms.TextBox txtEstadoCivil;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
@@ -308,8 +312,6 @@
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.GroupBox gboxDatosFundamentales;
-        private System.Windows.Forms.TextBox txtSexo;
-        private System.Windows.Forms.TextBox txtFacNac;
         private System.Windows.Forms.TextBox txtNroDoc;
         private System.Windows.Forms.TextBox txtTipoDoc;
         private System.Windows.Forms.TextBox txtApellido;
@@ -320,5 +322,8 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNroDoc;
         private System.Windows.Forms.Label lblTipoDoc;
+        private System.Windows.Forms.ComboBox cboSexo;
+        private System.Windows.Forms.DateTimePicker dtpFechaDeNacimiento;
+        private System.Windows.Forms.ComboBox cboEstadoCivil;
     }
 }

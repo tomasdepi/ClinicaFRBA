@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.Repository;
 using ClinicaFrba.Repository.Entities;
+using System.Text.RegularExpressions;
 
 namespace ClinicaFrba.Compra_Bono
 {
@@ -21,11 +22,15 @@ namespace ClinicaFrba.Compra_Bono
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            Regex r = new Regex("^[0-9]*$");
+            if (r.IsMatch(txBoxNumeroAfiliado.Text))
+            {
+                 
             var numAfiliado = txBoxNumeroAfiliado.Text;
 
             try { 
@@ -38,8 +43,8 @@ namespace ClinicaFrba.Compra_Bono
             }
 
 
-            BonoDao f = new BonoDao();
-            Usuario usuario = f.existeAfiliado(numAfiliado);
+                BonoDao f = new BonoDao();
+                Usuario usuario = f.existeAfiliado(numAfiliado);
 
             if (usuario.Equals(null))
             {
@@ -52,6 +57,12 @@ namespace ClinicaFrba.Compra_Bono
                 formCompraBono.Show();
             }
 
+            }
+            else
+            {
+                MessageBox.Show("Numero de Afiliado inválido", "Error", MessageBoxButtons.OK);
+                return;
+            }
         }
 
         private void VentanaIntermedioAdministrativo_Load(object sender, EventArgs e)

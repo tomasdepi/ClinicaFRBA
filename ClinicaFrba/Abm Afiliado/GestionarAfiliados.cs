@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,7 +37,10 @@ namespace ClinicaFrba.Abm_Afiliado
         /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            var service = new ClinicaService();
+            Regex r = new Regex("^[a-zA-Z]*$");
+            if (r.IsMatch(txtNombre.Text) && r.IsMatch(txtApellido.Text))
+            {
+                var service = new ClinicaService();
 
             var response = service.CargarGrillaAfiliados(new CargarGrillaAfiliadoRequest()
             {
@@ -50,7 +54,7 @@ namespace ClinicaFrba.Abm_Afiliado
             var source = new BindingSource();
             source.DataSource = response.Usuarios;
             this.grdAfiliados.DataSource = source;
-
+            }
         }
 
         private void CargarComboPlanesMedicos()
@@ -75,6 +79,11 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             this.CargarComboPlanesMedicos();
             this.CargarComboEstadoActual();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AccesoPlanillas(1465925));
+            Application.Run(new ConfirmarDiagnostico("10:30", "asd" ,"perez" ,19));
         }
     }
 }
