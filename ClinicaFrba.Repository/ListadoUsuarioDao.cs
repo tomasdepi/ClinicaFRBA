@@ -12,16 +12,16 @@ namespace ClinicaFrba.Repository
 
         public List<string> getProfesionalesMasConsultados()
         {
-
+            throw new NotImplementedException();
         }
 
         public List<string> getProfesionalesConMenosHorasTrabajadas()
         {
-
+            throw new NotImplementedException();
         }
         public List<string> getAfiliadosQueCompraronMasBonos()
         {
-
+            throw new NotImplementedException();
         }
 
 

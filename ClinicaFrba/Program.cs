@@ -8,6 +8,7 @@ using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Compra_Bono;
 using ClinicaFrba.Registro_Resultado;
 using ClinicaFrba.RegistroResultado;
+using ClinicaFrba.Registrar_Agenta_Medico;
 
 namespace ClinicaFrba
 {
@@ -21,7 +22,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConfirmarDiagnostico("10:30", "asd" ,"perez" ,19));
+            Application.Run(new SeleccionarProfecional());
         }
     }
 }

@@ -108,9 +108,9 @@ namespace ClinicaFrba.Listados
             }
         }
 
-        private void generarTabla(List<string>)
+        private void generarTabla(List<string> id)
         {
-            return 1;
+            return;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

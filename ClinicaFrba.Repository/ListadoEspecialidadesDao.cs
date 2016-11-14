@@ -42,7 +42,7 @@ namespace ClinicaFrba.Repository
 
         public List<string> getEspecialidadesMasConsultadas()
         {
-
+            throw new NotImplementedException();
         }
 
 
