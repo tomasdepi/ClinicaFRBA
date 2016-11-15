@@ -18,7 +18,7 @@ namespace ClinicaFrba.Repository
         }
     
 
-        public List<TurnoYUsuario> getTurnos(int idDoctor)
+        public List<TurnoYUsuario> GetTurnos(int idDoctor)
         { 
             DateTime dt = Convert.ToDateTime(DateTime.Today); 
             List<TurnoYUsuario> vRetorno = new List<TurnoYUsuario>();
@@ -60,7 +60,7 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
         }
 
-        public void actualizarTurnoCompletado (TurnoYUsuario turno)
+        public void ActualizarTurnoCompletado (TurnoYUsuario turno)
         {
            
 

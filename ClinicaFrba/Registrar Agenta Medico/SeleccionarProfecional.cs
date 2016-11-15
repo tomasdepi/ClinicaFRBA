@@ -52,7 +52,7 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
             ProfesionalDao dao = new ProfesionalDao();
 
-            List<Usuario> lista = dao.getProfesionales();
+            List<Usuario> lista = dao.GetProfesionales();
 
             foreach (Usuario usuario in lista)
             {

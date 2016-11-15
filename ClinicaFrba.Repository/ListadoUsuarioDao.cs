@@ -10,16 +10,16 @@ namespace ClinicaFrba.Repository
     public class ListadoUsuarioDao : BaseDao<Usuario>
     {
 
-        public List<string> getProfesionalesMasConsultados()
+        public List<string> GetProfesionalesMasConsultados()
         {
             throw new NotImplementedException();
         }
 
-        public List<string> getProfesionalesConMenosHorasTrabajadas()
+        public List<string> GetProfesionalesConMenosHorasTrabajadas()
         {
             throw new NotImplementedException();
         }
-        public List<string> getAfiliadosQueCompraronMasBonos()
+        public List<string> GetAfiliadosQueCompraronMasBonos()
         {
             throw new NotImplementedException();
         }

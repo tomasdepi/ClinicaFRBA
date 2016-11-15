@@ -66,40 +66,40 @@ namespace ClinicaFrba.Listados
 
         private void btnHacerListado_Click(object sender, EventArgs e)
         {
-            if(todasLasComboBoxesCompletas())
+            if(TodasLasComboBoxesCompletas())
             {
                 if (cboListado.Text == "Especialidades con más cancelaciones")
                 {
                     ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                    this.generarTabla(list.getEspecialidadesMasCanceladas());
+                    this.GenerarTabla(list.GetEspecialidadesMasCanceladas());
                     return;
                 }
 
                 if (cboListado.Text == "Profecionales más consultados")
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getProfesionalesMasConsultados());
+                    this.GenerarTabla(list.GetProfesionalesMasConsultados());
                     return;
                 }
 
                 if (cboListado.Text == "Profesional con menos horas trabajadas")
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas());
+                    this.GenerarTabla(list.GetProfesionalesConMenosHorasTrabajadas());
                     return;
                 }
 
                 if (cboListado.Text == "Afiliados que más bonos compraron")
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getAfiliadosQueCompraronMasBonos());
+                    this.GenerarTabla(list.GetAfiliadosQueCompraronMasBonos());
                     return;
                 }
 
                 if (cboListado.Text == "Especialidades más consultadas")
                 {
                     ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                    this.generarTabla(list.getEspecialidadesMasConsultadas());
+                    this.GenerarTabla(list.GetEspecialidadesMasConsultadas());
                     return;
                 }
 
@@ -108,7 +108,7 @@ namespace ClinicaFrba.Listados
             }
         }
 
-        private void generarTabla(List<string> id)
+        private void GenerarTabla(List<string> id)
         {
             return;
         }
@@ -157,7 +157,7 @@ namespace ClinicaFrba.Listados
             this.Dispose();
         }
 
-        private bool todasLasComboBoxesCompletas()
+        private bool TodasLasComboBoxesCompletas()
         {
             if (cboAño.Text == null)
             {

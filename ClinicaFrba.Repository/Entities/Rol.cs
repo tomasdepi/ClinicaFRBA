@@ -8,7 +8,7 @@ namespace ClinicaFrba.Repository.Entities
 {
     public class Rol
     {
-        public String nombreRol { get; set; }
-        public bool estadoRol { get; set; }
+        public String NombreRol { get; set; }
+        public bool EstadoRol { get; set; }
     }
 }

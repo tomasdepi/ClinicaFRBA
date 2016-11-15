@@ -17,7 +17,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public List<Usuario> getProfesionales()
+        public List<Usuario> GetProfesionales()
         {
 
             List<Usuario> lista = new List<Usuario>();

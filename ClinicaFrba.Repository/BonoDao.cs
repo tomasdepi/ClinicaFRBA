@@ -14,21 +14,12 @@ namespace ClinicaFrba.Repository
     public class BonoDao : BaseDao<Bono>
     {
 
-        public SqlConnection Connector { get; set; }
-        public SqlDataAdapter Adapter { get; set; }
-        public DataSet Dataset { get; set; }
-        public SqlCommand Command { get; set; }
-
-        public BonoDao()
+        public BonoDao() : base()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=GD2C2016; " +
-                                       "connection timeout=10");
+          
         }
 
-        public Usuario existeAfiliado(String numAfiliado)
+        public Usuario ExisteAfiliado(String numAfiliado)
         {
             String query = "select u.varNombre as nombre, u.varApellido as apellido,  af.intCodigoPlan as planMed, u.intIdUsuario as dni " + 
                 "from dbo.Usuario as u inner join dbo.Afiliado as af on u.intIdUsuario = af.intIdUsuario where af.intNumeroAfiliado = @intNumeroAfiliado";
@@ -60,7 +51,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public float getPrecioBono(int numPlan)
+        public float GetPrecioBono(int numPlan)
         {
             String query = "select monPrecioBonoConsulta as precio from dbo.[Plan] where intCodigoPlan = @plan";
 
@@ -79,7 +70,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public void confirmarCompraBono(Usuario usuario, int cant)
+        public void ConfirmarCompraBono(Usuario usuario, int cant)
         {
             String query = "exec dbo.comprarBono @Usuario=@user, @cantidad=@cant, @codigoPlan=@plan";
             this.Command = new SqlCommand(query, this.Connector);

@@ -35,14 +35,14 @@ namespace ClinicaFrba
             ClinicaService service = new ClinicaService();
             LoginFunciones login = new LoginFunciones();
 
-            if (!service.esCampoNumerico(username)) MessageBox.Show("Ingrese Campo Valido", "Alerta", MessageBoxButtons.OK);
+            if (!service.EsCampoNumerico(username)) MessageBox.Show("Ingrese Campo Valido", "Alerta", MessageBoxButtons.OK);
             else
             {
-                List<String> Roles = login.logearse(username, pass);
+                List<String> roles = login.Logearse(username, pass);
 
-                if (Roles.Count == 0) {
+                if (roles.Count == 0) {
                     MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);
-                    login.intentoFallido(username);
+                    login.IntentoFallido(username);
                 }
                 else {
 
@@ -50,7 +50,7 @@ namespace ClinicaFrba
                     cbRoles.Visible = true;
                     btnEntrar.Visible = true;
 
-                    Roles.ForEach(rol => cbRoles.Items.Add(rol));
+                    roles.ForEach(rol => cbRoles.Items.Add(rol));
                
                 }
 

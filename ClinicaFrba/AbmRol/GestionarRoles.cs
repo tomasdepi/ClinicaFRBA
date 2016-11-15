@@ -45,7 +45,7 @@ namespace ClinicaFrba.AbmRol
         private void GestionarRoles_Load(object sender, EventArgs e)
         {
             RolFuncionalidadDao func = new RolFuncionalidadDao();
-            List<Rol> roles = func.getRoles();
+            List<Rol> roles = func.GetRoles();
 
             for (int i = 0; i < roles.Count; i++)
             {
@@ -53,9 +53,9 @@ namespace ClinicaFrba.AbmRol
                 DataGridViewCell estado = new DataGridViewTextBoxCell();
                 DataGridViewButtonCell boton = new DataGridViewButtonCell();
                 boton.Value = "Editar";
-                estado.Value = roles[i].estadoRol == true ? "Habilitado" : "Deshabilitado";
+                estado.Value = roles[i].EstadoRol == true ? "Habilitado" : "Deshabilitado";
                 DataGridViewCell text = new DataGridViewTextBoxCell();
-                text.Value = roles[i].nombreRol;
+                text.Value = roles[i].NombreRol;
                 
                 row.Cells.Add(text);
                 row.Cells.Add(estado);

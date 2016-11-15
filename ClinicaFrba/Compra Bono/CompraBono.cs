@@ -15,23 +15,23 @@ namespace ClinicaFrba.Compra_Bono
     public partial class CompraBono : Form
     {
 
-        private float precioBono;
-        private Usuario user;
+        private float _precioBono;
+        private Usuario _user;
         public CompraBono(Usuario usuario)
         {
             InitializeComponent();
             lblNombreAfiliado.Text = usuario.Nombre + " " + usuario.Apellido;
             //precioBono = new FuncionesVarias().getPrecioBono(usuario.CodigoPlanMedico);
-            precioBono = new BonoDao().getPrecioBono(555556);
+            _precioBono = new BonoDao().GetPrecioBono(555556);
 
-            lblMonto.Text = precioBono.ToString();
+            lblMonto.Text = _precioBono.ToString();
 
-            this.user = usuario;
+            this._user = usuario;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            new BonoDao().confirmarCompraBono(user, Int32.Parse(numUpDownCantBonos.Value.ToString()));
+            new BonoDao().ConfirmarCompraBono(_user, Int32.Parse(numUpDownCantBonos.Value.ToString()));
 
             if (MessageBox.Show("Bonos comprados con exito!!!!", "Alerta",
                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -53,7 +53,7 @@ namespace ClinicaFrba.Compra_Bono
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            float montoTotal = float.Parse(numUpDownCantBonos.Value.ToString()) * precioBono;
+            float montoTotal = float.Parse(numUpDownCantBonos.Value.ToString()) * _precioBono;
             lblTotalNum.Text = montoTotal.ToString();
         }
     }

@@ -11,7 +11,7 @@ namespace ClinicaFrba.Repository
     public class ListadoEspecialidadesDao : BaseDao<Especialidad>
     {
         
-        public List<string> getEspecialidadesMasCanceladas()
+        public List<string> GetEspecialidadesMasCanceladas()
         {
             List<string> vRetorno = new List<string>();
             this.Connector.Open();
@@ -40,7 +40,7 @@ namespace ClinicaFrba.Repository
 
         }
 
-        public List<string> getEspecialidadesMasConsultadas()
+        public List<string> GetEspecialidadesMasConsultadas()
         {
             throw new NotImplementedException();
         }

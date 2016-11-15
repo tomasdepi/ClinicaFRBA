@@ -22,7 +22,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SeleccionarProfecional());
+            Application.Run(new ModificarAfiliado());
         }
     }
 }
