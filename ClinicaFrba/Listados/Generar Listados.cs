@@ -56,6 +56,37 @@ namespace ClinicaFrba.Listados
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.cboSemestre.Text.Equals("Primer semestre"))
+            {
+                this.cboMes.Items.Add("Enero");
+                this.cboMes.Items.Add("Febrero");
+                this.cboMes.Items.Add("Marzo");
+                this.cboMes.Items.Add("Abril");
+                this.cboMes.Items.Add("Mayo");
+                this.cboMes.Items.Add("Junio");
+                this.cboMes.Items.Remove("Julio");
+                this.cboMes.Items.Remove("Agosto");
+                this.cboMes.Items.Remove("Septiembre");
+                this.cboMes.Items.Remove("Octubre");
+                this.cboMes.Items.Remove("Noviembre");
+                this.cboMes.Items.Remove("Diciembre");
+            }
+            if (this.cboSemestre.Text.Equals("Segundo semestre"))
+            {
+                this.cboMes.Items.Add("Julio");
+                this.cboMes.Items.Add("Agosto");
+                this.cboMes.Items.Add("Septiembre");
+                this.cboMes.Items.Add("Octubre");
+                this.cboMes.Items.Add("Noviembre");
+                this.cboMes.Items.Add("Diciembre");
+                this.cboMes.Items.Remove("Enero");
+                this.cboMes.Items.Remove("Febrero");
+                this.cboMes.Items.Remove("Marzo");
+                this.cboMes.Items.Remove("Abril");
+                this.cboMes.Items.Remove("Mayo");
+                this.cboMes.Items.Remove("Junio");
+
+            }
 
         }
 
@@ -68,44 +99,59 @@ namespace ClinicaFrba.Listados
         {
             if(todasLasComboBoxesCompletas())
             {
+                InfoParaListado info = new InfoParaListado();
+                info.Ano = Int32.Parse(this.cboAño.Text);
+                info.Semestre = Int32.Parse(this.cboSemestre.Text);
+                info.Plan = Int32.Parse(this.cboSemestre.Text);
+                info.Especialidad = Int32.Parse(this.cboEspecialidad.Text);
+                if (this.cboMes.Text != "")
+                {
+                    info.Mes = Int32.Parse(this.cboMes.Text);
+                }
+
                 if (cboListado.Text == "Especialidades con más cancelaciones")
                 {
                     ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                    this.generarTabla(list.getEspecialidadesMasCanceladas());
+                    this.generarTabla(list.getEspecialidadesMasCanceladas(info));
                     return;
                 }
 
                 if (cboListado.Text == "Profecionales más consultados")
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getProfesionalesMasConsultados());
+                    this.generarTablaConMasValores(list.getProfesionalesMasConsultados(info));
                     return;
                 }
 
                 if (cboListado.Text == "Profesional con menos horas trabajadas")
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas());
+                    this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
                     return;
                 }
 
                 if (cboListado.Text == "Afiliados que más bonos compraron")
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getAfiliadosQueCompraronMasBonos());
+                    this.generarTablaConMasValores(list.getAfiliadosQueCompraronMasBonos(info));
                     return;
                 }
 
                 if (cboListado.Text == "Especialidades más consultadas")
                 {
                     ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                    this.generarTabla(list.getEspecialidadesMasConsultadas());
+                    this.generarTabla(list.getEspecialidadesMasConsultadas(info));
                     return;
                 }
 
                 MessageBox.Show("Por favor, chequee que la lista seleccionada sea válida", "Error", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void generarTablaConMasValores(List<Usuario> list)
+        {
+            throw new NotImplementedException();
         }
 
         private void generarTabla(List<string>)
@@ -115,7 +161,7 @@ namespace ClinicaFrba.Listados
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void CargarComboBoxes()
@@ -126,18 +172,9 @@ namespace ClinicaFrba.Listados
             this.cboListado.Items.Add("Afiliados que más bonos compraron");
             this.cboListado.Items.Add("Especialidades más consultadas");
 
-            this.cboMes.Items.Add("Enero");
-            this.cboMes.Items.Add("Febrero");
-            this.cboMes.Items.Add("Marzo");
-            this.cboMes.Items.Add("Abril");
-            this.cboMes.Items.Add("Mayo");
-            this.cboMes.Items.Add("Junio");
-            this.cboMes.Items.Add("Julio");
-            this.cboMes.Items.Add("Agosto");
-            this.cboMes.Items.Add("Septiembre");
-            this.cboMes.Items.Add("Octubre");
-            this.cboMes.Items.Add("Noviembre");
-            this.cboMes.Items.Add("Diciembre");
+
+            this.cboMes.Items.Add("");
+
 
             this.cboSemestre.Items.Add("Primer semestre");
             this.cboSemestre.Items.Add("Segundo semestre");
