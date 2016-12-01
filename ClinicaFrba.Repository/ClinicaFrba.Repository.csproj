@@ -47,6 +47,7 @@
     <Compile Include="AfiliadoDao.cs" />
     <Compile Include="BaseDao.cs" />
     <Compile Include="Entities\InfoParaListado.cs" />
+    <Compile Include="Entities\TurnoCancelado.cs" />
     <Compile Include="ListadoUsuarioDao.cs" />
     <Compile Include="Entities\Bono.cs" />
     <Compile Include="Entities\Agenda.cs" />

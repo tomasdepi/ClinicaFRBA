@@ -35,7 +35,7 @@
             this.lblTipo = new System.Windows.Forms.Label();
             this.cmbBoxTipo = new System.Windows.Forms.ComboBox();
             this.lblDetalle = new System.Windows.Forms.Label();
-            this.txBoxDetalle = new System.Windows.Forms.TextBox();
+            this.txBoxMotivo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cmbBoxTurno
@@ -98,24 +98,24 @@
             this.lblDetalle.AutoSize = true;
             this.lblDetalle.Location = new System.Drawing.Point(22, 108);
             this.lblDetalle.Name = "lblDetalle";
-            this.lblDetalle.Size = new System.Drawing.Size(128, 13);
+            this.lblDetalle.Size = new System.Drawing.Size(127, 13);
             this.lblDetalle.TabIndex = 6;
-            this.lblDetalle.Text = "Detalle de la Cacelación :";
+            this.lblDetalle.Text = "Motivo de la Cacelación :";
             // 
-            // txBoxDetalle
+            // txBoxMotivo
             // 
-            this.txBoxDetalle.Location = new System.Drawing.Point(25, 134);
-            this.txBoxDetalle.Multiline = true;
-            this.txBoxDetalle.Name = "txBoxDetalle";
-            this.txBoxDetalle.Size = new System.Drawing.Size(213, 127);
-            this.txBoxDetalle.TabIndex = 7;
+            this.txBoxMotivo.Location = new System.Drawing.Point(25, 134);
+            this.txBoxMotivo.Multiline = true;
+            this.txBoxMotivo.Name = "txBoxMotivo";
+            this.txBoxMotivo.Size = new System.Drawing.Size(213, 127);
+            this.txBoxMotivo.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 310);
-            this.Controls.Add(this.txBoxDetalle);
+            this.Controls.Add(this.txBoxMotivo);
             this.Controls.Add(this.lblDetalle);
             this.Controls.Add(this.cmbBoxTipo);
             this.Controls.Add(this.lblTipo);
@@ -125,6 +125,7 @@
             this.Controls.Add(this.cmbBoxTurno);
             this.Name = "Form1";
             this.Text = "Cancelar Turno";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +140,6 @@
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cmbBoxTipo;
         private System.Windows.Forms.Label lblDetalle;
-        private System.Windows.Forms.TextBox txBoxDetalle;
+        private System.Windows.Forms.TextBox txBoxMotivo;
     }
 }

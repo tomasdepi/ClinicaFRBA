@@ -61,8 +61,7 @@ namespace ClinicaFrba.Repository
         }
 
         public void ActualizarTurnoCompletado (TurnoYUsuario turno)
-        {
-           
+        {   
 
            String query = "UPDATE dbo.Consulta SET varSintomas = '"+turno.Sintomas.ToString()+
                           "', varEnfermedad = '"+turno.Diagnostico.ToString() +
@@ -73,6 +72,23 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
 
         }
+
+
+        public void GuardarTurnoCancelado(TurnoCancelado turno)
+        {
+            string query = "INSERT INTO dbo.TurnoCancelado (intIdTurno, varMotivo, varTipo) VALUES (@id, @motivo, @turno)";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@id", SqlDbType.Int).Value = turno.NumeroDeTurno;
+            this.Command.Parameters.Add("@motivo", SqlDbType.VarChar, 50).Value = turno.motivo;
+            this.Command.Parameters.Add("@turno", SqlDbType.VarChar, 50).Value = turno.tipo;
+
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+
+        }
+
 
         public override void Add(TurnoYUsuario entidad)
         {

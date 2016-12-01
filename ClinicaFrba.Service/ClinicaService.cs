@@ -126,5 +126,10 @@ namespace ClinicaFrba.Service
             }
 
         }
+
+        public void GuardarTurnoCancelado(TurnoCancelado turno)
+        {
+            new TurnoDao().GuardarTurnoCancelado(turno);
+        }
     }
 }
