@@ -8,7 +8,7 @@ namespace ClinicaFrba.Repository.Entities
 {
     public class Funcionalidad
     {
-        public String nombreFuncionalidad { set; get; }
-        public bool habilitado { set; get; }
+        public String NombreFuncionalidad { set; get; }
+        public bool Habilitado { set; get; }
     }
 }

@@ -14,12 +14,12 @@ namespace ClinicaFrba.Registro_Resultado
     public partial class ConfirmarLlegada : Form
 
     {
-        private int idTurno;
+        private int _idTurno;
 
         public ConfirmarLlegada(string hora, string nombre, string apellido, int id)
         {
             InitializeComponent();
-            idTurno = id;
+            _idTurno = id;
             lblDatos.Text = "¿Confirmar Turno de " + nombre + "," + apellido + ". A las: " + hora + "?";
         }
 
@@ -36,7 +36,7 @@ namespace ClinicaFrba.Registro_Resultado
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             TurnoDao turno = new TurnoDao();
-            turno.ConfirmarLlegadaPaciente(this.idTurno);
+            turno.ConfirmarLlegadaPaciente(this._idTurno);
             this.Dispose();
         }
 

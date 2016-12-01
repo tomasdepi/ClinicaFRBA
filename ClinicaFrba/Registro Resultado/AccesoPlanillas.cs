@@ -67,13 +67,13 @@ namespace ClinicaFrba.RegistroResultado
         private void CargarTurnosDelDia(int idDoctor)
         {
             TurnoDao dao = new TurnoDao();
-            List<TurnoYUsuario> listaTurnos = dao.getTurnos(idDoctor);
+            List<TurnoYUsuario> listaTurnos = dao.GetTurnos(idDoctor);
 
             for (int i = 0; i < listaTurnos.Count ; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 DataGridViewCell horaTurno = new DataGridViewTextBoxCell();
-                horaTurno.Value = listaTurnos[i].getHora();
+                horaTurno.Value = listaTurnos[i].GetHora();
                 DataGridViewCell nombre = new DataGridViewTextBoxCell();
                 nombre.Value = listaTurnos[i].Nombre;
                 DataGridViewCell apellido = new DataGridViewTextBoxCell();

@@ -47,6 +47,7 @@
     <Compile Include="Common\CargarDetalleAfiliadoResponse.cs" />
     <Compile Include="Common\CargarGrillaAfiliadoRequest.cs" />
     <Compile Include="Common\CargarGrillaAfiliadoResponse.cs" />
+    <Compile Include="Common\ModificarDatosDeAfiliadoRequest.cs" />
     <Compile Include="Common\ObtenerListadoPlanesResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

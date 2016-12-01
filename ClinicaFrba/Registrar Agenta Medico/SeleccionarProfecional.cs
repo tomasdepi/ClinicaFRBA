@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicaFrba.Repository;
+using ClinicaFrba.Repository.Entities;
 
 namespace ClinicaFrba.Registrar_Agenta_Medico
 {
@@ -19,12 +21,51 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAgregarAgenda_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+
+            DataGridViewSelectedRowCollection rows = dataGridViewProfecionales.SelectedRows;
+            foreach(DataGridViewRow r in rows)
+            {
+                row = r;
+                break;
+            }
+
+            //MessageBox.Show("alerta", row.Cells[0].Value.ToString(), MessageBoxButtons.OK);
+            //capturo los datos del row y abro la otra ventana
+            RegistrarAgenda registrar = new RegistrarAgenda();
+            registrar.Show();
+        }
+
+        private void SeleccionarProfecional_Load(object sender, EventArgs e)
+        {
+            dataGridViewProfecionales.MultiSelect = false;
+
+            ProfesionalDao dao = new ProfesionalDao();
+
+            List<Usuario> lista = dao.GetProfesionales();
+
+            foreach (Usuario usuario in lista)
+            {
+                DataGridViewTextBoxCell nombre = new DataGridViewTextBoxCell();
+                nombre.Value = usuario.Nombre;
+                DataGridViewTextBoxCell apellido = new DataGridViewTextBoxCell();
+                apellido.Value = usuario.Apellido;
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells.Add(nombre);
+                row.Cells.Add(apellido);
+
+                dataGridViewProfecionales.Rows.Add(row);
+            }
         }
     }
 }

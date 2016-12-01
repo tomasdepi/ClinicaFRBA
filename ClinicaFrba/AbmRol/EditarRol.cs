@@ -34,12 +34,12 @@ namespace ClinicaFrba.AbmRol
             var funcionalidadesSeleccionadas = grdFuncionalidades.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToBoolean(row.Cells["Agregar"].Value) == true).ToList();
             funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
 
-            dao.eliminarRol(lblNombreRol.Text);
+            dao.EliminarRol(lblNombreRol.Text);
 
-            dao.guardarRol(lblNombreRol.Text, funcionalidades, true);
+            dao.GuardarRol(lblNombreRol.Text, funcionalidades, true);
 
             int estado = cbEstado.SelectedValue == "Habilitado" ? 1 : 0;
-            dao.actualizarEstadoRol(lblNombreRol.Text, estado);
+            dao.ActualizarEstadoRol(lblNombreRol.Text, estado);
 
             MessageBox.Show("Rol Modificado Con Exito", "Aviso", MessageBoxButtons.OK);
 
@@ -70,15 +70,15 @@ namespace ClinicaFrba.AbmRol
         private void CargarListaFuncionalidades()
         {
             RolFuncionalidadDao  dao = new RolFuncionalidadDao();
-            List<Funcionalidad> listaFuncionalidades = dao.getFuncionalidadesEditar(lblNombreRol.Text);
+            List<Funcionalidad> listaFuncionalidades = dao.GetFuncionalidadesEditar(lblNombreRol.Text);
 
             for (int i = 0; i < listaFuncionalidades.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 DataGridViewTextBoxCell nombre = new DataGridViewTextBoxCell();
                 DataGridViewCheckBoxCell estado = new DataGridViewCheckBoxCell();
-                nombre.Value = listaFuncionalidades[i].nombreFuncionalidad;
-                estado.Value = listaFuncionalidades[i].habilitado ? true : false;         
+                nombre.Value = listaFuncionalidades[i].NombreFuncionalidad;
+                estado.Value = listaFuncionalidades[i].Habilitado ? true : false;         
 
                 row.Cells.Add(nombre);
                 row.Cells.Add(estado);

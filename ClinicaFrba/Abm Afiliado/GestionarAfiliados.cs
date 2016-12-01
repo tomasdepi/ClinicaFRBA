@@ -42,18 +42,18 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 var service = new ClinicaService();
 
-            var response = service.CargarGrillaAfiliados(new CargarGrillaAfiliadoRequest()
-            {
-                Apellido = (string.IsNullOrEmpty(this.txtApellido.Text)) ? string.Empty : this.txtApellido.Text,
-                Nombre = (string.IsNullOrEmpty(this.txtNombre.Text)) ? string.Empty : this.txtNombre.Text,
-                EstadoActual = (cboEstadoActual.SelectedItem.ToString() == "Habilitado") ? true : false,
-                DescripcionPlan = string.IsNullOrEmpty(this.cboPlanes.SelectedItem.ToString()) ?  string.Empty : this.cboPlanes.SelectedItem.ToString()
-            });
+                var response = service.CargarGrillaAfiliados(new CargarGrillaAfiliadoRequest()
+                {
+                    Apellido = (string.IsNullOrEmpty(this.txtApellido.Text)) ? string.Empty : this.txtApellido.Text,
+                    Nombre = (string.IsNullOrEmpty(this.txtNombre.Text)) ? string.Empty : this.txtNombre.Text,
+                    EstadoActual = (cboEstadoActual.SelectedItem.ToString() == "Habilitado") ? true : false,
+                    DescripcionPlan = string.IsNullOrEmpty(this.cboPlanes.SelectedItem.ToString()) ?  string.Empty : this.cboPlanes.SelectedItem.ToString()
+                });
 
-            // Agregar TODOS los atributos a la grdAfiliados en la UI para que funcione
-            var source = new BindingSource();
-            source.DataSource = response.Usuarios;
-            this.grdAfiliados.DataSource = source;
+                // Agregar TODOS los atributos a la grdAfiliados en la UI para que funcione
+                var source = new BindingSource();
+                source.DataSource = response.Usuarios;
+                this.grdAfiliados.DataSource = source;
             }
         }
 

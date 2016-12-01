@@ -13,16 +13,12 @@ namespace ClinicaFrba.Repository
     public class RolFuncionalidadDao : BaseDao<Rol>
     {
 
-        public RolFuncionalidadDao()
+        public RolFuncionalidadDao() : base()
         {
-           var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-           // Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
-                 //                          "Trusted_Connection=yes;" +
-                    //                       "database=GD2C2016; " +
-                       //                    "connection timeout=10");
+         
         }
 
-        public List<String> getFuncionalidades()
+        public List<String> GetFuncionalidades()
         {
             String query = "select distinct varFuncionalidad FROM dbo.Funcionalidad ";
             this.Command = new SqlCommand(query, this.Connector);
@@ -44,7 +40,7 @@ namespace ClinicaFrba.Repository
             return listaFuncionalidads;
         }
 
-        public void guardarRol(String nombre, List<String> funcionalidades, bool editar)
+        public void GuardarRol(String nombre, List<String> funcionalidades, bool editar)
         {
 
             List<int> posiciones = new List<int>();
@@ -85,7 +81,7 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
         }
 
-        public List<Rol> getRoles()
+        public List<Rol> GetRoles()
         {
             List<Rol> roles = new List<Rol>();
             this.Connector.Open();
@@ -95,15 +91,15 @@ namespace ClinicaFrba.Repository
             while (resultado.Read())
             {
                 Rol rol = new Rol();
-                rol.nombreRol = resultado["varNombreRol"].ToString();
-                rol.estadoRol = resultado.GetBoolean(1);
+                rol.NombreRol = resultado["varNombreRol"].ToString();
+                rol.EstadoRol = resultado.GetBoolean(1);
                 roles.Add(rol);
             }
             this.Connector.Close();
             return roles;
         }
 
-        public void actualizarEstadoRol(String rol, int estado)
+        public void ActualizarEstadoRol(String rol, int estado)
         {
             String query = "update dbo.Rol set bitHabilitado = @estado where varNombreRol = @rol";
 
@@ -119,7 +115,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public List<Funcionalidad> getFuncionalidadesEditar(String rol)
+        public List<Funcionalidad> GetFuncionalidadesEditar(String rol)
         {
             String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = @rol and b.varFuncionalidad = c.varFuncionalidad) is null " +
 	                            "then 0 else 1 end resu "+
@@ -139,8 +135,8 @@ namespace ClinicaFrba.Repository
             while(resultado.Read())
             {
                 Funcionalidad func = new Funcionalidad();
-                func.nombreFuncionalidad = resultado[0].ToString();
-                func.habilitado = Convert.ToBoolean(Convert.ToInt32(resultado[1]));
+                func.NombreFuncionalidad = resultado[0].ToString();
+                func.Habilitado = Convert.ToBoolean(Convert.ToInt32(resultado[1]));
 
                 listaFuncionalidads.Add(func);
             }
@@ -151,7 +147,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public void eliminarRol(String rol)
+        public void EliminarRol(String rol)
         {
             String query = "exec dbo.eliminarRol @rol";
 

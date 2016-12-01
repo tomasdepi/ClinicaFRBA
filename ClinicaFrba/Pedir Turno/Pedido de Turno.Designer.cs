@@ -80,7 +80,8 @@
             this.lblEspecialidad.Name = "lblEspecialidad";
             this.lblEspecialidad.Size = new System.Drawing.Size(120, 13);
             this.lblEspecialidad.TabIndex = 1;
-            this.lblEspecialidad.Text = "Especilaidad buscada : ";
+            this.lblEspecialidad.Text = "Especialidad buscada : ";
+            this.lblEspecialidad.Click += new System.EventHandler(this.lblEspecialidad_Click);
             // 
             // cBoxEspecilidad
             // 

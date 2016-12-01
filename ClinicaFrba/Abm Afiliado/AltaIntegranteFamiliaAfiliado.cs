@@ -26,7 +26,7 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (datosValidos()) { 
+            if (DatosValidos()) { 
             this.Afiliado = new Usuario();
 
             this.Afiliado.EstadoCivil = this.cboEstadoCivil.SelectedItem.ToString();
@@ -89,7 +89,7 @@ namespace ClinicaFrba.Abm_Afiliado
             this.cboEstadoCivil.Items.Add("Viudo");
         }
 
-        private bool datosValidos()
+        private bool DatosValidos()
         {
             if(this.cboEstadoCivil.SelectedItem.ToString()== null) { return false; }
             if (!Regex.IsMatch(this.txtApellido.Text, @"^[a-zA-Z]+$")) { return false; }

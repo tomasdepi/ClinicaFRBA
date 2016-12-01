@@ -50,7 +50,7 @@ namespace ClinicaFrba.Service
 
         }
 
-        public bool esCampoNumerico(string username)
+        public bool EsCampoNumerico(string username)
         {
             throw new NotImplementedException();
         }
@@ -111,10 +111,20 @@ namespace ClinicaFrba.Service
                 {
                     response.DescPlanes.Add(plan.Descripcion);
                 }
-                //algo
             }
 
             return response;
+        }
+
+        public void ModificarDatosDeAfiliado(ModificarDatosDeAfiliadoRequest request)
+        {
+            var repo = new AfiliadoDao();
+
+            if (request != null)
+            {
+                repo.Update(request.Afiliado);
+            }
+
         }
     }
 }

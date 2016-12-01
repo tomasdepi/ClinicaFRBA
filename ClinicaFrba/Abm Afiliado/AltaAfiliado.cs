@@ -43,7 +43,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 NroDocumento = Convert.ToInt32(this.txtNroDoc.Text),
                 NroAfiliado = Convert.ToInt32(this.txtNroAfiliado.Text),
                 TipoDocumento = this.txtTipoDoc.Text,
-                FechaNacimiento = Convert.ToDateTime(this.dtpFechaNacimiento.Text),
+                FechaNacimiento = Convert.ToDateTime(this.dtpFechaNacimiento.Value),
                 Mail = this.txtMail.Text,
                 EstadoCivil = this.cboEstadoCivil.SelectedItem.ToString(),
                 Direccion = this.txtDireccion.Text,
@@ -73,7 +73,7 @@ namespace ClinicaFrba.Abm_Afiliado
 
             service.GuardarRegistroAfiliado(afiliados);
 
-            MessageBox.Show("El registro del afiliado se guardo correctamente");
+            MessageBox.Show("El registro del afiliado se guardó correctamente");
         }
 
 

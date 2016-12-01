@@ -21,5 +21,10 @@ namespace ClinicaFrba.Pedir_Turno
         {
 
         }
+
+        private void lblEspecialidad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

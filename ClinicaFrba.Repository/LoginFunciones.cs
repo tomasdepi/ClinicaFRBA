@@ -28,7 +28,7 @@ namespace ClinicaFrba.Repository
         }
 
 
-        public List<String> logearse(String user, String pass)
+        public List<String> Logearse(String user, String pass)
         {
             int intUser = Int32.Parse(user);
             List<String> roles = new List<string>();
@@ -51,7 +51,7 @@ namespace ClinicaFrba.Repository
             return roles;
         }
 
-        public void intentoFallido(String user)
+        public void IntentoFallido(String user)
         {
             String query = "exec dbo.actualizarIntentoLogin @user";
 
@@ -64,7 +64,7 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
         }
 
-        public List<String> getFuncionalidadesDeRol(String rol)
+        public List<String> GetFuncionalidadesDeRol(String rol)
         {
 
             List<String> funcs = new List<string>();

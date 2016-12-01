@@ -42,7 +42,7 @@ namespace ClinicaFrba.AbmRol
         private void CargarListaFuncionalidades()
         {
             RolFuncionalidadDao dao = new RolFuncionalidadDao();
-            List<String> listaFuncionalidades = dao.getFuncionalidades();
+            List<String> listaFuncionalidades = dao.GetFuncionalidades();
 
             for(int i=0; i < listaFuncionalidades.Count; i++)
             {
@@ -76,7 +76,7 @@ namespace ClinicaFrba.AbmRol
 
                 funcionalidadesSeleccionadas.ForEach(row => funcionalidades.Add(row.Cells[0].Value.ToString()));
                 RolFuncionalidadDao depi = new RolFuncionalidadDao();
-                depi.guardarRol(txtNombre.Text, funcionalidades, false);
+                depi.GuardarRol(txtNombre.Text, funcionalidades, false);
 
                 MessageBox.Show("Rol Creado Exitosamente!!!", "Aviso", MessageBoxButtons.OK);
 

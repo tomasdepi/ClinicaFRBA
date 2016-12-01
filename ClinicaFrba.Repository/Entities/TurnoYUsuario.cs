@@ -15,33 +15,33 @@ namespace ClinicaFrba.Repository.Entities
         public String Sintomas { get; set; }
         public String Diagnostico { get; set; }
 
-        public String getHora()
+        public String GetHora()
         {
             String var = FechaTurno.ToString("HH:mm"); 
             return var;
         }
 
-        public String getNombre()
+        public String GetNombre()
         {
             return Nombre;
         }
 
-        public String getApellido()
+        public String GetApellido()
         {
             return Apellido;
         }
 
-        public int getIdTurno()
+        public int GetIdTurno()
         {
             return IdTurno;
         }
 
-        public String getSintomas()
+        public String GetSintomas()
         {
             return Sintomas;
         }
 
-        public String getDiagnostico()
+        public String GetDiagnostico()
         {
             return Diagnostico;
         }

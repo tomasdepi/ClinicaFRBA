@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridViewProfecionales = new System.Windows.Forms.DataGridView();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.columnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnHorasAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnAgregarAgenda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProfecionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,13 +43,22 @@
             this.dataGridViewProfecionales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNombre,
             this.columnApellido,
-            this.columnHorasAcumuladas,
-            this.columnButton});
-            this.dataGridViewProfecionales.Location = new System.Drawing.Point(12, 29);
+            this.columnHorasAcumuladas});
+            this.dataGridViewProfecionales.Location = new System.Drawing.Point(53, 26);
             this.dataGridViewProfecionales.Name = "dataGridViewProfecionales";
-            this.dataGridViewProfecionales.Size = new System.Drawing.Size(445, 232);
+            this.dataGridViewProfecionales.Size = new System.Drawing.Size(345, 232);
             this.dataGridViewProfecionales.TabIndex = 0;
             this.dataGridViewProfecionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(139, 274);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 1;
+            this.btnVolver.Text = "Vovler";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // columnNombre
             // 
@@ -66,30 +75,27 @@
             this.columnHorasAcumuladas.HeaderText = "Horas Acumuladas";
             this.columnHorasAcumuladas.Name = "columnHorasAcumuladas";
             // 
-            // columnButton
+            // btnAgregarAgenda
             // 
-            this.columnButton.HeaderText = "Agregar Horario";
-            this.columnButton.Name = "columnButton";
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(193, 279);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 1;
-            this.btnVolver.Text = "Vovler";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnAgregarAgenda.Location = new System.Drawing.Point(238, 274);
+            this.btnAgregarAgenda.Name = "btnAgregarAgenda";
+            this.btnAgregarAgenda.Size = new System.Drawing.Size(116, 23);
+            this.btnAgregarAgenda.TabIndex = 2;
+            this.btnAgregarAgenda.Text = "Agregar Agenda";
+            this.btnAgregarAgenda.UseVisualStyleBackColor = true;
+            this.btnAgregarAgenda.Click += new System.EventHandler(this.btnAgregarAgenda_Click);
             // 
             // SeleccionarProfecional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 314);
+            this.ClientSize = new System.Drawing.Size(468, 309);
+            this.Controls.Add(this.btnAgregarAgenda);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dataGridViewProfecionales);
             this.Name = "SeleccionarProfecional";
             this.Text = "SeleccionarProfecional";
+            this.Load += new System.EventHandler(this.SeleccionarProfecional_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProfecionales)).EndInit();
             this.ResumeLayout(false);
 
@@ -98,10 +104,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewProfecionales;
+        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnHorasAcumuladas;
-        private System.Windows.Forms.DataGridViewButtonColumn columnButton;
-        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnAgregarAgenda;
     }
 }

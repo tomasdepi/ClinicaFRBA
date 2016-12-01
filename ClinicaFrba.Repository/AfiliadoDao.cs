@@ -176,7 +176,7 @@ namespace ClinicaFrba.Repository
 
         public static string sha256_hash(string value)
         {
-            StringBuilder Sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             using (SHA256 hash = SHA256Managed.Create())
             {
@@ -184,10 +184,10 @@ namespace ClinicaFrba.Repository
                 Byte[] result = hash.ComputeHash(enc.GetBytes(value));
 
                 foreach (Byte b in result)
-                    Sb.Append(b.ToString("x2"));
+                    sb.Append(b.ToString("x2"));
             }
 
-            return Sb.ToString();
+            return sb.ToString();
         }
 
         public List<Usuario> ObtenerUsuariosConFiltros(string nombre, string apellido, string descPlan, bool? estadoActual)

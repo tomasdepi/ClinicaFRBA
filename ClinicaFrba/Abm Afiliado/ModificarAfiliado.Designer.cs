@@ -34,6 +34,8 @@
             this.lblNroDoc = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.gboxDatosFundamentales = new System.Windows.Forms.GroupBox();
+            this.cboSexo = new System.Windows.Forms.ComboBox();
+            this.dtpFechaDeNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
             this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -44,9 +46,8 @@
             this.lblFecNac = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.gboxDatosAdicionales = new System.Windows.Forms.GroupBox();
-            this.btnSeleccinarPlan = new System.Windows.Forms.Button();
-            this.btnHistorial = new System.Windows.Forms.Button();
-            this.txtPlanMedico = new System.Windows.Forms.TextBox();
+            this.cboPlanes = new System.Windows.Forms.ComboBox();
+            this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -55,9 +56,6 @@
             this.lblMail = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dtpFechaDeNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.cboSexo = new System.Windows.Forms.ComboBox();
-            this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.gboxDatosFundamentales.SuspendLayout();
             this.gboxDatosAdicionales.SuspendLayout();
             this.SuspendLayout();
@@ -129,7 +127,21 @@
             this.gboxDatosFundamentales.TabIndex = 5;
             this.gboxDatosFundamentales.TabStop = false;
             this.gboxDatosFundamentales.Text = "Datos Fundamentales";
-            this.gboxDatosFundamentales.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cboSexo
+            // 
+            this.cboSexo.FormattingEnabled = true;
+            this.cboSexo.Location = new System.Drawing.Point(126, 181);
+            this.cboSexo.Name = "cboSexo";
+            this.cboSexo.Size = new System.Drawing.Size(48, 21);
+            this.cboSexo.TabIndex = 17;
+            // 
+            // dtpFechaDeNacimiento
+            // 
+            this.dtpFechaDeNacimiento.Location = new System.Drawing.Point(126, 157);
+            this.dtpFechaDeNacimiento.Name = "dtpFechaDeNacimiento";
+            this.dtpFechaDeNacimiento.Size = new System.Drawing.Size(149, 20);
+            this.dtpFechaDeNacimiento.TabIndex = 16;
             // 
             // txtNroDoc
             // 
@@ -174,7 +186,6 @@
             this.lblNroAfiliado.Size = new System.Drawing.Size(64, 13);
             this.lblNroAfiliado.TabIndex = 8;
             this.lblNroAfiliado.Text = "Nro Afiliado:";
-            this.lblNroAfiliado.Click += new System.EventHandler(this.lblNroAfiliado_Click);
             // 
             // lvlSexo
             // 
@@ -205,10 +216,8 @@
             // 
             // gboxDatosAdicionales
             // 
+            this.gboxDatosAdicionales.Controls.Add(this.cboPlanes);
             this.gboxDatosAdicionales.Controls.Add(this.cboEstadoCivil);
-            this.gboxDatosAdicionales.Controls.Add(this.btnSeleccinarPlan);
-            this.gboxDatosAdicionales.Controls.Add(this.btnHistorial);
-            this.gboxDatosAdicionales.Controls.Add(this.txtPlanMedico);
             this.gboxDatosAdicionales.Controls.Add(this.txtMail);
             this.gboxDatosAdicionales.Controls.Add(this.txtTelefono);
             this.gboxDatosAdicionales.Controls.Add(this.txtDireccion);
@@ -224,32 +233,21 @@
             this.gboxDatosAdicionales.TabStop = false;
             this.gboxDatosAdicionales.Text = "Datos Adicionales";
             // 
-            // btnSeleccinarPlan
+            // cboPlanes
             // 
-            this.btnSeleccinarPlan.Location = new System.Drawing.Point(282, 126);
-            this.btnSeleccinarPlan.Name = "btnSeleccinarPlan";
-            this.btnSeleccinarPlan.Size = new System.Drawing.Size(120, 23);
-            this.btnSeleccinarPlan.TabIndex = 15;
-            this.btnSeleccinarPlan.Text = "Seleccionar Plan";
-            this.btnSeleccinarPlan.UseVisualStyleBackColor = true;
-            this.btnSeleccinarPlan.Click += new System.EventHandler(this.btnSeleccinarPlan_Click);
+            this.cboPlanes.FormattingEnabled = true;
+            this.cboPlanes.Location = new System.Drawing.Point(126, 128);
+            this.cboPlanes.Name = "cboPlanes";
+            this.cboPlanes.Size = new System.Drawing.Size(149, 21);
+            this.cboPlanes.TabIndex = 17;
             // 
-            // btnHistorial
+            // cboEstadoCivil
             // 
-            this.btnHistorial.Location = new System.Drawing.Point(408, 126);
-            this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Size = new System.Drawing.Size(75, 23);
-            this.btnHistorial.TabIndex = 14;
-            this.btnHistorial.Text = "Ver Historial";
-            this.btnHistorial.UseVisualStyleBackColor = true;
-            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
-            // 
-            // txtPlanMedico
-            // 
-            this.txtPlanMedico.Location = new System.Drawing.Point(126, 126);
-            this.txtPlanMedico.Name = "txtPlanMedico";
-            this.txtPlanMedico.Size = new System.Drawing.Size(149, 20);
-            this.txtPlanMedico.TabIndex = 13;
+            this.cboEstadoCivil.FormattingEnabled = true;
+            this.cboEstadoCivil.Location = new System.Drawing.Point(126, 100);
+            this.cboEstadoCivil.Name = "cboEstadoCivil";
+            this.cboEstadoCivil.Size = new System.Drawing.Size(149, 21);
+            this.cboEstadoCivil.TabIndex = 16;
             // 
             // txtMail
             // 
@@ -319,29 +317,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // dtpFechaDeNacimiento
-            // 
-            this.dtpFechaDeNacimiento.Location = new System.Drawing.Point(126, 159);
-            this.dtpFechaDeNacimiento.Name = "dtpFechaDeNacimiento";
-            this.dtpFechaDeNacimiento.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaDeNacimiento.TabIndex = 16;
-            // 
-            // cboSexo
-            // 
-            this.cboSexo.FormattingEnabled = true;
-            this.cboSexo.Location = new System.Drawing.Point(126, 181);
-            this.cboSexo.Name = "cboSexo";
-            this.cboSexo.Size = new System.Drawing.Size(121, 21);
-            this.cboSexo.TabIndex = 17;
-            // 
-            // cboEstadoCivil
-            // 
-            this.cboEstadoCivil.FormattingEnabled = true;
-            this.cboEstadoCivil.Location = new System.Drawing.Point(126, 100);
-            this.cboEstadoCivil.Name = "cboEstadoCivil";
-            this.cboEstadoCivil.Size = new System.Drawing.Size(121, 21);
-            this.cboEstadoCivil.TabIndex = 16;
-            // 
             // ModificarAfiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,6 +328,7 @@
             this.Controls.Add(this.gboxDatosFundamentales);
             this.Name = "ModificarAfiliado";
             this.Text = "Modificar afiliado";
+            this.Load += new System.EventHandler(this.ModificarAfiliado_Load);
             this.gboxDatosFundamentales.ResumeLayout(false);
             this.gboxDatosFundamentales.PerformLayout();
             this.gboxDatosAdicionales.ResumeLayout(false);
@@ -379,7 +355,6 @@
         private System.Windows.Forms.Label lblNroAfiliado;
         private System.Windows.Forms.Label lvlSexo;
         private System.Windows.Forms.GroupBox gboxDatosAdicionales;
-        private System.Windows.Forms.TextBox txtPlanMedico;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
@@ -388,10 +363,9 @@
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSeleccinarPlan;
-        private System.Windows.Forms.Button btnHistorial;
         private System.Windows.Forms.ComboBox cboSexo;
         private System.Windows.Forms.DateTimePicker dtpFechaDeNacimiento;
         private System.Windows.Forms.ComboBox cboEstadoCivil;
+        private System.Windows.Forms.ComboBox cboPlanes;
     }
 }

@@ -16,20 +16,20 @@ namespace ClinicaFrba.Registro_Resultado
 {
     public partial class ConfirmarDiagnostico : Form
     {
-        private string apellidoPaciente;
-        private string horaTurno;
-        private string nombrePaciente;
-        private int idTurno;
+        private string _apellidoPaciente;
+        private string _horaTurno;
+        private string _nombrePaciente;
+        private int _idTurno;
 
 
         public ConfirmarDiagnostico(string hora, string nombre, string apellido, int id)
         {
             InitializeComponent();
-            apellidoPaciente = apellido;
-            nombrePaciente = nombre;
-            horaTurno = hora;
-            idTurno = id;
-            lblDatos.Text = "Turno para :" +this.nombrePaciente + "," + this.apellidoPaciente + ". A las: " +this.horaTurno;
+            _apellidoPaciente = apellido;
+            _nombrePaciente = nombre;
+            _horaTurno = hora;
+            _idTurno = id;
+            lblDatos.Text = "Turno para :" +this._nombrePaciente + "," + this._apellidoPaciente + ". A las: " +this._horaTurno;
             
         }
 
@@ -85,11 +85,11 @@ namespace ClinicaFrba.Registro_Resultado
             }  
 
             TurnoYUsuario turno = new TurnoYUsuario();
-            turno.Apellido = this.apellidoPaciente;
+            turno.Apellido = this._apellidoPaciente;
             turno.Diagnostico = this.txtBoxDiagnostico.Text;
-            turno.Nombre = this.nombrePaciente;
+            turno.Nombre = this._nombrePaciente;
             turno.Sintomas = this.txtBoxSintomas.Text;
-            turno.IdTurno = this.idTurno;
+            turno.IdTurno = this._idTurno;
 
         //    TurnoDao turnoCompleato = new TurnoDao();
         //    turnoCompleato.actualizarTurnoCompletado(turno);

@@ -44,7 +44,7 @@ namespace ClinicaFrba.Compra_Bono
 
 
                 BonoDao f = new BonoDao();
-                Usuario usuario = f.existeAfiliado(numAfiliado);
+                Usuario usuario = f.ExisteAfiliado(numAfiliado);
 
             if (usuario.Equals(null))
             {
