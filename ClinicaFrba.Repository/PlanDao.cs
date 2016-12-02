@@ -1,6 +1,7 @@
 ﻿using ClinicaFrba.Repository.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,26 @@ namespace ClinicaFrba.Repository
 
 
             return planes;
+        }
+
+        public int GetCodigoPlanByDescripcion(string descripcion)
+        {
+            string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM[dbo].[Plan] WHERE varDescripcion =" 
+                + "'" + descripcion + "'";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+            SqlDataReader reader = this.Command.ExecuteReader();
+
+            int codigoPlan = 0;
+
+            while (reader.Read())
+            {
+                codigoPlan = Convert.ToInt32(reader["intCodigoPlan"]);
+            }
+
+            return codigoPlan;
         }
     }
 }

@@ -131,5 +131,14 @@ namespace ClinicaFrba.Service
         {
             new TurnoDao().GuardarTurnoCancelado(turno);
         }
+
+
+        public int GetCodigoPlanByDescripcion(string descripcion)
+        {
+            var repo = new PlanDao();
+
+            return repo.GetCodigoPlanByDescripcion(descripcion);
+
+        }
     }
 }

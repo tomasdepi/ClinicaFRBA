@@ -138,7 +138,7 @@ namespace ClinicaFrba.Repository
         public override Usuario GetById(int id)
         {
             const string query =
-                "SELECT TOP 1 * FROM Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE intIdUsuario = @id";
+                "SELECT TOP 1 * FROM Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE u.intIdUsuario = @id";
 
             this.Command = new SqlCommand(query, this.Connector);
             this.Command.Parameters.Add("@id", SqlDbType.Int).Value = id;
@@ -152,20 +152,20 @@ namespace ClinicaFrba.Repository
             {
                 user = new Usuario
                 {
-                    NroAfiliado = Convert.ToInt32(reader["intNumeroAfiliado"]),
-                    EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
+                    NroAfiliado = reader["intNumeroAfiliado"] as int? ?? default(int),
+                    //EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
                     Apellido = Convert.ToString(reader["varApellido"]),
                     Nombre = Convert.ToString(reader["varNombre"]),
                     TipoDocumento = Convert.ToString(reader["varTipoDocumento"]),
-                    NroDocumento = Convert.ToInt32(reader["intNroDocumento"]),
-                    Telefono = Convert.ToInt32(reader["intTelefono"]),
+                    NroDocumento = reader["intNroDocumento"] as int? ?? default(int),
+                    Telefono = reader["intTelefono"] as int? ?? default(int),
                     Mail = Convert.ToString(reader["varMail"]),
                     FechaNacimiento = Convert.ToDateTime(reader["datFechaNacimiento"]),
                     Sexo = Convert.ToString(reader["chrSexo"]),
-                    CantidadFamiliaresACargo = Convert.ToInt32(reader["intCantidadFamiliares"]),
-                    NumeroConsultaMedica = Convert.ToInt32(reader["intNumeroConsultaMedica"]),
-                    CodigoPlanMedico = Convert.ToInt32(reader["intCodigoPlan"]),
-                    EstadoHabilitacion = Convert.ToInt32(reader["bitEstadoActual"]),
+                    CantidadFamiliaresACargo = reader["intCantidadFamiliares"] as int? ?? default(int),
+                    NumeroConsultaMedica = reader["intNumeroConsultaMedica"] as int? ?? default(int),
+                    CodigoPlanMedico = reader["intCodigoPlan"] as int? ?? default(int),
+                    EstadoHabilitacion = reader["bitEstadoActual"] as int? ?? default(int),
                     Direccion = Convert.ToString(reader["varDireccion"])
                 };
 
@@ -193,7 +193,7 @@ namespace ClinicaFrba.Repository
         public List<Usuario> ObtenerUsuariosConFiltros(string nombre, string apellido, string descPlan, bool? estadoActual)
         {
             StringBuilder query = new StringBuilder();
-                query.Append("SELECT *  Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE 1 = 1");
+                query.Append("SELECT * FROM Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario INNER JOIN [GD2C2016].[dbo].[Plan] p ON p.intCodigoPlan = a.intCodigoPlan WHERE 1 = 1");
 
             if (!string.IsNullOrEmpty(nombre))
             {
@@ -207,12 +207,19 @@ namespace ClinicaFrba.Repository
 
             if (!string.IsNullOrEmpty(descPlan))
             {
-                query.Append("AND a.varDescripcion = " + descPlan );
+                query.Append("AND p.varDescripcion = " + "'" + descPlan + "'");
             }
 
             if (estadoActual.HasValue)
             {
-                query.Append("AND a.bitEstadoActual =" + estadoActual.Value.ToString());
+                int enc = 0;
+
+                if (estadoActual.Value == true)
+                {
+                    enc = 1;
+                }
+
+                query.Append("AND a.bitEstadoActual =" + enc);
             }
 
             this.Command = new SqlCommand(query.ToString(),this.Connector);
@@ -225,20 +232,20 @@ namespace ClinicaFrba.Repository
             {
                 var user = new Usuario
                 {
-                    NroAfiliado = Convert.ToInt32(reader["intNumeroAfiliado"]),
-                    EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
+                    NroAfiliado = reader["intNumeroAfiliado"] as int? ?? default(int),
+                    //EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
                     Apellido = Convert.ToString(reader["varApellido"]),
                     Nombre = Convert.ToString(reader["varNombre"]),
                     TipoDocumento = Convert.ToString(reader["varTipoDocumento"]),
-                    NroDocumento = Convert.ToInt32(reader["intNroDocumento"]),
-                    Telefono = Convert.ToInt32(reader["intTelefono"]),
-                    Mail = Convert.ToString(reader["varMail"]),
+                    NroDocumento = reader["intNroDocumento"] as int? ?? default(int),
+                    Telefono = reader["intTelefono"] as int? ?? default(int),
+                    Mail = Convert.ToString(reader["varMail"].ToString()),
                     FechaNacimiento = Convert.ToDateTime(reader["datFechaNacimiento"]),
                     Sexo = Convert.ToString(reader["chrSexo"]),
-                    CantidadFamiliaresACargo = Convert.ToInt32(reader["intCantidadFamiliares"]),
-                    NumeroConsultaMedica =  Convert.ToInt32(reader["intNumeroConsultaMedica"]),
-                    CodigoPlanMedico =  Convert.ToInt32(reader["intCodigoPlan"]),
-                    EstadoHabilitacion = Convert.ToInt32(reader["bitEstadoActual"]),
+                    CantidadFamiliaresACargo = reader["intCantidadFamiliares"] as int? ?? default(int),
+                    NumeroConsultaMedica = reader["intNumeroConsultaMedica"] as int? ?? default(int),
+                    CodigoPlanMedico = reader["intCodigoPlan"] as int? ?? default(int),
+                    EstadoHabilitacion = reader["bitEstadoActual"] as int? ?? default(int),
                     Direccion = Convert.ToString(reader["varDireccion"])
                 };
 

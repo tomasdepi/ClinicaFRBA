@@ -142,7 +142,7 @@
             this.btnHacerListado.TabIndex = 9;
             this.btnHacerListado.Text = "Buscar";
             this.btnHacerListado.UseVisualStyleBackColor = true;
-            this.btnHacerListado.Click += new System.EventHandler(this.btnHacerListado_Click);
+            //this.btnHacerListado.Click += new System.EventHandler(this.btnHacerListado_Click);
             // 
             // lblPlan
             // 

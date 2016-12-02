@@ -42,6 +42,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.grdAfiliados = new System.Windows.Forms.DataGridView();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.IdAfiliado = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NroAfiliado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             this.NroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.gboxFiltrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAfiliados)).BeginInit();
             this.SuspendLayout();
@@ -149,6 +149,7 @@
             this.btnLimpiar.TabIndex = 1;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBuscar
             // 
@@ -158,6 +159,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // grdAfiliados
             // 
@@ -177,6 +179,15 @@
             this.grdAfiliados.Size = new System.Drawing.Size(844, 299);
             this.grdAfiliados.TabIndex = 3;
             this.grdAfiliados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAfiliados_CellContentClick);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(393, 497);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 4;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
             // 
             // IdAfiliado
             // 
@@ -221,17 +232,11 @@
             // 
             // Editar
             // 
-            this.Editar.HeaderText = "";
+            this.Editar.HeaderText = "Modificar";
             this.Editar.Name = "Editar";
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(393, 497);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 4;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.Editar.Text = "Modificar";
+            this.Editar.ToolTipText = "Modificar";
+            this.Editar.UseColumnTextForButtonValue = true;
             // 
             // GestionarAfiliados
             // 
@@ -267,6 +272,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.DataGridView grdAfiliados;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.ComboBox cboPlanes;
         private System.Windows.Forms.DataGridViewButtonColumn IdAfiliado;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroAfiliado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
@@ -276,7 +283,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NroDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
-        private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.ComboBox cboPlanes;
     }
 }

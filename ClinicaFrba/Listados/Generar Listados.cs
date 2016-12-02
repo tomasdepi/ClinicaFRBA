@@ -95,69 +95,69 @@ namespace ClinicaFrba.Listados
 
         }
 
-        private void btnHacerListado_Click(object sender, EventArgs e)
-        {
-            if(todasLasComboBoxesCompletas())
-            {
-                InfoParaListado info = new InfoParaListado();
-                info.Ano = Int32.Parse(this.cboAño.Text);
-                info.Semestre = Int32.Parse(this.cboSemestre.Text);
-                info.Plan = Int32.Parse(this.cboSemestre.Text);
-                info.Especialidad = Int32.Parse(this.cboEspecialidad.Text);
-                if (this.cboMes.Text != "")
-                {
-                    info.Mes = Int32.Parse(this.cboMes.Text);
-                }
+        //private void btnHacerListado_Click(object sender, EventArgs e)
+        //{
+        //    if(todasLasComboBoxesCompletas())
+        //    {
+        //        InfoParaListado info = new InfoParaListado();
+        //        info.Ano = Int32.Parse(this.cboAño.Text);
+        //        info.Semestre = Int32.Parse(this.cboSemestre.Text);
+        //        info.Plan = Int32.Parse(this.cboSemestre.Text);
+        //        info.Especialidad = Int32.Parse(this.cboEspecialidad.Text);
+        //        if (this.cboMes.Text != "")
+        //        {
+        //            info.Mes = Int32.Parse(this.cboMes.Text);
+        //        }
 
-                if (cboListado.Text == "Especialidades con más cancelaciones")
-                {
-                    ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                    this.generarTabla(list.getEspecialidadesMasCanceladas(info));
-                    return;
-                }
+        //        if (cboListado.Text == "Especialidades con más cancelaciones")
+        //        {
+        //            ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
+        //            this.generarTabla(list.getEspecialidadesMasCanceladas(info));
+        //            return;
+        //        }
 
-                if (cboListado.Text == "Profecionales más consultados")
-                {
-                    ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTablaConMasValores(list.getProfesionalesMasConsultados(info));
-                    return;
-                }
+        //        if (cboListado.Text == "Profecionales más consultados")
+        //        {
+        //            ListadoUsuarioDao list = new ListadoUsuarioDao();
+        //            this.generarTablaConMasValores(list.getProfesionalesMasConsultados(info));
+        //            return;
+        //        }
 
-                if (cboListado.Text == "Profesional con menos horas trabajadas")
-                {
-                    ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
-                    return;
-                }
+        //        if (cboListado.Text == "Profesional con menos horas trabajadas")
+        //        {
+        //            ListadoUsuarioDao list = new ListadoUsuarioDao();
+        //            this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
+        //            return;
+        //        }
 
-                if (cboListado.Text == "Afiliados que más bonos compraron")
-                {
-                    ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTablaConMasValores(list.getAfiliadosQueCompraronMasBonos(info));
-                    return;
-                }
+        //        if (cboListado.Text == "Afiliados que más bonos compraron")
+        //        {
+        //            ListadoUsuarioDao list = new ListadoUsuarioDao();
+        //            this.generarTablaConMasValores(list.getAfiliadosQueCompraronMasBonos(info));
+        //            return;
+        //        }
 
-                if (cboListado.Text == "Especialidades más consultadas")
-                {
-                    ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                    this.generarTabla(list.getEspecialidadesMasConsultadas(info));
-                    return;
-                }
+        //        if (cboListado.Text == "Especialidades más consultadas")
+        //        {
+        //            ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
+        //            this.generarTabla(list.getEspecialidadesMasConsultadas(info));
+        //            return;
+        //        }
 
-                MessageBox.Show("Por favor, chequee que la lista seleccionada sea válida", "Error", MessageBoxButtons.OK);
-                return;
-            }
-        }
+        //        MessageBox.Show("Por favor, chequee que la lista seleccionada sea válida", "Error", MessageBoxButtons.OK);
+        //        return;
+        //    }
+        //}
 
-        private void generarTablaConMasValores(List<Usuario> list)
-        {
-            throw new NotImplementedException();
-        }
+        //private void generarTablaConMasValores(List<Usuario> list)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private void generarTabla(List<string>)
-        {
-            return 1;
-        }
+        //private void generarTabla(List<string>)
+        //{
+        //    return 1;
+        //}
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

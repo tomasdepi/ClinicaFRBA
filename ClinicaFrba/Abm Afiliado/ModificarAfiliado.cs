@@ -20,24 +20,34 @@ namespace ClinicaFrba.Abm_Afiliado
             InitializeComponent();
         }
 
+        private string NroDocumento { get; set; }
+
+        public ModificarAfiliado(string nroDocumento)
+        {
+            this.NroDocumento = nroDocumento;
+            InitializeComponent();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             var service = new ClinicaService();
+
+            int codPlan = service.GetCodigoPlanByDescripcion(this.cboPlanes.SelectedItem.ToString());
 
             var afiliado = new Usuario()
             {
                 Nombre = this.txtNombre.Text,
                 Apellido = this.txtApellido.Text,
                 NroDocumento = Convert.ToInt32(this.txtNroDoc.Text),
-                NroAfiliado = Convert.ToInt32(this.txtNroAfiliado.Text),
+                NroAfiliado = this.NroAfiliado,
                 TipoDocumento = this.txtTipoDoc.Text,
-                FechaNacimiento = this.dtpFechaDeNacimiento.Value.Date,
+                FechaNacimiento = Convert.ToDateTime(this.dtpFechaDeNacimiento.Value),
                 Mail = this.txtMail.Text,
                 EstadoCivil = this.cboEstadoCivil.SelectedItem.ToString(),
                 Direccion = this.txtDireccion.Text,
                 Telefono = Convert.ToInt32(this.txtTelefono.Text),
                 Sexo = this.cboSexo.SelectedItem.ToString(),
-                CodigoPlanMedico = Convert.ToInt32(this.cboPlanes.SelectedItem)
+                CodigoPlanMedico = codPlan
             };
 
             service.ModificarDatosDeAfiliado(new ModificarDatosDeAfiliadoRequest(){Afiliado = afiliado});
@@ -95,18 +105,18 @@ namespace ClinicaFrba.Abm_Afiliado
             this.CargarComboEstadoCivil();
             this.CargarComboPlanesMedicos();
             this.CargarComboSexo();
+            this.CargarDetalleAfiliado(Convert.ToInt32(NroDocumento));
         }
 
-        private void CargarDetalleAfiliado()
+        private void CargarDetalleAfiliado(int nroDocumento)
         {
             var service = new ClinicaService();
 
-            var response = service.CargarDetalleAfiliado(new CargarDetalleAfiliadoRequest() {NroDocumento = 15});
+            var response = service.CargarDetalleAfiliado(new CargarDetalleAfiliadoRequest() {NroDocumento = nroDocumento});
 
             this.txtNombre.Text = response.Usuario.Nombre ?? string.Empty;
             this.txtApellido.Text = response.Usuario.Apellido ?? string.Empty;
             this.txtNroDoc.Text = response.Usuario.NroDocumento.ToString();
-            this.txtNroAfiliado.Text = response.Usuario.NroAfiliado.ToString();
             this.txtTipoDoc.Text = response.Usuario.TipoDocumento ?? string.Empty;
             this.dtpFechaDeNacimiento.Value = response.Usuario.FechaNacimiento;
             this.txtMail.Text = response.Usuario.Mail ?? string.Empty;
@@ -115,7 +125,10 @@ namespace ClinicaFrba.Abm_Afiliado
             this.txtTelefono.Text = response.Usuario.Telefono.ToString();
             this.cboSexo.SelectedItem = response.Usuario.Sexo;
             this.cboPlanes.SelectedItem = response.Usuario.CodigoPlanMedico;
+            NroAfiliado = response.Usuario.NroAfiliado;
 
         }
+
+        public int NroAfiliado { get; set; }
     }
 }

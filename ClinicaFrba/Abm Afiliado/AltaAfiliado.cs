@@ -30,18 +30,16 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             var service = new ClinicaService();
 
-            List<Usuario> afiliados = new List<Usuario>();
-            
-            var random = new Random();
-            random.Next(100000, 999999);
+            int codPlan = service.GetCodigoPlanByDescripcion(this.cboPlanes.SelectedText);
 
-            
+            List<Usuario> afiliados = new List<Usuario>();
+        
             var afiliado = new Usuario()
             {
                 Nombre = this.txtNombre.Text,
                 Apellido = this.txtApellido.Text,
                 NroDocumento = Convert.ToInt32(this.txtNroDoc.Text),
-                NroAfiliado = Convert.ToInt32(this.txtNroAfiliado.Text),
+                NroAfiliado = Convert.ToInt32(this.txtNroDoc.Text),
                 TipoDocumento = this.txtTipoDoc.Text,
                 FechaNacimiento = Convert.ToDateTime(this.dtpFechaNacimiento.Value),
                 Mail = this.txtMail.Text,
@@ -49,7 +47,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 Direccion = this.txtDireccion.Text,
                 Telefono = Convert.ToInt32(this.txtTelefono.Text),
                 Sexo = this.cboSexo.SelectedItem.ToString(),
-                CodigoPlanMedico = Convert.ToInt32(this.cboPlanes.SelectedItem)
+                CodigoPlanMedico = codPlan
             };
 
             afiliados.Add(afiliado);

@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicaFrba.Repository.Entities;
 
 namespace ClinicaFrba.Abm_Afiliado
 {
@@ -22,6 +23,14 @@ namespace ClinicaFrba.Abm_Afiliado
 
         private void grdAfiliados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex > -1)
+            {
+                string nroDocumento = this.grdAfiliados.Rows[e.RowIndex].Cells["NroDocumento"].Value.ToString();
+
+                ModificarAfiliado f2 = new ModificarAfiliado(nroDocumento);
+
+                f2.Show();
+            }
 
         }
 
@@ -42,19 +51,59 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 var service = new ClinicaService();
 
-                var response = service.CargarGrillaAfiliados(new CargarGrillaAfiliadoRequest()
+                CargarGrillaAfiliadoResponse response = new CargarGrillaAfiliadoResponse();
+
+                response = service.CargarGrillaAfiliados(new CargarGrillaAfiliadoRequest()
                 {
                     Apellido = (string.IsNullOrEmpty(this.txtApellido.Text)) ? string.Empty : this.txtApellido.Text,
                     Nombre = (string.IsNullOrEmpty(this.txtNombre.Text)) ? string.Empty : this.txtNombre.Text,
                     EstadoActual = (cboEstadoActual.SelectedItem.ToString() == "Habilitado") ? true : false,
-                    DescripcionPlan = string.IsNullOrEmpty(this.cboPlanes.SelectedItem.ToString()) ?  string.Empty : this.cboPlanes.SelectedItem.ToString()
+                    DescripcionPlan = this.cboPlanes.SelectedItem?.ToString() ?? string.Empty
                 });
 
-                // Agregar TODOS los atributos a la grdAfiliados en la UI para que funcione
-                var source = new BindingSource();
-                source.DataSource = response.Usuarios;
-                this.grdAfiliados.DataSource = source;
+                this.CargarGrillaAfiliado(response.Usuarios);
             }
+        }
+
+        private void CargarGrillaAfiliado(List<Usuario> users)
+        {
+            DataTable dt = new DataTable();
+
+            this.grdAfiliados.AutoGenerateColumns = false;
+            this.grdAfiliados.Columns[1].DataPropertyName = "NroAfiliado";
+            this.grdAfiliados.Columns[2].DataPropertyName = "Plan";
+            this.grdAfiliados.Columns[3].DataPropertyName = "Nombre";
+            this.grdAfiliados.Columns[4].DataPropertyName = "Apellido";
+            this.grdAfiliados.Columns[5].DataPropertyName = "TipoDocumento";
+            this.grdAfiliados.Columns[6].DataPropertyName = "NroDocumento";
+            this.grdAfiliados.Columns[7].DataPropertyName = "Telefono";
+            this.grdAfiliados.Columns[8].DataPropertyName = "Modificar";
+
+            dt.Columns.Add("NroAfiliado");
+            dt.Columns.Add("Plan");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Apellido");
+            dt.Columns.Add("TipoDocumento");
+            dt.Columns.Add("NroDocumento");
+            dt.Columns.Add("Telefono");
+            dt.Columns.Add("Modificar");
+
+            DataRow dw;
+
+            foreach (var usuario in users)
+            {
+                dw = dt.NewRow();
+                dw["NroAfiliado"] = usuario.NroAfiliado.ToString();
+                dw["Plan"] = usuario.CodigoPlanMedico.ToString();
+                dw["Nombre"] = usuario.Nombre;
+                dw["Apellido"] = usuario.Apellido;
+                dw["TipoDocumento"] = usuario.TipoDocumento;
+                dw["NroDocumento"] = usuario.NroDocumento.ToString();
+                dw["Telefono"] = usuario.Telefono.ToString();
+                dt.Rows.Add(dw);
+            }
+
+            this.grdAfiliados.DataSource = dt;
         }
 
         private void CargarComboPlanesMedicos()
@@ -73,6 +122,7 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             this.cboEstadoActual.Items.Add("Habilitado");
             this.cboEstadoActual.Items.Add("Deshabilitado");
+            this.cboEstadoActual.SelectedIndex = 0;
         }
 
         private void GestionarAfiliados_Load(object sender, EventArgs e)
@@ -84,6 +134,13 @@ namespace ClinicaFrba.Abm_Afiliado
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.grdAfiliados.DataSource = null;
+            this.grdAfiliados.Rows.Clear();
+            this.grdAfiliados.Refresh();
         }
     }
 }
