@@ -54,6 +54,7 @@
             this.lblMail = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnBaja = new System.Windows.Forms.Button();
             this.gboxDatosFundamentales.SuspendLayout();
             this.gboxDatosAdicionales.SuspendLayout();
             this.SuspendLayout();
@@ -297,11 +298,22 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnBaja
+            // 
+            this.btnBaja.Location = new System.Drawing.Point(33, 418);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(115, 23);
+            this.btnBaja.TabIndex = 10;
+            this.btnBaja.Text = "DAR DE BAJA";
+            this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
+            // 
             // ModificarAfiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 479);
+            this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gboxDatosAdicionales);
@@ -345,5 +357,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaDeNacimiento;
         private System.Windows.Forms.ComboBox cboEstadoCivil;
         private System.Windows.Forms.ComboBox cboPlanes;
+        private System.Windows.Forms.Button btnBaja;
     }
 }

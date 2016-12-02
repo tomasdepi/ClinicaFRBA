@@ -130,5 +130,13 @@ namespace ClinicaFrba.Abm_Afiliado
         }
 
         public int NroAfiliado { get; set; }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            var service = new ClinicaService();
+           
+            service.DarDeBajaUsuario(Convert.ToInt32(this.NroDocumento));
+
+        }
     }
 }

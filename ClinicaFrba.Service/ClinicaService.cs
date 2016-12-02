@@ -140,5 +140,12 @@ namespace ClinicaFrba.Service
             return repo.GetCodigoPlanByDescripcion(descripcion);
 
         }
+
+        public void DarDeBajaUsuario(int nroDocumento)
+        {
+            var repo = new AfiliadoDao();
+
+            repo.Delete(nroDocumento);
+        }
     }
 }

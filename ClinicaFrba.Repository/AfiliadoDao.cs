@@ -123,12 +123,13 @@ namespace ClinicaFrba.Repository
         {
             const string query =
                 "UPDATE [dbo].[Afiliado]" +
-                "SET [bitEstadoActual] = 0" +
-                "WHERE intIdUsuario = @varTipoDocumento";
+                "SET [bitEstadoActual] = 0," +
+                "datFechaBaja = GETDATE()" +
+                "WHERE intIdUsuario = @intIdUsuario";
 
             this.Command = new SqlCommand(query, this.Connector);
 
-            this.Command.Parameters.Add("@varTipoDocumento", SqlDbType.VarChar, 5).Value = id;
+            this.Command.Parameters.Add("@intIdUsuario", SqlDbType.VarChar, 5).Value = id;
 
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
