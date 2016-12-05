@@ -27,11 +27,11 @@ namespace ClinicaFrba
 
         List<String> funcionalidades;
 
-        public Menu()
+        public Menu(List<String> funcs)
         {
             InitializeComponent();
 
-            // this.funcionalidades = funcs;
+            this.funcionalidades = funcs;
         }
 
         private void Menu_Load(object sender, EventArgs e)

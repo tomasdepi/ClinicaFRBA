@@ -73,7 +73,7 @@ namespace ClinicaFrba.Repository
 
             this.Command = new SqlCommand(query, this.Connector);
 
-            this.Command.Parameters.Add("@user", SqlDbType.VarChar).Value = rol;
+            this.Command.Parameters.Add("@rol", SqlDbType.VarChar).Value = rol;
 
             this.Connector.Open();
 

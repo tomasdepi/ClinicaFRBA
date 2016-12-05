@@ -216,18 +216,14 @@ C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Ab
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.EditarRol.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.GestionarRoles.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencionMedica.resources
-C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.Form1.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Compra_Bono.CompraBono.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Compra_Bono.VentanaIntermedioAdministrativo.resources
-C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.Form1.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.DiasDisponibles.resources
-C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.Form1.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.RegistrarAgenda.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.SeleccionarProfecional.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form3.resources
-C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form2.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form1.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.exe
@@ -251,3 +247,8 @@ C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\Clin
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.GenerarListado.resources
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.PedidoDeTurno.resources
 C:\Users\tomas\OneDrive\Documentos\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaBono.resources
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarTurno.resources
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.GenerarListado.resources
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Menu.resources
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.PedidoDeTurno.resources
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaBono.resources

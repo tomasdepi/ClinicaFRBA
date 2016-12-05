@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using ClinicaFrba.Repository;
 using ClinicaFrba.Repository.Entities;
 using ClinicaFrba.Service.Common;
+using System.Text.RegularExpressions;
 
 namespace ClinicaFrba.Service
 {
@@ -52,7 +53,8 @@ namespace ClinicaFrba.Service
 
         public bool EsCampoNumerico(string username)
         {
-            throw new NotImplementedException();
+            Regex reg = new Regex("[0-9]");
+            return reg.IsMatch(username);
         }
 
         /// <summary>

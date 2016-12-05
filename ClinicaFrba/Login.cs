@@ -55,7 +55,7 @@ namespace ClinicaFrba
                 }
 
             }
-            
+            cbRoles.SelectedItem = cbRoles.Items[0];
             //var roles = new GestionarRoles();
             //roles.ShowDialog();
         }
@@ -63,8 +63,9 @@ namespace ClinicaFrba
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             LoginFunciones login = new LoginFunciones();
-            var rol = cbRoles.SelectedText;
-            login.GetFuncionalidadesDeRol(rol);
+            var rol = cbRoles.SelectedItem.ToString();
+            List<String> funcionalidades = login.GetFuncionalidadesDeRol(rol);
+            new Menu(funcionalidades).Show();
         }
     }
 }
