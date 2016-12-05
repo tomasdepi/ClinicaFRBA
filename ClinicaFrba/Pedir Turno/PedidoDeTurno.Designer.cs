@@ -90,6 +90,8 @@
             this.cBoxEspecilidad.Name = "cBoxEspecilidad";
             this.cBoxEspecilidad.Size = new System.Drawing.Size(121, 21);
             this.cBoxEspecilidad.TabIndex = 2;
+            this.cBoxEspecilidad.Click += new System.EventHandler(this.cBoxEspecilidad_Click);
+//          this.cBoxEspecilidad.TextUpdate += new System.EventHandler(this.cBoxEspecilidad_TextUpdate);
             // 
             // lblNumeroAfiliado
             // 
@@ -107,7 +109,7 @@
             this.txBoxNumeroAfiliado.Size = new System.Drawing.Size(100, 20);
             this.txBoxNumeroAfiliado.TabIndex = 6;
             // 
-            // Form1
+            // PedidoDeTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,7 +120,7 @@
             this.Controls.Add(this.lblEspecialidad);
             this.Controls.Add(this.gridProfesionales);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Name = "Form1";
+            this.Name = "PedidoDeTurno";
             this.Text = "Pedido de Turno";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProfesionales)).EndInit();

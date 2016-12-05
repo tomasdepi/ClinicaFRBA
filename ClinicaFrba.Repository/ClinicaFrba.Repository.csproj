@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="RolFuncionalidadDao.cs" />
     <Compile Include="TurnoDao.cs" />
+    <Compile Include="TurnoFunciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
