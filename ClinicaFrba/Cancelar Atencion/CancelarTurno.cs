@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ClinicaFrba.Cancelar_Atencion
 {
-    public partial class Form1 : Form
+    public partial class CancelarTurno : Form
     {
-        public Form1()
+        public CancelarTurno()
         {
             InitializeComponent();
         }

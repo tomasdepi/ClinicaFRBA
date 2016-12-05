@@ -8,13 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicaFrba.Abm_Planes
+namespace ClinicaFrba.Pedir_Turno
 {
-    public partial class Form1 : Form
+    public partial class PedidoDeTurno : Form
     {
-        public Form1()
+        public PedidoDeTurno()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEspecialidad_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

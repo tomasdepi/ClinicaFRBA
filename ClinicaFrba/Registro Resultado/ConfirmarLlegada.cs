@@ -23,6 +23,11 @@ namespace ClinicaFrba.Registro_Resultado
             lblDatos.Text = "¿Confirmar Turno de " + nombre + "," + apellido + ". A las: " + hora + "?";
         }
 
+        public ConfirmarLlegada()
+        {
+            InitializeComponent();
+        }
+
         private void ConfirmarLlegada_Load(object sender, EventArgs e)
         {
 

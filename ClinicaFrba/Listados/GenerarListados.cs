@@ -12,9 +12,9 @@ using ClinicaFrba.Repository.Entities;
 
 namespace ClinicaFrba.Listados
 {
-    public partial class Form1 : Form
+    public partial class GenerarListado : Form
     {
-        public Form1()
+        public GenerarListado()
         {
             InitializeComponent();
         }

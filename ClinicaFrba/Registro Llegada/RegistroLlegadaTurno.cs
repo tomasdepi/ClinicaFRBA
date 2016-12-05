@@ -41,5 +41,10 @@ namespace ClinicaFrba.Registro_Llegada
         {
 
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

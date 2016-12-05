@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ClinicaFrba.Registro_Llegada
 {
-    public partial class Form2 : Form
+    public partial class RegistroLlegadaBono : Form
     {
-        public Form2()
+        public RegistroLlegadaBono()
         {
             InitializeComponent();
         }

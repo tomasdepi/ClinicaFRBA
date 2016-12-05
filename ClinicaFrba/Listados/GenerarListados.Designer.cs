@@ -1,6 +1,6 @@
 ﻿namespace ClinicaFrba.Listados
 {
-    partial class Form1
+    partial class GenerarListado
     {
         /// <summary>
         /// Required designer variable.

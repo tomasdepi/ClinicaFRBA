@@ -69,23 +69,23 @@
     <Compile Include="Abm Afiliado\ModificarAfiliado.Designer.cs">
       <DependentUpon>ModificarAfiliado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Especialidades Medicas\Form1.cs">
+    <Compile Include="Abm Especialidades Medicas\GestionarEspecialidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Especialidades Medicas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Especialidades Medicas\GestionarEspecialidades.Designer.cs">
+      <DependentUpon>GestionarEspecialidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Planes\Form1.cs">
+    <Compile Include="Abm Planes\GestionarPlanes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Planes\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Planes\GestionarPlanes.Designer.cs">
+      <DependentUpon>GestionarPlanes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Profesional\Form1.cs">
+    <Compile Include="Abm Profesional\GestionarProfesional.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Profesional\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Profesional\GestionarProfesional.Designer.cs">
+      <DependentUpon>GestionarProfesional.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmRol\AgregarRol.cs">
       <SubType>Form</SubType>
@@ -135,11 +135,17 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listados\Generar Listados.cs">
+    <Compile Include="Listados\GenerarListados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listados\Generar Listados.Designer.cs">
-      <DependentUpon>Generar Listados.cs</DependentUpon>
+    <Compile Include="Listados\GenerarListados.Designer.cs">
+      <DependentUpon>GenerarListados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedir Turno\DiasDisponibles.cs">
       <SubType>Form</SubType>
@@ -147,11 +153,11 @@
     <Compile Include="Pedir Turno\DiasDisponibles.Designer.cs">
       <DependentUpon>DiasDisponibles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedir Turno\Pedido de Turno.cs">
+    <Compile Include="Pedir Turno\PedidoDeTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pedir Turno\Pedido de Turno.Designer.cs">
-      <DependentUpon>Pedido de Turno.cs</DependentUpon>
+    <Compile Include="Pedir Turno\PedidoDeTurno.Designer.cs">
+      <DependentUpon>PedidoDeTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,23 +173,23 @@
     <Compile Include="Registrar Agenta Medico\SeleccionarProfecional.Designer.cs">
       <DependentUpon>SeleccionarProfecional.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada\Registro llegada-turno.cs">
+    <Compile Include="Registro Llegada\RegistroLlegadaTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada\Registro llegada-turno.Designer.cs">
-      <DependentUpon>Registro llegada-turno.cs</DependentUpon>
+    <Compile Include="Registro Llegada\RegistroLlegadaTurno.Designer.cs">
+      <DependentUpon>RegistroLlegadaTurno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada\Registro llegada-Busqueda.cs">
+    <Compile Include="Registro Llegada\RegistroLlegadaBusqueda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada\Registro llegada-Busqueda.Designer.cs">
-      <DependentUpon>Registro llegada-Busqueda.cs</DependentUpon>
+    <Compile Include="Registro Llegada\RegistroLlegadaBusqueda.Designer.cs">
+      <DependentUpon>RegistroLlegadaBusqueda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada\Registro llegada-Bono.cs">
+    <Compile Include="Registro Llegada\RegistroLlegadaBono.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada\Registro llegada-Bono.Designer.cs">
-      <DependentUpon>Registro llegada-Bono.cs</DependentUpon>
+    <Compile Include="Registro Llegada\RegistroLlegadaBono.Designer.cs">
+      <DependentUpon>RegistroLlegadaBono.cs</DependentUpon>
     </Compile>
     <Compile Include="Registro Resultado\AccesoPlanillas.cs">
       <SubType>Form</SubType>
@@ -236,17 +242,20 @@
     <EmbeddedResource Include="Compra Bono\VentanaIntermedioAdministrativo.resx">
       <DependentUpon>VentanaIntermedioAdministrativo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\Generar Listados.resx">
-      <DependentUpon>Generar Listados.cs</DependentUpon>
+    <EmbeddedResource Include="Listados\GenerarListados.resx">
+      <DependentUpon>GenerarListados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pedir Turno\DiasDisponibles.resx">
       <DependentUpon>DiasDisponibles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pedir Turno\Pedido de Turno.resx">
-      <DependentUpon>Pedido de Turno.cs</DependentUpon>
+    <EmbeddedResource Include="Pedir Turno\PedidoDeTurno.resx">
+      <DependentUpon>PedidoDeTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -263,14 +272,14 @@
     <EmbeddedResource Include="Registrar Agenta Medico\SeleccionarProfecional.resx">
       <DependentUpon>SeleccionarProfecional.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro Llegada\Registro llegada-turno.resx">
-      <DependentUpon>Registro llegada-turno.cs</DependentUpon>
+    <EmbeddedResource Include="Registro Llegada\RegistroLlegadaTurno.resx">
+      <DependentUpon>RegistroLlegadaTurno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro Llegada\Registro llegada-Bono.resx">
-      <DependentUpon>Registro llegada-Bono.cs</DependentUpon>
+    <EmbeddedResource Include="Registro Llegada\RegistroLlegadaBono.resx">
+      <DependentUpon>RegistroLlegadaBono.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro Llegada\Registro llegada-Busqueda.resx">
-      <DependentUpon>Registro llegada-Busqueda.cs</DependentUpon>
+    <EmbeddedResource Include="Registro Llegada\RegistroLlegadaBusqueda.resx">
+      <DependentUpon>RegistroLlegadaBusqueda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registro Resultado\AccesoPlanillas.resx">
       <DependentUpon>AccesoPlanillas.cs</DependentUpon>
