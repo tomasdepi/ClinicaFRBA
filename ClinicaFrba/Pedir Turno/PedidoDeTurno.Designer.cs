@@ -90,13 +90,12 @@
             this.cBoxEspecilidad.Name = "cBoxEspecilidad";
             this.cBoxEspecilidad.Size = new System.Drawing.Size(121, 21);
             this.cBoxEspecilidad.TabIndex = 2;
-            this.cBoxEspecilidad.Click += new System.EventHandler(this.cBoxEspecilidad_Click);
-//          this.cBoxEspecilidad.TextUpdate += new System.EventHandler(this.cBoxEspecilidad_TextUpdate);
+            this.cBoxEspecilidad.TextChanged += new System.EventHandler(this.cBoxEspecilidad_TextChanged);
             // 
             // lblNumeroAfiliado
             // 
             this.lblNumeroAfiliado.AutoSize = true;
-            this.lblNumeroAfiliado.Location = new System.Drawing.Point(9, 16);
+            this.lblNumeroAfiliado.Location = new System.Drawing.Point(25, 15);
             this.lblNumeroAfiliado.Name = "lblNumeroAfiliado";
             this.lblNumeroAfiliado.Size = new System.Drawing.Size(99, 13);
             this.lblNumeroAfiliado.TabIndex = 5;
@@ -104,7 +103,7 @@
             // 
             // txBoxNumeroAfiliado
             // 
-            this.txBoxNumeroAfiliado.Location = new System.Drawing.Point(114, 13);
+            this.txBoxNumeroAfiliado.Location = new System.Drawing.Point(134, 12);
             this.txBoxNumeroAfiliado.Name = "txBoxNumeroAfiliado";
             this.txBoxNumeroAfiliado.Size = new System.Drawing.Size(100, 20);
             this.txBoxNumeroAfiliado.TabIndex = 6;

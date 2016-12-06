@@ -21,7 +21,7 @@ namespace ClinicaFrba.Pedir_Turno
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.CargarComboEspecialidades();
         }
 
         private void lblEspecialidad_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace ClinicaFrba.Pedir_Turno
 
         }
 
-        private void cBoxEspecilidad_Click(object sender, EventArgs e)
+        private void CargarComboEspecialidades()
         {
             TurnoFunciones turno = new TurnoFunciones();
 
@@ -37,35 +37,24 @@ namespace ClinicaFrba.Pedir_Turno
 
             especialidades.ForEach(esp => cBoxEspecilidad.Items.Add(esp));
 
-            // cBoxEspecilidad.SelectedItem = cBoxEspecilidad.Items[0];
-            if (cBoxEspecilidad.SelectedItem != null)
-            {
-                List<Usuario> usuarios = turno.getProfesionalesPorEspecialidad(cBoxEspecilidad.SelectedItem.ToString());
-
-                for (int i = 0; i < usuarios.Count(); i++)
-                {
-                    Usuario user = new Usuario();
-                    user = usuarios[i];
-
-                    gridProfesionales.Rows.Add(user.Nombre, user.Apellido, cBoxEspecilidad.Text);
-                }
-            }
         }
 
-/*       private void cBoxEspecilidad_TextChanged(object sender, EventArgs e)
+        private void cBoxEspecilidad_TextChanged(object sender, EventArgs e)
         {
+            this.gridProfesionales.Rows.Clear();
+
             TurnoFunciones turno = new TurnoFunciones();
             List<Usuario> usuarios = turno.getProfesionalesPorEspecialidad(cBoxEspecilidad.SelectedItem.ToString());
 
-            for(int i = 0; i < usuarios.Count(); i++)
+            for (int i = 0; i < usuarios.Count(); i++)
             {
                 Usuario user = new Usuario();
                 user = usuarios[i];
 
-                gridProfesionales.Rows.Add(user.Nombre, user.Apellido,cBoxEspecilidad.Text);               
-            }            
+                gridProfesionales.Rows.Add(user.Nombre, user.Apellido, cBoxEspecilidad.Text);
+            }
 
 
-        }*/
+        }
     }
 }

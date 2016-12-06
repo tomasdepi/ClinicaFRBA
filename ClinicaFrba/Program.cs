@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using ClinicaFrba.AbmRol;
 using ClinicaFrba.Abm_Afiliado;
 using ClinicaFrba.Compra_Bono;
+using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registro_Resultado;
 using ClinicaFrba.RegistroResultado;
 using ClinicaFrba.Registrar_Agenta_Medico;
@@ -22,7 +23,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GestionarAfiliados());
+            Application.Run(new PedidoDeTurno());
         }
     }
 }
