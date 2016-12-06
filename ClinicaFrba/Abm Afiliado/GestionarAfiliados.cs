@@ -29,7 +29,7 @@ namespace ClinicaFrba.Abm_Afiliado
 
                 ModificarAfiliado f2 = new ModificarAfiliado(nroDocumento);
 
-                f2.Show();
+                f2.ShowDialog();
             }
 
         }
@@ -141,6 +141,11 @@ namespace ClinicaFrba.Abm_Afiliado
             this.grdAfiliados.DataSource = null;
             this.grdAfiliados.Rows.Clear();
             this.grdAfiliados.Refresh();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

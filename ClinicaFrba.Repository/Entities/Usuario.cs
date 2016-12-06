@@ -12,7 +12,7 @@ namespace ClinicaFrba.Repository.Entities
         public string Pass { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public int NroAfiliado { get; set; } 
+        public long NroAfiliado { get; set; } 
         public string TipoDocumento { get; set; }
         public int NroDocumento { get; set; }
         public DateTime FechaNacimiento { get; set; }

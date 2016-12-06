@@ -30,7 +30,7 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             var service = new ClinicaService();
 
-            int codPlan = service.GetCodigoPlanByDescripcion(this.cboPlanes.SelectedText);
+            int codPlan = service.GetCodigoPlanByDescripcion(this.cboPlanes.SelectedItem.ToString());
 
             List<Usuario> afiliados = new List<Usuario>();
         

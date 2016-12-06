@@ -42,7 +42,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.grdAfiliados = new System.Windows.Forms.DataGridView();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.IdAfiliado = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NroAfiliado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +51,7 @@
             this.NroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.gboxFiltrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAfiliados)).BeginInit();
             this.SuspendLayout();
@@ -180,15 +180,6 @@
             this.grdAfiliados.TabIndex = 3;
             this.grdAfiliados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAfiliados_CellContentClick);
             // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(393, 497);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 4;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            // 
             // IdAfiliado
             // 
             this.IdAfiliado.HeaderText = "IdAfiliado";
@@ -237,6 +228,16 @@
             this.Editar.Text = "Modificar";
             this.Editar.ToolTipText = "Modificar";
             this.Editar.UseColumnTextForButtonValue = true;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(393, 497);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 4;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // GestionarAfiliados
             // 

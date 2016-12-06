@@ -25,36 +25,43 @@ namespace ClinicaFrba.Repository
 
         public override void Add(Usuario entidad)
         {
-            const string query = "INSERT INTO dbo.Usuario (varNombre, varApellido, varTipoDocumento, intNroDocumento, datFechaNacimiento, varDireccion, intTelefono, varMail,nvarPassword,chrSexo) " +
-                                 "VALUES (@varNombre, @varApellido, @varTipoDocumento, @intNroDocumento, @datFechaNacimiento, @varDireccion, @intTelefono, @varMail,@varPassword,@varSexo)";
+          
+            const string query =
+                "INSERT INTO [dbo].[Usuario]([intIdUsuario],[nvarPassword],[varNombre],[varApellido],[varTipoDocumento],[intNroDocumento],[intTelefono],[varEstadoCivil],[varDireccion],[varMail],[datFechaNacimiento],[chrSexo],[intIntentosLogin])" +
+                "VALUES(@intIdUsuario, @nvarPassword, @varNombre, @varApellido, @varTipoDocumento, @intNroDocumento, @intTelefono, @varEstadoCivil, @varDireccion, @varMail, @datFechaNacimiento, @chrSexo, @intIntentosLogin)"; 
 
             this.Command = new SqlCommand(query, this.Connector);
 
+            this.Command.Parameters.Add("@intIdUsuario", SqlDbType.Int).Value = entidad.NroDocumento;
             this.Command.Parameters.Add("@varNombre", SqlDbType.VarChar, 50).Value = entidad.Nombre;
             this.Command.Parameters.Add("@varApellido", SqlDbType.VarChar, 50).Value = entidad.Apellido;
-            this.Command.Parameters.Add("@varTipoDocumento", SqlDbType.VarChar, 5).Value = entidad.TipoDocumento;
+            this.Command.Parameters.Add("@varTipoDocumento", SqlDbType.VarChar, 50).Value = entidad.TipoDocumento;
             this.Command.Parameters.Add("@intNroDocumento", SqlDbType.Int).Value = entidad.NroDocumento;
             this.Command.Parameters.Add("@datFechaNacimiento", SqlDbType.DateTime).Value = entidad.FechaNacimiento;
-            this.Command.Parameters.Add("@varSexo", SqlDbType.VarChar, 15).Value = entidad.Sexo;
-            this.Command.Parameters.Add("@varDireccion", SqlDbType.VarChar, 150).Value = entidad.Direccion;
+            this.Command.Parameters.Add("@chrSexo", SqlDbType.Char, 1).Value = entidad.Sexo;
+            this.Command.Parameters.Add("@varDireccion", SqlDbType.VarChar, 250).Value = entidad.Direccion;
             this.Command.Parameters.Add("@intTelefono", SqlDbType.Int).Value = entidad.Telefono;
-            this.Command.Parameters.Add("@varMail", SqlDbType.VarChar, 100).Value = entidad.Mail;
-            this.Command.Parameters.Add("@varPassword", SqlDbType.NVarChar, 4000).Value = sha256_hash("afiliado");
+            this.Command.Parameters.Add("@varMail", SqlDbType.VarChar, 150).Value = entidad.Mail;
+            this.Command.Parameters.Add("@varEstadoCivil", SqlDbType.VarChar, 100).Value = entidad.EstadoCivil;
+            this.Command.Parameters.Add("@nvarPassword", SqlDbType.NVarChar, 4000).Value = sha256_hash("afiliado");
+            this.Command.Parameters.Add("@intIntentosLogin", SqlDbType.Int).Value = 0;
 
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
 
-            const string query2 = "INSERT INTO dbo.Afiliado(intIdUsuario,bitEstadoActual,intCodigoPlan,intNumeroAfiliado,intCantidadFamiliares,intNumeroConsultaMedica)" +
-                                  "VALUES (@intId,@bitEstado, @intCodigo,@intNumeroAf,@intCantidadFamiliares,@intNumeroConsulta)";
+           const string query2 = "INSERT INTO[dbo].[Afiliado]([intIdUsuario],[bitEstadoActual],[intCodigoPlan],[datFechaBaja],[intNumeroAfiliado],[intCantidadFamiliares],[intNumeroConsultaMedica])" +
+                        "VALUES (@intIdUsuario, @bitEstadoActual, @intCodigoPlan, @datFechaBaja,@intNumeroAfiliado, @intCantidadFamiliares, @intNumeroConsultaMedica)";
+
 
             this.Command = new SqlCommand(query2, this.Connector);
-            this.Command.Parameters.Add("@intId", SqlDbType.Int).Value = entidad.NroDocumento;
-            this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = 1;
-            this.Command.Parameters.Add("@intCodigo", SqlDbType.Int).Value = entidad.CodigoPlanMedico;
-            this.Command.Parameters.Add("@intNumeroAf", SqlDbType.Int).Value = entidad.NroAfiliado; 
+            this.Command.Parameters.Add("@intIdUsuario", SqlDbType.Int).Value = entidad.NroDocumento;
+            this.Command.Parameters.Add("@bitEstadoActual", SqlDbType.Bit).Value = 1;
+            this.Command.Parameters.Add("@intCodigoPlan", SqlDbType.Int).Value = entidad.CodigoPlanMedico;
+            this.Command.Parameters.Add("@datFechaBaja", SqlDbType.Date).Value = DBNull.Value;
+            this.Command.Parameters.Add("@intNumeroAfiliado", SqlDbType.BigInt).Value = entidad.NroAfiliado; 
             this.Command.Parameters.Add("@intCantidadFamiliares", SqlDbType.Int).Value = entidad.CantidadFamiliaresACargo;
-            this.Command.Parameters.Add("@intNumeroConsulta", SqlDbType.Int).Value = entidad.NumeroConsultaMedica;
-            this.Connector.Open();
+            this.Command.Parameters.Add("@intNumeroConsultaMedica", SqlDbType.Int).Value = entidad.NumeroConsultaMedica;
+
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
         }
@@ -64,7 +71,7 @@ namespace ClinicaFrba.Repository
             const string query =
                "UPDATE [dbo].[Usuario]" +
                 "SET" +
-                "[intIdUsuario] = @varTipoDocumento" +
+                "[intIdUsuario] = @intNroDocumento" +
                 ",[varNombre] = @varNombre" +
                 ",[varApellido] = @varApellido" +
                 ",[varTipoDocumento] = @varTipoDocumento" +
@@ -74,20 +81,20 @@ namespace ClinicaFrba.Repository
                 ",[varMail] = @varMail" +
                 ",[datFechaNacimiento] = @datFechaNacimiento" +
                 ",[chrSexo] = @varSexo" +
-                ",[varEstadoCivil] = @varEstadoCivil" +
+                ",[varEstadoCivil] = @varEstadoCivil " +
                 "WHERE intIdUsuario = @intNroDocumento";
 
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Command.Parameters.Add("@varNombre", SqlDbType.VarChar, 50).Value = entidad.Nombre;
             this.Command.Parameters.Add("@varApellido", SqlDbType.VarChar, 50).Value = entidad.Apellido;
-            this.Command.Parameters.Add("@varTipoDocumento", SqlDbType.VarChar, 5).Value = entidad.TipoDocumento;
+            this.Command.Parameters.Add("@varTipoDocumento", SqlDbType.VarChar, 50).Value = entidad.TipoDocumento;
             this.Command.Parameters.Add("@intNroDocumento", SqlDbType.Int).Value = entidad.NroDocumento;
             this.Command.Parameters.Add("@datFechaNacimiento", SqlDbType.DateTime).Value = entidad.FechaNacimiento;
-            this.Command.Parameters.Add("@varSexo", SqlDbType.VarChar, 15).Value = entidad.Sexo;
-            this.Command.Parameters.Add("@varDireccion", SqlDbType.VarChar, 150).Value = entidad.Direccion;
+            this.Command.Parameters.Add("@varSexo", SqlDbType.Char, 1).Value = entidad.Sexo;
+            this.Command.Parameters.Add("@varDireccion", SqlDbType.VarChar, 250).Value = entidad.Direccion;
             this.Command.Parameters.Add("@intTelefono", SqlDbType.Int).Value = entidad.Telefono;
-            this.Command.Parameters.Add("@varMail", SqlDbType.VarChar, 100).Value = entidad.Mail;
+            this.Command.Parameters.Add("@varMail", SqlDbType.VarChar, 150).Value = entidad.Mail;
             this.Command.Parameters.Add("@varEstadoCivil", SqlDbType.VarChar, 100).Value = entidad.EstadoCivil;
 
             this.Connector.Open();
@@ -99,37 +106,31 @@ namespace ClinicaFrba.Repository
                 "[intIdUsuario] = @intId" +
                 ",[bitEstadoActual] = @bitEstado" +
                 ",[intCodigoPlan] = @intCodigo" +
-                ",[intNumeroAfiliado] = @intNumeroAf" +
                 ",[intCantidadFamiliares] = @intCantidadFamiliares" +
-                ",[intNumeroConsultaMedica] = @intNumeroConsulta" +
-                "WHERE intIdUsuario = @varTipoDocumento";
+                ",[intNumeroConsultaMedica] = @intNumeroConsulta " +
+                "WHERE intIdUsuario = @intId";
 
             this.Command = new SqlCommand(query2, this.Connector);
 
-            this.Command.Parameters.Add("@varTipoDocumento", SqlDbType.VarChar, 5).Value = entidad.TipoDocumento;
             this.Command.Parameters.Add("@intId", SqlDbType.Int).Value = entidad.NroDocumento;
-            this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = 1;
+            this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = entidad.EstadoHabilitacion;
             this.Command.Parameters.Add("@intCodigo", SqlDbType.Int).Value = entidad.CodigoPlanMedico;
-            this.Command.Parameters.Add("@intNumeroAf", SqlDbType.Int).Value = entidad.NroAfiliado;
             this.Command.Parameters.Add("@intCantidadFamiliares", SqlDbType.Int).Value = entidad.CantidadFamiliaresACargo;
             this.Command.Parameters.Add("@intNumeroConsulta", SqlDbType.Int).Value = entidad.NumeroConsultaMedica;
 
-            this.Connector.Open();
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
         }
 
         public override void Delete(int id)
         {
-            const string query =
-                "UPDATE [dbo].[Afiliado]" +
-                "SET [bitEstadoActual] = 0," +
-                "datFechaBaja = GETDATE()" +
-                "WHERE intIdUsuario = @intIdUsuario";
+            string query =
+                "UPDATE [dbo].[Afiliado] " +
+                "SET [bitEstadoActual] = 0, " +
+                "datFechaBaja = GETDATE() " +
+                "WHERE intIdUsuario = " + id.ToString();
 
             this.Command = new SqlCommand(query, this.Connector);
-
-            this.Command.Parameters.Add("@intIdUsuario", SqlDbType.VarChar, 5).Value = id;
 
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
@@ -153,8 +154,8 @@ namespace ClinicaFrba.Repository
             {
                 user = new Usuario
                 {
-                    NroAfiliado = reader["intNumeroAfiliado"] as int? ?? default(int),
-                    //EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
+                    NroAfiliado = reader["intNumeroAfiliado"] as long? ?? default(long),
+                    EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
                     Apellido = Convert.ToString(reader["varApellido"]),
                     Nombre = Convert.ToString(reader["varNombre"]),
                     TipoDocumento = Convert.ToString(reader["varTipoDocumento"]),
@@ -233,8 +234,8 @@ namespace ClinicaFrba.Repository
             {
                 var user = new Usuario
                 {
-                    NroAfiliado = reader["intNumeroAfiliado"] as int? ?? default(int),
-                    //EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
+                    NroAfiliado = reader["intNumeroAfiliado"] as long? ?? default(long),
+                    EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
                     Apellido = Convert.ToString(reader["varApellido"]),
                     Nombre = Convert.ToString(reader["varNombre"]),
                     TipoDocumento = Convert.ToString(reader["varTipoDocumento"]),

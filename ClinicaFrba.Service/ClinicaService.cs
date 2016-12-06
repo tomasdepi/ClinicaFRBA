@@ -29,7 +29,7 @@ namespace ClinicaFrba.Service
                    
                     afiliados[0].CantidadFamiliaresACargo = afiliados.Count - 1;
                     var nroAfiliado = afiliados[0].NroAfiliado;
-                    afiliados[0].NroAfiliado = Convert.ToInt32(nroAfiliado + "01");
+                    afiliados[0].NroAfiliado = Convert.ToInt64(nroAfiliado + "01");
                     repo.Add(afiliados[0]);
                     afiliados.Remove(afiliados[0]);
 
@@ -37,7 +37,7 @@ namespace ClinicaFrba.Service
 
                     foreach (var afiliado in afiliados)
                     {
-                        afiliado.NroAfiliado = Convert.ToInt32(nroAfiliado + "0" + i.ToString());
+                        afiliado.NroAfiliado = Convert.ToInt64(nroAfiliado + "0" + i.ToString());
                         afiliado.CantidadFamiliaresACargo = 0;
                         repo.Add(afiliado);
                         i++;

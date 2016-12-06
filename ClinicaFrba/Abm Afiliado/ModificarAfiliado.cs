@@ -52,8 +52,10 @@ namespace ClinicaFrba.Abm_Afiliado
 
             service.ModificarDatosDeAfiliado(new ModificarDatosDeAfiliadoRequest(){Afiliado = afiliado});
 
-            MessageBox.Show("Se actualizaron correctamente los datos del afiliado: " + this.txtApellido + " " +
-                            this.txtNombre);
+            MessageBox.Show("Se actualizaron correctamente los datos del afiliado: " + this.txtApellido.Text + " " +
+                            this.txtNombre.Text);
+
+            this.Close();
 
         }
 
@@ -129,7 +131,7 @@ namespace ClinicaFrba.Abm_Afiliado
 
         }
 
-        public int NroAfiliado { get; set; }
+        public long NroAfiliado { get; set; }
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
@@ -137,6 +139,9 @@ namespace ClinicaFrba.Abm_Afiliado
            
             service.DarDeBajaUsuario(Convert.ToInt32(this.NroDocumento));
 
+            MessageBox.Show("El usuario fue dado de baja correctamente.");
+
+            this.Close();
         }
     }
 }
