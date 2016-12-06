@@ -147,5 +147,12 @@ namespace ClinicaFrba.Abm_Afiliado
         {
 
         }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            AltaAfiliado af = new AltaAfiliado();
+
+            af.ShowDialog();
+        }
     }
 }

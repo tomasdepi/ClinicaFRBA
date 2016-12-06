@@ -52,6 +52,7 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnAlta = new System.Windows.Forms.Button();
             this.gboxFiltrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAfiliados)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             this.gboxFiltrosBusqueda.Controls.Add(this.txtNombre);
             this.gboxFiltrosBusqueda.Controls.Add(this.lblApellido);
             this.gboxFiltrosBusqueda.Controls.Add(this.lblNombre);
-            this.gboxFiltrosBusqueda.Location = new System.Drawing.Point(16, 22);
+            this.gboxFiltrosBusqueda.Location = new System.Drawing.Point(16, 24);
             this.gboxFiltrosBusqueda.Name = "gboxFiltrosBusqueda";
             this.gboxFiltrosBusqueda.Size = new System.Drawing.Size(844, 130);
             this.gboxFiltrosBusqueda.TabIndex = 0;
@@ -143,7 +144,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(16, 158);
+            this.btnLimpiar.Location = new System.Drawing.Point(16, 160);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 1;
@@ -153,7 +154,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(785, 158);
+            this.btnBuscar.Location = new System.Drawing.Point(785, 160);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 2;
@@ -174,7 +175,7 @@
             this.NroDocumento,
             this.Telefono,
             this.Editar});
-            this.grdAfiliados.Location = new System.Drawing.Point(16, 190);
+            this.grdAfiliados.Location = new System.Drawing.Point(16, 192);
             this.grdAfiliados.Name = "grdAfiliados";
             this.grdAfiliados.Size = new System.Drawing.Size(844, 299);
             this.grdAfiliados.TabIndex = 3;
@@ -231,7 +232,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(393, 497);
+            this.btnVolver.Location = new System.Drawing.Point(401, 525);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 4;
@@ -239,11 +240,22 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnAlta
+            // 
+            this.btnAlta.Location = new System.Drawing.Point(785, 499);
+            this.btnAlta.Name = "btnAlta";
+            this.btnAlta.Size = new System.Drawing.Size(75, 23);
+            this.btnAlta.TabIndex = 5;
+            this.btnAlta.Text = "Dar de alta";
+            this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
+            // 
             // GestionarAfiliados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 529);
+            this.ClientSize = new System.Drawing.Size(875, 555);
+            this.Controls.Add(this.btnAlta);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grdAfiliados);
             this.Controls.Add(this.btnBuscar);
@@ -284,5 +296,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NroDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
+        private System.Windows.Forms.Button btnAlta;
     }
 }

@@ -146,6 +146,10 @@ namespace ClinicaFrba.Abm_Afiliado
             this.cboSexo.Items.Add("M");
             this.cboSexo.Items.Add("F");
         }
-                  
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
