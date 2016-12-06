@@ -100,12 +100,12 @@ namespace ClinicaFrba.Repository
         public void CancelarTurnosPorRangoDeFechas(String fechaDesde, string fechaHasta, string motivo, string tipo)
         {
             String query = "INSERT INTO TurnoCancelado (intIdTurno, varMotivo, varTipo) " +
-               " SELECT intIdTurno, @motivo, @tipoCancelacion FROM Turno where CONVERT(date, datFechaTurno) > @fechaDesde and CONVERT(date, datFechaTurno) < @fechaHasta";
+               " SELECT intIdTurno, '@motivo', '@tipoCancelacion' FROM Turno where CONVERT(date, datFechaTurno) > '"+@fechaDesde+"' and CONVERT(date, datFechaTurno) < '"+@fechaHasta+"'";
 
 
             this.Command = new SqlCommand(query, this.Connector);
-            this.Command.Parameters.Add("@fechaDesde", SqlDbType.VarChar, 20).Value = fechaDesde;
-            this.Command.Parameters.Add("@fechaDesde", SqlDbType.VarChar, 20).Value = fechaDesde;
+            //this.Command.Parameters.Add("@fechaDesde", SqlDbType.VarChar, 20).Value = fechaDesde;
+            //this.Command.Parameters.Add("@fechaDesde", SqlDbType.VarChar, 20).Value = fechaDesde;
             this.Command.Parameters.Add("@motivo", SqlDbType.VarChar, 100).Value = motivo;
             this.Command.Parameters.Add("@tipoCancelacion", SqlDbType.VarChar, 40).Value = tipo;
 
@@ -113,7 +113,7 @@ namespace ClinicaFrba.Repository
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
 
-            String query2 = "DELETE FROM Turno WHERE CONVERT(date, datFechaTurno) > @fechaDesde and CONVERT(date, datFechaTurno) < @fechaHasta";
+            String query2 = "DELETE FROM Turno WHERE CONVERT(date, datFechaTurno) > '"+@fechaDesde+"' and CONVERT(date, datFechaTurno) < '"+@fechaHasta+"'";
             this.Command = new SqlCommand(query2, this.Connector);
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
