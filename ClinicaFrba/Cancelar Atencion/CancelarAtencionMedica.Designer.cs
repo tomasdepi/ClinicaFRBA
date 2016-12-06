@@ -31,8 +31,8 @@
             this.lblDíasACancelar = new System.Windows.Forms.Label();
             this.lblInicio = new System.Windows.Forms.Label();
             this.lblFin = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.FechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.FechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txBoxDetalle = new System.Windows.Forms.TextBox();
@@ -68,19 +68,19 @@
             this.lblFin.TabIndex = 2;
             this.lblFin.Text = "Fin rango cancelación:";
             // 
-            // dateTimePicker1
+            // FechaDesde
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(145, 46);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.FechaDesde.Location = new System.Drawing.Point(145, 46);
+            this.FechaDesde.Name = "FechaDesde";
+            this.FechaDesde.Size = new System.Drawing.Size(200, 20);
+            this.FechaDesde.TabIndex = 3;
             // 
-            // dateTimePicker2
+            // FechaHasta
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(145, 81);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 4;
+            this.FechaHasta.Location = new System.Drawing.Point(145, 81);
+            this.FechaHasta.Name = "FechaHasta";
+            this.FechaHasta.Size = new System.Drawing.Size(200, 20);
+            this.FechaHasta.TabIndex = 4;
             // 
             // btnConfirmar
             // 
@@ -122,38 +122,39 @@
             // cmbBoxTipo
             // 
             this.cmbBoxTipo.FormattingEnabled = true;
-            this.cmbBoxTipo.Location = new System.Drawing.Point(173, 113);
+            this.cmbBoxTipo.Location = new System.Drawing.Point(145, 113);
             this.cmbBoxTipo.Name = "cmbBoxTipo";
-            this.cmbBoxTipo.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxTipo.Size = new System.Drawing.Size(200, 21);
             this.cmbBoxTipo.TabIndex = 9;
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(77, 116);
+            this.lblTipo.Location = new System.Drawing.Point(41, 116);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(90, 13);
+            this.lblTipo.Size = new System.Drawing.Size(93, 13);
             this.lblTipo.TabIndex = 8;
-            this.lblTipo.Text = "Tipo Cancelación";
+            this.lblTipo.Text = "Tipo Cancelación:";
             // 
             // CancelarAtencionMedica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 371);
+            this.ClientSize = new System.Drawing.Size(384, 371);
             this.Controls.Add(this.txBoxDetalle);
             this.Controls.Add(this.lblDetalle);
             this.Controls.Add(this.cmbBoxTipo);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.FechaHasta);
+            this.Controls.Add(this.FechaDesde);
             this.Controls.Add(this.lblFin);
             this.Controls.Add(this.lblInicio);
             this.Controls.Add(this.lblDíasACancelar);
             this.Name = "CancelarAtencionMedica";
             this.Text = "Cancelar Atencion Medica";
+            this.Load += new System.EventHandler(this.CancelarAtencionMedica_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,8 +165,8 @@
         private System.Windows.Forms.Label lblDíasACancelar;
         private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.Label lblFin;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker FechaDesde;
+        private System.Windows.Forms.DateTimePicker FechaHasta;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txBoxDetalle;

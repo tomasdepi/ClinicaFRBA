@@ -134,6 +134,16 @@ namespace ClinicaFrba.Service
             new TurnoDao().GuardarTurnoCancelado(turno);
         }
 
+        public void CancelarTurnosSegunRangoFecha(String fechaDesde, string fechaHasta, string motivo, string tipo)
+        {
+            new TurnoDao().CancelarTurnosPorRangoDeFechas(fechaDesde, fechaHasta, motivo, tipo);
+        }
+
+        public List<TurnoYUsuario> turnosDeAfiliado(int id)
+        {
+            return new TurnoDao().turnosDeAfiliado(id);
+        }
+
 
         public int GetCodigoPlanByDescripcion(string descripcion)
         {

@@ -86,9 +86,68 @@ namespace ClinicaFrba.Repository
 
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
+            this.Connector.Close();
 
+            String query2 = "DELETA FROM Turno WHERE intIdTurno = @id";
+            this.Command = new SqlCommand(query2, this.Connector);
+            this.Command.Parameters.Add("@id", SqlDbType.Int).Value = turno.NumeroDeTurno;
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
         }
 
+        //funcionalidad del profesional 
+        public void CancelarTurnosPorRangoDeFechas(String fechaDesde, string fechaHasta, string motivo, string tipo)
+        {
+            String query = "INSERT INTO TurnoCancelado (intIdTurno, varMotivo, varTipo) " +
+               " SELECT intIdTurno, @motivo, @tipoCancelacion FROM Turno where CONVERT(date, datFechaTurno) > @fechaDesde and CONVERT(date, datFechaTurno) < @fechaHasta";
+
+
+            this.Command = new SqlCommand(query, this.Connector);
+            this.Command.Parameters.Add("@fechaDesde", SqlDbType.VarChar, 20).Value = fechaDesde;
+            this.Command.Parameters.Add("@fechaDesde", SqlDbType.VarChar, 20).Value = fechaDesde;
+            this.Command.Parameters.Add("@motivo", SqlDbType.VarChar, 100).Value = motivo;
+            this.Command.Parameters.Add("@tipoCancelacion", SqlDbType.VarChar, 40).Value = tipo;
+
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+
+            String query2 = "DELETE FROM Turno WHERE CONVERT(date, datFechaTurno) > @fechaDesde and CONVERT(date, datFechaTurno) < @fechaHasta";
+            this.Command = new SqlCommand(query2, this.Connector);
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+        }
+
+        public List<TurnoYUsuario> turnosDeAfiliado(int id)
+        {
+            List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();
+
+            string query = "SELECT t.intIdTurno id, t.datFechaTurno fecha, u.varNombre nombre, u.varApellido apellido from Turno  t inner join Usuario u on t.intIdDoctor = u.intIdUsuario where t.intIdPaciente = @id and CONVERT(date, t.datFechaTurno) > GETDATE()" ;
+            this.Command = new SqlCommand(query, this.Connector);
+            this.Command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+            this.Connector.Open();
+            SqlDataReader dataTurnos = this.Command.ExecuteReader();
+
+            while (dataTurnos.Read())
+            {
+                //si bien usuario creo que hacia refencia al afiliado, uso la entidad para traer datos del medico
+                TurnoYUsuario turno = new TurnoYUsuario();
+                turno.IdTurno = Int32.Parse(dataTurnos["id"].ToString());
+                turno.FechaTurno = DateTime.Parse(dataTurnos["fecha"].ToString());
+                turno.Nombre = dataTurnos["nombre"].ToString();
+                turno.Apellido = dataTurnos["apellido"].ToString();
+
+                turnos.Add(turno);
+            }
+
+
+            this.Connector.Close();
+
+            return turnos;
+        }
 
         public override void Add(TurnoYUsuario entidad)
         {

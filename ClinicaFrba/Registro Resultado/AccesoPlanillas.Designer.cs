@@ -35,8 +35,13 @@
             this.cofirmarLlegada = new System.Windows.Forms.DataGridViewButtonColumn();
             this.confimarDiagnostico = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblNombreProfesional = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.btbBuscarTurno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,16 +99,6 @@
             this.IdTurno.Name = "IdTurno";
             this.IdTurno.Visible = false;
             // 
-            // lblNombreProfesional
-            // 
-            this.lblNombreProfesional.AutoSize = true;
-            this.lblNombreProfesional.Location = new System.Drawing.Point(12, 26);
-            this.lblNombreProfesional.Name = "lblNombreProfesional";
-            this.lblNombreProfesional.Size = new System.Drawing.Size(69, 13);
-            this.lblNombreProfesional.TabIndex = 1;
-            this.lblNombreProfesional.Text = "-aca va algo-";
-            this.lblNombreProfesional.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btnCerrar
             // 
             this.btnCerrar.Location = new System.Drawing.Point(456, 361);
@@ -114,13 +109,69 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Busqueda De Turno";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(12, 37);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 4;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(202, 37);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.TabIndex = 5;
+            this.lblApellido.Text = "Apellido:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(65, 34);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 6;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(255, 34);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 7;
+            // 
+            // btbBuscarTurno
+            // 
+            this.btbBuscarTurno.Location = new System.Drawing.Point(400, 32);
+            this.btbBuscarTurno.Name = "btbBuscarTurno";
+            this.btbBuscarTurno.Size = new System.Drawing.Size(75, 23);
+            this.btbBuscarTurno.TabIndex = 8;
+            this.btbBuscarTurno.Text = "Buscar";
+            this.btbBuscarTurno.UseVisualStyleBackColor = true;
+            this.btbBuscarTurno.Click += new System.EventHandler(this.btbBuscarTurno_Click);
+            // 
             // AccesoPlanillas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 396);
+            this.Controls.Add(this.btbBuscarTurno);
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.lblNombreProfesional);
             this.Controls.Add(this.grdResultado);
             this.Name = "AccesoPlanillas";
             this.Text = "Registro Turnos del Día";
@@ -134,7 +185,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView grdResultado;
-        private System.Windows.Forms.Label lblNombreProfesional;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoraTurno;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreAfiliado;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoAfiliado;
@@ -142,5 +192,11 @@
         private System.Windows.Forms.DataGridViewButtonColumn confimarDiagnostico;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdTurno;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.Button btbBuscarTurno;
     }
 }

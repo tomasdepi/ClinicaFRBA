@@ -10,6 +10,7 @@ using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registro_Resultado;
 using ClinicaFrba.RegistroResultado;
 using ClinicaFrba.Registrar_Agenta_Medico;
+using ClinicaFrba.Cancelar_Atencion;
 
 namespace ClinicaFrba
 {
@@ -23,7 +24,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PedidoDeTurno());
+            Application.Run(new CancelarAtencionMedica());
         }
     }
 }

@@ -102,5 +102,11 @@ namespace ClinicaFrba.RegistroResultado
         {
             this.Dispose();
         }
+
+        private void btbBuscarTurno_Click(object sender, EventArgs e)
+        {
+            var nombre = txtNombre.Text;
+            var apellido = txtApellido.Text;
+        }
     }
 }
