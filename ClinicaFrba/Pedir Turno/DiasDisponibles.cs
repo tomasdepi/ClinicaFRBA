@@ -32,8 +32,8 @@ namespace ClinicaFrba.Pedir_Turno
             DateTime dia = new DateTime();
             dia = Convert.ToDateTime(this.dateTimePicker1.Text);
 
-            //List<string> horarios = turno.getHorariosDisponibles(this.NroDocumento, dia.Day.ToString());
-            List<string> horarios = turno.getHorariosDisponibles(1465925,"lunes");
+            List<string> horarios = turno.getHorariosDisponibles(this.NroDocumento, dia.DayOfWeek.ToString());
+            //List<string> horarios = turno.getHorariosDisponibles(1465925,"lunes");
 
             TimeSpan horaInicio = TimeSpan.Parse(horarios.First());
             TimeSpan horaFin = TimeSpan.Parse(horarios.Last());
