@@ -12,7 +12,7 @@ using ClinicaFrba.RegistroResultado;
 using ClinicaFrba.Registrar_Agenta_Medico;
 using ClinicaFrba.Cancelar_Atencion;
 using ClinicaFrba.Listados;
-
+using ClinicaFrba.Registro_Llegada;
 
 namespace ClinicaFrba
 {
@@ -26,7 +26,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GenerarListado());
+            Application.Run(new RegistroLlegadaBusqueda());
         }
     }
 }

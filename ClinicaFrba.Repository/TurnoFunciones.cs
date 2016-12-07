@@ -19,7 +19,7 @@ namespace ClinicaFrba.Repository
 
         public TurnoFunciones()
         {
-            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
                                "Trusted_Connection=yes;" +
                                "database=GD2C2016; " +
                                "connection timeout=10");

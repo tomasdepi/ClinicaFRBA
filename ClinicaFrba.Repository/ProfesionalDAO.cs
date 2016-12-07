@@ -1,6 +1,7 @@
 ﻿using ClinicaFrba.Repository.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,40 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
 
             return lista;
+        }
+
+        //este lo uso para la funcionalidad de registrar llegada
+        public List<Profesional> getProfesionalesPorEspecialidad(string apellido, string especialidad)
+        {
+            List<Profesional> lista = new List<Profesional>();
+
+            string query = "select u.intIdUsuario id, u.varNombre nombre, u.varApellido apellido, e.varDescripcion esp from Usuario u inner join ProfesionalXEspecialidad pe on pe.intIdUsuario = u.intIdUsuario inner join Especialidad e on e.intEspecialidadCodigo = pe.intEspecialidadCodigo where u.varApellido like '%" + apellido + "%'";
+            if (especialidad != "-") query += " and e.varDescripcion = '" + @especialidad + "'";
+
+            this.Command = new SqlCommand(query, this.Connector);
+            // this.Command.Parameters.Add("@apellido", SqlDbType.VarChar).Value = apellido;
+            //if (especialidad != "") this.Command.Parameters.Add("@especialidad", SqlDbType.VarChar).Value = especialidad;
+            this.Connector.Open();
+
+
+            SqlDataReader reader = Command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Profesional prof = new Profesional();
+                prof.id = Int32.Parse(reader["id"].ToString());
+                prof.nombre = reader["nombre"].ToString();
+                prof.apellido = reader["apellido"].ToString();
+                prof.especialidad = reader["esp"].ToString();
+
+                lista.Add(prof);
+            }
+
+            this.Connector.Close();
+
+
+            return lista;
+
         }
 
         public override void Add(Usuario entidad)
