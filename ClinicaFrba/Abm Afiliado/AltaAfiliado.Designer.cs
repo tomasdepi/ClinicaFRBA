@@ -112,7 +112,6 @@
             this.cboEstadoCivil.Name = "cboEstadoCivil";
             this.cboEstadoCivil.Size = new System.Drawing.Size(149, 21);
             this.cboEstadoCivil.TabIndex = 16;
-            this.cboEstadoCivil.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtMail
             // 
@@ -200,7 +199,6 @@
             this.gboxDatosFundamentales.TabIndex = 10;
             this.gboxDatosFundamentales.TabStop = false;
             this.gboxDatosFundamentales.Text = "Datos Fundamentales";
-            this.gboxDatosFundamentales.Enter += new System.EventHandler(this.gboxDatosFundamentales_Enter);
             // 
             // cboSexo
             // 

@@ -79,5 +79,24 @@ namespace ClinicaFrba.Repository
 
             return codigoPlan;
         }
+
+        public string GetDescripcionByCodigoPlan(int codPlan)
+        {
+            string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM[dbo].[Plan] WHERE intCodigoPlan =" + codPlan.ToString();
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+            SqlDataReader reader = this.Command.ExecuteReader();
+
+            string descPlan = string.Empty;
+
+            while (reader.Read())
+            {
+                descPlan = Convert.ToString(reader["varDescripcion"]);
+            }
+
+            return descPlan;
+        }
     }
 }

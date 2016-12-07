@@ -93,16 +93,11 @@ namespace ClinicaFrba.Abm_Afiliado
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gboxDatosFundamentales_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Carga inicial del formulario AltaAfiliado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AltaAfiliado_Load(object sender, EventArgs e)
         {
             this.ConfigurarFormatoFechaDeNacimiento();
@@ -111,6 +106,10 @@ namespace ClinicaFrba.Abm_Afiliado
             this.CargarComboSexo();
         }
 
+
+        /// <summary>
+        /// Completa el combo de estado civil 
+        /// </summary>
         private void CargarComboEstadoCivil()
         {
             this.cboEstadoCivil.DisplayMember = "Text";
@@ -123,12 +122,18 @@ namespace ClinicaFrba.Abm_Afiliado
             this.cboEstadoCivil.Items.Add("Viudo");
         }
 
+        /// <summary>
+        /// Configura el formato de la fecha del DateTimePicker
+        /// </summary>
         private void ConfigurarFormatoFechaDeNacimiento()
         {
             this.dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             this.dtpFechaNacimiento.CustomFormat = "dd-MM-yyyy";
         }
 
+        /// <summary>
+        /// Carga el combo de planes medicos segun los que se encuentren en la base datos
+        /// </summary>
         private void CargarComboPlanesMedicos()
         {
             var service = new ClinicaService();
@@ -141,12 +146,20 @@ namespace ClinicaFrba.Abm_Afiliado
             }
         }
 
+        /// <summary>
+        /// Carga el combo de sexo
+        /// </summary>
         private void CargarComboSexo()
         {
             this.cboSexo.Items.Add("M");
             this.cboSexo.Items.Add("F");
         }
 
+        /// <summary>
+        /// Comportamiento del botón cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

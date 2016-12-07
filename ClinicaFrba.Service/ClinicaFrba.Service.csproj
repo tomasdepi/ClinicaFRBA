@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClinicaService.cs" />
+    <Compile Include="Common\ActualizarHistorialCambiosDePlanRequest.cs" />
     <Compile Include="Common\CargarDetalleAfiliadoRequest.cs" />
     <Compile Include="Common\CargarDetalleAfiliadoResponse.cs" />
     <Compile Include="Common\CargarGrillaAfiliadoRequest.cs" />

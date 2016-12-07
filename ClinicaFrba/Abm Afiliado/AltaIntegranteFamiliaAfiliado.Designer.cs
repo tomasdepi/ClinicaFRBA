@@ -100,7 +100,6 @@
             this.cboEstadoCivil.Name = "cboEstadoCivil";
             this.cboEstadoCivil.Size = new System.Drawing.Size(121, 21);
             this.cboEstadoCivil.TabIndex = 13;
-            this.cboEstadoCivil.SelectedIndexChanged += new System.EventHandler(this.comboEstadoCivil_SelectedIndexChanged);
             // 
             // txtMail
             // 
@@ -192,7 +191,7 @@
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Location = new System.Drawing.Point(126, 157);
             this.cboSexo.Name = "cboSexo";
-            this.cboSexo.Size = new System.Drawing.Size(121, 21);
+            this.cboSexo.Size = new System.Drawing.Size(44, 21);
             this.cboSexo.TabIndex = 16;
             // 
             // txtNroDoc
@@ -215,7 +214,6 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(149, 20);
             this.txtApellido.TabIndex = 11;
-            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // txtNombre
             // 
@@ -223,7 +221,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(149, 20);
             this.txtNombre.TabIndex = 10;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lvlSexo
             // 

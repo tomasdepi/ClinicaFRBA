@@ -256,5 +256,54 @@ namespace ClinicaFrba.Repository
 
             return users;
         }
+
+        public void AgregarHistoricoCambioPlan(int codigoPlan, int idUsuario, string motivoCambio)
+        {
+            const string query =
+                "INSERT INTO [dbo].[AfiliadoHistoricoPlan]([intIdUsuario],[datFechaModificacion],[varMotivoModificacion],[intCodigoPlan]) VALUES" +
+                "(@intIdUsuario, GETDATE(), @varMotivoModificacion, @intCodigoPlan)";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@intIdUsuario", SqlDbType.Int).Value = idUsuario;
+            this.Command.Parameters.Add("@varMotivoModificacion", SqlDbType.VarChar, 250).Value = motivoCambio;
+            this.Command.Parameters.Add("@intCodigoPlan", SqlDbType.Int).Value = codigoPlan;
+
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+
+        }
+
+        public List<AfiliadoHistoricoPlan> ObtenerHistorialPlanesByIdUsuario(int idUsuario)
+        {
+            string query =
+                "SELECT [intIdAfiliadoHistoricoPlan],[intIdUsuario],[datFechaModificacion],[varMotivoModificacion],[intCodigoPlan] " +
+                "FROM [AfiliadoHistoricoPlan] " +
+                "WHERE intIdUsuario = " + idUsuario.ToString();
+
+            this.Command = new SqlCommand(query.ToString(), this.Connector);
+            this.Connector.Open();
+            SqlDataReader reader = this.Command.ExecuteReader();
+
+            List<AfiliadoHistoricoPlan> historial = new List<AfiliadoHistoricoPlan>();
+
+            while (reader.Read())
+            {
+                var hist = new AfiliadoHistoricoPlan()
+                {
+                    IdAfiliadoHistoricoPlan = reader["intIdAfiliadoHistoricoPlan"] as int? ?? default(int),
+                    Motivo = Convert.ToString(reader["varMotivoModificacion"]),
+                    Plan = reader["intCodigoPlan"] as int? ?? default(int),
+                    IdUsuario = reader["intIdUsuario"] as int? ?? default(int),
+                    FechaCambio = Convert.ToDateTime(reader["datFechaModificacion"]),
+                };
+
+                historial.Add(hist);
+            }
+
+            return historial;
+
+        }
     }
 }

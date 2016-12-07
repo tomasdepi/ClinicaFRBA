@@ -24,7 +24,7 @@ namespace ClinicaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CancelarAtencionMedica());
+            Application.Run(new GestionarAfiliados());
         }
     }
 }

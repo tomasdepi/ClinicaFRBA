@@ -19,28 +19,39 @@ namespace ClinicaFrba.Abm_Afiliado
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Carga Inicial del formulario Alta Integrante Familia Afiliado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AltaIntegranteFamiliaAfiliado_Load(object sender, EventArgs e)
         {
-
+            this.CargarComboEstadoCivil();
+            this.CargarComboSexo();
         }
 
+        /// <summary>
+        /// Se encarga de realizar el guardado del afiliado asociado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (DatosValidos()) { 
-            this.Afiliado = new Usuario();
+                this.Afiliado = new Usuario();
 
-            this.Afiliado.EstadoCivil = this.cboEstadoCivil.SelectedItem.ToString();
-            this.Afiliado.Apellido = this.txtApellido.Text;
-            this.Afiliado.Nombre = this.txtNombre.Text;
-            this.Afiliado.Direccion = this.txtDireccion.Text;
-            this.Afiliado.FechaNacimiento = Convert.ToDateTime(this.dtpFechaDeNacimiento.Text);
-            this.Afiliado.TipoDocumento = this.txtTipoDoc.Text;
-            this.Afiliado.NroDocumento = Convert.ToInt32(this.txtNroDoc.Text);
-            this.Afiliado.Sexo = this.cboSexo.SelectedItem.ToString();
-            this.Afiliado.Mail = this.txtMail.Text;
-            this.Afiliado.Telefono = Convert.ToInt32(this.txtTelefono.Text);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                this.Afiliado.EstadoCivil = this.cboEstadoCivil.SelectedItem.ToString();
+                this.Afiliado.Apellido = this.txtApellido.Text;
+                this.Afiliado.Nombre = this.txtNombre.Text;
+                this.Afiliado.Direccion = this.txtDireccion.Text;
+                this.Afiliado.FechaNacimiento = Convert.ToDateTime(this.dtpFechaDeNacimiento.Text);
+                this.Afiliado.TipoDocumento = this.txtTipoDoc.Text;
+                this.Afiliado.NroDocumento = Convert.ToInt32(this.txtNroDoc.Text);
+                this.Afiliado.Sexo = this.cboSexo.SelectedItem.ToString();
+                this.Afiliado.Mail = this.txtMail.Text;
+                this.Afiliado.Telefono = Convert.ToInt32(this.txtTelefono.Text);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
@@ -48,35 +59,30 @@ namespace ClinicaFrba.Abm_Afiliado
             }
         }
 
+        /// <summary>
+        /// Comportamiento del botón cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        public Usuario Afiliado { get; set; }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFacNac_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Cargar el combo sexo
+        /// </summary>
         private void CargarComboSexo()
         {
             this.cboSexo.Items.Add("M");
             this.cboSexo.Items.Add("F");
         }
 
-        private void comboEstadoCivil_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
+        /// <summary>
+        /// Carga el combo estado civil 
+        /// </summary>
         private void CargarComboEstadoCivil()
         {
             this.cboEstadoCivil.DisplayMember = "Text";
@@ -89,6 +95,10 @@ namespace ClinicaFrba.Abm_Afiliado
             this.cboEstadoCivil.Items.Add("Viudo");
         }
 
+        /// <summary>
+        /// Valida cada uno de los datos, de los TextBox del formulario
+        /// </summary>
+        /// <returns></returns>
         private bool DatosValidos()
         {
             if(this.cboEstadoCivil.SelectedItem.ToString()== null) { return false; }
@@ -104,9 +114,6 @@ namespace ClinicaFrba.Abm_Afiliado
             return true;
         }
 
-        private void txtApellido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        public Usuario Afiliado { get; set; }
     }
 }

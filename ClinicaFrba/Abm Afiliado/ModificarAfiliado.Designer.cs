@@ -44,6 +44,9 @@
             this.lblFecNac = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.gboxDatosAdicionales = new System.Windows.Forms.GroupBox();
+            this.btnHistorial = new System.Windows.Forms.Button();
+            this.txtMotivoCambio = new System.Windows.Forms.TextBox();
+            this.llbMotivoCambio = new System.Windows.Forms.Label();
             this.cboPlanes = new System.Windows.Forms.ComboBox();
             this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.txtMail = new System.Windows.Forms.TextBox();
@@ -197,6 +200,9 @@
             // 
             // gboxDatosAdicionales
             // 
+            this.gboxDatosAdicionales.Controls.Add(this.btnHistorial);
+            this.gboxDatosAdicionales.Controls.Add(this.txtMotivoCambio);
+            this.gboxDatosAdicionales.Controls.Add(this.llbMotivoCambio);
             this.gboxDatosAdicionales.Controls.Add(this.cboPlanes);
             this.gboxDatosAdicionales.Controls.Add(this.cboEstadoCivil);
             this.gboxDatosAdicionales.Controls.Add(this.txtMail);
@@ -209,10 +215,36 @@
             this.gboxDatosAdicionales.Controls.Add(this.lblTelefono);
             this.gboxDatosAdicionales.Location = new System.Drawing.Point(33, 236);
             this.gboxDatosAdicionales.Name = "gboxDatosAdicionales";
-            this.gboxDatosAdicionales.Size = new System.Drawing.Size(491, 165);
+            this.gboxDatosAdicionales.Size = new System.Drawing.Size(491, 218);
             this.gboxDatosAdicionales.TabIndex = 7;
             this.gboxDatosAdicionales.TabStop = false;
             this.gboxDatosAdicionales.Text = "Datos Adicionales";
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.Location = new System.Drawing.Point(308, 128);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(102, 23);
+            this.btnHistorial.TabIndex = 20;
+            this.btnHistorial.Text = "Historial planes";
+            this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            // 
+            // txtMotivoCambio
+            // 
+            this.txtMotivoCambio.Location = new System.Drawing.Point(126, 157);
+            this.txtMotivoCambio.Name = "txtMotivoCambio";
+            this.txtMotivoCambio.Size = new System.Drawing.Size(284, 20);
+            this.txtMotivoCambio.TabIndex = 19;
+            // 
+            // llbMotivoCambio
+            // 
+            this.llbMotivoCambio.AutoSize = true;
+            this.llbMotivoCambio.Location = new System.Drawing.Point(18, 160);
+            this.llbMotivoCambio.Name = "llbMotivoCambio";
+            this.llbMotivoCambio.Size = new System.Drawing.Size(102, 13);
+            this.llbMotivoCambio.TabIndex = 18;
+            this.llbMotivoCambio.Text = "Motivo cambio plan:";
             // 
             // cboPlanes
             // 
@@ -221,6 +253,7 @@
             this.cboPlanes.Name = "cboPlanes";
             this.cboPlanes.Size = new System.Drawing.Size(149, 21);
             this.cboPlanes.TabIndex = 17;
+            this.cboPlanes.TextChanged += new System.EventHandler(this.cboPlanes_TextChanged);
             // 
             // cboEstadoCivil
             // 
@@ -280,7 +313,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(368, 418);
+            this.btnGuardar.Location = new System.Drawing.Point(368, 476);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 8;
@@ -290,7 +323,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(449, 418);
+            this.btnCancelar.Location = new System.Drawing.Point(449, 476);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
@@ -300,7 +333,7 @@
             // 
             // btnBaja
             // 
-            this.btnBaja.Location = new System.Drawing.Point(33, 418);
+            this.btnBaja.Location = new System.Drawing.Point(33, 476);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(115, 23);
             this.btnBaja.TabIndex = 10;
@@ -312,7 +345,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 479);
+            this.ClientSize = new System.Drawing.Size(547, 519);
             this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -358,5 +391,8 @@
         private System.Windows.Forms.ComboBox cboEstadoCivil;
         private System.Windows.Forms.ComboBox cboPlanes;
         private System.Windows.Forms.Button btnBaja;
+        private System.Windows.Forms.TextBox txtMotivoCambio;
+        private System.Windows.Forms.Label llbMotivoCambio;
+        private System.Windows.Forms.Button btnHistorial;
     }
 }

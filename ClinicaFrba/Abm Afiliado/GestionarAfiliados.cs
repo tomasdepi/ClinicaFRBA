@@ -21,6 +21,13 @@ namespace ClinicaFrba.Abm_Afiliado
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Botón Modificar de la grilla que abre el formulario Modificar Afiliado
+        /// se le pasa el nro de documento a la otra pantalla 
+        /// para que precargue los valores del Afiliado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grdAfiliados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -31,11 +38,6 @@ namespace ClinicaFrba.Abm_Afiliado
 
                 f2.ShowDialog();
             }
-
-        }
-
-        private void gboxFiltrosBusqueda_Enter(object sender, EventArgs e)
-        {
 
         }
 
@@ -65,6 +67,11 @@ namespace ClinicaFrba.Abm_Afiliado
             }
         }
 
+
+        /// <summary>
+        /// Carga la grilla de afiliados segun los filtros que fueron elegidos
+        /// </summary>
+        /// <param name="users"></param>
         private void CargarGrillaAfiliado(List<Usuario> users)
         {
             DataTable dt = new DataTable();
@@ -106,6 +113,9 @@ namespace ClinicaFrba.Abm_Afiliado
             this.grdAfiliados.DataSource = dt;
         }
 
+        /// <summary>
+        /// Carga el combo planes
+        /// </summary>
         private void CargarComboPlanesMedicos()
         {
             var service = new ClinicaService();
@@ -118,6 +128,9 @@ namespace ClinicaFrba.Abm_Afiliado
             }
         }
 
+        /// <summary>
+        /// Carga el combo estado actual
+        /// </summary>
         private void CargarComboEstadoActual()
         {
             this.cboEstadoActual.Items.Add("Habilitado");
@@ -125,17 +138,22 @@ namespace ClinicaFrba.Abm_Afiliado
             this.cboEstadoActual.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Carga inicial del formulario Gestionar Afiliados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GestionarAfiliados_Load(object sender, EventArgs e)
         {
             this.CargarComboPlanesMedicos();
             this.CargarComboEstadoActual();
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Comportamiento del boton limpiar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.grdAfiliados.DataSource = null;
@@ -143,11 +161,21 @@ namespace ClinicaFrba.Abm_Afiliado
             this.grdAfiliados.Refresh();
         }
 
+        /// <summary>
+        /// Comportamiento del boton Volver
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVolver_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Comportamiento del boton Dar de alta, redirige a Alta Afiliado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
         {
             AltaAfiliado af = new AltaAfiliado();

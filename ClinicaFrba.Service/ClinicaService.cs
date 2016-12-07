@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,6 +56,14 @@ namespace ClinicaFrba.Service
         {
             Regex reg = new Regex("[0-9]");
             return reg.IsMatch(username);
+        }
+
+        public void ActualizarHistorialCambiosDePlan(ActualizarHistorialCambiosDePlanRequest req)
+        {
+            var repo = new AfiliadoDao();
+
+            repo.AgregarHistoricoCambioPlan(req.CodigoPlan, req.IdUsuario, req.MotivoCambio);
+
         }
 
         /// <summary>
@@ -153,11 +162,27 @@ namespace ClinicaFrba.Service
 
         }
 
+        public string GetDescripcionByCodigoPlan(int codigoPlan)
+        {
+            var repo = new PlanDao();
+
+            return repo.GetDescripcionByCodigoPlan(codigoPlan);
+
+        }
+
         public void DarDeBajaUsuario(int nroDocumento)
         {
             var repo = new AfiliadoDao();
 
             repo.Delete(nroDocumento);
+        }
+
+        public List<AfiliadoHistoricoPlan> ObtenerHistorialCambioPlanes(int idUsuario)
+        {
+            var repo = new AfiliadoDao();
+
+            return repo.ObtenerHistorialPlanesByIdUsuario(idUsuario); ;
+
         }
     }
 }
