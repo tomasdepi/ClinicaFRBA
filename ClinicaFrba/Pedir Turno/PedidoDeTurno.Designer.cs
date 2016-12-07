@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.gridProfesionales = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgenda = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.cBoxEspecilidad = new System.Windows.Forms.ComboBox();
             this.lblNumeroAfiliado = new System.Windows.Forms.Label();
             this.txBoxNumeroAfiliado = new System.Windows.Forms.TextBox();
+            this.NroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgenda = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridProfesionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             // 
             this.gridProfesionales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProfesionales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NroDocumento,
             this.Nombre,
             this.Apellido,
             this.Especialidad,
@@ -52,26 +54,7 @@
             this.gridProfesionales.Name = "gridProfesionales";
             this.gridProfesionales.Size = new System.Drawing.Size(444, 148);
             this.gridProfesionales.TabIndex = 0;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            // 
-            // btnAgenda
-            // 
-            this.btnAgenda.HeaderText = "Agenda";
-            this.btnAgenda.Name = "btnAgenda";
+            this.gridProfesionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProfesionales_CellContentClick);
             // 
             // lblEspecialidad
             // 
@@ -108,6 +91,34 @@
             this.txBoxNumeroAfiliado.Size = new System.Drawing.Size(100, 20);
             this.txBoxNumeroAfiliado.TabIndex = 6;
             // 
+            // NroDocumento
+            // 
+            this.NroDocumento.HeaderText = "NroDocumento";
+            this.NroDocumento.Name = "NroDocumento";
+            this.NroDocumento.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            // 
+            // btnAgenda
+            // 
+            this.btnAgenda.HeaderText = "Agenda";
+            this.btnAgenda.Name = "btnAgenda";
+            this.btnAgenda.Text = "Ver Horarios";
+            this.btnAgenda.UseColumnTextForButtonValue = true;
+            // 
             // PedidoDeTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,14 +142,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gridProfesionales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
-        private System.Windows.Forms.DataGridViewButtonColumn btnAgenda;
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.ComboBox cBoxEspecilidad;
         private System.Windows.Forms.Label lblNumeroAfiliado;
         private System.Windows.Forms.TextBox txBoxNumeroAfiliado;
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn NroDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.DataGridViewButtonColumn btnAgenda;
     }
 }

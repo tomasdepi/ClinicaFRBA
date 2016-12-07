@@ -19,9 +19,18 @@ namespace ClinicaFrba.Pedir_Turno
             InitializeComponent();
         }
 
+        public int NroAfiliado { get; set; }
+
+        public PedidoDeTurno(int nroAfiliado)
+        {
+            NroAfiliado = nroAfiliado;
+            InitializeComponent();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.CargarComboEspecialidades();
+            this.txBoxNumeroAfiliado.Text = NroAfiliado.ToString();
         }
 
         private void lblEspecialidad_Click(object sender, EventArgs e)
@@ -51,10 +60,22 @@ namespace ClinicaFrba.Pedir_Turno
                 Usuario user = new Usuario();
                 user = usuarios[i];
 
-                gridProfesionales.Rows.Add(user.Nombre, user.Apellido, cBoxEspecilidad.Text);
+                gridProfesionales.Rows.Add(user.NroDocumento,user.Nombre, user.Apellido, cBoxEspecilidad.Text);
             }
 
 
+        }
+
+        private void gridProfesionales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string nroDocumento = this.gridProfesionales.Rows[e.RowIndex].Cells["NroDocumento"].Value.ToString();
+
+                DiasDisponibles f2 = new DiasDisponibles(Convert.ToInt32(nroDocumento));
+
+                f2.ShowDialog();
+            }
         }
     }
 }
