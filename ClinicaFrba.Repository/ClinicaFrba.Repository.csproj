@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AfiliadoDao.cs" />
     <Compile Include="BaseDao.cs" />
+    <Compile Include="ComboboxItem.cs" />
     <Compile Include="Entities\AfiliadoHistoricoPlan.cs" />
     <Compile Include="Entities\InfoParaListado.cs" />
     <Compile Include="Entities\TurnoCancelado.cs" />

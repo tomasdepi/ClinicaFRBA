@@ -142,7 +142,7 @@
             this.btnHacerListado.TabIndex = 9;
             this.btnHacerListado.Text = "Buscar";
             this.btnHacerListado.UseVisualStyleBackColor = true;
-            //this.btnHacerListado.Click += new System.EventHandler(this.btnHacerListado_Click);
+            this.btnHacerListado.Click += new System.EventHandler(this.btnHacerListado_Click_1);
             // 
             // lblPlan
             // 
@@ -169,6 +169,7 @@
             this.cboPlan.Name = "cboPlan";
             this.cboPlan.Size = new System.Drawing.Size(121, 21);
             this.cboPlan.TabIndex = 12;
+            this.cboPlan.SelectedIndexChanged += new System.EventHandler(this.cboPlan_SelectedIndexChanged);
             // 
             // cboEspecialidad
             // 
@@ -177,6 +178,7 @@
             this.cboEspecialidad.Name = "cboEspecialidad";
             this.cboEspecialidad.Size = new System.Drawing.Size(121, 21);
             this.cboEspecialidad.TabIndex = 13;
+            this.cboEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cboEspecialidad_SelectedIndexChanged);
             // 
             // btnFinalizar
             // 
@@ -188,7 +190,7 @@
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // Form1
+            // GenerarListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -208,7 +210,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cboListado);
             this.Controls.Add(this.lblListado);
-            this.Name = "Form1";
+            this.Name = "GenerarListado";
             this.Text = "grid";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

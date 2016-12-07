@@ -17,6 +17,7 @@ namespace ClinicaFrba.Listados
         public GenerarListado()
         {
             InitializeComponent();
+            CargarComboBoxes();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,38 +55,90 @@ namespace ClinicaFrba.Listados
 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cboListado.Text)
+            {
+                case "Especialidades con más cancelaciones":
+                    this.cboPlan.SelectedIndex = -1;
+                    this.cboEspecialidad.SelectedIndex = -1;
+                    this.cboPlan.Enabled = false;
+                    this.cboEspecialidad.Enabled = false;
+                    break;
+                case "Profecionales más consultados":
+                    this.cboEspecialidad.SelectedIndex = -1;
+                    this.cboPlan.Enabled = true;
+                    this.cboEspecialidad.Enabled = false;
+                    break;
+                case "Profesional con menos horas trabajadas":
+                    this.cboPlan.Enabled = true;
+                    this.cboEspecialidad.Enabled = true;
+                    break;
+                case "Afiliados que más bonos compraron":
+                    this.cboPlan.SelectedIndex = -1;
+                    this.cboEspecialidad.SelectedIndex = -1;
+                    this.cboPlan.Enabled = false;
+                    this.cboEspecialidad.Enabled = false;
+                    break;
+                case "Especialidades más consultadas":
+                    this.cboPlan.SelectedIndex = -1;
+                    this.cboEspecialidad.SelectedIndex = -1;
+                    this.cboPlan.Enabled = false;
+                    this.cboEspecialidad.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+                
+        }
+
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cboSemestre.Text.Equals("Primer semestre"))
+            if ((cboSemestre.SelectedItem as ComboboxItem).Text.ToString().Equals("Primer Semestre"))
             {
-                this.cboMes.Items.Add("Enero");
-                this.cboMes.Items.Add("Febrero");
-                this.cboMes.Items.Add("Marzo");
-                this.cboMes.Items.Add("Abril");
-                this.cboMes.Items.Add("Mayo");
-                this.cboMes.Items.Add("Junio");
-                this.cboMes.Items.Remove("Julio");
-                this.cboMes.Items.Remove("Agosto");
-                this.cboMes.Items.Remove("Septiembre");
-                this.cboMes.Items.Remove("Octubre");
-                this.cboMes.Items.Remove("Noviembre");
-                this.cboMes.Items.Remove("Diciembre");
+                this.cboMes.Items.Clear();
+                ComboboxItem item = new ComboboxItem();
+                item.Text = "Enero";
+                item.Value = 1;
+                this.cboMes.Items.Add(item);
+                item.Text = "Febrero";
+                item.Value = 2;
+                this.cboMes.Items.Add(item);
+                item.Text = "Marzo";
+                item.Value = 3;
+                this.cboMes.Items.Add(item);
+                item.Text = "Abril";
+                item.Value = 4;
+                this.cboMes.Items.Add(item);
+                item.Text = "Mayo";
+                item.Value = 5;
+                this.cboMes.Items.Add(item);
+                item.Text = "Junio";
+                item.Value = 6;
+                this.cboMes.Items.Add(item);
             }
-            if (this.cboSemestre.Text.Equals("Segundo semestre"))
+            if ((cboSemestre.SelectedItem as ComboboxItem).Text.ToString().Equals("Segundo Semestre"))
             {
-                this.cboMes.Items.Add("Julio");
-                this.cboMes.Items.Add("Agosto");
-                this.cboMes.Items.Add("Septiembre");
-                this.cboMes.Items.Add("Octubre");
-                this.cboMes.Items.Add("Noviembre");
-                this.cboMes.Items.Add("Diciembre");
-                this.cboMes.Items.Remove("Enero");
-                this.cboMes.Items.Remove("Febrero");
-                this.cboMes.Items.Remove("Marzo");
-                this.cboMes.Items.Remove("Abril");
-                this.cboMes.Items.Remove("Mayo");
-                this.cboMes.Items.Remove("Junio");
-
+                this.cboMes.Items.Clear();
+                ComboboxItem item = new ComboboxItem();
+                item.Text = "Julio";
+                item.Value = 7;
+                this.cboMes.Items.Add(item);
+                item.Text = "Agosto";
+                item.Value = 8;
+                this.cboMes.Items.Add(item);
+                item.Text = "Septiembre";
+                item.Value = 9;
+                this.cboMes.Items.Add(item);
+                item.Text = "Octubre";
+                item.Value = 10;
+                this.cboMes.Items.Add(item);
+                item.Text = "Noviembre";
+                item.Value = 11;
+                this.cboMes.Items.Add(item);
+                item.Text = "Diciembre";
+                item.Value = 12;
+                this.cboMes.Items.Add(item);
             }
 
         }
@@ -95,77 +148,95 @@ namespace ClinicaFrba.Listados
 
         }
 
-        //private void btnHacerListado_Click(object sender, EventArgs e)
-        //{
-        //    if(todasLasComboBoxesCompletas())
-        //    {
-        //        InfoParaListado info = new InfoParaListado();
-        //        info.Ano = Int32.Parse(this.cboAño.Text);
-        //        info.Semestre = Int32.Parse(this.cboSemestre.Text);
-        //        info.Plan = Int32.Parse(this.cboSemestre.Text);
-        //        info.Especialidad = Int32.Parse(this.cboEspecialidad.Text);
-        //        if (this.cboMes.Text != "")
-        //        {
-        //            info.Mes = Int32.Parse(this.cboMes.Text);
-        //        }
 
-        //        if (cboListado.Text == "Especialidades con más cancelaciones")
-        //        {
-        //            ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-        //            this.generarTabla(list.getEspecialidadesMasCanceladas(info));
-        //            return;
-        //        }
-
-        //        if (cboListado.Text == "Profecionales más consultados")
-        //        {
-        //            ListadoUsuarioDao list = new ListadoUsuarioDao();
-        //            this.generarTablaConMasValores(list.getProfesionalesMasConsultados(info));
-        //            return;
-        //        }
-
-        //        if (cboListado.Text == "Profesional con menos horas trabajadas")
-        //        {
-        //            ListadoUsuarioDao list = new ListadoUsuarioDao();
-        //            this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
-        //            return;
-        //        }
-
-        //        if (cboListado.Text == "Afiliados que más bonos compraron")
-        //        {
-        //            ListadoUsuarioDao list = new ListadoUsuarioDao();
-        //            this.generarTablaConMasValores(list.getAfiliadosQueCompraronMasBonos(info));
-        //            return;
-        //        }
-
-        //        if (cboListado.Text == "Especialidades más consultadas")
-        //        {
-        //            ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-        //            this.generarTabla(list.getEspecialidadesMasConsultadas(info));
-        //            return;
-        //        }
-
-        //        MessageBox.Show("Por favor, chequee que la lista seleccionada sea válida", "Error", MessageBoxButtons.OK);
-        //        return;
-        //    }
-        //}
-
-        //private void generarTablaConMasValores(List<Usuario> list)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void generarTabla(List<string>)
-        //{
-        //    return 1;
-        //}
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnHacerListado_Click_1(object sender, EventArgs e)
         {
-            
+
+            if (todasLasComboBoxesCompletas())
+            {
+                InfoParaListado info = new InfoParaListado();
+                info.Ano = Int32.Parse(cboAño.Text.ToString());
+                info.Semestre = Int32.Parse((cboSemestre.SelectedItem as ComboboxItem).Value.ToString());
+                if (this.cboMes.Text != "")
+                {
+                    info.Mes = Int32.Parse((cboMes.SelectedItem as ComboboxItem).Value.ToString());
+                }
+
+                //   if (cboListado.Text.Equals("Especialidades con más cancelaciones"))
+                //   {
+                //       ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
+                //       this.generarTabla(list.getEspecialidadesMasCanceladas(info));
+                //      return;
+                //  }
+
+                //if (cboListado.Text.Equals("Profecionales más consultados"))
+                //{
+                //    if(chequeoPlan())
+                //    {
+                //       info.Plan = Int32.Parse(this.cboPlan.Text.ToString());
+                //       ListadoUsuarioDao list = new ListadoUsuarioDao();
+                //       this.generarTablaConMasValores(list.getProfesionalesMasConsultados(info));
+                //       return;
+                //    }
+                //  return;
+                //}
+
+                if (cboListado.Text.Equals("Profesional con menos horas trabajadas"))
+                {
+                    if(chequeoEspecialidad() && chequeoPlan())
+                    {
+                        info.Especialidad = Int32.Parse(this.cboEspecialidad.Text.ToString());
+                        info.Plan = Int32.Parse(this.cboPlan.Text.ToString());
+                        ListadoUsuarioDao list = new ListadoUsuarioDao();
+                        this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
+                        return;
+                    }
+                    return;
+                }
+
+                //if (cboListado.Text.Equals("Afiliados que más bonos compraron"))
+                //{
+                //    ListadoUsuarioDao list = new ListadoUsuarioDao();
+                //    this.generarTablaConMasValores(list.getAfiliadosQueCompraronMasBonos(info));
+                //    return;
+                //}
+
+                //if (cboListado.Text.Equals("Especialidades más consultadas"))
+                //{
+                //    ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
+                //    this.generarTabla(list.getEspecialidadesMasConsultadas(info));
+                //    return;
+                //}
+
+                MessageBox.Show("Por favor, chequee que la lista seleccionada sea válida", "Error", MessageBoxButtons.OK);
+                return;
+            }
         }
 
+        private void generarTablaConMasValores(List<Usuario> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void generarTabla(List<string> lista)
+        {
+            for(int i = 1; i< lista.Count; i++)
+            { 
+            DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+            row.Cells[0].Value = lista[i];
+            dataGridView1.Rows.Add(row);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Los Años, Planes y Especialidades se escriben, por el momento, a mano. No estan cargados.
+        /// </summary>
+        
         private void CargarComboBoxes()
         {
+
             this.cboListado.Items.Add("Especialidades con más cancelaciones");
             this.cboListado.Items.Add("Profecionales más consultados");
             this.cboListado.Items.Add("Profesional con menos horas trabajadas");
@@ -175,11 +246,15 @@ namespace ClinicaFrba.Listados
 
             this.cboMes.Items.Add("");
 
+            ComboboxItem item = new ComboboxItem();
+            item.Text = "Primer Semestre";
+            item.Value = 1;
+            cboSemestre.Items.Add(item);
+            ComboboxItem item2 = new ComboboxItem();
+            item2.Text = "Segundo Semestre";
+            item2.Value = 2;
+            cboSemestre.Items.Add(item2);
 
-            this.cboSemestre.Items.Add("Primer semestre");
-            this.cboSemestre.Items.Add("Segundo semestre");
-
-      //      List<String> años = añosConRegistros();
 
         }
 
@@ -196,39 +271,70 @@ namespace ClinicaFrba.Listados
 
         private bool todasLasComboBoxesCompletas()
         {
-            if (cboAño.Text == null)
-            {
-                MessageBox.Show("No se seleccionó un Año para la búsqueda", "Error", MessageBoxButtons.OK);
-                return false;
-            }
 
-            if (cboListado.Text == null)
+            if (cboListado.SelectedIndex == -1)
             {
                 MessageBox.Show("No se seleccionó un tipo de Listado", "Error", MessageBoxButtons.OK);
                 return false;
             }
 
-            if (cboSemestre.Text == null)
+            if (cboSemestre.SelectedIndex == -1)
             {
                 MessageBox.Show("No se seleccionó un Semestre para la búsqueda", "Error", MessageBoxButtons.OK);
                 return false;
             }
 
-            if (cboListado.Text == "Profesional con menos horas trabajadas")
+            if (cboListado.Text.Equals("Profesional con menos horas trabajadas"))
             {
-                if(cboPlan.Text == null)
+                if(cboPlan.SelectedIndex == -1)
                 {
                     MessageBox.Show("No se seleccionó un Plan para la búsqueda", "Error", MessageBoxButtons.OK);
                     return false;
                 }
-                if (cboEspecialidad.Text == null)
+                if (cboEspecialidad.SelectedIndex == -1)
                 {
                     MessageBox.Show("No se seleccionó una Especialidad para la búsqueda", "Error", MessageBoxButtons.OK);
                     return false;
                 }
             }
 
+            if (string.IsNullOrEmpty(cboAño.Text))
+            {
+                MessageBox.Show("No se seleccionó un Año para la búsqueda", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
             return true;
+        }
+
+        private bool chequeoPlan()
+        {
+            if (string.IsNullOrEmpty(cboPlan.Text.ToString()))
+            {
+                MessageBox.Show("No se seleccionó un Plan para la búsqueda", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
+
+        private bool chequeoEspecialidad()
+        {
+            if (string.IsNullOrEmpty(cboEspecialidad.Text.ToString()))
+            {
+                MessageBox.Show("No se seleccionó una Especialidad para la búsqueda", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
+
+        private void cboPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
