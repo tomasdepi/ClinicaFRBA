@@ -31,9 +31,9 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.Horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirmar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,16 @@
             this.lblFecha.Text = "Fecha para Turno :";
             this.lblFecha.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(229, 227);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // Horario
             // 
             this.Horario.HeaderText = "Horario";
@@ -76,15 +86,8 @@
             // 
             this.btnConfirmar.HeaderText = "ConfirmarTurno";
             this.btnConfirmar.Name = "btnConfirmar";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(229, 227);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Text = "Reservar";
+            this.btnConfirmar.UseColumnTextForButtonValue = true;
             // 
             // DiasDisponibles
             // 
@@ -108,8 +111,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horario;
         private System.Windows.Forms.DataGridViewButtonColumn btnConfirmar;
-        private System.Windows.Forms.Button btnCancelar;
     }
 }

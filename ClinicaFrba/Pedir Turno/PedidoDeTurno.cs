@@ -72,7 +72,7 @@ namespace ClinicaFrba.Pedir_Turno
             {
                 string nroDocumento = this.gridProfesionales.Rows[e.RowIndex].Cells["NroDocumento"].Value.ToString();
 
-                DiasDisponibles f2 = new DiasDisponibles(Convert.ToInt32(nroDocumento));
+                DiasDisponibles f2 = new DiasDisponibles(Convert.ToInt32(nroDocumento), NroAfiliado);
 
                 f2.ShowDialog();
             }

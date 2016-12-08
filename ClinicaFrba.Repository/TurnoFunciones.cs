@@ -19,7 +19,7 @@ namespace ClinicaFrba.Repository
 
         public TurnoFunciones()
         {
-            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
                                "Trusted_Connection=yes;" +
                                "database=GD2C2016; " +
                                "connection timeout=10");
@@ -111,5 +111,49 @@ namespace ClinicaFrba.Repository
 
             return especialidades;
         }
+
+        public List<string> GetDisponibilidadDelProfesional(int idProfesional, DateTime fecha)
+        {
+            List<string> horarios = new List<string>();
+            string query = "  SELECT datFechaTurno FROM Turno WHERE intIdDoctor = @idProfesional AND CAST(datFechaTurno AS DATE) = @diaReserva AND bitEstado = 1";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@idProfesional", SqlDbType.Int).Value = idProfesional;
+            this.Command.Parameters.Add("@diaReserva", SqlDbType.VarChar).Value = fecha.ToShortDateString();
+
+            this.Connector.Open();
+
+            SqlDataReader resu = Command.ExecuteReader();
+
+            while (resu.Read())
+            {
+                horarios.Add(resu["datFechaTurno"].ToString());
+            }
+
+            this.Connector.Close();
+            return horarios;
+        }
+
+        public void ReservarNuevoTurno(int idProfesional, int idAfiliado, DateTime fechaTurno)
+        {
+            const string query =
+                "INSERT INTO [dbo].[Turno]([intIdTurno],[datFechaTurno],[intIdPaciente],[intIdDoctor],[bitEstado]) " +
+                "VALUES (@intIdTurno, @datFechaTurno, @intIdPaciente, @intIdDoctor, @bitEstado)";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Command.Parameters.Add("@intIdTurno", SqlDbType.Int).Value = 5;
+            this.Command.Parameters.Add("@datFechaTurno", SqlDbType.DateTime).Value = fechaTurno;
+            this.Command.Parameters.Add("@intIdPaciente", SqlDbType.Int).Value = idAfiliado;
+            this.Command.Parameters.Add("@intIdDoctor", SqlDbType.Int).Value = idProfesional;
+            this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = 1;
+        
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+
+        }
+        
     }
 }
