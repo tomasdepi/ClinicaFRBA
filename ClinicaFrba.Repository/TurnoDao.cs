@@ -149,6 +149,23 @@ namespace ClinicaFrba.Repository
             return turnos;
         }
 
+        public List<int> añosConTurnos()
+        {
+            this.Connector.Open();
+            List<int> años = new List<int>();
+            string query = "SELECT distinct(YEAR(t.datFechaTurno)) fecha from Turno t";
+            this.Command = new SqlCommand(query, this.Connector);
+
+             SqlDataReader resultado = Command.ExecuteReader();
+
+            while (resultado.Read())
+            {
+                años.Add(Int32.Parse(resultado["fecha"].ToString()));
+            }
+            this.Connector.Close();
+            return años;
+        }
+
         public override void Add(TurnoYUsuario entidad)
         {
             throw new NotImplementedException();

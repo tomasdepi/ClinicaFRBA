@@ -233,7 +233,7 @@ namespace ClinicaFrba.Listados
         /// <summary>
         /// Los Años, Planes y Especialidades se escriben, por el momento, a mano. No estan cargados.
         /// </summary>
-        
+
         private void CargarComboBoxes()
         {
 
@@ -244,8 +244,6 @@ namespace ClinicaFrba.Listados
             this.cboListado.Items.Add("Especialidades más consultadas");
 
 
-            this.cboMes.Items.Add("");
-
             ComboboxItem item = new ComboboxItem();
             item.Text = "Primer Semestre";
             item.Value = 1;
@@ -255,6 +253,9 @@ namespace ClinicaFrba.Listados
             item2.Value = 2;
             cboSemestre.Items.Add(item2);
 
+            cargarAños();
+            cargarPlanes();
+            cargarEspecialidades();
 
         }
 
@@ -334,7 +335,34 @@ namespace ClinicaFrba.Listados
 
         private void cboEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void cargarEspecialidades()
+        {
+            TurnoFunciones turno = new TurnoFunciones();
+
+            List<String> especialidades = turno.getEspecialidadesDB();
+
+            especialidades.ForEach(esp => this.cboEspecialidad.Items.Add(esp));
+        }
+
+        private void cargarPlanes()
+        {
+            PlanDao plan = new PlanDao();
+
+            List<Plan> planesVigentes = plan.ListarPlanesMedicosVigentes();
+
+            planesVigentes.ForEach(pln => this.cboPlan.Items.Add(pln));
+        }
+
+        private void cargarAños()
+        {
+            TurnoDao turno = new TurnoDao();
+
+            List<int> añosAMostrar = turno.añosConTurnos();
+
+            añosAMostrar.ForEach(año => this.cboAño.Items.Add(año));
         }
     }
 }

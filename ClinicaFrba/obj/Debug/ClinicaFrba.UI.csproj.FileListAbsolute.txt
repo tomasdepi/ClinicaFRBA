@@ -119,7 +119,6 @@ C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.RegistrarAgenda.resources
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.SeleccionarProfecional.resources
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form3.resources
-C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form1.resources
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
@@ -262,3 +261,4 @@ C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaBono.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.HistorialPlanes.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaBusqueda.resources
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaBusqueda.resources
