@@ -86,5 +86,30 @@ namespace ClinicaFrba.Repository
             return horarios;
         }
 
+
+        public List<Especialidad> getIdEspecialidadesDB()
+        {
+            List<Especialidad> especialidades = new List<Especialidad>();
+
+            String query = "SELECT DISTINCT e.varDescripcion as des, e.intEspecialidadCodigo as cod FROM ProfesionalXEspecialidad p, Especialidad e WHERE e.intEspecialidadCodigo = p.intEspecialidadCodigo;";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+
+            SqlDataReader resultado = Command.ExecuteReader();
+
+            while (resultado.Read()) 
+                {
+                Especialidad esp = new Especialidad();
+                esp.Codigo = Convert.ToInt32(resultado["cod"]);
+                esp.Descripcion = resultado["des"].ToString();
+                especialidades.Add(esp);
+                }
+
+            this.Connector.Close();
+
+            return especialidades;
+        }
     }
 }

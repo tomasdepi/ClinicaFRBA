@@ -89,7 +89,7 @@ namespace ClinicaFrba.Listados
                 default:
                     break;
             }
-                
+
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace ClinicaFrba.Listados
                 //    {
                 //       info.Plan = Int32.Parse(this.cboPlan.Text.ToString());
                 //       ListadoUsuarioDao list = new ListadoUsuarioDao();
-                //       this.generarTablaConMasValores(list.getProfesionalesMasConsultados(info));
+                //       this.generarTablaConAfiliadoYGFam(list.getProfesionalesMasConsultados(info));
                 //       return;
                 //    }
                 //  return;
@@ -183,7 +183,7 @@ namespace ClinicaFrba.Listados
 
                 if (cboListado.Text.Equals("Profesional con menos horas trabajadas"))
                 {
-                    if(chequeoEspecialidad() && chequeoPlan())
+                    if (chequeoEspecialidad() && chequeoPlan())
                     {
                         info.Especialidad = Int32.Parse(this.cboEspecialidad.Text.ToString());
                         info.Plan = Int32.Parse(this.cboPlan.Text.ToString());
@@ -197,7 +197,7 @@ namespace ClinicaFrba.Listados
                 //if (cboListado.Text.Equals("Afiliados que más bonos compraron"))
                 //{
                 //    ListadoUsuarioDao list = new ListadoUsuarioDao();
-                //    this.generarTablaConMasValores(list.getAfiliadosQueCompraronMasBonos(info));
+                //    this.generarTablaConProfYEsp(list.getAfiliadosQueCompraronMasBonos(info));
                 //    return;
                 //}
 
@@ -213,26 +213,41 @@ namespace ClinicaFrba.Listados
             }
         }
 
-        private void generarTablaConMasValores(List<Usuario> list)
+        private void generarTablaConAfiliadoYGFam(List<Usuario> lista)
         {
-            throw new NotImplementedException();
+            for (int i = 1; i < lista.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = lista[i].Nombre;
+                row.Cells[1].Value = lista[i].Apellido;
+                //row.Cells[2].Value = lista[i].VerqueCampoVaAca;
+                dataGridView1.Rows.Add(row);
+            }
+        }
+
+        private void generarTablaConProfYEsp(List<Usuario> lista)
+        {
+            for (int i = 1; i < lista.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = lista[i].Nombre;
+                row.Cells[1].Value = lista[i].Apellido;
+                row.Cells[1].Value = lista[i].Especialidades[0];
+                dataGridView1.Rows.Add(row);
+            }
         }
 
         private void generarTabla(List<string> lista)
         {
-            for(int i = 1; i< lista.Count; i++)
-            { 
-            DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-            row.Cells[0].Value = lista[i];
-            dataGridView1.Rows.Add(row);
+            for (int i = 1; i < lista.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = lista[i];
+                dataGridView1.Rows.Add(row);
             }
         }
 
 
-
-        /// <summary>
-        /// Los Años, Planes y Especialidades se escriben, por el momento, a mano. No estan cargados.
-        /// </summary>
 
         private void CargarComboBoxes()
         {
@@ -287,7 +302,7 @@ namespace ClinicaFrba.Listados
 
             if (cboListado.Text.Equals("Profesional con menos horas trabajadas"))
             {
-                if(cboPlan.SelectedIndex == -1)
+                if (cboPlan.SelectedIndex == -1)
                 {
                     MessageBox.Show("No se seleccionó un Plan para la búsqueda", "Error", MessageBoxButtons.OK);
                     return false;
@@ -335,16 +350,25 @@ namespace ClinicaFrba.Listados
 
         private void cboEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cargarEspecialidades()
         {
             TurnoFunciones turno = new TurnoFunciones();
 
-            List<String> especialidades = turno.getEspecialidadesDB();
+            List<Especialidad> especialidades = turno.getIdEspecialidadesDB();
 
-            especialidades.ForEach(esp => this.cboEspecialidad.Items.Add(esp));
+
+            foreach (Especialidad esp in especialidades)
+            {
+                ComboboxItem item = new ComboboxItem();
+                item.Text = esp.Descripcion;
+                item.Value = esp.Codigo;
+                this.cboEspecialidad.Items.Add(item);
+            }
+
+
         }
 
         private void cargarPlanes()
@@ -353,7 +377,14 @@ namespace ClinicaFrba.Listados
 
             List<Plan> planesVigentes = plan.ListarPlanesMedicosVigentes();
 
-            planesVigentes.ForEach(pln => this.cboPlan.Items.Add(pln));
+            foreach (Plan pln in planesVigentes)
+            {
+                ComboboxItem item = new ComboboxItem();
+                item.Text = pln.Descripcion;
+                item.Value = pln.Codigo;
+                this.cboPlan.Items.Add(item);
+            }
+
         }
 
         private void cargarAños()
