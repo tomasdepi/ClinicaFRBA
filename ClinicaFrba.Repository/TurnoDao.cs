@@ -168,7 +168,7 @@ namespace ClinicaFrba.Repository
 
         public List<TurnoYUsuario> turnosDeHoy(int idProfesional)
         {
-            string query = "SELECT u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from Turno t INNER JOIN Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = GETDATE() and t.intIdDoctor="+idProfesional;
+            string query = "SELECT t.intIdTurno idTurno, u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from Turno t INNER JOIN Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = GETDATE() and t.intIdDoctor="+idProfesional;
 
          
             List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();
@@ -184,6 +184,7 @@ namespace ClinicaFrba.Repository
                 turno.Nombre = resultado["nombre"].ToString();
                 turno.FechaTurno = DateTime.Parse(resultado["fecha"].ToString());
                 turno.idUsuario = Int32.Parse(resultado["id"].ToString());
+                turno.IdTurno = Int32.Parse(resultado["idTurno"].ToString());
             }
 
             this.Connector.Close();

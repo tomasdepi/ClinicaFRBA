@@ -2,12 +2,8 @@
 using ClinicaFrba.Repository.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace ClinicaFrba.Registro_Llegada
@@ -23,6 +19,7 @@ namespace ClinicaFrba.Registro_Llegada
         }
 
         List<int> idsUsuario;
+        List<int> idsTurnos;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -32,9 +29,11 @@ namespace ClinicaFrba.Registro_Llegada
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             var rowTurno = dgvTurno.SelectedRows[0].Index;
-            int id = idsUsuario.GetRange(rowTurno, 1).First();
+            int idAfiliado = idsUsuario.GetRange(rowTurno, 1).First();
+            int idTurno = idsTurnos.GetRange(rowTurno, 1).First();
+            string nombreAfiliado = dgvTurno.SelectedRows[0].Cells[1].ToString();
 
-            new RegistroLlegadaBono(id).Show();
+            new RegistroLlegadaBono(idAfiliado, nombreAfiliado, idTurno).Show();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -48,6 +47,7 @@ namespace ClinicaFrba.Registro_Llegada
             dgvTurno.MultiSelect = false;
 
             idsUsuario = new List<int>();
+            idsTurnos = new List<int>();
 
             TurnoDao dao = new TurnoDao();
             List<TurnoYUsuario> turnos = dao.turnosDeHoy(idProfesional);
@@ -60,6 +60,7 @@ namespace ClinicaFrba.Registro_Llegada
                 DataGridViewCell afiliado = new DataGridViewTextBoxCell();
                 afiliado.Value = turnos[i].Nombre + " " + turnos[i].Apellido;
                 idsUsuario.Add(turnos[i].idUsuario);
+                idsTurnos.Add(turnos[i].IdTurno);
 
                 row.Cells.Add(fecha);
                 row.Cells.Add(afiliado);

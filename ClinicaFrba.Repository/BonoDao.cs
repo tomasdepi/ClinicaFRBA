@@ -87,7 +87,7 @@ namespace ClinicaFrba.Repository
         public List<Bono> getBonosDeAfiliado(int idAfiliado)
         {
             List<Bono> bonos = new List<Bono>();
-            String query = "SELECT intIdBono, datFechaCompra FROM Bono WHERE intIdAfiliadoCompro="+idAfiliado;
+            String query = "SELECT intIdBono id, datFechaCompra fecha FROM Bono WHERE intIdAfiliadoCompro="+idAfiliado + "and intIdAfiliado utilizo is null";
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Connector.Open();
@@ -96,7 +96,10 @@ namespace ClinicaFrba.Repository
             while (resultado.Read())
             {
                 Bono bono = new Bono();
-                //tengo que terminar la funcion, german salvaje aparecio
+                bono.Id = Int32.Parse(resultado["id"].ToString());
+                bono.FechaCompra = DateTime.Parse(resultado["fecha"].ToString());
+
+                bonos.Add(bono);
             }
 
             this.Connector.Close();
@@ -104,6 +107,15 @@ namespace ClinicaFrba.Repository
             return bonos;
         }
 
+        public void usarBono(int idAfiliado, int idBono)
+        {
+            String query = "UPDATE Bono SET intIdAfiliadoUtilizo="+idAfiliado+"WHERE intIdBono="+idBono;
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+            this.Command.ExecuteNonQuery();
+            this.Connector.Close();
+        }
 
         public override void Add(Bono entidad)
         {
