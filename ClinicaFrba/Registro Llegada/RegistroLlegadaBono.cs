@@ -12,9 +12,12 @@ namespace ClinicaFrba.Registro_Llegada
 {
     public partial class RegistroLlegadaBono : Form
     {
-        public RegistroLlegadaBono()
+        int idAfiliado;
+
+        public RegistroLlegadaBono(int idAfiliado)
         {
             InitializeComponent();
+            this.idAfiliado = idAfiliado;
         }
 
         private void Form2_Load(object sender, EventArgs e)

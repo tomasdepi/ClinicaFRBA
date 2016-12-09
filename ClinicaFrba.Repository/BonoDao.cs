@@ -84,6 +84,27 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
         }
 
+        public List<Bono> getBonosDeAfiliado(int idAfiliado)
+        {
+            List<Bono> bonos = new List<Bono>();
+            String query = "SELECT intIdBono, datFechaCompra FROM Bono WHERE intIdAfiliadoCompro="+idAfiliado;
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+
+            SqlDataReader resultado = this.Command.ExecuteReader();
+            while (resultado.Read())
+            {
+                Bono bono = new Bono();
+                //tengo que terminar la funcion, german salvaje aparecio
+            }
+
+            this.Connector.Close();
+
+            return bonos;
+        }
+
+
         public override void Add(Bono entidad)
         {
             throw new NotImplementedException();

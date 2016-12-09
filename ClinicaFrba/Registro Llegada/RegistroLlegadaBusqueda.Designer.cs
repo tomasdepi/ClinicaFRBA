@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvProfesionales = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.SeleccionarBono = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblBuscarPorEsp = new System.Windows.Forms.Label();
             this.cmbEspecialidades = new System.Windows.Forms.ComboBox();
             this.lblNombreProf = new System.Windows.Forms.Label();
@@ -46,6 +41,10 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brnTurnos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,41 +54,12 @@
             this.dgvProfesionales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Apellido,
-            this.Especialidad,
-            this.Seleccionar,
-            this.SeleccionarBono});
-            this.dgvProfesionales.Location = new System.Drawing.Point(14, 130);
+            this.Especialidad});
+            this.dgvProfesionales.Location = new System.Drawing.Point(34, 116);
             this.dgvProfesionales.Name = "dgvProfesionales";
-            this.dgvProfesionales.Size = new System.Drawing.Size(576, 187);
+            this.dgvProfesionales.Size = new System.Drawing.Size(417, 187);
             this.dgvProfesionales.TabIndex = 0;
             this.dgvProfesionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar Turno";
-            this.Seleccionar.Name = "Seleccionar";
-            // 
-            // SeleccionarBono
-            // 
-            this.SeleccionarBono.HeaderText = "Seleccionar Bono";
-            this.SeleccionarBono.Name = "SeleccionarBono";
-            this.SeleccionarBono.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SeleccionarBono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // lblBuscarPorEsp
             // 
@@ -185,7 +155,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(475, 333);
+            this.btnCancelar.Location = new System.Drawing.Point(376, 323);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -193,11 +163,37 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            // 
+            // brnTurnos
+            // 
+            this.brnTurnos.Location = new System.Drawing.Point(295, 323);
+            this.brnTurnos.Name = "brnTurnos";
+            this.brnTurnos.Size = new System.Drawing.Size(75, 23);
+            this.brnTurnos.TabIndex = 13;
+            this.brnTurnos.Text = "Turnos";
+            this.brnTurnos.UseVisualStyleBackColor = true;
+            this.brnTurnos.Click += new System.EventHandler(this.brnTurnos_Click);
+            // 
             // RegistroLlegadaBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 368);
+            this.ClientSize = new System.Drawing.Size(488, 368);
+            this.Controls.Add(this.brnTurnos);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.textBox4);
@@ -233,12 +229,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
-        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn SeleccionarBono;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button brnTurnos;
     }
 }

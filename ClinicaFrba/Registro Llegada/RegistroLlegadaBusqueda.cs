@@ -14,6 +14,9 @@ namespace ClinicaFrba.Registro_Llegada
 {
     public partial class RegistroLlegadaBusqueda : Form
     {
+
+        List<int> ids;
+
         public RegistroLlegadaBusqueda()
         {
             InitializeComponent();
@@ -33,6 +36,10 @@ namespace ClinicaFrba.Registro_Llegada
             cmbEspecialidades.Items.Add("-");
             especialidades.ForEach(esp => cmbEspecialidades.Items.Add(esp));
             cmbEspecialidades.SelectedItem = cmbEspecialidades.Items[0];
+
+            ids = new List<int>();
+
+            dgvProfesionales.MultiSelect = false;
         }
 
 
@@ -62,6 +69,8 @@ namespace ClinicaFrba.Registro_Llegada
 
             for (int i = 0; i < lista.Count(); i++)
             {
+                ids.Add(lista[0].id);
+
                 DataGridViewRow row = new DataGridViewRow();
                 DataGridViewCell nombre = new DataGridViewTextBoxCell();
                 nombre.Value = lista[i].nombre;
@@ -75,6 +84,20 @@ namespace ClinicaFrba.Registro_Llegada
                 row.Cells.Add(esp);
                 dgvProfesionales.Rows.Add(row);
             }
+        }
+
+        private void brnTurnos_Click(object sender, EventArgs e)
+        {
+            if (dgvProfesionales.SelectedRows.Count == 0)
+                MessageBox.Show("No se a seleccionado un Profesional", "Alerta", MessageBoxButtons.OK);
+            else
+            {
+                var index = dgvProfesionales.SelectedRows[0].Index;
+                var id = ids.GetRange(index, 1).First();
+
+                new RegistroLlegadaTurno(id).Show();
+            }
+           
         }
     }
 }

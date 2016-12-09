@@ -166,6 +166,30 @@ namespace ClinicaFrba.Repository
             return años;
         }
 
+        public List<TurnoYUsuario> turnosDeHoy(int idProfesional)
+        {
+            string query = "SELECT u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from Turno t INNER JOIN Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = GETDATE() and t.intIdDoctor="+idProfesional;
+
+         
+            List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();
+
+            this.Connector.Open();
+            this.Command = new SqlCommand(query, this.Connector);
+            SqlDataReader resultado = Command.ExecuteReader();
+
+            while (resultado.Read())
+            {
+                TurnoYUsuario turno = new TurnoYUsuario();
+                turno.Apellido = resultado["apellido"].ToString();
+                turno.Nombre = resultado["nombre"].ToString();
+                turno.FechaTurno = DateTime.Parse(resultado["fecha"].ToString());
+                turno.idUsuario = Int32.Parse(resultado["id"].ToString());
+            }
+
+            this.Connector.Close();
+            return turnos;
+        }
+
         public override void Add(TurnoYUsuario entidad)
         {
             throw new NotImplementedException();

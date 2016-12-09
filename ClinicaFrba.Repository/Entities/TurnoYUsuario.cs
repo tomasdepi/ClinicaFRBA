@@ -11,6 +11,7 @@ namespace ClinicaFrba.Repository.Entities
         public DateTime FechaTurno { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        public int idUsuario { get; set; }
         public int IdTurno { get; set; }
         public String Sintomas { get; set; }
         public String Diagnostico { get; set; }

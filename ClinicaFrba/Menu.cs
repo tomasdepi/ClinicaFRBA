@@ -148,7 +148,7 @@ namespace ClinicaFrba
 
         private void lanzarLlegadaAtencion(object sender, EventArgs e)
         {
-            new RegistroLlegadaBono().Show();
+            new RegistroLlegadaBusqueda().Show();
             this.Close();
         }
 
