@@ -45,8 +45,11 @@ namespace ClinicaFrba
                 List<String> funcionalidades = login.TodasLasFuncionalidades();
                 this.Hide();
                 new Menu(funcionalidades).ShowDialog();
-                this.Close();
                 return;
+            }
+            else{
+                if (!(new ClinicaService().EsCampoNumerico(username)))
+                    MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);
             }
                      
             List<String> roles = login.Logearse(username, pass);

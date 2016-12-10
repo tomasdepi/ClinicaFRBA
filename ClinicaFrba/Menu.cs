@@ -60,19 +60,19 @@ namespace ClinicaFrba
             boton.Text = func;
             switch (func)
             {
-                case "AMB Rol":
+                case "ABM Rol":
                     boton.Click += new EventHandler(this.lanzarABMRol);
                     break;
-                case "AMB Afiliado":
+                case "ABM Afiliado":
                     boton.Click += new EventHandler(this.lanzarABMAfiliado);
                     break;
-                case "AMB Profesional":
+                case "ABM Profesional":
                     boton.Click += new EventHandler(this.lanzarABMProfesional);
                     break;
-                case "AMB Esp Medicas":
+                case "ABM Esp Medicas":
                     boton.Click += new EventHandler(this.lanzarABMEspecialidades);
                     break;
-                case "AMB Planes":
+                case "ABM Planes":
                     boton.Click += new EventHandler(this.lanzarABMPlanes);
                     break;
                 case "Registrar Agenda":
