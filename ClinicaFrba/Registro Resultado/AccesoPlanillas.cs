@@ -16,6 +16,12 @@ namespace ClinicaFrba.RegistroResultado
     public partial class AccesoPlanillas : Form
     {
 
+        public AccesoPlanillas()
+        {
+            InitializeComponent();
+        }
+
+
         public AccesoPlanillas(int idDoctor)
         {
             InitializeComponent();

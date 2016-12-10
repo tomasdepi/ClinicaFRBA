@@ -178,7 +178,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -188,7 +188,7 @@
             this.brnTurnos.Name = "brnTurnos";
             this.brnTurnos.Size = new System.Drawing.Size(75, 23);
             this.brnTurnos.TabIndex = 13;
-            this.brnTurnos.Text = "Turnos";
+            this.brnTurnos.Text = "Ver Turnos";
             this.brnTurnos.UseVisualStyleBackColor = true;
             this.brnTurnos.Click += new System.EventHandler(this.brnTurnos_Click);
             // 

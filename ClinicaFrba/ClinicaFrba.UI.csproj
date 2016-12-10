@@ -230,6 +230,15 @@
     <EmbeddedResource Include="Abm Afiliado\ModificarAfiliado.resx">
       <DependentUpon>ModificarAfiliado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Especialidades Medicas\GestionarEspecialidades.resx">
+      <DependentUpon>GestionarEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Planes\GestionarPlanes.resx">
+      <DependentUpon>GestionarPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Profesional\GestionarProfesional.resx">
+      <DependentUpon>GestionarProfesional.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AbmRol\AgregarRol.resx">
       <DependentUpon>AgregarRol.cs</DependentUpon>
     </EmbeddedResource>

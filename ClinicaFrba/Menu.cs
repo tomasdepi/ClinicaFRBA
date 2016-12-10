@@ -10,6 +10,7 @@ using ClinicaFrba.Pedir_Turno;
 using ClinicaFrba.Registrar_Agenta_Medico;
 using ClinicaFrba.Registro_Llegada;
 using ClinicaFrba.Registro_Resultado;
+using ClinicaFrba.RegistroResultado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,12 +27,16 @@ namespace ClinicaFrba
     {
 
         List<String> funcionalidades;
+        string rol;
+        string username;
 
-        public Menu(List<String> funcs)
+        public Menu(List<String> funcs, string rol, string username)
         {
             InitializeComponent();
 
             this.funcionalidades = funcs;
+            this.rol = rol;
+            this.username = username;
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -82,16 +87,25 @@ namespace ClinicaFrba
                     boton.Click += new EventHandler(this.lanzarComprarBonos);
                     break;
                 case "Pedir Turnos":
-                    boton.Click += new EventHandler(this.lanzarPedirTurnos);
+                    if(this.username.Equals("admin"))
+                        boton.Click += new EventHandler(this.lanzarPedirTurnosAdmin);
+                    else
+                        boton.Click += new EventHandler(this.lanzarPedirTurnos);
                     break;
                 case "Registro Llegada Atencion Medica":
                     boton.Click += new EventHandler(this.lanzarLlegadaAtencion);
                     break;
                 case "Registro Resultada Atencion Medica":
-                    boton.Click += new EventHandler(this.lanzarResultadoAtencion);
+                    if (this.username.Equals("admin"))
+                        boton.Click += new EventHandler(this.lanzarResultadoAtencionAdmin);
+                    else
+                        boton.Click += new EventHandler(this.lanzarResultadoAtencion);
                     break;
                 case "Cancelar Atencion Medica":
-                    boton.Click += new EventHandler(this.lanzarCancelarAtencion);
+                    if(this.rol.Equals("Profesional") || this.rol.Equals("admin"))
+                        boton.Click += new EventHandler(this.lanzarCancelarAtencionProfesional);
+                    else
+                         boton.Click += new EventHandler(this.lanzarCancelarAtencionAfiliado);
                     break;
                 case "Listado Estadistico":
                     boton.Click += new EventHandler(this.lanzarListadoEstadistico);
@@ -103,74 +117,107 @@ namespace ClinicaFrba
 
         private void lanzarABMRol(object sender, EventArgs e)
         {
-            new GestionarRoles().Show();
-            this.Close();
+            this.Hide();
+            new GestionarRoles().ShowDialog();
+            this.Show();
         }
 
         private void lanzarABMAfiliado(object sender, EventArgs e)
         {
-            new GestionarAfiliados().Show();
-            this.Close();
+            this.Hide();
+            new GestionarAfiliados().ShowDialog();
+            this.Show();
         }
 
         private void lanzarABMProfesional(object sender, EventArgs e)
         {
-            new GestionarProfesional().Show();
-            this.Close();
+            this.Hide();
+            new GestionarProfesional().ShowDialog();
+            this.Show();
         }
 
         private void lanzarABMEspecialidades(object sender, EventArgs e)
         {
-            new GestionarEspecialidades().Show();
-            this.Close();
+            this.Hide();
+            new GestionarEspecialidades().ShowDialog();
+            this.Show();
         }
 
         private void lanzarABMPlanes(object sender, EventArgs e)
         {
-            new GestionarPlanes().Show();
-            this.Close();
+            this.Hide();
+            new GestionarPlanes().ShowDialog();
+            this.Show();
         }
 
         private void lanzarRegistrarAgenda(object sender, EventArgs e)
         {
-            new RegistrarAgenda().Show();
-            this.Close();
+            this.Hide();
+            new RegistrarAgenda().ShowDialog();
+            this.Show();
         }
 
         private void lanzarComprarBonos(object sender, EventArgs e)
         {
-            new VentanaIntermedioAdministrativo().Show();
-            this.Close();
+            this.Hide();
+            new VentanaIntermedioAdministrativo().ShowDialog();
+            this.Show();
+        }
+
+        private void lanzarPedirTurnosAdmin(object sender, EventArgs e)
+        {
+            this.Hide();
+            new PedidoDeTurno().ShowDialog();
+            this.Show();
         }
 
         private void lanzarPedirTurnos(object sender, EventArgs e)
         {
-            new PedidoDeTurno().Show();
-            this.Close();
+            this.Hide();
+            new PedidoDeTurno(Int32.Parse(this.username)).ShowDialog();
+            this.Show();
         }
 
         private void lanzarLlegadaAtencion(object sender, EventArgs e)
         {
-            new RegistroLlegadaBusqueda().Show();
-            this.Close();
+            this.Hide();
+            new RegistroLlegadaBusqueda().ShowDialog();
+            this.Show();
         }
 
         private void lanzarResultadoAtencion(object sender, EventArgs e)
         {
-            new ConfirmarLlegada().Show();
-            this.Close();
+            this.Hide();
+            new AccesoPlanillas(Int32.Parse(this.username)).ShowDialog();
+            this.Show();
         }
 
-        private void lanzarCancelarAtencion(object sender, EventArgs e)
+        private void lanzarResultadoAtencionAdmin(object sender, EventArgs e)
         {
-            new CancelarTurno().Show();
-            this.Close();
+            this.Hide();
+            new AccesoPlanillas().ShowDialog();
+            this.Show();
+        }
+
+        private void lanzarCancelarAtencionAfiliado(object sender, EventArgs e)
+        {
+            this.Hide();
+            new CancelarTurno().ShowDialog();
+            this.Show();
+        }
+
+        private void lanzarCancelarAtencionProfesional(object sender, EventArgs e)
+        {
+            this.Hide();
+            new CancelarAtencionMedica().ShowDialog();
+            this.Show();
         }
 
         private void lanzarListadoEstadistico(object sender, EventArgs e)
         {
-            new GenerarListado().Show();
-            this.Close();
+            this.Hide();
+            new GenerarListado().ShowDialog();
+            this.Show();
         }
 
 

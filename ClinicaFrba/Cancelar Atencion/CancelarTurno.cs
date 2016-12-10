@@ -40,7 +40,7 @@ namespace ClinicaFrba.Cancelar_Atencion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
         }
 
         private void Form1_Load(object sender, EventArgs e)

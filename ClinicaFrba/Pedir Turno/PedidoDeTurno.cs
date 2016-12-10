@@ -77,5 +77,10 @@ namespace ClinicaFrba.Pedir_Turno
                 f2.ShowDialog();
             }
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -57,7 +57,7 @@ namespace ClinicaFrba.Registro_Llegada
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

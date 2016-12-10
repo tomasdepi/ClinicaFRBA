@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.gridProfesionales = new System.Windows.Forms.DataGridView();
-            this.lblEspecialidad = new System.Windows.Forms.Label();
-            this.cBoxEspecilidad = new System.Windows.Forms.ComboBox();
-            this.lblNumeroAfiliado = new System.Windows.Forms.Label();
-            this.txBoxNumeroAfiliado = new System.Windows.Forms.TextBox();
             this.NroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgenda = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblEspecialidad = new System.Windows.Forms.Label();
+            this.cBoxEspecilidad = new System.Windows.Forms.ComboBox();
+            this.lblNumeroAfiliado = new System.Windows.Forms.Label();
+            this.txBoxNumeroAfiliado = new System.Windows.Forms.TextBox();
+            this.btnMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridProfesionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,34 @@
             this.gridProfesionales.Size = new System.Drawing.Size(444, 148);
             this.gridProfesionales.TabIndex = 0;
             this.gridProfesionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProfesionales_CellContentClick);
+            // 
+            // NroDocumento
+            // 
+            this.NroDocumento.HeaderText = "NroDocumento";
+            this.NroDocumento.Name = "NroDocumento";
+            this.NroDocumento.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            // 
+            // btnAgenda
+            // 
+            this.btnAgenda.HeaderText = "Agenda";
+            this.btnAgenda.Name = "btnAgenda";
+            this.btnAgenda.Text = "Ver Horarios";
+            this.btnAgenda.UseColumnTextForButtonValue = true;
             // 
             // lblEspecialidad
             // 
@@ -91,39 +120,22 @@
             this.txBoxNumeroAfiliado.Size = new System.Drawing.Size(100, 20);
             this.txBoxNumeroAfiliado.TabIndex = 6;
             // 
-            // NroDocumento
+            // btnMenu
             // 
-            this.NroDocumento.HeaderText = "NroDocumento";
-            this.NroDocumento.Name = "NroDocumento";
-            this.NroDocumento.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            // 
-            // btnAgenda
-            // 
-            this.btnAgenda.HeaderText = "Agenda";
-            this.btnAgenda.Name = "btnAgenda";
-            this.btnAgenda.Text = "Ver Horarios";
-            this.btnAgenda.UseColumnTextForButtonValue = true;
+            this.btnMenu.Location = new System.Drawing.Point(199, 275);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMenu.TabIndex = 7;
+            this.btnMenu.Text = "Volver";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // PedidoDeTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 275);
+            this.ClientSize = new System.Drawing.Size(473, 310);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.txBoxNumeroAfiliado);
             this.Controls.Add(this.lblNumeroAfiliado);
             this.Controls.Add(this.cBoxEspecilidad);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
         private System.Windows.Forms.DataGridViewButtonColumn btnAgenda;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

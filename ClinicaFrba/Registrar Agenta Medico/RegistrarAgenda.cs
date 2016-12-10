@@ -39,7 +39,7 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void checkBoxJueves_CheckedChanged(object sender, EventArgs e)

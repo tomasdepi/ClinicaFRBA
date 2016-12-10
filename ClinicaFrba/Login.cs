@@ -17,6 +17,7 @@ namespace ClinicaFrba
     {
 
         LoginFunciones login;
+        string user;
 
         public Login()
         {
@@ -44,12 +45,16 @@ namespace ClinicaFrba
             {
                 List<String> funcionalidades = login.TodasLasFuncionalidades();
                 this.Hide();
-                new Menu(funcionalidades).ShowDialog();
+                new Menu(funcionalidades, "admin", "admin").ShowDialog();
+                this.Close();
                 return;
             }
             else{
-                if (!(new ClinicaService().EsCampoNumerico(username)))
+                if (!(new ClinicaService().EsCampoNumerico(username))){
                     MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);
+                    return;
+                }
+
             }
                      
             List<String> roles = login.Logearse(username, pass);
@@ -65,7 +70,7 @@ namespace ClinicaFrba
                 btnEntrar.Visible = true;
 
                 roles.ForEach(rol => cbRoles.Items.Add(rol));
-               
+                this.user = username;
             }
 
             
@@ -78,7 +83,7 @@ namespace ClinicaFrba
         {
             var rol = cbRoles.SelectedItem.ToString();
             List<String> funcionalidades = login.GetFuncionalidadesDeRol(rol);
-            new Menu(funcionalidades).Show();
+            new Menu(funcionalidades, rol, this.user).Show();
         }
     }
 }

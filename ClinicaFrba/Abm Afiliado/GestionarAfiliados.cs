@@ -168,7 +168,7 @@ namespace ClinicaFrba.Abm_Afiliado
         /// <param name="e"></param>
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         /// <summary>

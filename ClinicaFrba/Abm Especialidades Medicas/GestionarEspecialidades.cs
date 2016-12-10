@@ -16,5 +16,10 @@ namespace ClinicaFrba.Abm_Especialidades_Medicas
         {
             InitializeComponent();
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

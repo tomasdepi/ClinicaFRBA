@@ -22,7 +22,7 @@ namespace ClinicaFrba.Compra_Bono
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
