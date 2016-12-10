@@ -162,24 +162,24 @@ namespace ClinicaFrba.Listados
                     info.Mes = Int32.Parse((cboMes.SelectedItem as ComboboxItem).Value.ToString());
                 }
 
-                //   if (cboListado.Text.Equals("Especialidades con más cancelaciones"))
-                //   {
-                //       ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                //       this.generarTabla(list.getEspecialidadesMasCanceladas(info));
-                //      return;
-                //  }
+                   if (cboListado.Text.Equals("Especialidades con más cancelaciones"))
+                   {
+                       ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
+                       this.generarTablaEsp(list.getEspecialidadesMasCanceladas(info));
+                      return;
+                  }
 
-                //if (cboListado.Text.Equals("Profecionales más consultados"))
-                //{
-                //    if(chequeoPlan())
-                //    {
-                //       info.Plan = Int32.Parse(this.cboPlan.Text.ToString());
-                //       ListadoUsuarioDao list = new ListadoUsuarioDao();
-                //       this.generarTablaConAfiliadoYGFam(list.getProfesionalesMasConsultados(info));
-                //       return;
-                //    }
-                //  return;
-                //}
+                if (cboListado.Text.Equals("Profecionales más consultados"))
+                {
+                    if(chequeoPlan())
+                    {
+                       info.Plan = this.cboPlan.Text.ToString();
+                       ListadoUsuarioDao list = new ListadoUsuarioDao();
+                       this.generarTablaConProfYEsp(list.getProfesionalesMasConsultados(info));
+                       return;
+                    }
+                  return;
+                }
 
                 if (cboListado.Text.Equals("Profesional con menos horas trabajadas"))
                 {
@@ -197,16 +197,16 @@ namespace ClinicaFrba.Listados
                 if (cboListado.Text.Equals("Afiliados que más bonos compraron"))
                 {
                     ListadoUsuarioDao list = new ListadoUsuarioDao();
-                    this.generarTablaConProfYEsp(list.getAfiliadosQueCompraronMasBonos(info));
+                    this.generarTablaConAfiliadoYGFam(list.getAfiliadosQueCompraronMasBonos(info));
                     return;
                 }
 
-                //if (cboListado.Text.Equals("Especialidades más consultadas"))
-                //{
-                //    ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
-                //    this.generarTabla(list.getEspecialidadesMasConsultadas(info));
-                //    return;
-                //}
+                if (cboListado.Text.Equals("Especialidades más consultadas"))
+                {
+                    ListadoEspecialidadesDao list = new ListadoEspecialidadesDao();
+                    this.generarTablaEsp(list.getEspecialidadesMasConsultadas(info));
+                    return;
+                }
 
                 MessageBox.Show("Por favor, chequee que la lista seleccionada sea válida", "Error", MessageBoxButtons.OK);
                 return;
@@ -240,7 +240,7 @@ namespace ClinicaFrba.Listados
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = lista[i].Nombre;
                 row.Cells[1].Value = lista[i].Apellido;
-                row.Cells[1].Value = lista[i].Especialidades[0];
+                row.Cells[1].Value = lista[i].EstadoCivil;
                 dataGridView1.Rows.Add(row);
             }
         }
@@ -256,6 +256,15 @@ namespace ClinicaFrba.Listados
             }
         }
 
+        private void generarTablaEsp(List<string> lista)
+        {
+            for (int i = 1; i < lista.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = lista[i];
+                dataGridView1.Rows.Add(row);
+            }
+        }
 
 
         private void CargarComboBoxes()
