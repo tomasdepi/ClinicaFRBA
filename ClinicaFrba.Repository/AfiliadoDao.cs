@@ -104,7 +104,6 @@ namespace ClinicaFrba.Repository
                 "UPDATE [dbo].[Afiliado]" +
                 "SET" +
                 "[intIdUsuario] = @intId" +
-                ",[bitEstadoActual] = @bitEstado" +
                 ",[intCodigoPlan] = @intCodigo" +
                 ",[intCantidadFamiliares] = @intCantidadFamiliares" +
                 ",[intNumeroConsultaMedica] = @intNumeroConsulta " +
@@ -113,7 +112,6 @@ namespace ClinicaFrba.Repository
             this.Command = new SqlCommand(query2, this.Connector);
 
             this.Command.Parameters.Add("@intId", SqlDbType.Int).Value = entidad.NroDocumento;
-            this.Command.Parameters.Add("@bitEstado", SqlDbType.Bit).Value = entidad.EstadoHabilitacion;
             this.Command.Parameters.Add("@intCodigo", SqlDbType.Int).Value = entidad.CodigoPlanMedico;
             this.Command.Parameters.Add("@intCantidadFamiliares", SqlDbType.Int).Value = entidad.CantidadFamiliaresACargo;
             this.Command.Parameters.Add("@intNumeroConsulta", SqlDbType.Int).Value = entidad.NumeroConsultaMedica;

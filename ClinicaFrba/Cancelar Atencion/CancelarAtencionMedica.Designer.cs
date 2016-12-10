@@ -105,6 +105,7 @@
             // txBoxDetalle
             // 
             this.txBoxDetalle.Location = new System.Drawing.Point(36, 174);
+            this.txBoxDetalle.MaxLength = 50;
             this.txBoxDetalle.Multiline = true;
             this.txBoxDetalle.Name = "txBoxDetalle";
             this.txBoxDetalle.Size = new System.Drawing.Size(309, 127);

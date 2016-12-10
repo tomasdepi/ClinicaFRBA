@@ -111,6 +111,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(80, 72);
+            this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(135, 20);
             this.txtApellido.TabIndex = 3;
@@ -118,6 +119,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(80, 32);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(135, 20);
             this.txtNombre.TabIndex = 2;

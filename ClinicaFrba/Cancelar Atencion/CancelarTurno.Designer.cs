@@ -105,12 +105,13 @@
             // txBoxMotivo
             // 
             this.txBoxMotivo.Location = new System.Drawing.Point(25, 134);
+            this.txBoxMotivo.MaxLength = 50;
             this.txBoxMotivo.Multiline = true;
             this.txBoxMotivo.Name = "txBoxMotivo";
             this.txBoxMotivo.Size = new System.Drawing.Size(213, 127);
             this.txBoxMotivo.TabIndex = 7;
             // 
-            // Form1
+            // CancelarTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +124,7 @@
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.cmbBoxTurno);
-            this.Name = "Form1";
+            this.Name = "CancelarTurno";
             this.Text = "Cancelar Turno";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

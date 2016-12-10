@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvProfesionales = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblBuscarPorEsp = new System.Windows.Forms.Label();
             this.cmbEspecialidades = new System.Windows.Forms.ComboBox();
             this.lblNombreProf = new System.Windows.Forms.Label();
@@ -41,9 +44,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brnTurnos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,21 @@
             this.dgvProfesionales.Size = new System.Drawing.Size(417, 187);
             this.dgvProfesionales.TabIndex = 0;
             this.dgvProfesionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
             // 
             // lblBuscarPorEsp
             // 
@@ -91,6 +106,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(142, 65);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 20);
             this.txtNombre.TabIndex = 4;
@@ -125,6 +141,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(117, 6);
+            this.textBox2.MaxLength = 50;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 8;
@@ -132,6 +149,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(117, 31);
+            this.textBox3.MaxLength = 9;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 9;
@@ -139,6 +157,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(331, 6);
+            this.textBox4.MaxLength = 50;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 10;
@@ -162,21 +181,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
             // 
             // brnTurnos
             // 
