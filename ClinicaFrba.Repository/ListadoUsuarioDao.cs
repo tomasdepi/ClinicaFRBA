@@ -86,44 +86,44 @@ namespace ClinicaFrba.Repository
             if (info.Mes != 0)
             {
 
-                query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, e.varDescripcion as descripcion, count(t.bitEstado) as atendidos" +
-                "from dbo.Especialidad as e inner join dbo.ProfesionalXEspecialidad as pxe on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo " +
-                "inner join dbo.Profesional as p on p.intIdUsuario = pxe.intIdUsuario " +
-                "inner join dbo.Usuario as u on p.intIdUsuario = u.intIdUsuario" +
-                "inner join dbo.Turno as t on p.intIdUsuario = t.intIdDoctor AND YEAR(t.datFechaTurno) =" + info.Ano + "AND MONTH(t.datFechaTurno) = " + info.Mes +
-                "inner join dbo.Asistencia as a on a.intIdTurno = t.intIdTurno" +
-                "inner join dbo.Afiliado as afi on afi.intIdUsuario = u.intIdUsuario" +
-                "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
-                "group by u.intIdUsuario, e.varDescripcion, u.varNombre, u.varApellido " +
-                "order by atendidos desc;";
+                query = "select top 5 u.varApellido as apellido, u.varNombre as nombre, sum(DATEDIFF(minute, a.timeHoraInicio, a.timeHoraFin)) as horasTrabajadas"+
+                "from Usuario u inner join Profesional p on p.intIdUsuario = u.intIdUsuario" +
+                "inner join ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
+                "inner join Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
+                "inner join Agenda a on a.intIdProfesional = p.intIdUsuario" +
+                "inner join Turno t on t.intIdDoctor = p.intIdUsuario" +
+                "inner join Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
+                "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) = " + info.Mes +
+                "group by u.varApellido, u.varNombre"+
+                "order by horasTrabajadas asc;";
             }
             if (info.Mes == 0)
             {
                 if (info.Semestre == 1)
                 {
-                    query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, e.varDescripcion as descripcion, count(t.bitEstado) as atendidos" +
-                "from dbo.Especialidad as e inner join dbo.ProfesionalXEspecialidad as pxe on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo " +
-                "inner join dbo.Profesional as p on p.intIdUsuario = pxe.intIdUsuario " +
-                "inner join dbo.Usuario as u on p.intIdUsuario = u.intIdUsuario" +
-                "inner join dbo.Turno as t on p.intIdUsuario = t.intIdDoctor AND YEAR(t.datFechaTurno) =" + info.Ano + "AND MONTH(t.datFechaTurno) < 7 "+
-                "inner join dbo.Asistencia as a on a.intIdTurno = t.intIdTurno" +
-                "inner join dbo.Afiliado as afi on afi.intIdUsuario = u.intIdUsuario" +
-                "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
-                "group by u.intIdUsuario, e.varDescripcion, u.varNombre, u.varApellido " +
-                "order by atendidos desc;";
+                query = "select top 5 u.varApellido as apellido, u.varNombre as nombre, sum(DATEDIFF(minute, a.timeHoraInicio, a.timeHoraFin)) as horasTrabajadas" +
+                "from Usuario u inner join Profesional p on p.intIdUsuario = u.intIdUsuario" +
+                "inner join ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
+                "inner join Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
+                "inner join Agenda a on a.intIdProfesional = p.intIdUsuario" +
+                "inner join Turno t on t.intIdDoctor = p.intIdUsuario" +
+                "inner join Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
+                "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) < 7"+
+                "group by u.varApellido, u.varNombre" +
+                "order by horasTrabajadas asc;";
                 }
                 if (info.Semestre == 2)
                 {
-                    query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, e.varDescripcion as descripcion, count(t.bitEstado) as atendidos" +
-                   "from dbo.Especialidad as e inner join dbo.ProfesionalXEspecialidad as pxe on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo " +
-                   "inner join dbo.Profesional as p on p.intIdUsuario = pxe.intIdUsuario " +
-                   "inner join dbo.Usuario as u on p.intIdUsuario = u.intIdUsuario" +
-                   "inner join dbo.Turno as t on p.intIdUsuario = t.intIdDoctor AND YEAR(t.datFechaTurno) =" + info.Ano + "AND MONTH(t.datFechaTurno) > 6 "+
-                   "inner join dbo.Asistencia as a on a.intIdTurno = t.intIdTurno" +
-                   "inner join dbo.Afiliado as afi on afi.intIdUsuario = u.intIdUsuario" +
-                   "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
-                   "group by u.intIdUsuario, e.varDescripcion, u.varNombre, u.varApellido " +
-                   "order by atendidos desc;";
+                query = "select top 5 u.varApellido as apellido, u.varNombre as nombre, sum(DATEDIFF(minute, a.timeHoraInicio, a.timeHoraFin)) as horasTrabajadas" +
+                "from Usuario u inner join Profesional p on p.intIdUsuario = u.intIdUsuario" +
+                "inner join ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
+                "inner join Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
+                "inner join Agenda a on a.intIdProfesional = p.intIdUsuario" +
+                "inner join Turno t on t.intIdDoctor = p.intIdUsuario" +
+                "inner join Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
+                "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) > 6" +
+                "group by u.varApellido, u.varNombre" +
+                "order by horasTrabajadas asc;";
                 }
             }
 
