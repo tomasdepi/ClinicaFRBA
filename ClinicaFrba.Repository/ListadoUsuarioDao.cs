@@ -75,7 +75,7 @@ namespace ClinicaFrba.Repository
 
         }
 
-        linea de recordatorio para que rompa y no cuelgue. Revisar horarios de agenda para esta query;
+       // linea de recordatorio para que rompa y no cuelgue. Revisar horarios de agenda para esta query;
 
         public List<Usuario> getProfesionalesConMenosHorasTrabajadas(InfoParaListado info)
         {

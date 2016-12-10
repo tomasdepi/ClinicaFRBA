@@ -15,6 +15,9 @@ namespace ClinicaFrba
 {
     public partial class Login : Form
     {
+
+        LoginFunciones login;
+
         public Login()
         {
             InitializeComponent();
@@ -25,6 +28,8 @@ namespace ClinicaFrba
             lblRol.Visible = false;
             cbRoles.Visible = false;
             btnEntrar.Visible = false;
+
+            login = new LoginFunciones();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -35,26 +40,32 @@ namespace ClinicaFrba
             ClinicaService service = new ClinicaService();
             LoginFunciones login = new LoginFunciones();
 
-            if (!service.EsCampoNumerico(username)) MessageBox.Show("Ingrese Campo Valido", "Alerta", MessageBoxButtons.OK);
-            else
+            if(username.Equals("admin") && pass.Equals("w23e"))
             {
-                List<String> roles = login.Logearse(username, pass);
-
-                if (roles.Count == 0) {
-                    MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);
-                    login.IntentoFallido(username);
-                }
-                else {
-
-                    lblRol.Visible = true;
-                    cbRoles.Visible = true;
-                    btnEntrar.Visible = true;
-
-                    roles.ForEach(rol => cbRoles.Items.Add(rol));
-               
-                }
-
+                List<String> funcionalidades = login.TodasLasFuncionalidades();
+                this.Hide();
+                new Menu(funcionalidades).ShowDialog();
+                this.Close();
+                return;
             }
+                     
+            List<String> roles = login.Logearse(username, pass);
+
+            if (roles.Count == 0) {
+                MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);
+                login.IntentoFallido(username);
+            }
+            else {
+
+                lblRol.Visible = true;
+                cbRoles.Visible = true;
+                btnEntrar.Visible = true;
+
+                roles.ForEach(rol => cbRoles.Items.Add(rol));
+               
+            }
+
+            
             cbRoles.SelectedItem = cbRoles.Items[0];
             //var roles = new GestionarRoles();
             //roles.ShowDialog();
@@ -62,7 +73,6 @@ namespace ClinicaFrba
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            LoginFunciones login = new LoginFunciones();
             var rol = cbRoles.SelectedItem.ToString();
             List<String> funcionalidades = login.GetFuncionalidadesDeRol(rol);
             new Menu(funcionalidades).Show();

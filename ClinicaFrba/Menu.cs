@@ -45,6 +45,8 @@ namespace ClinicaFrba
                 this.Controls.Add(boton);
 
                 distY += 50;
+
+                this.Height += 40;
             }
 
         }
@@ -52,7 +54,8 @@ namespace ClinicaFrba
         Button crearBoton(int distY, String func)
         {
             Button boton = new Button();
-            boton.Left = 100;
+            boton.Width = 200;
+            boton.Left = 50;
             boton.Top = distY;
             boton.Text = func;
             switch (func)

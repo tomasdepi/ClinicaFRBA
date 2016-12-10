@@ -21,7 +21,7 @@ namespace ClinicaFrba.Repository
 
         public LoginFunciones()
         {
-            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
                                            "Trusted_Connection=yes;" +
                                            "database=GD2C2016; " +
                                            "connection timeout=10");
@@ -85,6 +85,28 @@ namespace ClinicaFrba.Repository
 
             return funcs;
         }
-    
+
+
+        public List<String> TodasLasFuncionalidades()
+        {
+
+            List<String> funcs = new List<string>();
+
+            String query = "select distinct varFuncionalidad from dbo.Funcionalidad";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+
+            SqlDataReader resultado = Command.ExecuteReader();
+
+            while (resultado.Read()) funcs.Add(resultado[0].ToString());
+
+            this.Connector.Close();
+
+            return funcs;
+        }
+
+
     }
 }
