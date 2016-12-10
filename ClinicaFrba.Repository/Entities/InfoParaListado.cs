@@ -8,8 +8,8 @@ namespace ClinicaFrba.Repository.Entities
 {
     public class InfoParaListado
     {
-        public int Plan { get; set; }
-        public int Especialidad { get; set; }
+        public string Plan { get; set; }
+        public string Especialidad { get; set; }
         public int Ano { get; set; }
         public int Semestre { get; set; }
         public int Mes { get; set; }

@@ -185,8 +185,8 @@ namespace ClinicaFrba.Listados
                 {
                     if (chequeoEspecialidad() && chequeoPlan())
                     {
-                        info.Especialidad = Int32.Parse(this.cboEspecialidad.Text.ToString());
-                        info.Plan = Int32.Parse(this.cboPlan.Text.ToString());
+                        info.Especialidad = this.cboEspecialidad.Text.ToString();
+                        info.Plan = this.cboPlan.Text.ToString();
                         ListadoUsuarioDao list = new ListadoUsuarioDao();
                         this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
                         return;
@@ -194,12 +194,12 @@ namespace ClinicaFrba.Listados
                     return;
                 }
 
-                //if (cboListado.Text.Equals("Afiliados que más bonos compraron"))
-                //{
-                //    ListadoUsuarioDao list = new ListadoUsuarioDao();
-                //    this.generarTablaConProfYEsp(list.getAfiliadosQueCompraronMasBonos(info));
-                //    return;
-                //}
+                if (cboListado.Text.Equals("Afiliados que más bonos compraron"))
+                {
+                    ListadoUsuarioDao list = new ListadoUsuarioDao();
+                    this.generarTablaConProfYEsp(list.getAfiliadosQueCompraronMasBonos(info));
+                    return;
+                }
 
                 //if (cboListado.Text.Equals("Especialidades más consultadas"))
                 //{
@@ -220,8 +220,16 @@ namespace ClinicaFrba.Listados
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = lista[i].Nombre;
                 row.Cells[1].Value = lista[i].Apellido;
-                //row.Cells[2].Value = lista[i].VerqueCampoVaAca;
-                dataGridView1.Rows.Add(row);
+                if(lista[i].CantidadFamiliaresACargo == 0)
+                {
+                    row.Cells[2].Value = "No pertenece a un grupo familiar";
+                }
+                else
+                {
+                    row.Cells[2].Value = "Pertenece a un grupo familiar";
+                }
+
+                    dataGridView1.Rows.Add(row);
             }
         }
 
@@ -237,12 +245,13 @@ namespace ClinicaFrba.Listados
             }
         }
 
-        private void generarTabla(List<string> lista)
+        private void generarTabla(List<Usuario> lista)
         {
             for (int i = 1; i < lista.Count; i++)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                row.Cells[0].Value = lista[i];
+                row.Cells[0].Value = lista[i].Nombre;
+                row.Cells[1].Value = lista[i].Apellido;
                 dataGridView1.Rows.Add(row);
             }
         }

@@ -64,7 +64,7 @@
             this.cboListado.FormattingEnabled = true;
             this.cboListado.Location = new System.Drawing.Point(169, 10);
             this.cboListado.Name = "cboListado";
-            this.cboListado.Size = new System.Drawing.Size(121, 21);
+            this.cboListado.Size = new System.Drawing.Size(206, 21);
             this.cboListado.TabIndex = 1;
             this.cboListado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -73,7 +73,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 208);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(274, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(359, 150);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -102,7 +102,7 @@
             this.cboAño.FormattingEnabled = true;
             this.cboAño.Location = new System.Drawing.Point(169, 91);
             this.cboAño.Name = "cboAño";
-            this.cboAño.Size = new System.Drawing.Size(121, 21);
+            this.cboAño.Size = new System.Drawing.Size(206, 21);
             this.cboAño.TabIndex = 5;
             this.cboAño.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -121,7 +121,7 @@
             this.cboMes.FormattingEnabled = true;
             this.cboMes.Location = new System.Drawing.Point(169, 145);
             this.cboMes.Name = "cboMes";
-            this.cboMes.Size = new System.Drawing.Size(121, 21);
+            this.cboMes.Size = new System.Drawing.Size(206, 21);
             this.cboMes.TabIndex = 8;
             this.cboMes.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -130,7 +130,7 @@
             this.cboSemestre.FormattingEnabled = true;
             this.cboSemestre.Location = new System.Drawing.Point(169, 119);
             this.cboSemestre.Name = "cboSemestre";
-            this.cboSemestre.Size = new System.Drawing.Size(121, 21);
+            this.cboSemestre.Size = new System.Drawing.Size(206, 21);
             this.cboSemestre.TabIndex = 7;
             this.cboSemestre.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
@@ -167,7 +167,7 @@
             this.cboPlan.FormattingEnabled = true;
             this.cboPlan.Location = new System.Drawing.Point(169, 37);
             this.cboPlan.Name = "cboPlan";
-            this.cboPlan.Size = new System.Drawing.Size(121, 21);
+            this.cboPlan.Size = new System.Drawing.Size(206, 21);
             this.cboPlan.TabIndex = 12;
             this.cboPlan.SelectedIndexChanged += new System.EventHandler(this.cboPlan_SelectedIndexChanged);
             // 
@@ -176,13 +176,13 @@
             this.cboEspecialidad.FormattingEnabled = true;
             this.cboEspecialidad.Location = new System.Drawing.Point(169, 64);
             this.cboEspecialidad.Name = "cboEspecialidad";
-            this.cboEspecialidad.Size = new System.Drawing.Size(121, 21);
+            this.cboEspecialidad.Size = new System.Drawing.Size(206, 21);
             this.cboEspecialidad.TabIndex = 13;
             this.cboEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cboEspecialidad_SelectedIndexChanged);
             // 
             // btnFinalizar
             // 
-            this.btnFinalizar.Location = new System.Drawing.Point(215, 179);
+            this.btnFinalizar.Location = new System.Drawing.Point(300, 179);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
             this.btnFinalizar.TabIndex = 14;
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 370);
+            this.ClientSize = new System.Drawing.Size(387, 370);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.cboEspecialidad);
             this.Controls.Add(this.cboPlan);
