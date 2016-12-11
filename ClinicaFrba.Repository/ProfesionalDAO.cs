@@ -23,7 +23,7 @@ namespace ClinicaFrba.Repository
 
             List<Usuario> lista = new List<Usuario>();
 
-            String query = "select varNombre, varApellido from Usuario u inner join UsuarioXRol ur on u.intIdUsuario = ur.intIdUsuario where varNombreRol = 'Profesional'";
+            String query = "select varNombre, varApellido from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].UsuarioXRol ur on u.intIdUsuario = ur.intIdUsuario where varNombreRol = 'Profesional'";
 
             this.Command = new SqlCommand(query, this.Connector);
             this.Connector.Open();
@@ -49,7 +49,7 @@ namespace ClinicaFrba.Repository
         {
             List<Profesional> lista = new List<Profesional>();
 
-            string query = "select u.intIdUsuario id, u.varNombre nombre, u.varApellido apellido, e.varDescripcion esp from Usuario u inner join ProfesionalXEspecialidad pe on pe.intIdUsuario = u.intIdUsuario inner join Especialidad e on e.intEspecialidadCodigo = pe.intEspecialidadCodigo where u.varApellido like '%" + apellido + "%'";
+            string query = "select u.intIdUsuario id, u.varNombre nombre, u.varApellido apellido, e.varDescripcion esp from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].ProfesionalXEspecialidad pe on pe.intIdUsuario = u.intIdUsuario inner join [INTERNAL_SERVER_ERROR].Especialidad e on e.intEspecialidadCodigo = pe.intEspecialidadCodigo where u.varApellido like '%" + apellido + "%'";
             if (especialidad != "-") query += " and e.varDescripcion = '" + @especialidad + "'";
 
             this.Command = new SqlCommand(query, this.Connector);

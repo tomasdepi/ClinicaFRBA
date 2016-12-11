@@ -27,7 +27,7 @@ namespace ClinicaFrba.Repository
         {
           
             const string query =
-                "INSERT INTO [dbo].[Usuario]([intIdUsuario],[nvarPassword],[varNombre],[varApellido],[varTipoDocumento],[intNroDocumento],[intTelefono],[varEstadoCivil],[varDireccion],[varMail],[datFechaNacimiento],[chrSexo],[intIntentosLogin])" +
+                "INSERT INTO [INTERNAL_SERVER_ERROR].[Usuario]([intIdUsuario],[nvarPassword],[varNombre],[varApellido],[varTipoDocumento],[intNroDocumento],[intTelefono],[varEstadoCivil],[varDireccion],[varMail],[datFechaNacimiento],[chrSexo],[intIntentosLogin])" +
                 "VALUES(@intIdUsuario, @nvarPassword, @varNombre, @varApellido, @varTipoDocumento, @intNroDocumento, @intTelefono, @varEstadoCivil, @varDireccion, @varMail, @datFechaNacimiento, @chrSexo, @intIntentosLogin)"; 
 
             this.Command = new SqlCommand(query, this.Connector);
@@ -49,7 +49,7 @@ namespace ClinicaFrba.Repository
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
 
-           const string query2 = "INSERT INTO[dbo].[Afiliado]([intIdUsuario],[bitEstadoActual],[intCodigoPlan],[datFechaBaja],[intNumeroAfiliado],[intCantidadFamiliares],[intNumeroConsultaMedica])" +
+           const string query2 = "INSERT INTO [INTERNAL_SERVER_ERROR].[Afiliado]([intIdUsuario],[bitEstadoActual],[intCodigoPlan],[datFechaBaja],[intNumeroAfiliado],[intCantidadFamiliares],[intNumeroConsultaMedica])" +
                         "VALUES (@intIdUsuario, @bitEstadoActual, @intCodigoPlan, @datFechaBaja,@intNumeroAfiliado, @intCantidadFamiliares, @intNumeroConsultaMedica)";
 
 
@@ -69,7 +69,7 @@ namespace ClinicaFrba.Repository
         public override void Update(Usuario entidad)
         {
             const string query =
-               "UPDATE [dbo].[Usuario]" +
+               "UPDATE [INTERNAL_SERVER_ERROR].[Usuario]" +
                 "SET" +
                 "[intIdUsuario] = @intNroDocumento" +
                 ",[varNombre] = @varNombre" +
@@ -101,7 +101,7 @@ namespace ClinicaFrba.Repository
             this.Command.ExecuteNonQuery();
 
             const string query2 =
-                "UPDATE [dbo].[Afiliado]" +
+                "UPDATE [INTERNAL_SERVER_ERROR].[Afiliado]" +
                 "SET" +
                 "[intIdUsuario] = @intId" +
                 ",[intCodigoPlan] = @intCodigo" +
@@ -123,7 +123,7 @@ namespace ClinicaFrba.Repository
         public override void Delete(int id)
         {
             string query =
-                "UPDATE [dbo].[Afiliado] " +
+                "UPDATE [INTERNAL_SERVER_ERROR].[Afiliado] " +
                 "SET [bitEstadoActual] = 0, " +
                 "datFechaBaja = GETDATE() " +
                 "WHERE intIdUsuario = " + id.ToString();
@@ -138,7 +138,7 @@ namespace ClinicaFrba.Repository
         public override Usuario GetById(int id)
         {
             const string query =
-                "SELECT TOP 1 * FROM Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE u.intIdUsuario = @id";
+                "SELECT TOP 1 * FROM [INTERNAL_SERVER_ERROR].Usuario u INNER JOIN [INTERNAL_SERVER_ERROR].Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE u.intIdUsuario = @id";
 
             this.Command = new SqlCommand(query, this.Connector);
             this.Command.Parameters.Add("@id", SqlDbType.Int).Value = id;
@@ -193,7 +193,7 @@ namespace ClinicaFrba.Repository
         public List<Usuario> ObtenerUsuariosConFiltros(string nombre, string apellido, string descPlan, bool? estadoActual)
         {
             StringBuilder query = new StringBuilder();
-                query.Append("SELECT * FROM Usuario u INNER JOIN Afiliado a ON u.intIdUsuario = a.intIdUsuario INNER JOIN [GD2C2016].[dbo].[Plan] p ON p.intCodigoPlan = a.intCodigoPlan WHERE 1 = 1");
+                query.Append("SELECT * FROM [INTERNAL_SERVER_ERROR].Usuario u INNER JOIN [INTERNAL_SERVER_ERROR].Afiliado a ON u.intIdUsuario = a.intIdUsuario INNER JOIN [INTERNAL_SERVER_ERROR].[Plan] p ON p.intCodigoPlan = a.intCodigoPlan WHERE 1 = 1");
 
             if (!string.IsNullOrEmpty(nombre))
             {
@@ -258,7 +258,7 @@ namespace ClinicaFrba.Repository
         public void AgregarHistoricoCambioPlan(int codigoPlan, int idUsuario, string motivoCambio)
         {
             const string query =
-                "INSERT INTO [dbo].[AfiliadoHistoricoPlan]([intIdUsuario],[datFechaModificacion],[varMotivoModificacion],[intCodigoPlan]) VALUES" +
+                "INSERT INTO [INTERNAL_SERVER_ERROR].[AfiliadoHistoricoPlan]([intIdUsuario],[datFechaModificacion],[varMotivoModificacion],[intCodigoPlan]) VALUES" +
                 "(@intIdUsuario, GETDATE(), @varMotivoModificacion, @intCodigoPlan)";
 
             this.Command = new SqlCommand(query, this.Connector);
@@ -277,7 +277,7 @@ namespace ClinicaFrba.Repository
         {
             string query =
                 "SELECT [intIdAfiliadoHistoricoPlan],[intIdUsuario],[datFechaModificacion],[varMotivoModificacion],[intCodigoPlan] " +
-                "FROM [AfiliadoHistoricoPlan] " +
+                "FROM [INTERNAL_SERVER_ERROR].[AfiliadoHistoricoPlan] " +
                 "WHERE intIdUsuario = " + idUsuario.ToString();
 
             this.Command = new SqlCommand(query.ToString(), this.Connector);

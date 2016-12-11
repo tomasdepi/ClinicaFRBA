@@ -267,3 +267,6 @@ C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Ab
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Planes.GestionarPlanes.resources
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Profesional.GestionarProfesional.resources
 C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaTurno.resources
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Especialidades_Medicas.GestionarEspecialidades.resources
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Planes.GestionarPlanes.resources
+C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Profesional.GestionarProfesional.resources

@@ -20,7 +20,7 @@ namespace ClinicaFrba.Repository
 
         public List<String> GetFuncionalidades()
         {
-            String query = "select distinct varFuncionalidad FROM dbo.Funcionalidad ";
+            String query = "select distinct varFuncionalidad FROM [INTERNAL_SERVER_ERROR].Funcionalidad ";
             this.Command = new SqlCommand(query, this.Connector);
 
             List<String> listaFuncionalidads = new List<string>();
@@ -47,7 +47,7 @@ namespace ClinicaFrba.Repository
             this.Connector.Open();
             for (var i = 0; i < funcionalidades.Count; i++)
             {
-                String query2 = "select distinct intIdFuncionalidad FROM dbo.Funcionalidad where varFuncionalidad =  @funcionalidad";
+                String query2 = "select distinct intIdFuncionalidad FROM [INTERNAL_SERVER_ERROR].Funcionalidad where varFuncionalidad =  @funcionalidad";
                 this.Command = new SqlCommand(query2, this.Connector);
 
                 this.Command.Parameters.Add("@funcionalidad", SqlDbType.VarChar).Value = funcionalidades[i];
@@ -60,7 +60,7 @@ namespace ClinicaFrba.Repository
             }
             if (!editar){
 
-                String query4 = "INSERT INTO dbo.Rol (varNombreRol,bitHabilitado) " +
+                String query4 = "INSERT INTO [INTERNAL_SERVER_ERROR].Rol (varNombreRol,bitHabilitado) " +
                     "VALUES('" + nombre + "',1)";
 
                 this.Command = new SqlCommand(query4, this.Connector);
@@ -71,7 +71,7 @@ namespace ClinicaFrba.Repository
 
             for (var j = 0; j < posiciones.Count; j++)
             {
-                String query3 = "INSERT INTO dbo.FuncionalidadXRol (intIdFuncionalidad,varNombreRol) " +
+                String query3 = "INSERT INTO [INTERNAL_SERVER_ERROR].FuncionalidadXRol (intIdFuncionalidad,varNombreRol) " +
                                      "VALUES('" + posiciones[j] + "','" + nombre + "')";
 
                 this.Command = new SqlCommand(query3, this.Connector);
@@ -85,7 +85,7 @@ namespace ClinicaFrba.Repository
         {
             List<Rol> roles = new List<Rol>();
             this.Connector.Open();
-            String query2 = "select distinct * FROM dbo.Rol";
+            String query2 = "select distinct * FROM [INTERNAL_SERVER_ERROR].Rol";
             this.Command = new SqlCommand(query2, this.Connector);
             SqlDataReader resultado = Command.ExecuteReader();
             while (resultado.Read())
@@ -101,7 +101,7 @@ namespace ClinicaFrba.Repository
 
         public void ActualizarEstadoRol(String rol, int estado)
         {
-            String query = "update dbo.Rol set bitHabilitado = @estado where varNombreRol = @rol";
+            String query = "update [INTERNAL_SERVER_ERROR].Rol set bitHabilitado = @estado where varNombreRol = @rol";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -117,9 +117,9 @@ namespace ClinicaFrba.Repository
 
         public List<Funcionalidad> GetFuncionalidadesEditar(String rol)
         {
-            String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM dbo.Funcionalidad b inner join dbo.FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = @rol and b.varFuncionalidad = c.varFuncionalidad) is null " +
+            String query = "select varFuncionalidad, CASE  When (select distinct varFuncionalidad FROM [INTERNAL_SERVER_ERROR].Funcionalidad b inner join [INTERNAL_SERVER_ERROR].FuncionalidadXRol a on a.intIdFuncionalidad = b.intIdFuncionalidad and a.varNombreRol = @rol and b.varFuncionalidad = c.varFuncionalidad) is null " +
 	                            "then 0 else 1 end resu "+
-                                "FROM dbo.Funcionalidad c";
+                                "FROM [INTERNAL_SERVER_ERROR].Funcionalidad c";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -149,7 +149,7 @@ namespace ClinicaFrba.Repository
 
         public void EliminarRol(String rol)
         {
-            String query = "exec dbo.eliminarRol @rol";
+            String query = "exec [INTERNAL_SERVER_ERROR].eliminarRol @rol";
 
             this.Command = new SqlCommand(query, this.Connector);
 

@@ -19,8 +19,8 @@ namespace ClinicaFrba.Repository
             String query = "";
             if (info.Mes != 0) {
                 query = "select top 5 e.varDescripcion as descripcion" +
-                        "from dbo.Especialidad e inner join dbo.Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
-                        "inner join dbo.Asistencia a on a.intIdTurno = t.intIdTurno" +
+                        "from [INTERNAL_SERVER_ERROR].Especialidad e inner join [INTERNAL_SERVER_ERROR].Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
+                        "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno" +
                         "where year(t.datFechaTurno) =" + info.Ano + "and month(t.datFechaTurno)" + info.Mes + "and t.bitEstado = 0" +
                         "group by e.varDescripcion" +
                         "order by count(t.intIdTurno) desc;";
@@ -29,8 +29,8 @@ namespace ClinicaFrba.Repository
             {
                 if(info.Semestre == 1) {
                     query = "select top 5 e.varDescripcion as descripcion" +
-                            "from dbo.Especialidad e inner join dbo.Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
-                            "inner join dbo.Asistencia a on a.intIdTurno = t.intIdTurno" +
+                            "from [INTERNAL_SERVER_ERROR].Especialidad e inner join [INTERNAL_SERVER_ERROR].Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
+                            "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno" +
                             "where year(t.datFechaTurno) =" + info.Ano + "and month(t.datFechaTurno) < 7 and t.bitEstado = 0" +
                             "group by e.varDescripcion" +
                             "order by count(t.intIdTurno) desc;";
@@ -38,8 +38,8 @@ namespace ClinicaFrba.Repository
                 else
                 {
                     query = "select top 5 e.varDescripcion as descripcion" +
-                            "from dbo.Especialidad e inner join dbo.Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
-                            "inner join dbo.Asistencia a on a.intIdTurno = t.intIdTurno" +
+                            "from [INTERNAL_SERVER_ERROR].Especialidad e inner join [INTERNAL_SERVER_ERROR].Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
+                            "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno" +
                             "where year(t.datFechaTurno) =" + info.Ano + "and month(t.datFechaTurno) > 6 and t.bitEstado = 0" +
                             "group by e.varDescripcion" +
                             "order by count(t.intIdTurno) desc;";
@@ -70,8 +70,8 @@ namespace ClinicaFrba.Repository
             if (info.Mes != 0)
             {
                 query = "select top 5 e.varDescripcion as descripcion" +
-                "from dbo.Especialidad e inner join dbo.Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
-                "inner join dbo.Asistencia a on a.intIdTurno = t.intIdTurno" +
+                "from [INTERNAL_SERVER_ERROR].Especialidad e inner join [INTERNAL_SERVER_ERROR].Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
+                "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno" +
                 "where year(t.datFechaTurno) =" + info.Ano + "and month(t.datFechaTurno) = " + info.Mes +
                 "group by e.varDescripcion" +
                 "order by Sum(a.bitAtendido) desc;";
@@ -82,8 +82,8 @@ namespace ClinicaFrba.Repository
                 if (info.Semestre == 1)
                 {
                     query = "select top 5 e.varDescripcion as descripcion" +
-                    "from dbo.Especialidad e inner join dbo.Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
-                    "inner join dbo.Asistencia a on a.intIdTurno = t.intIdTurno" +
+                    "from [INTERNAL_SERVER_ERROR].Especialidad e inner join [INTERNAL_SERVER_ERROR].Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
+                    "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno" +
                     "where year(t.datFechaTurno) =" + info.Ano + "and month(t.datFechaTurno) < 7" + 
                     "group by e.varDescripcion" +
                     "order by Sum(a.bitAtendido) desc;";
@@ -91,8 +91,8 @@ namespace ClinicaFrba.Repository
                 else
                 {
                     query = "select top 5 e.varDescripcion as descripcion" +
-                    "from dbo.Especialidad e inner join dbo.Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
-                    "inner join dbo.Asistencia a on a.intIdTurno = t.intIdTurno" +
+                    "from [INTERNAL_SERVER_ERROR].Especialidad e inner join [INTERNAL_SERVER_ERROR].Turno t on t.intEspecialidadCodigo = e.intEspecialidadCodigo" +
+                    "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno" +
                     "where year(t.datFechaTurno) =" + info.Ano + "and month(t.datFechaTurno) > 6" +
                     "group by e.varDescripcion" +
                     "order by Sum(a.bitAtendido) desc;";

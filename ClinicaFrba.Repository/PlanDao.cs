@@ -33,7 +33,7 @@ namespace ClinicaFrba.Repository
 
         public List<Plan> ListarPlanesMedicosVigentes()
         {
-            const string query = "SELECT[intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM[dbo].[Plan]";
+            const string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM [INTERNAL_SERVER_ERROR].[Plan]";
 
             this.Command = new SqlCommand(query.ToString(), this.Connector);
             this.Connector.Open();
@@ -62,7 +62,7 @@ namespace ClinicaFrba.Repository
 
         public int GetCodigoPlanByDescripcion(string descripcion)
         {
-            string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM[dbo].[Plan] WHERE varDescripcion =" 
+            string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM [INTERNAL_SERVER_ERROR].[Plan] WHERE varDescripcion ="
                 + "'" + descripcion + "'";
 
             this.Command = new SqlCommand(query, this.Connector);
@@ -82,7 +82,7 @@ namespace ClinicaFrba.Repository
 
         public string GetDescripcionByCodigoPlan(int codPlan)
         {
-            string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM[dbo].[Plan] WHERE intCodigoPlan =" + codPlan.ToString();
+            string query = "SELECT [intCodigoPlan],[varDescripcion],[monPrecioBonoConsulta],[monPrecioBonoFarmacia] FROM [INTERNAL_SERVER_ERROR].[Plan] WHERE intCodigoPlan =" + codPlan.ToString();
 
             this.Command = new SqlCommand(query, this.Connector);
 

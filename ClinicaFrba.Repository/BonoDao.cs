@@ -21,8 +21,8 @@ namespace ClinicaFrba.Repository
 
         public Usuario ExisteAfiliado(String numAfiliado)
         {
-            String query = "select u.varNombre as nombre, u.varApellido as apellido,  af.intCodigoPlan as planMed, u.intIdUsuario as dni " + 
-                "from dbo.Usuario as u inner join dbo.Afiliado as af on u.intIdUsuario = af.intIdUsuario where af.intNumeroAfiliado = @intNumeroAfiliado";
+            String query = "select u.varNombre as nombre, u.varApellido as apellido,  af.intCodigoPlan as planMed, u.intIdUsuario as dni " +
+                "from [INTERNAL_SERVER_ERROR].Usuario as u inner join [INTERNAL_SERVER_ERROR].Afiliado as af on u.intIdUsuario = af.intIdUsuario where af.intNumeroAfiliado = @intNumeroAfiliado";
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Command.Parameters.Add("@intNumeroAfiliado", SqlDbType.Int).Value = numAfiliado;
@@ -53,7 +53,7 @@ namespace ClinicaFrba.Repository
 
         public float GetPrecioBono(int numPlan)
         {
-            String query = "select monPrecioBonoConsulta as precio from dbo.[Plan] where intCodigoPlan = @plan";
+            String query = "select monPrecioBonoConsulta as precio from [INTERNAL_SERVER_ERROR].[Plan] where intCodigoPlan = @plan";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -72,7 +72,7 @@ namespace ClinicaFrba.Repository
 
         public void ConfirmarCompraBono(Usuario usuario, int cant)
         {
-            String query = "exec dbo.comprarBono @Usuario=@user, @cantidad=@cant, @codigoPlan=@plan";
+            String query = "exec [INTERNAL_SERVER_ERROR].comprarBono @Usuario=@user, @cantidad=@cant, @codigoPlan=@plan";
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Command.Parameters.Add("@plan", SqlDbType.Int).Value = usuario.CodigoPlanMedico;
@@ -87,7 +87,7 @@ namespace ClinicaFrba.Repository
         public List<Bono> getBonosDeAfiliado(int idAfiliado)
         {
             List<Bono> bonos = new List<Bono>();
-            String query = "SELECT intIdBono id, datFechaCompra fecha FROM Bono WHERE intIdAfiliadoCompro="+idAfiliado + "and intIdAfiliado utilizo is null";
+            String query = "SELECT intIdBono id, datFechaCompra fecha FROM [INTERNAL_SERVER_ERROR].Bono WHERE intIdAfiliadoCompro=" + idAfiliado + "and intIdAfiliado utilizo is null";
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Connector.Open();
@@ -109,7 +109,7 @@ namespace ClinicaFrba.Repository
 
         public void usarBono(int idAfiliado, int idBono)
         {
-            String query = "UPDATE Bono SET intIdAfiliadoUtilizo="+idAfiliado+"WHERE intIdBono="+idBono;
+            String query = "UPDATE [INTERNAL_SERVER_ERROR].Bono SET intIdAfiliadoUtilizo=" + idAfiliado+"WHERE intIdBono="+idBono;
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Connector.Open();

@@ -33,7 +33,7 @@ namespace ClinicaFrba.Repository
             int intUser = Int32.Parse(user);
             List<String> roles = new List<string>();
 
-            String query = "select varNombreRol from dbo.UsuarioXRol rol inner join  dbo.Usuario us on rol.intIdUsuario = us.intIdUsuario where us.intIdUsuario = @user and nvarPassword = HASHBYTES('SHA2_256', @pass) and us.intIntentosLogin < 3";
+            String query = "select varNombreRol from [INTERNAL_SERVER_ERROR].UsuarioXRol rol inner join  [INTERNAL_SERVER_ERROR].Usuario us on rol.intIdUsuario = us.intIdUsuario where us.intIdUsuario = @user and nvarPassword = HASHBYTES('SHA2_256', @pass) and us.intIntentosLogin < 3";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -53,7 +53,7 @@ namespace ClinicaFrba.Repository
 
         public void IntentoFallido(String user)
         {
-            String query = "exec dbo.actualizarIntentoLogin @user";
+            String query = "exec [INTERNAL_SERVER_ERROR].actualizarIntentoLogin @user";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -69,7 +69,7 @@ namespace ClinicaFrba.Repository
 
             List<String> funcs = new List<string>();
 
-            String query = "select distinct varFuncionalidad from dbo.Funcionalidad f inner join dbo.FuncionalidadXRol r  on f.intIdFuncionalidad = r.intIdFuncionalidad where varNombreRol = @rol";
+            String query = "select distinct varFuncionalidad from [INTERNAL_SERVER_ERROR].Funcionalidad f inner join [INTERNAL_SERVER_ERROR].FuncionalidadXRol r  on f.intIdFuncionalidad = r.intIdFuncionalidad where varNombreRol = @rol";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -92,7 +92,7 @@ namespace ClinicaFrba.Repository
 
             List<String> funcs = new List<string>();
 
-            String query = "select distinct varFuncionalidad from dbo.Funcionalidad";
+            String query = "select distinct varFuncionalidad from [INTERNAL_SERVER_ERROR].Funcionalidad";
 
             this.Command = new SqlCommand(query, this.Connector);
 

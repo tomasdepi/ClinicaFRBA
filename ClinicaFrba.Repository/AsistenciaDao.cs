@@ -14,7 +14,7 @@ namespace ClinicaFrba.Repository
 
         public void generarAsistenciaConBono(int idBono, int idTurno)
         {
-            String query = "INSERT INTO Asistencia (intIdTurno, datFechaYHora, varBono) VALUES (@turno, GETDATE(), @bono)";
+            String query = "INSERT INTO [INTERNAL_SERVER_ERROR].Asistencia (intIdTurno, datFechaYHora, varBono) VALUES (@turno, GETDATE(), @bono)";
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Command.Parameters.Add("@turno", SqlDbType.Int).Value = idTurno;
@@ -27,7 +27,7 @@ namespace ClinicaFrba.Repository
 
         public void generarAsistenciaSinBono(int idTurno)
         {
-            String query = "INSERT INTO Asistencia (intIdTurno, datFechaYHora ) VALUES (@turno, GETDATE())";
+            String query = "INSERT INTO [INTERNAL_SERVER_ERROR].Asistencia (intIdTurno, datFechaYHora ) VALUES (@turno, GETDATE())";
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Command.Parameters.Add("@turno", SqlDbType.Int).Value = idTurno;     

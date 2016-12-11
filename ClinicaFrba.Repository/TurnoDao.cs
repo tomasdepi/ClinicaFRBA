@@ -25,7 +25,7 @@ namespace ClinicaFrba.Repository
             DateTime thisDay = DateTime.Today;
             this.Connector.Open();
             String query = "SELECT u.varNombre AS nombre, u.varApellido AS apellido, t.intIdTurno AS idTurno, t.datFechaTurno AS fecha " +
-                "FROM dbo.Turno AS t INNER JOIN dbo.Afiliado AS af  on t.intIdPaciente = af.intIdUsuario INNER JOIN dbo.Usuario as u on u.intIdUsuario = af.intIdUsuario " +
+                "FROM [INTERNAL_SERVER_ERROR].Turno AS t INNER JOIN [INTERNAL_SERVER_ERROR].Afiliado AS af  on t.intIdPaciente = af.intIdUsuario INNER JOIN [INTERNAL_SERVER_ERROR].Usuario as u on u.intIdUsuario = af.intIdUsuario " +
                 "WHERE t.intIdDoctor = " + idDoctor + " AND CAST(t.datFechaTurno AS DATE) =  CAST('20150101' AS DATE);" ;
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -53,7 +53,7 @@ namespace ClinicaFrba.Repository
         public void ConfirmarLlegadaPaciente (int id)
         {
             String idUtilizado = (id.ToString());
-            String query = "UPDATE dbo.Asistencia set bitAtendido = 1 where intIdTurno =" + idUtilizado +";" ;
+            String query = "UPDATE [INTERNAL_SERVER_ERROR].Asistencia set bitAtendido = 1 where intIdTurno =" + idUtilizado +";" ;
             this.Command = new SqlCommand(query, this.Connector);
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace ClinicaFrba.Repository
         public void ActualizarTurnoCompletado (TurnoYUsuario turno)
         {   
 
-           String query = "UPDATE dbo.Consulta SET varSintomas = '"+turno.Sintomas.ToString()+
+           String query = "UPDATE [INTERNAL_SERVER_ERROR].Consulta SET varSintomas = '" + turno.Sintomas.ToString()+
                           "', varEnfermedad = '"+turno.Diagnostico.ToString() +
                           "' where intIdTurno = "+turno.IdTurno.ToString()+";" ;
             this.Command = new SqlCommand(query, this.Connector);
@@ -76,7 +76,7 @@ namespace ClinicaFrba.Repository
 
         public void GuardarTurnoCancelado(TurnoCancelado turno)
         {
-            string query = "INSERT INTO dbo.TurnoCancelado (intIdTurno, varMotivo, varTipo) VALUES (@id, @motivo, @turno)";
+            string query = "INSERT INTO [INTERNAL_SERVER_ERROR].TurnoCancelado (intIdTurno, varMotivo, varTipo) VALUES (@id, @motivo, @turno)";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -88,7 +88,7 @@ namespace ClinicaFrba.Repository
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
 
-            String query2 = "DELETA FROM Turno WHERE intIdTurno = @id";
+            String query2 = "DELETA FROM [INTERNAL_SERVER_ERROR].Turno WHERE intIdTurno = @id";
             this.Command = new SqlCommand(query2, this.Connector);
             this.Command.Parameters.Add("@id", SqlDbType.Int).Value = turno.NumeroDeTurno;
             this.Connector.Open();
@@ -99,8 +99,8 @@ namespace ClinicaFrba.Repository
         //funcionalidad del profesional 
         public void CancelarTurnosPorRangoDeFechas(String fechaDesde, string fechaHasta, string motivo, string tipo)
         {
-            String query = "INSERT INTO TurnoCancelado (intIdTurno, varMotivo, varTipo) " +
-               " SELECT intIdTurno, '@motivo', '@tipoCancelacion' FROM Turno where CONVERT(date, datFechaTurno) > '"+@fechaDesde+"' and CONVERT(date, datFechaTurno) < '"+@fechaHasta+"'";
+            String query = "INSERT INTO [INTERNAL_SERVER_ERROR].TurnoCancelado (intIdTurno, varMotivo, varTipo) " +
+               " SELECT intIdTurno, '@motivo', '@tipoCancelacion' FROM [INTERNAL_SERVER_ERROR].Turno where CONVERT(date, datFechaTurno) > '" + @fechaDesde+"' and CONVERT(date, datFechaTurno) < '"+@fechaHasta+"'";
 
 
             this.Command = new SqlCommand(query, this.Connector);
@@ -113,7 +113,7 @@ namespace ClinicaFrba.Repository
             this.Command.ExecuteNonQuery();
             this.Connector.Close();
 
-            String query2 = "DELETE FROM Turno WHERE CONVERT(date, datFechaTurno) > '"+@fechaDesde+"' and CONVERT(date, datFechaTurno) < '"+@fechaHasta+"'";
+            String query2 = "DELETE FROM [INTERNAL_SERVER_ERROR].Turno WHERE CONVERT(date, datFechaTurno) > '" + @fechaDesde+"' and CONVERT(date, datFechaTurno) < '"+@fechaHasta+"'";
             this.Command = new SqlCommand(query2, this.Connector);
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
@@ -124,7 +124,7 @@ namespace ClinicaFrba.Repository
         {
             List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();
 
-            string query = "SELECT t.intIdTurno id, t.datFechaTurno fecha, u.varNombre nombre, u.varApellido apellido from Turno  t inner join Usuario u on t.intIdDoctor = u.intIdUsuario where t.intIdPaciente = @id and CONVERT(date, t.datFechaTurno) > GETDATE()" ;
+            string query = "SELECT t.intIdTurno id, t.datFechaTurno fecha, u.varNombre nombre, u.varApellido apellido from [INTERNAL_SERVER_ERROR].Turno  t inner join [INTERNAL_SERVER_ERROR].Usuario u on t.intIdDoctor = u.intIdUsuario where t.intIdPaciente = @id and CONVERT(date, t.datFechaTurno) > GETDATE()";
             this.Command = new SqlCommand(query, this.Connector);
             this.Command.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
@@ -153,7 +153,7 @@ namespace ClinicaFrba.Repository
         {
             this.Connector.Open();
             List<int> años = new List<int>();
-            string query = "SELECT distinct(YEAR(t.datFechaTurno)) fecha from Turno t";
+            string query = "SELECT distinct(YEAR(t.datFechaTurno)) fecha from [INTERNAL_SERVER_ERROR].Turno t";
             this.Command = new SqlCommand(query, this.Connector);
 
              SqlDataReader resultado = Command.ExecuteReader();
@@ -168,7 +168,7 @@ namespace ClinicaFrba.Repository
 
         public List<TurnoYUsuario> turnosDeHoy(int idProfesional)
         {
-            string query = "SELECT t.intIdTurno idTurno, u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from Turno t INNER JOIN Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = GETDATE() and t.intIdDoctor="+idProfesional;
+            string query = "SELECT t.intIdTurno idTurno, u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from [INTERNAL_SERVER_ERROR].Turno t INNER JOIN [INTERNAL_SERVER_ERROR].Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = GETDATE() and t.intIdDoctor=" + idProfesional;
 
          
             List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();

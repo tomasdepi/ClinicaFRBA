@@ -29,7 +29,7 @@ namespace ClinicaFrba.Repository
         {
             List<String> especialidades = new List<string>();
 
-            String query = "SELECT DISTINCT e.varDescripcion FROM ProfesionalXEspecialidad p, Especialidad e WHERE e.intEspecialidadCodigo = p.intEspecialidadCodigo;";
+            String query = "SELECT DISTINCT e.varDescripcion FROM [INTERNAL_SERVER_ERROR].ProfesionalXEspecialidad p, [INTERNAL_SERVER_ERROR].Especialidad e WHERE e.intEspecialidadCodigo = p.intEspecialidadCodigo;";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -47,7 +47,7 @@ namespace ClinicaFrba.Repository
         public List<Usuario> getProfesionalesPorEspecialidad(string especialidad)
         {
             List<Usuario> profesionales = new List<Usuario>();
-            string query2 = "SELECT u.varNombre nombre,u.varApellido apellido,u.intIdUsuario id FROM Usuario u INNER JOIN (SELECT intIdUsuario FROM ProfesionalXEspecialidad WHERE intEspecialidadCodigo = (SELECT intEspecialidadCodigo FROM Especialidad WHERE varDescripcion = @especialidad)) p ON p.intIdUsuario = u.intIdUsuario;";
+            string query2 = "SELECT u.varNombre nombre,u.varApellido apellido,u.intIdUsuario id FROM [INTERNAL_SERVER_ERROR].Usuario u INNER JOIN (SELECT intIdUsuario FROM [INTERNAL_SERVER_ERROR].ProfesionalXEspecialidad WHERE intEspecialidadCodigo = (SELECT intEspecialidadCodigo FROM [INTERNAL_SERVER_ERROR].Especialidad WHERE varDescripcion = @especialidad)) p ON p.intIdUsuario = u.intIdUsuario;";
             this.Command = new SqlCommand(query2, this.Connector);
             this.Command.Parameters.Add("@especialidad", SqlDbType.VarChar).Value = especialidad;
             this.Connector.Open();
@@ -69,7 +69,7 @@ namespace ClinicaFrba.Repository
         public List<string> getHorariosDisponibles(int idProfesional, string dia)
         {
             List<string> horarios = new List<string>();
-            string query2 = "select timeHoraInicio,timeHoraFin from Agenda where intIdProfesional = @idProfesional and charDia = @dia;";
+            string query2 = "select timeHoraInicio,timeHoraFin from [INTERNAL_SERVER_ERROR].Agenda where intIdProfesional = @idProfesional and charDia = @dia;";
             this.Command = new SqlCommand(query2, this.Connector);
             this.Command.Parameters.Add("@idProfesional", SqlDbType.Int).Value = idProfesional;
             this.Command.Parameters.Add("@dia", SqlDbType.Char).Value = dia;
@@ -91,7 +91,7 @@ namespace ClinicaFrba.Repository
         {
             List<Especialidad> especialidades = new List<Especialidad>();
 
-            String query = "SELECT DISTINCT e.varDescripcion as des, e.intEspecialidadCodigo as cod FROM ProfesionalXEspecialidad p, Especialidad e WHERE e.intEspecialidadCodigo = p.intEspecialidadCodigo;";
+            String query = "SELECT DISTINCT e.varDescripcion as des, e.intEspecialidadCodigo as cod FROM [INTERNAL_SERVER_ERROR].ProfesionalXEspecialidad p, [INTERNAL_SERVER_ERROR].Especialidad e WHERE e.intEspecialidadCodigo = p.intEspecialidadCodigo;";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -115,7 +115,7 @@ namespace ClinicaFrba.Repository
         public List<string> GetDisponibilidadDelProfesional(int idProfesional, DateTime fecha)
         {
             List<string> horarios = new List<string>();
-            string query = "  SELECT datFechaTurno FROM Turno WHERE intIdDoctor = @idProfesional AND CAST(datFechaTurno AS DATE) = @diaReserva AND bitEstado = 1";
+            string query = "  SELECT datFechaTurno FROM [INTERNAL_SERVER_ERROR].Turno WHERE intIdDoctor = @idProfesional AND CAST(datFechaTurno AS DATE) = @diaReserva AND bitEstado = 1";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -138,7 +138,7 @@ namespace ClinicaFrba.Repository
         public void ReservarNuevoTurno(int idProfesional, int idAfiliado, DateTime fechaTurno)
         {
             const string query =
-                "INSERT INTO [dbo].[Turno]([datFechaTurno],[intIdPaciente],[intIdDoctor],[bitEstado]) " +
+                "INSERT INTO [INTERNAL_SERVER_ERROR].[Turno] ([datFechaTurno],[intIdPaciente],[intIdDoctor],[bitEstado]) " +
                 "VALUES (@datFechaTurno, @intIdPaciente, @intIdDoctor, @bitEstado)";
 
             this.Command = new SqlCommand(query, this.Connector);
