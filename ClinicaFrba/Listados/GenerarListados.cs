@@ -270,6 +270,14 @@ namespace ClinicaFrba.Listados
         private void CargarComboBoxes()
         {
 
+            this.cboAño.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboEspecialidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboListado.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboMes.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboPlan.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboSemestre.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
             this.cboListado.Items.Add("Especialidades con más cancelaciones");
             this.cboListado.Items.Add("Profecionales más consultados");
             this.cboListado.Items.Add("Profesional con menos horas trabajadas");

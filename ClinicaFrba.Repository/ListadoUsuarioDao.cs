@@ -87,12 +87,12 @@ namespace ClinicaFrba.Repository
             {
 
                 query = "select top 5 u.varApellido as apellido, u.varNombre as nombre, sum(DATEDIFF(minute, a.timeHoraInicio, a.timeHoraFin)) as horasTrabajadas"+
-                "from Usuario u inner join Profesional p on p.intIdUsuario = u.intIdUsuario" +
-                "inner join ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
-                "inner join Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
-                "inner join Agenda a on a.intIdProfesional = p.intIdUsuario" +
-                "inner join Turno t on t.intIdDoctor = p.intIdUsuario" +
-                "inner join Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
+                "from dbo.Usuario u inner join dbo.Profesional p on p.intIdUsuario = u.intIdUsuario" +
+                "inner join dbo.ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
+                "inner join dbo.Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
+                "inner join dbo.Agenda a on a.intIdProfesional = p.intIdUsuario" +
+                "inner join dbo.Turno t on t.intIdDoctor = p.intIdUsuario" +
+                "inner join dbo.Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
                 "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) = " + info.Mes +
                 "group by u.varApellido, u.varNombre"+
                 "order by horasTrabajadas asc;";
@@ -102,12 +102,12 @@ namespace ClinicaFrba.Repository
                 if (info.Semestre == 1)
                 {
                 query = "select top 5 u.varApellido as apellido, u.varNombre as nombre, sum(DATEDIFF(minute, a.timeHoraInicio, a.timeHoraFin)) as horasTrabajadas" +
-                "from Usuario u inner join Profesional p on p.intIdUsuario = u.intIdUsuario" +
-                "inner join ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
-                "inner join Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
-                "inner join Agenda a on a.intIdProfesional = p.intIdUsuario" +
-                "inner join Turno t on t.intIdDoctor = p.intIdUsuario" +
-                "inner join Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
+                "from dbo.Usuario u inner join dbo.Profesional p on p.intIdUsuario = u.intIdUsuario" +
+                "inner join dbo.ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
+                "inner join dbo.Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
+                "inner join dbo.Agenda a on a.intIdProfesional = p.intIdUsuario" +
+                "inner join dbo.Turno t on t.intIdDoctor = p.intIdUsuario" +
+                "inner join dbo.Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
                 "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) < 7"+
                 "group by u.varApellido, u.varNombre" +
                 "order by horasTrabajadas asc;";
@@ -115,12 +115,12 @@ namespace ClinicaFrba.Repository
                 if (info.Semestre == 2)
                 {
                 query = "select top 5 u.varApellido as apellido, u.varNombre as nombre, sum(DATEDIFF(minute, a.timeHoraInicio, a.timeHoraFin)) as horasTrabajadas" +
-                "from Usuario u inner join Profesional p on p.intIdUsuario = u.intIdUsuario" +
-                "inner join ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
-                "inner join Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
-                "inner join Agenda a on a.intIdProfesional = p.intIdUsuario" +
-                "inner join Turno t on t.intIdDoctor = p.intIdUsuario" +
-                "inner join Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
+                "from dbo.Usuario u inner join dbo.Profesional p on p.intIdUsuario = u.intIdUsuario" +
+                "inner join dbo.ProfesionalXEspecialidad pxe on pxe.intIdUsuario = p.intIdUsuario" +
+                "inner join dbo.Especialidad e on e.intEspecialidadCodigo = pxe.intEspecialidadCodigo" +
+                "inner join dbo.Agenda a on a.intIdProfesional = p.intIdUsuario" +
+                "inner join dbo.Turno t on t.intIdDoctor = p.intIdUsuario" +
+                "inner join dbo.Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
                 "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) > 6" +
                 "group by u.varApellido, u.varNombre" +
                 "order by horasTrabajadas asc;";
@@ -156,9 +156,9 @@ namespace ClinicaFrba.Repository
 
             if (info.Mes != 0) { 
 
-                query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
-                "from Usuario u inner join Afiliado a on u.intIdUsuario = a.intIdUsuario" +
-                "inner join Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
+                query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from dbo.Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
+                "from dbo.Usuario u inner join dbo.Afiliado a on u.intIdUsuario = a.intIdUsuario" +
+                "inner join dbo.Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
                 "where year(b.datFechaCompra) = "+ 2015 + "and month(b.datFechaCompra) = " + info.Mes +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
                 "order by count(b.intIdBono) desc; ";
@@ -167,18 +167,18 @@ namespace ClinicaFrba.Repository
             {
                 if (info.Semestre == 1)
                 {
-                    query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
-                "from Usuario u inner join Afiliado a on u.intIdUsuario = a.intIdUsuario" +
-                "inner join Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
+                    query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from dbo.Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
+                "from dbo.Usuario u inner join dbo.Afiliado a on u.intIdUsuario = a.intIdUsuario" +
+                "inner join dbo.Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
                 "where year(b.datFechaCompra) = " + 2015 + "and month(b.datFechaCompra) < 7" +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
                 "order by count(b.intIdBono) desc; ";
                 }
                 if (info.Semestre == 2)
                 {
-                    query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
-                "from Usuario u inner join Afiliado a on u.intIdUsuario = a.intIdUsuario" +
-                "inner join Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
+                    query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from dbo.Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
+                "from dbo.Usuario u inner join dbo.Afiliado a on u.intIdUsuario = a.intIdUsuario" +
+                "inner join dbo.Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
                 "where year(b.datFechaCompra) = " + 2015 + "and month(b.datFechaCompra) > 6" +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
                 "order by count(b.intIdBono) desc; ";
