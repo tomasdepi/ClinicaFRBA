@@ -257,6 +257,7 @@ namespace ClinicaFrba.Abm_Afiliado
             if (!Regex.IsMatch(this.txtTipoDoc.Text, @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$")) { return false; }
             if (!Regex.IsMatch(this.txtNroDoc.Text, @"^[0-9]+$")) { return false; }
             if (this.cboSexo.SelectedItem == null) { return false; }
+            if (this.cboPlanes.SelectedItem == null) { return false; }
             if (!EmailValido(this.txtMail.Text)) { return false; }
             if (!Regex.IsMatch(this.txtTelefono.Text, @"^[0-9]+$")) { return false; }
             return true;

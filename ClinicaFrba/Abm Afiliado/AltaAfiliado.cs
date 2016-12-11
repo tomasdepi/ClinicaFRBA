@@ -22,6 +22,7 @@ namespace ClinicaFrba.Abm_Afiliado
             InitializeComponent();
         }
 
+        public int CodigoPlan { get; set; }
         /// <summary>
         /// Comportamiento del botón Guardar, en el caso de que el afiliado sea casado o viva en concubinato
         /// se le ofrece la posibilidad de asociarlo, ademas permite agregar tantos miembros familiares como desee 
@@ -33,7 +34,7 @@ namespace ClinicaFrba.Abm_Afiliado
             var service = new ClinicaService();
             if (DatosValidos())
             {
-                int codPlan = service.GetCodigoPlanByDescripcion(this.cboPlanes.SelectedItem.ToString());
+                CodigoPlan = service.GetCodigoPlanByDescripcion(this.cboPlanes.SelectedItem.ToString());
 
                 List<Usuario> afiliados = new List<Usuario>();
 
@@ -50,7 +51,7 @@ namespace ClinicaFrba.Abm_Afiliado
                     Direccion = this.txtDireccion.Text,
                     Telefono = Convert.ToInt32(this.txtTelefono.Text),
                     Sexo = this.cboSexo.SelectedItem.ToString(),
-                    CodigoPlanMedico = codPlan
+                    CodigoPlanMedico = CodigoPlan
                 };
 
                 afiliados.Add(afiliado);
@@ -92,7 +93,7 @@ namespace ClinicaFrba.Abm_Afiliado
         /// <param name="users">Familiares del Afiliado</param>
         private void AfiliarIntegranteFamilia(List<Usuario> users)
         {
-            using (var integranteFamilia = new AltaIntegranteFamiliaAfiliado())
+            using (var integranteFamilia = new AltaIntegranteFamiliaAfiliado(this.CodigoPlan))
             {
                 var resultado = integranteFamilia.ShowDialog();
                 if (resultado == DialogResult.OK)
@@ -187,6 +188,7 @@ namespace ClinicaFrba.Abm_Afiliado
             if (!Regex.IsMatch(this.txtTipoDoc.Text, @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$")) { return false; }
             if (!Regex.IsMatch(this.txtNroDoc.Text, @"^[0-9]+$")) { return false; }
             if (this.cboSexo.SelectedItem == null) { return false; }
+            if (this.cboPlanes.SelectedItem == null) { return false; }
             if (!EmailValido(this.txtMail.Text)) { return false; }
             if (!Regex.IsMatch(this.txtTelefono.Text, @"^[0-9]+$")) { return false; }
             return true;
