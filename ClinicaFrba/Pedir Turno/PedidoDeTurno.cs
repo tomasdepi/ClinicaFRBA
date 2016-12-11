@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.Repository;
 using ClinicaFrba.Repository.Entities;
+using System.Text.RegularExpressions;
 
 namespace ClinicaFrba.Pedir_Turno
 {
@@ -70,11 +71,26 @@ namespace ClinicaFrba.Pedir_Turno
         {
             if (e.RowIndex > -1)
             {
-                string nroDocumento = this.gridProfesionales.Rows[e.RowIndex].Cells["NroDocumento"].Value.ToString();
+                TurnoFunciones t = new TurnoFunciones();
+                if (Regex.IsMatch(this.txBoxNumeroAfiliado.Text, @"^[0-9]+$"))
+                {
+                    if (t.esAfiliado(Convert.ToInt32(this.txBoxNumeroAfiliado.Text)))
+                    {
+                        string nroDocumento = this.gridProfesionales.Rows[e.RowIndex].Cells["NroDocumento"].Value.ToString();
 
-                DiasDisponibles f2 = new DiasDisponibles(Convert.ToInt32(nroDocumento), NroAfiliado);
+                        DiasDisponibles f2 = new DiasDisponibles(Convert.ToInt32(nroDocumento), NroAfiliado);
 
-                f2.ShowDialog();
+                        f2.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese un numero de documento válido.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un numero de documento válido.");
+                }
             }
         }
 

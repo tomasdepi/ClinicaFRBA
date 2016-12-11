@@ -146,8 +146,6 @@ C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Ped
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.RegistrarAgenda.resources
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenta_Medico.SeleccionarProfecional.resources
-C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form3.resources
-C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Form1.resources
 C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csprojResolveAssemblyReference.cache
 C:\Users\Pingo\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.AltaAfiliado.resources
@@ -270,3 +268,8 @@ C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\ClinicaFrba\obj\
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Especialidades_Medicas.GestionarEspecialidades.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Planes.GestionarPlanes.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Profesional.GestionarProfesional.resources
+C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Especialidades_Medicas.GestionarEspecialidades.resources
+C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Planes.GestionarPlanes.resources
+C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Profesional.GestionarProfesional.resources
+C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaTurno.resources
+C:\Users\user\Documents\GitHub\ClinicaFRBA\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.RegistroLlegadaBusqueda.resources

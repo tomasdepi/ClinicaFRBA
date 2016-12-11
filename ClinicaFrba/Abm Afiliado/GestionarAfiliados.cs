@@ -65,6 +65,10 @@ namespace ClinicaFrba.Abm_Afiliado
 
                 this.CargarGrillaAfiliado(response.Usuarios);
             }
+            else
+            {
+                MessageBox.Show("Ingrese nombre y apellido válido");
+            }
         }
 
 

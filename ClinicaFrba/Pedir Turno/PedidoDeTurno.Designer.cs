@@ -107,15 +107,16 @@
             // lblNumeroAfiliado
             // 
             this.lblNumeroAfiliado.AutoSize = true;
-            this.lblNumeroAfiliado.Location = new System.Drawing.Point(25, 15);
+            this.lblNumeroAfiliado.Location = new System.Drawing.Point(7, 15);
             this.lblNumeroAfiliado.Name = "lblNumeroAfiliado";
-            this.lblNumeroAfiliado.Size = new System.Drawing.Size(99, 13);
+            this.lblNumeroAfiliado.Size = new System.Drawing.Size(118, 13);
             this.lblNumeroAfiliado.TabIndex = 5;
-            this.lblNumeroAfiliado.Text = "Número de Afiliado:";
+            this.lblNumeroAfiliado.Text = "Número de documento:";
             // 
             // txBoxNumeroAfiliado
             // 
             this.txBoxNumeroAfiliado.Location = new System.Drawing.Point(134, 12);
+            this.txBoxNumeroAfiliado.MaxLength = 8;
             this.txBoxNumeroAfiliado.Name = "txBoxNumeroAfiliado";
             this.txBoxNumeroAfiliado.Size = new System.Drawing.Size(100, 20);
             this.txBoxNumeroAfiliado.TabIndex = 6;

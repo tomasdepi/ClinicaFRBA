@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ClinicaFrba.Repository.Entities;
 using ClinicaFrba.Service;
 using static System.Windows.Forms.MessageBox;
+using System.Net.Mail;
 
 namespace ClinicaFrba.Abm_Afiliado
 {
@@ -74,6 +75,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 service.GuardarRegistroAfiliado(afiliados);
 
                 MessageBox.Show("El registro del afiliado se guardó correctamente");
+                this.Close();
             }
             else
             {
@@ -178,17 +180,30 @@ namespace ClinicaFrba.Abm_Afiliado
         /// <returns></returns>
         private bool DatosValidos()
         {
-            if (this.cboEstadoCivil.SelectedItem.ToString() == null) { return false; }
-            if (!Regex.IsMatch(this.txtApellido.Text, @"^[a-zA-Z]+$")) { return false; }
-            if (!Regex.IsMatch(this.txtNombre.Text, @"^[a-zA-Z]+$")) { return false; }
-            if (!Regex.IsMatch(this.txtDireccion.Text, @"^[a-zA-Z]+$")) { return false; }
+            if (this.cboEstadoCivil.SelectedItem == null) { return false; }
+            if (!Regex.IsMatch(this.txtApellido.Text, @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$")) { return false; }
+            if (!Regex.IsMatch(this.txtNombre.Text, @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$")) { return false; }
             if (Convert.ToDateTime(this.dtpFechaNacimiento.Text) == null) { return false; }
-            if (!Regex.IsMatch(this.txtTipoDoc.Text, @"^[a-zA-Z]+$")) { return false; }
+            if (!Regex.IsMatch(this.txtTipoDoc.Text, @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$")) { return false; }
             if (!Regex.IsMatch(this.txtNroDoc.Text, @"^[0-9]+$")) { return false; }
-            if (Convert.ToDateTime(this.cboSexo.SelectedItem.ToString()) == null) { return false; }
-            if (!Regex.IsMatch(this.txtMail.Text, "^[a-zA-Z0-9]+(@)[a-zA-Z0-9]+(.com)$")) { return false; }
+            if (this.cboSexo.SelectedItem == null) { return false; }
+            if (!EmailValido(this.txtMail.Text)) { return false; }
             if (!Regex.IsMatch(this.txtTelefono.Text, @"^[0-9]+$")) { return false; }
             return true;
+        }
+
+        public bool EmailValido(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

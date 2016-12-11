@@ -34,7 +34,7 @@ namespace ClinicaFrba.Compra_Bono
             var numAfiliado = txBoxNumeroAfiliado.Text;
 
             try { 
-                Int32.Parse(numAfiliado);
+                Int64.Parse(numAfiliado);
             }catch(Exception exp){
                 resu.Visible = true;
                 resu.Text = "Número de Afiliado Invalido";
@@ -46,7 +46,7 @@ namespace ClinicaFrba.Compra_Bono
                 BonoDao f = new BonoDao();
                 Usuario usuario = f.ExisteAfiliado(numAfiliado);
 
-            if (usuario.Equals(null))
+            if (usuario == null)
             {
                 resu.Visible = true;
                 resu.Text = "Número de Afiliado Invalido";

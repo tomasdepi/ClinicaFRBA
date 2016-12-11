@@ -19,7 +19,7 @@ namespace ClinicaFrba.Repository
 
         public TurnoFunciones()
         {
-            Connector = new SqlConnection("server=localhost\\SQLSERVER;" +
+            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
                                "Trusted_Connection=yes;" +
                                "database=GD2C2016; " +
                                "connection timeout=10");
@@ -42,6 +42,26 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
 
             return especialidades;
+        }
+        
+        public Boolean esAfiliado(int nroAfiliado)
+        {
+            List<int> afiliados = new List<int>();
+
+            String query = "SELECT DISTINCT intIdUsuario FROM  [INTERNAL_SERVER_ERROR].Afiliado;";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            this.Connector.Open();
+
+            SqlDataReader resultado = Command.ExecuteReader();
+
+            while (resultado.Read()) afiliados.Add(resultado[0] as int? ?? default(int));
+
+            this.Connector.Close();
+
+            return afiliados.Contains(nroAfiliado);
+
         }
 
         public List<Usuario> getProfesionalesPorEspecialidad(string especialidad)

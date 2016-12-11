@@ -25,7 +25,7 @@ namespace ClinicaFrba.Repository
                 "from [INTERNAL_SERVER_ERROR].Usuario as u inner join [INTERNAL_SERVER_ERROR].Afiliado as af on u.intIdUsuario = af.intIdUsuario where af.intNumeroAfiliado = @intNumeroAfiliado";
             this.Command = new SqlCommand(query, this.Connector);
 
-            this.Command.Parameters.Add("@intNumeroAfiliado", SqlDbType.Int).Value = numAfiliado;
+            this.Command.Parameters.Add("@intNumeroAfiliado", SqlDbType.BigInt).Value = numAfiliado;
 
             this.Connector.Open();
 
@@ -41,7 +41,7 @@ namespace ClinicaFrba.Repository
                 usuario.Apellido = resultado["apellido"].ToString();
                 usuario.NroDocumento = Int32.Parse(resultado["dni"].ToString());
                 usuario.CodigoPlanMedico = Int32.Parse(resultado["planMed"].ToString());
-                usuario.NroAfiliado = Int32.Parse(numAfiliado);
+                usuario.NroAfiliado = Int64.Parse(numAfiliado);
             }
            
             this.Connector.Close();
