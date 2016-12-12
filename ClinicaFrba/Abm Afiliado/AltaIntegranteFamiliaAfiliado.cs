@@ -20,6 +20,14 @@ namespace ClinicaFrba.Abm_Afiliado
             InitializeComponent();
         }
 
+        public int CodigoPlan { get; set; }
+
+        public AltaIntegranteFamiliaAfiliado(int codPlan)
+        {
+            this.CodigoPlan = codPlan;
+            InitializeComponent();
+        }
+
         /// <summary>
         /// Carga Inicial del formulario Alta Integrante Familia Afiliado
         /// </summary>
@@ -51,6 +59,7 @@ namespace ClinicaFrba.Abm_Afiliado
                 this.Afiliado.Sexo = this.cboSexo.SelectedItem.ToString();
                 this.Afiliado.Mail = this.txtMail.Text;
                 this.Afiliado.Telefono = Convert.ToInt32(this.txtTelefono.Text);
+                this.Afiliado.CodigoPlanMedico = CodigoPlan;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
