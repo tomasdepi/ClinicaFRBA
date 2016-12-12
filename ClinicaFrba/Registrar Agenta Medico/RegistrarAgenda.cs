@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ClinicaFrba.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +14,10 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 {
     public partial class RegistrarAgenda : Form
     {
+
+        List<CheckBox> dias;
+        List<NumericUpDown> horaInicio;
+        List<NumericUpDown> horaFin;
         public RegistrarAgenda()
         {
             InitializeComponent();
@@ -19,6 +25,18 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
         private void RegistrarAgenda_Load(object sender, EventArgs e)
         {
+            this.cargarComboEspecialidades();
+        }
+
+        public void cargarComboEspecialidades()
+        {
+
+            dias = new List<CheckBox>();
+            dias.Add(checkBoxLunes);dias.Add(checkBoxMartes);dias.Add(checkBoxMiercoles); dias.Add(checkBoxJueves); dias.Add(checkBoxViernes); dias.Add(checkBoxSabado);
+            horaInicio = new List<NumericUpDown>();
+            horaInicio.Add(inicioLunes); horaInicio.Add(inicioMartes); horaInicio.Add(inicioMiercoles); horaInicio.Add(inicioJueves); horaInicio.Add(inicioViernes); horaInicio.Add(inicioSabado);
+            horaFin = new List<NumericUpDown>();
+            horaFin.Add(finLunes); horaFin.Add(finMartes); horaFin.Add(finMiercoles); horaFin.Add(finJueves); horaFin.Add(finViernes); horaFin.Add(finSabado);
 
         }
 
@@ -34,8 +52,46 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (Regex.IsMatch(this.txDniProfesional.Text, @"^[0-9]+$"))
+            {
+                List<int> posiciones = new List<int>();
+                List<TimeSpan> inicioSeleccionados = new List<TimeSpan>();
+                List<TimeSpan> finSeleccionados = new List<TimeSpan>();
+                List<string> diasSeleccionados = new List<string>();
+                List<CheckBox> diasRecorrer = new List<CheckBox>();
 
+                diasRecorrer = this.dias;
+                for (int i = 0; i < diasRecorrer.Count(); i++)
+                {
+                    if (diasRecorrer[i].Checked)
+                    {
+                        posiciones.Add(i);
+                        diasSeleccionados.Add(diasRecorrer[i].Text);
+                    }
+                }
+
+                for (int j = 0; j < posiciones.Count(); j++)
+                {
+                    var inicio = new TimeSpan(Convert.ToInt32(this.horaInicio.GetRange(j, 1).First().Value), 0, 0);
+                    var fin = new TimeSpan(Convert.ToInt32(this.horaFin.GetRange(j, 1).First().Value), 0, 0);
+
+                 
+                        inicioSeleccionados.Add(inicio);
+                        finSeleccionados.Add(fin);
+                 
+                }
+
+                TurnoFunciones turno = new TurnoFunciones();
+                turno.RegistrarNuevaAgenda(Int32.Parse(txDniProfesional.Text), diasSeleccionados, inicioSeleccionados, finSeleccionados, dateTimePickerFechaInicio.Value.ToShortDateString(), dateTimePickerFechaFin.Value.ToShortDateString());
+                MessageBox.Show("La agenda se registro correctamente.");
+                
+            }
+            else
+            {
+                MessageBox.Show("Datos incorrectos.");
+            }
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -63,6 +119,11 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown8_ValueChanged(object sender, EventArgs e)
         {
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using ClinicaFrba.Repository.Entities;
-
+using System.Windows.Forms;
 
 namespace ClinicaFrba.Repository
 {
@@ -173,6 +173,33 @@ namespace ClinicaFrba.Repository
             this.Connector.Close();
 
         }
-        
+
+        public void RegistrarNuevaAgenda(int dniProfesional,List<string> dias,List<TimeSpan> inicio,List<TimeSpan> fin,string fechaInicio,string fechaFin)
+        {
+
+           this.Connector.Open();
+            for (int i = 0; i < dias.Count(); i ++)
+            {
+                const string query =
+                    "INSERT INTO [INTERNAL_SERVER_ERROR].[Agenda] ([intIdProfesional],[dateFechaInicio],[dateFechaFin],[timeHoraInicio],[timeHoraFin],[charDia])" +
+                    "VALUES (@intIdProfesional, @dateFechaInicio, @dateFechaFin, @timeHoraInicio,@timeHoraFin,@charDia)";
+
+                this.Command = new SqlCommand(query, this.Connector);
+
+                this.Command.Parameters.Add("@intIdProfesional", SqlDbType.Int).Value = dniProfesional;
+                this.Command.Parameters.Add("@dateFechaInicio", SqlDbType.Date).Value = Convert.ToDateTime(fechaInicio);
+                this.Command.Parameters.Add("@dateFechaFin", SqlDbType.Date).Value = Convert.ToDateTime(fechaFin);
+                this.Command.Parameters.Add("@timeHoraInicio", SqlDbType.Time).Value = inicio[i];
+                this.Command.Parameters.Add("@timeHoraFin", SqlDbType.Time).Value = fin[i];
+                this.Command.Parameters.Add("@charDia", SqlDbType.Char).Value = dias[i];
+
+                this.Command.ExecuteNonQuery();
+            }
+            this.Connector.Close();
+
+
+
+        }
+
     }
 }

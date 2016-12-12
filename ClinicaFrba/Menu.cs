@@ -95,7 +95,7 @@ namespace ClinicaFrba
                 case "Registro Llegada Atencion Medica":
                     boton.Click += new EventHandler(this.lanzarLlegadaAtencion);
                     break;
-                case "Registro Resultada Atencion Medica":
+                case "Registro Resultado Atencion Medica":
                     if (this.username.Equals("admin"))
                         boton.Click += new EventHandler(this.lanzarResultadoAtencionAdmin);
                     else

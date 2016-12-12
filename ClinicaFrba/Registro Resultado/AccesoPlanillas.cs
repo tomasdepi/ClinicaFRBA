@@ -113,6 +113,7 @@ namespace ClinicaFrba.RegistroResultado
         {
             var nombre = txtNombre.Text;
             var apellido = txtApellido.Text;
+
         }
     }
 }
