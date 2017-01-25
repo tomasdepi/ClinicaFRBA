@@ -14,16 +14,19 @@ namespace ClinicaFrba.AbmRol
 {
     public partial class EditarRol : Form
     {
-        public EditarRol(String nombreRol, int estado)
+        GestionarRoles formPadre;
+        public EditarRol(String nombreRol, int estado, GestionarRoles g)
         {
             InitializeComponent();
             lblNombreRol.Text = nombreRol;
-            cbEstado.Items.Add("Habilitado");
+            this.formPadre = g;
+            
             cbEstado.Items.Add("Deshabilitado");
+            cbEstado.Items.Add("Habilitado");
             cbEstado.SelectedIndex = estado;
+            
 
             this.CargarListaFuncionalidades();
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -38,10 +41,12 @@ namespace ClinicaFrba.AbmRol
 
             dao.GuardarRol(lblNombreRol.Text, funcionalidades, true);
 
-            int estado = cbEstado.SelectedValue == "Habilitado" ? 1 : 0;
+            int estado = cbEstado.SelectedIndex;
             dao.ActualizarEstadoRol(lblNombreRol.Text, estado);
 
             MessageBox.Show("Rol Modificado Con Exito", "Aviso", MessageBoxButtons.OK);
+
+            formPadre.CargarRoles();
 
             this.Dispose();
 

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.grdRoles = new System.Windows.Forms.DataGridView();
-            this.btnAgregarRol = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnAgregarRol = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdRoles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,40 +49,9 @@
             this.Eliminar});
             this.grdRoles.Location = new System.Drawing.Point(59, 71);
             this.grdRoles.Name = "grdRoles";
-            this.grdRoles.Size = new System.Drawing.Size(345, 290);
+            this.grdRoles.Size = new System.Drawing.Size(446, 290);
             this.grdRoles.TabIndex = 0;
             this.grdRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRoles_CellContentClick);
-            // 
-            // btnAgregarRol
-            // 
-            this.btnAgregarRol.Location = new System.Drawing.Point(311, 380);
-            this.btnAgregarRol.Name = "btnAgregarRol";
-            this.btnAgregarRol.Size = new System.Drawing.Size(93, 25);
-            this.btnAgregarRol.TabIndex = 1;
-            this.btnAgregarRol.Text = "Agregar rol";
-            this.btnAgregarRol.UseVisualStyleBackColor = true;
-            this.btnAgregarRol.Click += new System.EventHandler(this.AgregarRol_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Gestionar roles";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(220, 380);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(85, 25);
-            this.btnVolver.TabIndex = 3;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // Nombre
             // 
@@ -105,11 +74,41 @@
             this.Eliminar.HeaderText = "";
             this.Eliminar.Name = "Eliminar";
             // 
+            // btnAgregarRol
+            // 
+            this.btnAgregarRol.Location = new System.Drawing.Point(412, 380);
+            this.btnAgregarRol.Name = "btnAgregarRol";
+            this.btnAgregarRol.Size = new System.Drawing.Size(93, 25);
+            this.btnAgregarRol.TabIndex = 1;
+            this.btnAgregarRol.Text = "Agregar rol";
+            this.btnAgregarRol.UseVisualStyleBackColor = true;
+            this.btnAgregarRol.Click += new System.EventHandler(this.AgregarRol_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(55, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Gestionar roles";
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(321, 380);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(85, 25);
+            this.btnVolver.TabIndex = 3;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // GestionarRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 458);
+            this.ClientSize = new System.Drawing.Size(537, 421);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregarRol);

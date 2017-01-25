@@ -110,9 +110,9 @@
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstado.Location = new System.Drawing.Point(45, 68);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(62, 15);
+            this.lblEstado.Size = new System.Drawing.Size(55, 15);
             this.lblEstado.TabIndex = 12;
-            this.lblEstado.Text = "Nombre:";
+            this.lblEstado.Text = "Estado:";
             // 
             // cbEstado
             // 

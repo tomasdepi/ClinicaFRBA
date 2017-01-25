@@ -14,9 +14,11 @@ namespace ClinicaFrba.AbmRol
 {
     public partial class AgregarRol : Form
     {
-        public AgregarRol()
+        GestionarRoles formPadre;
+        public AgregarRol(GestionarRoles g)
         {
             InitializeComponent();
+            this.formPadre = g;
         }
 
         private void AgregarRol_Load(object sender, EventArgs e)
@@ -79,7 +81,7 @@ namespace ClinicaFrba.AbmRol
                 depi.GuardarRol(txtNombre.Text, funcionalidades, false);
 
                 MessageBox.Show("Rol Creado Exitosamente!!!", "Aviso", MessageBoxButtons.OK);
-
+                formPadre.CargarRoles();
                 this.Dispose();
             }
             else
