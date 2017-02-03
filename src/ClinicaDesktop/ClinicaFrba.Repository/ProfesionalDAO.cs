@@ -23,7 +23,7 @@ namespace ClinicaFrba.Repository
 
             List<Usuario> lista = new List<Usuario>();
 
-            String query = "select varNombre, varApellido from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].UsuarioXRol ur on u.intIdUsuario = ur.intIdUsuario where varNombreRol = 'Profesional'";
+            String query = "select varNombre, varApellido, u.intIdUsuario from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].UsuarioXRol ur on u.intIdUsuario = ur.intIdUsuario where varNombreRol = 'Profesional'";
 
             this.Command = new SqlCommand(query, this.Connector);
             this.Connector.Open();
@@ -33,6 +33,7 @@ namespace ClinicaFrba.Repository
             while (reader.Read())
             {
                 Usuario usuario = new Usuario();
+                usuario.Username = Int32.Parse(reader["intIdUsuario"].ToString());
                 usuario.Nombre = reader["varNombre"].ToString();
                 usuario.Apellido = reader["varApellido"].ToString();
 

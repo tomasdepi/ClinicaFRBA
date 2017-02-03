@@ -18,9 +18,10 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
         List<CheckBox> dias;
         List<NumericUpDown> horaInicio;
         List<NumericUpDown> horaFin;
-        public RegistrarAgenda()
+        public RegistrarAgenda(string idProfesional)
         {
             InitializeComponent();
+            txDniProfesional.Text = idProfesional;
         }
 
         private void RegistrarAgenda_Load(object sender, EventArgs e)

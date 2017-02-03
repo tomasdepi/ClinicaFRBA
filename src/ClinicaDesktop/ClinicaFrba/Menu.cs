@@ -153,7 +153,7 @@ namespace ClinicaFrba
         private void lanzarRegistrarAgenda(object sender, EventArgs e)
         {
             this.Hide();
-            new RegistrarAgenda().ShowDialog();
+            new SeleccionarProfecional().ShowDialog();
             this.Show();
         }
 

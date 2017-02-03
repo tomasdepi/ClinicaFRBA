@@ -14,6 +14,9 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 {
     public partial class SeleccionarProfecional : Form
     {
+
+ 
+
         public SeleccionarProfecional()
         {
             InitializeComponent();
@@ -34,15 +37,12 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
             DataGridViewRow row = new DataGridViewRow();
 
             DataGridViewSelectedRowCollection rows = dataGridViewProfecionales.SelectedRows;
-            foreach(DataGridViewRow r in rows)
-            {
-                row = r;
-                break;
-            }
+            var id = rows[0].Cells[0].Value.ToString();
 
             //MessageBox.Show("alerta", row.Cells[0].Value.ToString(), MessageBoxButtons.OK);
             //capturo los datos del row y abro la otra ventana
-            RegistrarAgenda registrar = new RegistrarAgenda();
+        
+            RegistrarAgenda registrar = new RegistrarAgenda(id);
             registrar.Show();
         }
 
@@ -56,11 +56,16 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
             foreach (Usuario usuario in lista)
             {
+
+                DataGridViewTextBoxCell id = new DataGridViewTextBoxCell();
+                id.Value = usuario.Username;
                 DataGridViewTextBoxCell nombre = new DataGridViewTextBoxCell();
                 nombre.Value = usuario.Nombre;
                 DataGridViewTextBoxCell apellido = new DataGridViewTextBoxCell();
                 apellido.Value = usuario.Apellido;
                 DataGridViewRow row = new DataGridViewRow();
+
+                row.Cells.Add(id);
                 row.Cells.Add(nombre);
                 row.Cells.Add(apellido);
 
