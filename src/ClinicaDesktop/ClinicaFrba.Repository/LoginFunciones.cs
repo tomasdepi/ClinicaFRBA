@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -21,10 +22,8 @@ namespace ClinicaFrba.Repository
 
         public LoginFunciones()
         {
-            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
-                                           "Trusted_Connection=yes;" +
-                                           "database=GD2C2016; " +
-                                           "connection timeout=10");
+            var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            Connector = new SqlConnection(connectionString); 
         }
 
 
@@ -33,7 +32,7 @@ namespace ClinicaFrba.Repository
             int intUser = Int32.Parse(user);
             List<String> roles = new List<string>();
 
-            String query = "select varNombreRol from [INTERNAL_SERVER_ERROR].UsuarioXRol rol inner join  [INTERNAL_SERVER_ERROR].Usuario us on rol.intIdUsuario = us.intIdUsuario where us.intIdUsuario = @user and nvarPassword = HASHBYTES('SHA2_256', @pass) and us.intIntentosLogin < 3";
+            String query = "select varNombreRol, a.bitEstadoActual from [INTERNAL_SERVER_ERROR].UsuarioXRol rol inner join  [INTERNAL_SERVER_ERROR].Usuario us on rol.intIdUsuario = us.intIdUsuario inner join [INTERNAL_SERVER_ERROR].Afiliado a on a.intIdUsuario=us.intIdUsuario where us.intIdUsuario = @user and nvarPassword = HASHBYTES('SHA2_256', @pass) and us.intIntentosLogin < 3";
 
             this.Command = new SqlCommand(query, this.Connector);
 
@@ -50,6 +49,26 @@ namespace ClinicaFrba.Repository
 
             return roles;
         }
+
+        public Boolean esUsuarioHabilitado(string user)
+        {
+            String query = "select bitEstadoActual from Afiliado where intIdUsuario=@user";
+
+            this.Command = new SqlCommand(query, this.Connector);
+
+            int intUser = Int32.Parse(user);
+            this.Command.Parameters.Add("@user", SqlDbType.Int).Value = intUser;
+
+            this.Connector.Open();
+            SqlDataReader resultado = Command.ExecuteReader();
+            resultado.Read();
+            Boolean r = Boolean.Parse(resultado[0].ToString());
+
+            this.Connector.Close();
+
+            return r;
+        }
+
 
         public void IntentoFallido(String user)
         {

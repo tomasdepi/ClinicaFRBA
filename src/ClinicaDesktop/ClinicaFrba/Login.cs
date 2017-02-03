@@ -56,8 +56,18 @@ namespace ClinicaFrba
                 }
 
             }
-                     
+
+            var userValido = login.esUsuarioHabilitado(username);
+            if (!userValido){
+                MessageBox.Show("Ese usuario no esta habilitado", "Alerta", MessageBoxButtons.OK);
+                return;
+            }
+
             List<String> roles = login.Logearse(username, pass);
+            if (roles.Count().Equals(0)){
+                MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);
+                return;
+            }
 
             if (roles.Count == 0) {
                 MessageBox.Show("Usuario o Contraseña Incorrecta", "Alerta", MessageBoxButtons.OK);

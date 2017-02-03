@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using ClinicaFrba.Repository.Entities;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace ClinicaFrba.Repository
 {
@@ -19,10 +20,8 @@ namespace ClinicaFrba.Repository
 
         public TurnoFunciones()
         {
-            Connector = new SqlConnection("server=localhost\\SQLSERVER2012;" +
-                               "Trusted_Connection=yes;" +
-                               "database=GD2C2016; " +
-                               "connection timeout=10");
+            var connectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            Connector = new SqlConnection(connectionString);
         }
 
         public List<String> getEspecialidadesDB()

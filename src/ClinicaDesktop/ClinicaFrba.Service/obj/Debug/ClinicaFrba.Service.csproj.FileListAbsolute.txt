@@ -54,3 +54,10 @@ C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Service\bin\Debug\Clinic
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.dll
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.pdb
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Service.dll
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Service.pdb
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.dll
+C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Service\obj\Debug\ClinicaFrba.Service.pdb
