@@ -81,9 +81,16 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
                  
                 }
 
-                TurnoFunciones turno = new TurnoFunciones();
-                turno.RegistrarNuevaAgenda(Int32.Parse(txDniProfesional.Text), diasSeleccionados, inicioSeleccionados, finSeleccionados, dateTimePickerFechaInicio.Value.ToShortDateString(), dateTimePickerFechaFin.Value.ToShortDateString());
-                MessageBox.Show("La agenda se registro correctamente.");
+                if (!trabajaMasDeDosDias(inicioSeleccionados,finSeleccionados))
+                {
+                    TurnoFunciones turno = new TurnoFunciones();
+                    turno.RegistrarNuevaAgenda(Int32.Parse(txDniProfesional.Text), diasSeleccionados, inicioSeleccionados, finSeleccionados, dateTimePickerFechaInicio.Value.ToShortDateString(), dateTimePickerFechaFin.Value.ToShortDateString());
+                    MessageBox.Show("La agenda se registro correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No Puede Trabajar Mas de 48 hs");
+                }
                 
             }
             else
@@ -92,6 +99,19 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
             }
         }
 
+        private bool trabajaMasDeDosDias(List<TimeSpan> inicio, List<TimeSpan> fin)
+        {
+            int horasInicio = 0;
+            int horasFin = 0;
+
+            for(int i = 0; i < inicio.Count; i++)
+            {
+                horasInicio = horasInicio + inicio[i].Hours;
+                horasFin = horasFin + fin[i].Hours;
+            }
+
+            return horasFin - horasInicio > 48 ? true : false;
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
