@@ -15,5 +15,9 @@ namespace ClinicaFrba.Repository
         {
             return Text;
         }
+        public string ShowValue()
+        {
+            return Value.ToString();
+        }
     }
 }

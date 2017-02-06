@@ -173,7 +173,7 @@ namespace ClinicaFrba.Listados
                 {
                     if(chequeoPlan())
                     {
-                       info.Plan = this.cboPlan.Text.ToString();
+                       info.Plan = Int32.Parse((cboPlan.SelectedItem as ComboboxItem).Value.ToString());
                        ListadoUsuarioDao list = new ListadoUsuarioDao();
                        this.generarTablaConProfYEsp(list.getProfesionalesMasConsultados(info));
                        return;
@@ -185,8 +185,8 @@ namespace ClinicaFrba.Listados
                 {
                     if (chequeoEspecialidad() && chequeoPlan())
                     {
-                        info.Especialidad = this.cboEspecialidad.Text.ToString();
-                        info.Plan = this.cboPlan.Text.ToString();
+                        info.Especialidad = Int32.Parse((cboEspecialidad.SelectedItem as ComboboxItem).Value.ToString());
+                        info.Plan = Int32.Parse((cboPlan.SelectedItem as ComboboxItem).Value.ToString());
                         ListadoUsuarioDao list = new ListadoUsuarioDao();
                         this.generarTabla(list.getProfesionalesConMenosHorasTrabajadas(info));
                         return;
