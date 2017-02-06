@@ -47,3 +47,9 @@ C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repos
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
 C:\Users\admin\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll.config
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.dll
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\bin\Debug\ClinicaFrba.Repository.pdb
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.dll
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba.Repository\obj\Debug\ClinicaFrba.Repository.pdb

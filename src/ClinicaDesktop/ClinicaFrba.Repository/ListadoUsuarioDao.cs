@@ -26,7 +26,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Asistencia as a on a.intIdTurno = t.intIdTurno" +
                 "inner join [INTERNAL_SERVER_ERROR].Afiliado as afi on afi.intIdUsuario = u.intIdUsuario" +
                 "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
-                "group by u.intIdUsuario, t.intEspecialidadCodigo " +
+                "group by u.intIdUsuario, t.intEspecialidadCodigo , u.varNombre, u.varApellido " +
                 "order by atendidos desc;";
             }
             if (info.Mes == 0)
@@ -38,7 +38,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Asistencia as a on a.intIdTurno = t.intIdTurno" +
                 "inner join [INTERNAL_SERVER_ERROR].Afiliado as afi on afi.intIdUsuario = u.intIdUsuario" +
                 "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
-                "group by u.intIdUsuario, t.intEspecialidadCodigo " +
+                "group by u.intIdUsuario, t.intEspecialidadCodigo  , u.varNombre, u.varApellido" +
                 "order by atendidos desc;";
                 }
                 else
@@ -48,7 +48,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Asistencia as a on a.intIdTurno = t.intIdTurno" +
                 "inner join [INTERNAL_SERVER_ERROR].Afiliado as afi on afi.intIdUsuario = u.intIdUsuario" +
                 "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
-                "group by u.intIdUsuario, t.intEspecialidadCodigo " +
+                "group by u.intIdUsuario, t.intEspecialidadCodigo , u.varNombre, u.varApellido" +
                 "order by atendidos desc;";
                 }
             }
@@ -93,7 +93,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Agenda a on a.intIdProfesional = p.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Turno t on t.intIdDoctor = p.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
-                "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) = " + info.Mes +
+                "where afi.intCodigoPlan = "+ info.Plan +" and e.varDescripcion = "+ info.Especialidad +" AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) = " + info.Mes +
                 "group by u.varApellido, u.varNombre"+
                 "order by horasTrabajadas asc;";
             }
@@ -108,7 +108,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Agenda a on a.intIdProfesional = p.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Turno t on t.intIdDoctor = p.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
-                "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) < 7"+
+                "where afi.intCodigoPlan = " + info.Plan + " and e.varDescripcion = " + info.Especialidad + " AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) < 7"+
                 "group by u.varApellido, u.varNombre" +
                 "order by horasTrabajadas asc;";
                 }
@@ -121,7 +121,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Agenda a on a.intIdProfesional = p.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Turno t on t.intIdDoctor = p.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Afiliado afi on afi.intIdUsuario = t.intIdPaciente" +
-                "where afi.intCodigoPlan = 123 and e.varDescripcion = 'Traumatología' AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) > 6" +
+                "where afi.intCodigoPlan = " + info.Plan + " and e.varDescripcion = " + info.Especialidad + " AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) > 6" +
                 "group by u.varApellido, u.varNombre" +
                 "order by horasTrabajadas asc;";
                 }
@@ -159,9 +159,9 @@ namespace ClinicaFrba.Repository
                 query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from [INTERNAL_SERVER_ERROR].Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
                 "from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].Afiliado a on u.intIdUsuario = a.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
-                "where year(b.datFechaCompra) = "+ 2015 + "and month(b.datFechaCompra) = " + info.Mes +
+                "where year(b.datFechaCompra) = "+ info.Ano + "and month(b.datFechaCompra) = " + info.Mes +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
-                "order by count(b.intIdBono) desc; ";
+                "order by count(b.intIINTERNAL_SERVER_ERRORno) desc; ";
             }
             if (info.Mes == 0)
             {
@@ -170,18 +170,18 @@ namespace ClinicaFrba.Repository
                     query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from [INTERNAL_SERVER_ERROR].Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
                 "from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].Afiliado a on u.intIdUsuario = a.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
-                "where year(b.datFechaCompra) = " + 2015 + "and month(b.datFechaCompra) < 7" +
+                "where year(b.datFechaCompra) = " + info.Ano + "and month(b.datFechaCompra) < 7" +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
-                "order by count(b.intIdBono) desc; ";
+                "order by count(b.intIINTERNAL_SERVER_ERRORno) desc; ";
                 }
                 if (info.Semestre == 2)
                 {
                     query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from [INTERNAL_SERVER_ERROR].Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
                 "from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].Afiliado a on u.intIdUsuario = a.intIdUsuario" +
                 "inner join [INTERNAL_SERVER_ERROR].Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
-                "where year(b.datFechaCompra) = " + 2015 + "and month(b.datFechaCompra) > 6" +
+                "where year(b.datFechaCompra) = " + info.Ano + "and month(b.datFechaCompra) > 6" +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
-                "order by count(b.intIdBono) desc; ";
+                "order by count(b.intIINTERNAL_SERVER_ERRORno) desc; ";
                 }
             }
               

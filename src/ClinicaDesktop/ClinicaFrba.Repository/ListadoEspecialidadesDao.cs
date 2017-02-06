@@ -74,7 +74,7 @@ namespace ClinicaFrba.Repository
                 "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno " +
                 "where year(t.datFechaTurno) =" + info.Ano + " and month(t.datFechaTurno) = " + info.Mes +
                 "group by e.varDescripcion " +
-                "order by Sum(a.bitAtendido) desc; ";
+                "order by count(a.bitAtendido) desc; ";
 
             }
             if (info.Mes == 0)
@@ -86,7 +86,7 @@ namespace ClinicaFrba.Repository
                     "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno " +
                     "where year(t.datFechaTurno) =" + info.Ano + " and month(t.datFechaTurno) < 7 " + 
                     "group by e.varDescripcion " +
-                    "order by Sum(a.bitAtendido) desc;";
+                    "order by count(a.bitAtendido) desc;";
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace ClinicaFrba.Repository
                     "inner join [INTERNAL_SERVER_ERROR].Asistencia a on a.intIdTurno = t.intIdTurno " +
                     "where year(t.datFechaTurno) =" + info.Ano + " and month(t.datFechaTurno) > 6 " +
                     "group by e.varDescripcion " +
-                    "order by Sum(a.bitAtendido) desc; ";
+                    "order by count(a.bitAtendido) desc; ";
                 }
             }
 
