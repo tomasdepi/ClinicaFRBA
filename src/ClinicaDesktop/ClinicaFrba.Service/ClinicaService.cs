@@ -27,7 +27,7 @@ namespace ClinicaFrba.Service
                 if (afiliados != null)
                 {
                     var repo = new AfiliadoDao();
-                   
+
                     afiliados[0].CantidadFamiliaresACargo = afiliados.Count - 1;
                     var nroAfiliado = afiliados[0].NroAfiliado;
                     afiliados[0].NroAfiliado = Convert.ToInt64(nroAfiliado + "01");
@@ -183,6 +183,13 @@ namespace ClinicaFrba.Service
 
             return repo.ObtenerHistorialPlanesByIdUsuario(idUsuario); ;
 
+        }
+
+        public Usuario ValidarExistenciaUsuario(int dni)
+        {
+            var repo = new AfiliadoDao();
+
+            return repo.GetById(dni);
         }
     }
 }

@@ -54,6 +54,7 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNroDoc = new System.Windows.Forms.Label();
             this.lblTipoDoc = new System.Windows.Forms.Label();
+            this.btnAfiliarFamiliar = new System.Windows.Forms.Button();
             this.gboxDatosAdicionales.SuspendLayout();
             this.gboxDatosFundamentales.SuspendLayout();
             this.SuspendLayout();
@@ -304,11 +305,22 @@
             this.lblTipoDoc.TabIndex = 2;
             this.lblTipoDoc.Text = "Tipo Documento:";
             // 
+            // btnAfiliarFamiliar
+            // 
+            this.btnAfiliarFamiliar.Location = new System.Drawing.Point(21, 433);
+            this.btnAfiliarFamiliar.Name = "btnAfiliarFamiliar";
+            this.btnAfiliarFamiliar.Size = new System.Drawing.Size(75, 23);
+            this.btnAfiliarFamiliar.TabIndex = 14;
+            this.btnAfiliarFamiliar.Text = "Afiliar familiar";
+            this.btnAfiliarFamiliar.UseVisualStyleBackColor = true;
+            this.btnAfiliarFamiliar.Click += new System.EventHandler(this.btnAfiliarFamiliar_Click);
+            // 
             // AltaAfiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 487);
+            this.Controls.Add(this.btnAfiliarFamiliar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gboxDatosAdicionales);
@@ -352,5 +364,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.ComboBox cboPlanes;
         private System.Windows.Forms.ComboBox cboSexo;
+        private System.Windows.Forms.Button btnAfiliarFamiliar;
     }
 }

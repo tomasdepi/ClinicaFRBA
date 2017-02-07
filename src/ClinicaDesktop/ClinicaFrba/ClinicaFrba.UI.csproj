@@ -69,6 +69,12 @@
     <Compile Include="Abm Afiliado\HistorialPlanes.Designer.cs">
       <DependentUpon>HistorialPlanes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Afiliado\IngresarAfiliadoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\IngresarAfiliadoPrincipal.Designer.cs">
+      <DependentUpon>IngresarAfiliadoPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Afiliado\ModificarAfiliado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\HistorialPlanes.resx">
       <DependentUpon>HistorialPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\IngresarAfiliadoPrincipal.resx">
+      <DependentUpon>IngresarAfiliadoPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\ModificarAfiliado.resx">
       <DependentUpon>ModificarAfiliado.cs</DependentUpon>

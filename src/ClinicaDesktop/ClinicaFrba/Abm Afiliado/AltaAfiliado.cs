@@ -54,29 +54,36 @@ namespace ClinicaFrba.Abm_Afiliado
                     CodigoPlanMedico = CodigoPlan
                 };
 
-                afiliados.Add(afiliado);
-
-                if (service.EsCasadoOViveEnConcubinato(afiliado))
+                if (service.ValidarExistenciaUsuario(afiliado.NroDocumento) != null)
                 {
-                    if ((MessageBox.Show("¿Desea afiliar a su cónyuge?", "Confirmar",
+                    afiliados.Add(afiliado);
+
+                    if (service.EsCasadoOViveEnConcubinato(afiliado))
+                    {
+                        if ((MessageBox.Show("¿Desea afiliar a su cónyuge?", "Confirmar",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                            MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+                        {
+                            this.AfiliarIntegranteFamilia(afiliados);
+                        }
+                    }
+
+                    while ((MessageBox.Show("¿Desea afiliar algun otro miembro de su familia?", "Confirmar",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
                     {
                         this.AfiliarIntegranteFamilia(afiliados);
                     }
-                }
 
-                while ((MessageBox.Show("¿Desea afiliar algun otro miembro de su familia?", "Confirmar",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+                    service.GuardarRegistroAfiliado(afiliados);
+
+                    MessageBox.Show("El registro del afiliado se guardó correctamente");
+                    this.Close();
+                }
+                else
                 {
-                    this.AfiliarIntegranteFamilia(afiliados);
+                    MessageBox.Show("El DNI del afiliado que ha ingresado ya se encuentra dado de alta.");
                 }
-
-                service.GuardarRegistroAfiliado(afiliados);
-
-                MessageBox.Show("El registro del afiliado se guardó correctamente");
-                this.Close();
             }
             else
             {
@@ -206,6 +213,15 @@ namespace ClinicaFrba.Abm_Afiliado
             {
                 return false;
             }
+        }
+
+        private void btnAfiliarFamiliar_Click(object sender, EventArgs e)
+        {
+            var afiliadoPpal = new IngresarAfiliadoPrincipal();
+
+            afiliadoPpal.ShowDialog();
+
+            this.Close();
         }
     }
 }
