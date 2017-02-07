@@ -47,7 +47,7 @@ namespace ClinicaFrba.Abm_Afiliado
                     CodigoPlanMedico = CodigoPlan
                 };
 
-                if (service.ValidarExistenciaUsuario(afiliado.NroDocumento) != null)
+                if (!service.ValidarExistenciaUsuario(afiliado.NroDocumento).NroDocumento.Equals(afiliado.NroDocumento))
                 {
                     afiliados.Add(afiliado);
 

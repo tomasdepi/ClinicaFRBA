@@ -303,5 +303,47 @@ namespace ClinicaFrba.Repository
             return historial;
 
         }
+
+        public List<Usuario> ObtenerGrupoFamiliar(int nroDocumento)
+        {
+
+            StringBuilder query = new StringBuilder();
+            query.Append("SELECT * FROM INTERNAL_SERVER_ERROR.Usuario u INNER JOIN INTERNAL_SERVER_ERROR.Afiliado a ON u.intIdUsuario = a.intIdUsuario WHERE a.intNumeroAfiliado LIKE CAST(@intNroDocumento AS NVARCHAR) + '%'");
+
+            this.Command = new SqlCommand(query.ToString(), this.Connector);
+
+            this.Command.Parameters.Add("@intNroDocumento", SqlDbType.Int).Value = nroDocumento;
+
+            this.Connector.Open();
+            SqlDataReader reader = this.Command.ExecuteReader();
+
+            List<Usuario> users = new List<Usuario>();
+
+            while (reader.Read())
+            {
+                var user = new Usuario
+                {
+                    NroAfiliado = reader["intNumeroAfiliado"] as long? ?? default(long),
+                    EstadoCivil = Convert.ToString(reader["varEstadoCivil"]),
+                    Apellido = Convert.ToString(reader["varApellido"]),
+                    Nombre = Convert.ToString(reader["varNombre"]),
+                    TipoDocumento = Convert.ToString(reader["varTipoDocumento"]),
+                    NroDocumento = reader["intNroDocumento"] as int? ?? default(int),
+                    Telefono = reader["intTelefono"] as int? ?? default(int),
+                    Mail = Convert.ToString(reader["varMail"].ToString()),
+                    FechaNacimiento = Convert.ToDateTime(reader["datFechaNacimiento"]),
+                    Sexo = Convert.ToString(reader["chrSexo"]),
+                    CantidadFamiliaresACargo = reader["intCantidadFamiliares"] as int? ?? default(int),
+                    NumeroConsultaMedica = reader["intNumeroConsultaMedica"] as int? ?? default(int),
+                    CodigoPlanMedico = reader["intCodigoPlan"] as int? ?? default(int),
+                    EstadoHabilitacion = reader["bitEstadoActual"] as int? ?? default(int),
+                    Direccion = Convert.ToString(reader["varDireccion"]),
+                };
+
+                users.Add(user);
+            }
+
+            return users;
+        }
     }
 }

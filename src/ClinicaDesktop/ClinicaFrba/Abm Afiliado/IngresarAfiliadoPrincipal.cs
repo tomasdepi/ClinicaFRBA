@@ -24,11 +24,11 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             var service = new ClinicaService();
 
-            if (!Regex.IsMatch(this.txtDni.Text, @"^[0-9]+$"))
+            if (Regex.IsMatch(this.txtDni.Text, @"^[0-9]+$"))
             {
                 Usuario user = service.ValidarExistenciaUsuario(Convert.ToInt32(this.txtDni.Text));
 
-                if (user != null)
+                if (!user.NroDocumento.Equals(0))
                 {
                     var integranteFamilia = new AltaIntegranteFamiliaAfiliado(user.CodigoPlanMedico);
 
@@ -36,8 +36,13 @@ namespace ClinicaFrba.Abm_Afiliado
 
                     if (resultado == DialogResult.OK)
                     {
-                        //usuarios.Add(integranteFamilia.Afiliado);
-                        //service.GuardarRegistroAfiliado(usuarios);
+                        service.AfiliarFamiliar(user, integranteFamilia.Afiliado);
+                        MessageBox.Show("El afiliado se dio de alta correctamente");
+
+                        this.Close();
+
+                        var alta = new AltaAfiliado();
+                        alta.Show();
                     }
                 }
                 else

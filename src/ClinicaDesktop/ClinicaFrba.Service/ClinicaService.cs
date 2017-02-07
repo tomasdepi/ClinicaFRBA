@@ -191,5 +191,29 @@ namespace ClinicaFrba.Service
 
             return repo.GetById(dni);
         }
+
+        public void AfiliarFamiliar(Usuario afiliadoPrincipal, Usuario familiar)
+        {
+            var repo = new AfiliadoDao();
+
+            var ultimoAfiliado = this.ObtenerGrupoFamiliar(afiliadoPrincipal.NroDocumento).OrderByDescending(x => x.NroAfiliado).FirstOrDefault();
+
+            if (ultimoAfiliado != null)
+            {
+                familiar.NroAfiliado = ultimoAfiliado.NroAfiliado + 1;
+            }
+            
+            afiliadoPrincipal.CantidadFamiliaresACargo = afiliadoPrincipal.CantidadFamiliaresACargo + 1;
+
+            repo.Add(familiar);
+            repo.Update(afiliadoPrincipal);
+        }
+
+        private List<Usuario> ObtenerGrupoFamiliar(int dni)
+        {
+            var repo = new AfiliadoDao();
+
+            return repo.ObtenerGrupoFamiliar(dni);
+        }
     }
 }
