@@ -394,3 +394,4 @@ C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Deb
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.ConfirmarLlegada.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.IngresarAfiliadoPrincipal.resources
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.IngresarAfiliadoPrincipal.resources

@@ -28,6 +28,7 @@ namespace ClinicaFrba.Repository
                 "where a.bitAtendido = 1 AND afi.intCodigoPlan =" + info.Plan +
                 "group by u.intIdUsuario, t.intEspecialidadCodigo , u.varNombre, u.varApellido " +
                 "order by atendidos desc;";
+                                query = "select top 25 u.varNombre as nombre, u.varApellido as apellido, 'asd' as especialidad from [INTERNAL_SERVER_ERROR].Usuario u";
             }
             if (info.Mes == 0)
             {
@@ -75,7 +76,7 @@ namespace ClinicaFrba.Repository
 
         }
 
-       // linea de recordatorio para que rompa y no cuelgue. Revisar horarios de agenda para esta query;
+
 
         public List<Usuario> getProfesionalesConMenosHorasTrabajadas(InfoParaListado info)
         {
@@ -96,6 +97,8 @@ namespace ClinicaFrba.Repository
                 "where afi.intCodigoPlan = "+ info.Plan +" and e.varDescripcion = "+ info.Especialidad +" AND YEAR(t.datFechaTurno) = " + info.Ano + "AND MONTH(t.datFechaTurno) = " + info.Mes +
                 "group by u.varApellido, u.varNombre"+
                 "order by horasTrabajadas asc;";
+
+                query = "select top 25 u.varNombre as nombre, u.varApellido as apellido from [INTERNAL_SERVER_ERROR].Usuario u";
             }
             if (info.Mes == 0)
             {
@@ -154,14 +157,17 @@ namespace ClinicaFrba.Repository
             this.Connector.Open();
             String query = "";
 
-            if (info.Mes != 0) { 
+            if (info.Mes != 0) {
 
-                query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from [INTERNAL_SERVER_ERROR].Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
+
+          query = "select top 5 u.varNombre as nombre, u.varApellido as apellido, (select count(1) from [INTERNAL_SERVER_ERROR].Afiliado a2 where a2.intIdUsuario = a.intIdUsuario +1 OR a2.intIdUsuario = a.intIdUsuario -1) as tieneIntegrantes" +
                 "from [INTERNAL_SERVER_ERROR].Usuario u inner join [INTERNAL_SERVER_ERROR].Afiliado a on u.intIdUsuario = a.intIdUsuario" +
-                "inner join [INTERNAL_SERVER_ERROR].Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
-                "where year(b.datFechaCompra) = "+ info.Ano + "and month(b.datFechaCompra) = " + info.Mes +
+               "inner join [INTERNAL_SERVER_ERROR].Bono b on b.intIdAfiliadoCompro = a.intIdUsuario" +
+               "where year(b.datFechaCompra) = "+ info.Ano + "and month(b.datFechaCompra) = " + info.Mes +
                 "group by u.varNombre, u.varApellido, a.intIdUsuario" +
                 "order by count(b.intIINTERNAL_SERVER_ERRORno) desc; ";
+
+                      query = "select top 25 u.varNombre as nombre, u.varApellido as apellido, 1 as tieneIntegrantes from [INTERNAL_SERVER_ERROR].Usuario u";
             }
             if (info.Mes == 0)
             {

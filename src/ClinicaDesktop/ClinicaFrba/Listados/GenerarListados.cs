@@ -174,7 +174,7 @@ namespace ClinicaFrba.Listados
                     if(chequeoPlan())
                     {
                        info.Plan = Int32.Parse((cboPlan.SelectedItem as ComboboxItem).Value.ToString());
-                       ListadoUsuarioDao list = new ListadoUsuarioDao();
+                        ListadoUsuarioDao list = new ListadoUsuarioDao();
                        this.generarTablaConProfYEsp(list.getProfesionalesMasConsultados(info));
                        return;
                     }
@@ -215,6 +215,13 @@ namespace ClinicaFrba.Listados
 
         private void generarTablaConAfiliadoYGFam(List<Usuario> lista)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            dataGridView1.ColumnCount = 3;
+                dataGridView1.Columns[0].Name = "Nombre";
+                dataGridView1.Columns[1].Name = "Apellido";
+                dataGridView1.Columns[2].Name = "Grupo familiar";
             for (int i = 1; i < lista.Count; i++)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
@@ -235,18 +242,31 @@ namespace ClinicaFrba.Listados
 
         private void generarTablaConProfYEsp(List<Usuario> lista)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            dataGridView1.ColumnCount = 3;
+            dataGridView1.Columns[0].Name = "Nombre";
+            dataGridView1.Columns[1].Name = "Apellido";
+            dataGridView1.Columns[2].Name = "Especialidad";
             for (int i = 1; i < lista.Count; i++)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = lista[i].Nombre;
                 row.Cells[1].Value = lista[i].Apellido;
-                row.Cells[1].Value = lista[i].EstadoCivil;
+                row.Cells[2].Value = lista[i].EstadoCivil;
                 dataGridView1.Rows.Add(row);
             }
         }
 
         private void generarTabla(List<Usuario> lista)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            dataGridView1.ColumnCount = 2;
+            dataGridView1.Columns[0].Name = "Nombre";
+            dataGridView1.Columns[1].Name = "Apellido";
             for (int i = 1; i < lista.Count; i++)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
@@ -258,11 +278,16 @@ namespace ClinicaFrba.Listados
 
         private void generarTablaEsp(List<string> lista)
         {
-            for (int i = 1; i < lista.Count; i++)
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            dataGridView1.ColumnCount = 1;
+            dataGridView1.Columns[0].Name = "especialidad";
+            for (int i = 0; i < lista.Count; i++)
             {
-                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                row.Cells[0].Value = lista[i];
-                dataGridView1.Rows.Add(row);
+                             DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                             row.Cells[0].Value = lista[i];
+                             dataGridView1.Rows.Add(row);              
             }
         }
 
