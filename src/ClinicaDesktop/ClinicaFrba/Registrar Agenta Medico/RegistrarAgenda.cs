@@ -85,6 +85,7 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
                 if (!trabajaMasDeDosDias(inicioSeleccionados,finSeleccionados))
                 {
                     TurnoFunciones turno = new TurnoFunciones();
+                    turno.eliminarHorariosAnteriores(Int32.Parse(txDniProfesional.Text));
                     turno.RegistrarNuevaAgenda(Int32.Parse(txDniProfesional.Text), diasSeleccionados, inicioSeleccionados, finSeleccionados, dateTimePickerFechaInicio.Value.ToShortDateString(), dateTimePickerFechaFin.Value.ToShortDateString());
                     MessageBox.Show("La agenda se registro correctamente.");
                 }

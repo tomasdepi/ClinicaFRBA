@@ -154,6 +154,26 @@ namespace ClinicaFrba.Repository
             return horarios;
         }
 
+        public void eliminarHorariosAnteriores(int idProfesional)
+        {
+            string query = "DELETE FROM [INTERNAL_SERVER_ERROR].Agenda WHERE  intIdProfesional = @profesional";
+            string query2 = "SELECT * FROM [INTERNAL_SERVER_ERROR].Agenda WHERE intIdProfesional = @profesional ";
+            this.Command = new SqlCommand(query2, this.Connector);
+
+            this.Command.Parameters.Add("@profesional", SqlDbType.Int).Value = idProfesional;
+            this.Connector.Open();
+            SqlDataReader resu = Command.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(resu);
+            if(table.Rows.Count > 0)
+            {
+                this.Command = new SqlCommand(query, this.Connector);
+                this.Command.Parameters.Add("@profesional", SqlDbType.Int).Value = idProfesional;
+                this.Command.ExecuteNonQuery();
+            }
+            this.Connector.Close();
+        }
+
         public void ReservarNuevoTurno(int idProfesional, int idAfiliado, DateTime fechaTurno)
         {
             const string query =
