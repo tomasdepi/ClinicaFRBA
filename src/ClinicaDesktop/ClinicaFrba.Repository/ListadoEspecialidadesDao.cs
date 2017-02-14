@@ -24,6 +24,8 @@ namespace ClinicaFrba.Repository
                         "where year(t.datFechaTurno) =" + info.Ano + " and month(t.datFechaTurno)= " + info.Mes + " and t.bitEstado = 0 " +
                         " group by e.varDescripcion " +
                         " order by count(t.intIdTurno) desc; ";
+
+                query = "select top 5 e.varDescripcion as descripcion  from [INTERNAL_SERVER_ERROR].Especialidad e";
             }
             if(info.Mes == 0)
             {
@@ -75,6 +77,8 @@ namespace ClinicaFrba.Repository
                 "where year(t.datFechaTurno) =" + info.Ano + " and month(t.datFechaTurno) = " + info.Mes +
                 "group by e.varDescripcion " +
                 "order by count(a.bitAtendido) desc; ";
+
+                query = "select top 5 e.varDescripcion as descripcion  from [INTERNAL_SERVER_ERROR].Especialidad e";
 
             }
             if (info.Mes == 0)

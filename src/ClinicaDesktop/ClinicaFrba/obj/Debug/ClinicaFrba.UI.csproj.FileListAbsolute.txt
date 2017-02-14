@@ -394,6 +394,7 @@ C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Deb
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.ConfirmarLlegada.resources
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
 C:\Users\Leandro\Source\Repos\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.IngresarAfiliadoPrincipal.resources
+<<<<<<< HEAD
 C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
 C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
@@ -435,3 +436,6 @@ C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\De
 C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.ConfirmarDiagnostico.resources
 C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.ConfirmarLlegada.resources
 C:\Users\user\Documents\GitHub\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.UI.csproj.GenerateResource.Cache
+=======
+C:\Users\Fede\Documents\Visual Studio 2012\Projects\ClinicaFRBA\src\ClinicaDesktop\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.IngresarAfiliadoPrincipal.resources
+>>>>>>> 73a92e73ed53bf992e486d3e89eb4852e95ca7fa
