@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -19,10 +20,10 @@ namespace ClinicaFrba.Repository
     
 
         public List<TurnoYUsuario> GetTurnos(int idDoctor)
-        { 
-            DateTime dt = Convert.ToDateTime(DateTime.Today); 
+        {
+            DateTime dt = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
             List<TurnoYUsuario> vRetorno = new List<TurnoYUsuario>();
-            DateTime thisDay = DateTime.Today;
+            DateTime thisDay = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
             this.Connector.Open();
             String query = "SELECT u.varNombre AS nombre, u.varApellido AS apellido, t.intIdTurno AS idTurno, t.datFechaTurno AS fecha " +
                 "FROM [INTERNAL_SERVER_ERROR].Turno AS t INNER JOIN [INTERNAL_SERVER_ERROR].Afiliado AS af  on t.intIdPaciente = af.intIdUsuario INNER JOIN [INTERNAL_SERVER_ERROR].Usuario as u on u.intIdUsuario = af.intIdUsuario " +
@@ -124,9 +125,10 @@ namespace ClinicaFrba.Repository
         {
             List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();
 
-            string query = "SELECT t.intIdTurno id, t.datFechaTurno fecha, u.varNombre nombre, u.varApellido apellido from [INTERNAL_SERVER_ERROR].Turno  t inner join [INTERNAL_SERVER_ERROR].Usuario u on t.intIdDoctor = u.intIdUsuario where t.intIdPaciente = @id and CONVERT(date, t.datFechaTurno) > GETDATE()";
+            string query = "SELECT t.intIdTurno id, t.datFechaTurno fecha, u.varNombre nombre, u.varApellido apellido from [INTERNAL_SERVER_ERROR].Turno  t inner join [INTERNAL_SERVER_ERROR].Usuario u on t.intIdDoctor = u.intIdUsuario where t.intIdPaciente = @id and CONVERT(date, t.datFechaTurno) > @fechaHoy";
             this.Command = new SqlCommand(query, this.Connector);
             this.Command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            this.Command.Parameters.Add("@fechaHoy", SqlDbType.DateTime).Value = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
 
             this.Connector.Open();
             SqlDataReader dataTurnos = this.Command.ExecuteReader();
@@ -168,13 +170,14 @@ namespace ClinicaFrba.Repository
 
         public List<TurnoYUsuario> turnosDeHoy(int idProfesional)
         {
-            string query = "SELECT t.intIdTurno idTurno, u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from [INTERNAL_SERVER_ERROR].Turno t INNER JOIN [INTERNAL_SERVER_ERROR].Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = GETDATE() and t.intIdDoctor=" + idProfesional;
+            string query = "SELECT t.intIdTurno idTurno, u.intIdUsuario id t.datFechaYHora fecha, u.varNombre nombre, u.varApellido apellido from [INTERNAL_SERVER_ERROR].Turno t INNER JOIN [INTERNAL_SERVER_ERROR].Usuario u ON t.intIdPaciente=u.intIdUsuario where t.datFechaYHora = @fechaHoy and t.intIdDoctor=" + idProfesional;
 
          
             List<TurnoYUsuario> turnos = new List<TurnoYUsuario>();
 
             this.Connector.Open();
             this.Command = new SqlCommand(query, this.Connector);
+            this.Command.Parameters.Add("@fechaHoy", SqlDbType.DateTime).Value = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
             SqlDataReader resultado = Command.ExecuteReader();
 
             while (resultado.Read())

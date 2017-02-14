@@ -125,10 +125,11 @@ namespace ClinicaFrba.Repository
             string query =
                 "UPDATE [INTERNAL_SERVER_ERROR].[Afiliado] " +
                 "SET [bitEstadoActual] = 0, " +
-                "datFechaBaja = GETDATE() " +
+                "datFechaBaja = @fechaHoy" +
                 "WHERE intIdUsuario = " + id.ToString();
 
             this.Command = new SqlCommand(query, this.Connector);
+            this.Command.Parameters.Add("@fechaHoy", SqlDbType.DateTime).Value = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
 
             this.Connector.Open();
             this.Command.ExecuteNonQuery();
@@ -259,13 +260,14 @@ namespace ClinicaFrba.Repository
         {
             const string query =
                 "INSERT INTO [INTERNAL_SERVER_ERROR].[AfiliadoHistoricoPlan]([intIdUsuario],[datFechaModificacion],[varMotivoModificacion],[intCodigoPlan]) VALUES" +
-                "(@intIdUsuario, GETDATE(), @varMotivoModificacion, @intCodigoPlan)";
+                "(@intIdUsuario, @fechaHoy, @varMotivoModificacion, @intCodigoPlan)";
 
             this.Command = new SqlCommand(query, this.Connector);
 
             this.Command.Parameters.Add("@intIdUsuario", SqlDbType.Int).Value = idUsuario;
             this.Command.Parameters.Add("@varMotivoModificacion", SqlDbType.VarChar, 250).Value = motivoCambio;
             this.Command.Parameters.Add("@intCodigoPlan", SqlDbType.Int).Value = codigoPlan;
+            this.Command.Parameters.Add("@fechaHoy", SqlDbType.DateTime).Value = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
 
             this.Connector.Open();
             this.Command.ExecuteNonQuery();

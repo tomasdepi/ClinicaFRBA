@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaFrba.AbmRol;
+using ClinicaFrba.Properties;
 using ClinicaFrba.Service;
 using ClinicaFrba.Repository;
 
@@ -30,7 +33,17 @@ namespace ClinicaFrba
             cbRoles.Visible = false;
             btnEntrar.Visible = false;
 
+            this.CargarConfiguracionFecha();
+
             login = new LoginFunciones();
+        }
+
+        private void CargarConfiguracionFecha()
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Add("FechaSistema", Resources.FechaSistema);
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(config.AppSettings.SectionInformation.Name);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
