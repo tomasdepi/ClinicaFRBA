@@ -53,6 +53,7 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            var error = false;
             if (Regex.IsMatch(this.txDniProfesional.Text, @"^[0-9]+$"))
             {
                 List<int> posiciones = new List<int>();
@@ -76,22 +77,34 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
                     var inicio = new TimeSpan(Convert.ToInt32(this.horaInicio.GetRange(j, 1).First().Value), 0, 0);
                     var fin = new TimeSpan(Convert.ToInt32(this.horaFin.GetRange(j, 1).First().Value), 0, 0);
 
-                 
+                    if (esHorarioDisponible(inicio, fin, diasRecorrer[j].Text))
+                    {
                         inicioSeleccionados.Add(inicio);
                         finSeleccionados.Add(fin);
+                    }
+                    else
+                    {
+                       error = true;
+                    }
                  
                 }
-
-                if (!trabajaMasDeDosDias(inicioSeleccionados,finSeleccionados))
+                if (!error)
                 {
-                    TurnoFunciones turno = new TurnoFunciones();
-                    turno.eliminarHorariosAnteriores(Int32.Parse(txDniProfesional.Text));
-                    turno.RegistrarNuevaAgenda(Int32.Parse(txDniProfesional.Text), diasSeleccionados, inicioSeleccionados, finSeleccionados, dateTimePickerFechaInicio.Value.ToShortDateString(), dateTimePickerFechaFin.Value.ToShortDateString());
-                    MessageBox.Show("La agenda se registro correctamente.");
+                    if (!trabajaMasDeDosDias(inicioSeleccionados, finSeleccionados))
+                    {
+                        TurnoFunciones turno = new TurnoFunciones();
+                        turno.eliminarHorariosAnteriores(Int32.Parse(txDniProfesional.Text));
+                        turno.RegistrarNuevaAgenda(Int32.Parse(txDniProfesional.Text), diasSeleccionados, inicioSeleccionados, finSeleccionados, dateTimePickerFechaInicio.Value.ToShortDateString(), dateTimePickerFechaFin.Value.ToShortDateString());
+                        MessageBox.Show("La agenda se registro correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Puede Trabajar Mas de 48 hs");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No Puede Trabajar Mas de 48 hs");
+                    MessageBox.Show("El Hospital No Atiende En El Horario Seleccionado");
                 }
                 
             }
@@ -99,6 +112,16 @@ namespace ClinicaFrba.Registrar_Agenta_Medico
             {
                 MessageBox.Show("Datos incorrectos.");
             }
+        }
+
+        private bool esHorarioDisponible(TimeSpan inicio,TimeSpan fin, string dia)
+        {
+            //List<string> dias = new List<string> {"Lunes" ,"Martes","Miercoles","Jueves","Viernes"};
+
+            if(dia == "Sabado" && (inicio.Hours < 10 || fin.Hours > 15)) return false;
+            else if (inicio.Hours < 7 || fin.Hours > 20) return false;
+
+            return true;
         }
 
         private bool trabajaMasDeDosDias(List<TimeSpan> inicio, List<TimeSpan> fin)
