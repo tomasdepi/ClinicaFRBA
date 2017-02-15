@@ -125,7 +125,7 @@ namespace ClinicaFrba.Repository
             string query =
                 "UPDATE [INTERNAL_SERVER_ERROR].[Afiliado] " +
                 "SET [bitEstadoActual] = 0, " +
-                "datFechaBaja = @fechaHoy" +
+                "datFechaBaja = @fechaHoy " +
                 "WHERE intIdUsuario = " + id.ToString();
 
             this.Command = new SqlCommand(query, this.Connector);
